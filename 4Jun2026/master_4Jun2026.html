@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Overview — TAM Brief 4 Jun 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;
+--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;
+--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--green:#16a34a;
+--green-bg:#f0fdf4;--orange:#d97706;--orange-bg:#fffbeb;
+--jira:#0052cc;--tag-bg:#e8e6e0;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;
+--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;
+--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;
+--blue-bg:#111827;--green:#4ade80;--green-bg:#0f1f14;--orange:#fbbf24;
+--orange-bg:#1c1608;--jira:#4d9de0;--tag-bg:#2a2926;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);
+color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);
+letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;
+letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.totals{display:flex;gap:12px;padding:20px 32px;
+border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.tot{background:var(--bg3);border:1px solid var(--border);
+border-radius:10px;padding:14px 18px;flex:1;min-width:100px;}
+.tnum{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;
+line-height:1;margin-bottom:4px;}
+.tnum.r{color:var(--red);}.tnum.b{color:var(--blue);}
+.tnum.o{color:var(--orange);}.tnum.g{color:var(--green);}
+.tlabel{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;
+text-transform:uppercase;letter-spacing:.06em;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+gap:20px;padding:24px 32px;}
+.card{background:var(--bg3);border:1px solid var(--border);
+border-radius:12px;overflow:hidden;}
+.card-hdr{padding:16px 20px;border-bottom:1px solid var(--border);
+display:flex;align-items:center;gap:14px;}
+.avatar{width:42px;height:42px;border-radius:50%;display:flex;
+align-items:center;justify-content:center;font-family:'Syne',sans-serif;
+font-size:15px;font-weight:800;flex-shrink:0;color:#fff;}
+.av-si{background:#6366f1;}
+.av-od{background:#0891b2;}
+.av-sk{background:#16a34a;}
+.av-nn{background:#d97706;}
+.card-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;}
+.card-calls{font-family:'DM Mono',monospace;font-size:11px;
+color:var(--text3);margin-top:2px;}
+.card-link{font-family:'DM Mono',monospace;font-size:11px;
+color:var(--blue);text-decoration:none;margin-left:auto;white-space:nowrap;}
+.card-link:hover{text-decoration:underline;}
+.mini-stats{display:flex;gap:0;border-bottom:1px solid var(--border);}
+.ms{flex:1;padding:10px 14px;text-align:center;
+border-right:1px solid var(--border);}
+.ms:last-child{border-right:none;}
+.msn{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;
+line-height:1;margin-bottom:2px;}
+.msn.r{color:var(--red);}.msn.b{color:var(--blue);}
+.msl{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;
+text-transform:uppercase;letter-spacing:.05em;}
+.calls-list{padding:12px 20px;border-bottom:1px solid var(--border);}
+.call-row{display:flex;align-items:center;gap:8px;padding:4px 0;
+font-size:13px;}
+.call-time{font-family:'DM Mono',monospace;font-size:11px;
+color:var(--text3);white-space:nowrap;}
+.call-co{color:var(--text);font-weight:500;}
+.call-cnt{font-family:'DM Mono',monospace;font-size:10px;
+padding:1px 6px;border-radius:99px;margin-left:auto;}
+.call-cnt.r{background:var(--red-bg);color:var(--red);}
+.call-cnt.b{background:var(--blue-bg);color:var(--blue);}
+.no-calls{padding:12px 20px;font-size:12px;color:var(--text3);
+font-family:'DM Mono',monospace;border-bottom:1px solid var(--border);}
+.risk-row{padding:12px 20px;display:flex;gap:8px;align-items:flex-start;}
+.risk-lbl{font-family:'DM Mono',monospace;font-size:10px;color:var(--red);
+text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;
+margin-top:1px;}
+.risk-txt{font-size:12px;color:var(--text2);line-height:1.5;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Testsigma · TAM Daily Brief — Master</div>
+  <div class="title">Team Overview <span>/ Thursday, 4 Jun 2026</span></div>
+</div>
+<div class="totals">
+  <div class="tot"><div class="tnum g">4</div>
+    <div class="tlabel">TAMs Active</div></div>
+  <div class="tot"><div class="tnum o">9</div>
+    <div class="tlabel">Calls Today</div></div>
+  <div class="tot"><div class="tnum">9</div>
+    <div class="tlabel">Total Open</div></div>
+  <div class="tot"><div class="tnum r">0</div>
+    <div class="tlabel">On Us</div></div>
+  <div class="tot"><div class="tnum b">9</div>
+    <div class="tlabel">On Customer</div></div>
+  <div class="tot"><div class="tnum r">3d</div>
+    <div class="tlabel">Oldest Ticket</div></div>
+</div>
+<div class="grid">
+
+  <!-- SAM ISAAC -->
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar av-si">SI</div>
+      <div>
+        <div class="card-name">Sam Isaac</div>
+        <div class="card-calls">3 calls today</div>
+      </div>
+      <a class="card-link" href="Sam_4Jun2026.html">Brief →</a>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="msn">0</div><div class="msl">Total</div></div>
+      <div class="ms"><div class="msn r">0</div><div class="msl">On Us</div></div>
+      <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-row">
+        <span class="call-time">2:00 PM</span>
+        <span class="call-co">NTT Data</span>
+        <span class="call-cnt b">0</span>
+      </div>
+      <div class="call-row">
+        <span class="call-time">2:00 PM</span>
+        <span class="call-co">Astrolabs</span>
+        <span class="call-cnt b">0</span>
+      </div>
+      <div class="call-row">
+        <span class="call-time">10:30 PM</span>
+        <span class="call-co">UCEAP</span>
+        <span class="call-cnt b">0</span>
+      </div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-lbl">🚨 Risk</div>
+      <div class="risk-txt">Add-on dev blocked — Yash's CMP/XMC documentation still pending from 28 May; Astrolabs Copilot not working</div>
+    </div>
+  </div>
+
+  <!-- OSTEN DINIZ -->
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar av-od">OD</div>
+      <div>
+        <div class="card-name">Osten Diniz</div>
+        <div class="card-calls">3 calls today</div>
+      </div>
+      <a class="card-link" href="Osten_4Jun2026.html">Brief →</a>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="msn">0</div><div class="msl">Total</div></div>
+      <div class="ms"><div class="msn r">0</div><div class="msl">On Us</div></div>
+      <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-row">
+        <span class="call-time">2:00 PM</span>
+        <span class="call-co">Astrolabs</span>
+        <span class="call-cnt b">0</span>
+      </div>
+      <div class="call-row">
+        <span class="call-time">6:00 PM</span>
+        <span class="call-co">Acuity Analytics</span>
+        <span class="call-cnt b">0</span>
+      </div>
+      <div class="call-row">
+        <span class="call-time">10:30 PM</span>
+        <span class="call-co">UCEAP</span>
+        <span class="call-cnt b">0</span>
+      </div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-lbl">🚨 Risk</div>
+      <div class="risk-txt">Kriti's checklist upload use case fully blocked — no dummy input data received; network logs add-on constrained to Chrome 141</div>
+    </div>
+  </div>
+
+  <!-- SANDEEP SAI K -->
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar av-sk">SK</div>
+      <div>
+        <div class="card-name">Sandeep Sai K</div>
+        <div class="card-calls">1 call today</div>
+      </div>
+      <a class="card-link" href="Sandeep_4Jun2026.html">Brief →</a>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="msn">0</div><div class="msl">Total</div></div>
+      <div class="ms"><div class="msn r">0</div><div class="msl">On Us</div></div>
+      <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-row">
+        <span class="call-time">6:30 PM</span>
+        <span class="call-co">Acuity Analytics</span>
+        <span class="call-cnt b">0</span>
+      </div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-lbl">🚨 Risk</div>
+      <div class="risk-txt">Kriti's use case completely blocked — missing input data; network logs add-on limited to Chrome 141, POC at risk of stalling</div>
+    </div>
+  </div>
+
+  <!-- NIXON NICHOLAS -->
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar av-nn">NN</div>
+      <div>
+        <div class="card-name">Nixon Nicholas</div>
+        <div class="card-calls">2 calls today</div>
+      </div>
+      <a class="card-link" href="Nixon_4Jun2026.html">Brief →</a>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="msn">9</div><div class="msl">Total</div></div>
+      <div class="ms"><div class="msn r">0</div><div class="msl">On Us</div></div>
+      <div class="ms"><div class="msn b">9</div><div class="msl">On Cust</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-row">
+        <span class="call-time">3:00 PM</span>
+        <span class="call-co">Nuvama Wealth</span>
+        <span class="call-cnt b">9</span>
+      </div>
+      <div class="call-row">
+        <span class="call-time">6:00 PM</span>
+        <span class="call-co">Acuity Analytics</span>
+        <span class="call-cnt b">0</span>
+      </div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-lbl">🚨 Risk</div>
+      <div class="risk-txt">00061032 — iOS device not connecting for Kamala; live training program running, entire mobile testing track blocked</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
