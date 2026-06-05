@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Overview — TAM Brief 5Jun2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;
+--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;
+--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--green:#16a34a;
+--green-bg:#f0fdf4;--orange:#d97706;--orange-bg:#fffbeb;--jira:#0052cc;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;
+--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;
+--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;
+--blue-bg:#111827;--green:#4ade80;--green-bg:#0f1f14;--orange:#fbbf24;
+--orange-bg:#1c1608;--jira:#4d9de0;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.stats{display:flex;gap:12px;padding:20px 32px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.stat{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 18px;flex:1;min-width:100px;}
+.snum{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;line-height:1;margin-bottom:4px;}
+.snum.r{color:var(--red);}.snum.b{color:var(--blue);}.snum.o{color:var(--orange);}
+.slabel{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;padding:24px 32px;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Testsigma · TAM Daily Brief · Team Overview</div>
+  <div class="title">All TAMs <span>/ Friday, 5 June 2026</span></div>
+</div>
+<div class="stats">
+  <div class="stat"><div class="snum o">4</div><div class="slabel">TAMs Active</div></div>
+  <div class="stat"><div class="snum o">6</div><div class="slabel">Calls Today</div></div>
+  <div class="stat"><div class="snum">21</div><div class="slabel">Total Open</div></div>
+  <div class="stat"><div class="snum r">18</div><div class="slabel">On Us</div></div>
+  <div class="stat"><div class="snum b">3</div><div class="slabel">On Customer</div></div>
+  <div class="stat"><div class="snum r">402d</div><div class="slabel">Oldest Ticket</div></div>
+</div>
+<div class="grid">
+
+<div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div style="width:40px;height:40px;border-radius:50%;background:#c94040;color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;">SI</div>
+    <div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;">Sam Isaac</div>
+      <div style="font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">0 calls today</div>
+    </div>
+    <div style="margin-left:auto;">
+      <a href="https://sam-isaac.github.io/tam-briefs/5Jun2026/Sam_5Jun2026.html" style="font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;">View brief →</a>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;">
+    <div style="flex:1;background:var(--bg2);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;">0</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">Open</div>
+    </div>
+    <div style="flex:1;background:var(--red-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--red);">0</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Us</div>
+    </div>
+    <div style="flex:1;background:var(--blue-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--blue);">0</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Cx</div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:10px;"><div style="font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;padding:4px 0;">No customer calls today</div></div>
+  <div style="font-size:11px;color:var(--text2);font-style:italic;line-height:1.5;border-top:1px solid var(--border);padding-top:8px;">🚨 No customer calls today.</div>
+</div>
+
+<div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div style="width:40px;height:40px;border-radius:50%;background:#2563eb;color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;">MK</div>
+    <div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;">Mohan Kumar N</div>
+      <div style="font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">1 call today</div>
+    </div>
+    <div style="margin-left:auto;">
+      <a href="https://sam-isaac.github.io/tam-briefs/5Jun2026/Mohan_5Jun2026.html" style="font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;">View brief →</a>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;">
+    <div style="flex:1;background:var(--bg2);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;">5</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">Open</div>
+    </div>
+    <div style="flex:1;background:var(--red-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--red);">5</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Us</div>
+    </div>
+    <div style="flex:1;background:var(--blue-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--blue);">0</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Cx</div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:10px;"><div style="display:flex;align-items:center;gap:8px;font-size:12px;padding:4px 0;border-bottom:1px solid var(--border);"><span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);width:72px;">16:30 IST</span><span style="flex:1;">Space42</span><span style="background:var(--red-bg);color:var(--red);font-family:'DM Mono',monospace;font-size:10px;padding:2px 6px;border-radius:4px;margin-left:6px;">5 cases</span></div></div>
+  <div style="font-size:11px;color:var(--red);font-style:italic;line-height:1.5;border-top:1px solid var(--border);padding-top:8px;">🚨 4 simultaneous P1 on-prem cases (headless mode + default URL) opened in 48h — likely release regression.</div>
+</div>
+
+<div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div style="width:40px;height:40px;border-radius:50%;background:#16a34a;color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;">SS</div>
+    <div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;">Shivani Sharma</div>
+      <div style="font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">0 calls today</div>
+    </div>
+    <div style="margin-left:auto;">
+      <a href="https://sam-isaac.github.io/tam-briefs/5Jun2026/Shivani_5Jun2026.html" style="font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;">View brief →</a>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;">
+    <div style="flex:1;background:var(--bg2);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;">0</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">Open</div>
+    </div>
+    <div style="flex:1;background:var(--red-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--red);">0</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Us</div>
+    </div>
+    <div style="flex:1;background:var(--blue-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--blue);">0</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Cx</div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:10px;"><div style="font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;padding:4px 0;">No customer calls today</div></div>
+  <div style="font-size:11px;color:var(--text2);font-style:italic;line-height:1.5;border-top:1px solid var(--border);padding-top:8px;">🚨 No customer calls today.</div>
+</div>
+
+<div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div style="width:40px;height:40px;border-radius:50%;background:#d97706;color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;">OD</div>
+    <div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;">Osten Diniz</div>
+      <div style="font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">3 calls today</div>
+    </div>
+    <div style="margin-left:auto;">
+      <a href="https://sam-isaac.github.io/tam-briefs/5Jun2026/Osten_5Jun2026.html" style="font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;">View brief →</a>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;">
+    <div style="flex:1;background:var(--bg2);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;">1</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">Open</div>
+    </div>
+    <div style="flex:1;background:var(--red-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--red);">1</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Us</div>
+    </div>
+    <div style="flex:1;background:var(--blue-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--blue);">0</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Cx</div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:10px;"><div style="display:flex;align-items:center;gap:8px;font-size:12px;padding:4px 0;border-bottom:1px solid var(--border);"><span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);width:72px;">16:00 IST</span><span style="flex:1;">MPower</span></div><div style="display:flex;align-items:center;gap:8px;font-size:12px;padding:4px 0;border-bottom:1px solid var(--border);"><span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);width:72px;">20:00 IST</span><span style="flex:1;">PairPEO</span></div><div style="display:flex;align-items:center;gap:8px;font-size:12px;padding:4px 0;border-bottom:1px solid var(--border);"><span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);width:72px;">22:00 IST</span><span style="flex:1;">Orange County SCU</span><span style="background:var(--red-bg);color:var(--red);font-family:'DM Mono',monospace;font-size:10px;padding:2px 6px;border-radius:4px;margin-left:6px;">1 cases</span></div></div>
+  <div style="font-size:11px;color:var(--red);font-style:italic;line-height:1.5;border-top:1px solid var(--border);padding-top:8px;">🚨 OC desktop automation (00060811, 9d, P2) escalated to L3 — no ETA from engineering yet.</div>
+</div>
+
+<div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div style="width:40px;height:40px;border-radius:50%;background:#7c3aed;color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;">AM</div>
+    <div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;">Arthy Mohanraj</div>
+      <div style="font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">0 calls today</div>
+    </div>
+    <div style="margin-left:auto;">
+      <a href="https://sam-isaac.github.io/tam-briefs/5Jun2026/Arthy_5Jun2026.html" style="font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;">View brief →</a>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;">
+    <div style="flex:1;background:var(--bg2);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;">0</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">Open</div>
+    </div>
+    <div style="flex:1;background:var(--red-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--red);">0</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Us</div>
+    </div>
+    <div style="flex:1;background:var(--blue-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--blue);">0</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Cx</div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:10px;"><div style="font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;padding:4px 0;">No customer calls today</div></div>
+  <div style="font-size:11px;color:var(--text2);font-style:italic;line-height:1.5;border-top:1px solid var(--border);padding-top:8px;">🚨 No customer calls today.</div>
+</div>
+
+<div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div style="width:40px;height:40px;border-radius:50%;background:#db2777;color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;">PS</div>
+    <div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;">Pritish Samal</div>
+      <div style="font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">0 calls today</div>
+    </div>
+    <div style="margin-left:auto;">
+      <a href="https://sam-isaac.github.io/tam-briefs/5Jun2026/Pritish_5Jun2026.html" style="font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;">View brief →</a>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;">
+    <div style="flex:1;background:var(--bg2);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;">0</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">Open</div>
+    </div>
+    <div style="flex:1;background:var(--red-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--red);">0</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Us</div>
+    </div>
+    <div style="flex:1;background:var(--blue-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--blue);">0</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Cx</div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:10px;"><div style="font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;padding:4px 0;">No customer calls today</div></div>
+  <div style="font-size:11px;color:var(--text2);font-style:italic;line-height:1.5;border-top:1px solid var(--border);padding-top:8px;">🚨 No customer calls today.</div>
+</div>
+
+<div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div style="width:40px;height:40px;border-radius:50%;background:#0891b2;color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;">SK</div>
+    <div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;">Sandeep Sai K</div>
+      <div style="font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">1 call today</div>
+    </div>
+    <div style="margin-left:auto;">
+      <a href="https://sam-isaac.github.io/tam-briefs/5Jun2026/Sandeep_5Jun2026.html" style="font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;">View brief →</a>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;">
+    <div style="flex:1;background:var(--bg2);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;">5</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">Open</div>
+    </div>
+    <div style="flex:1;background:var(--red-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--red);">5</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Us</div>
+    </div>
+    <div style="flex:1;background:var(--blue-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--blue);">0</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Cx</div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:10px;"><div style="display:flex;align-items:center;gap:8px;font-size:12px;padding:4px 0;border-bottom:1px solid var(--border);"><span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);width:72px;">10:30 IST</span><span style="flex:1;">DHL</span><span style="background:var(--red-bg);color:var(--red);font-family:'DM Mono',monospace;font-size:10px;padding:2px 6px;border-radius:4px;margin-left:6px;">5 cases</span></div></div>
+  <div style="font-size:11px;color:var(--red);font-style:italic;line-height:1.5;border-top:1px solid var(--border);padding-top:8px;">🚨 DHL 00057258 (blank screenshots, P1) open 94d unresolved; two cases 400+ days old need immediate review.</div>
+</div>
+
+<div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div style="width:40px;height:40px;border-radius:50%;background:#65a30d;color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;">NN</div>
+    <div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;">Nixon Nicholas</div>
+      <div style="font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">1 call today</div>
+    </div>
+    <div style="margin-left:auto;">
+      <a href="https://sam-isaac.github.io/tam-briefs/5Jun2026/Nixon_5Jun2026.html" style="font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;">View brief →</a>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;">
+    <div style="flex:1;background:var(--bg2);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;">10</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">Open</div>
+    </div>
+    <div style="flex:1;background:var(--red-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--red);">7</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Us</div>
+    </div>
+    <div style="flex:1;background:var(--blue-bg);border-radius:8px;padding:10px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--blue);">3</div>
+      <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;">On Cx</div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:10px;"><div style="display:flex;align-items:center;gap:8px;font-size:12px;padding:4px 0;border-bottom:1px solid var(--border);"><span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);width:72px;">15:30 IST</span><span style="flex:1;">IIFL Home Loans</span><span style="background:var(--red-bg);color:var(--red);font-family:'DM Mono',monospace;font-size:10px;padding:2px 6px;border-radius:4px;margin-left:6px;">10 cases</span></div></div>
+  <div style="font-size:11px;color:var(--red);font-style:italic;line-height:1.5;border-top:1px solid var(--border);padding-top:8px;">🚨 TP-4355 (0x537) — VP escalation, Jun 8 fix deadline. No RCA yet after 29 days. High churn risk if deadline missed.</div>
+</div>
+</div>
+</body></html>
