@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Overview — TAM Brief 07Jun2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;
+--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;
+--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--green:#16a34a;
+--green-bg:#f0fdf4;--orange:#d97706;--orange-bg:#fffbeb;
+--jira:#0052cc;--tag-bg:#e8e6e0;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;
+--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;
+--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;
+--blue-bg:#111827;--green:#4ade80;--green-bg:#0f1f14;--orange:#fbbf24;
+--orange-bg:#1c1608;--jira:#4d9de0;--tag-bg:#2a2926;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);
+color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);
+letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;
+letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.totals{display:flex;gap:12px;padding:20px 32px;
+border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.stat{background:var(--bg3);border:1px solid var(--border);
+border-radius:10px;padding:14px 18px;flex:1;min-width:100px;}
+.snum{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;
+line-height:1;margin-bottom:4px;}
+.snum.r{color:var(--red);} .snum.b{color:var(--blue);}
+.snum.o{color:var(--orange);} .snum.g{color:var(--green);}
+.slabel{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;
+text-transform:uppercase;letter-spacing:.06em;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+gap:16px;padding:24px 32px;}
+.card{background:var(--bg3);border:1px solid var(--border);
+border-radius:12px;overflow:hidden;}
+.card-head{display:flex;align-items:center;gap:14px;
+padding:16px 18px;border-bottom:1px solid var(--border);}
+.avatar{width:40px;height:40px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-family:'Syne',sans-serif;font-weight:800;font-size:14px;
+color:#fff;flex-shrink:0;}
+.av-sam{background:#6366f1;} .av-mohan{background:#0891b2;}
+.av-shivani{background:#059669;} .av-osten{background:#d97706;}
+.av-arthy{background:#dc2626;} .av-pritish{background:#7c3aed;}
+.av-sandeep{background:#0284c7;} .av-nixon{background:#c2410c;}
+.card-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;}
+.card-sub{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;}
+.card-mini{display:flex;gap:0;border-bottom:1px solid var(--border);}
+.mini{flex:1;padding:12px 14px;text-align:center;
+border-right:1px solid var(--border);}
+.mini:last-child{border-right:none;}
+.mini-n{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;line-height:1;}
+.mini-l{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;
+text-transform:uppercase;letter-spacing:.05em;margin-top:3px;}
+.card-body{padding:14px 18px;}
+.no-calls{font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;
+font-style:italic;}
+.view-link{display:block;text-align:center;padding:12px;
+font-size:12px;font-family:'DM Mono',monospace;color:var(--blue);
+text-decoration:none;border-top:1px solid var(--border);}
+.view-link:hover{background:var(--blue-bg);}
+.note{font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;
+padding:16px 32px;border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Testsigma · TAM Master Brief</div>
+  <div class="title">Team Overview <span>/ Sunday, 7 June 2026</span></div>
+</div>
+<div class="totals">
+  <div class="stat"><div class="snum g">8</div><div class="slabel">TAMs Active</div></div>
+  <div class="stat"><div class="snum o">0</div><div class="slabel">Calls Today</div></div>
+  <div class="stat"><div class="snum">0</div><div class="slabel">Total Open</div></div>
+  <div class="stat"><div class="snum r">0</div><div class="slabel">On Us</div></div>
+  <div class="stat"><div class="snum b">0</div><div class="slabel">On Customer</div></div>
+  <div class="stat"><div class="snum r">—</div><div class="slabel">Oldest Ticket</div></div>
+</div>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-head">
+      <div class="avatar av-sam">SI</div>
+      <div><div class="card-name">Sam Isaac</div>
+        <div class="card-sub">Sr. Technical Account Manager</div></div>
+    </div>
+    <div class="card-mini">
+      <div class="mini"><div class="mini-n">0</div><div class="mini-l">Total</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--red)">0</div><div class="mini-l">On Us</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--blue)">0</div><div class="mini-l">On Cust</div></div>
+    </div>
+    <div class="card-body"><div class="no-calls">No customer calls today</div></div>
+    <a class="view-link" href="Sam_07Jun2026.html">View full brief →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="avatar av-mohan">MK</div>
+      <div><div class="card-name">Mohan Kumar N</div>
+        <div class="card-sub">Technical Account Manager</div></div>
+    </div>
+    <div class="card-mini">
+      <div class="mini"><div class="mini-n">0</div><div class="mini-l">Total</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--red)">0</div><div class="mini-l">On Us</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--blue)">0</div><div class="mini-l">On Cust</div></div>
+    </div>
+    <div class="card-body"><div class="no-calls">No customer calls today</div></div>
+    <a class="view-link" href="Mohan_07Jun2026.html">View full brief →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="avatar av-shivani">SS</div>
+      <div><div class="card-name">Shivani Sharma</div>
+        <div class="card-sub">Technical Account Manager</div></div>
+    </div>
+    <div class="card-mini">
+      <div class="mini"><div class="mini-n">0</div><div class="mini-l">Total</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--red)">0</div><div class="mini-l">On Us</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--blue)">0</div><div class="mini-l">On Cust</div></div>
+    </div>
+    <div class="card-body"><div class="no-calls">No customer calls today</div></div>
+    <a class="view-link" href="Shivani_07Jun2026.html">View full brief →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="avatar av-osten">OD</div>
+      <div><div class="card-name">Osten Diniz</div>
+        <div class="card-sub">Technical Account Manager</div></div>
+    </div>
+    <div class="card-mini">
+      <div class="mini"><div class="mini-n">0</div><div class="mini-l">Total</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--red)">0</div><div class="mini-l">On Us</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--blue)">0</div><div class="mini-l">On Cust</div></div>
+    </div>
+    <div class="card-body"><div class="no-calls">No customer calls today</div></div>
+    <a class="view-link" href="Osten_07Jun2026.html">View full brief →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="avatar av-arthy">AM</div>
+      <div><div class="card-name">Arthy Mohanraj</div>
+        <div class="card-sub">Technical Account Manager</div></div>
+    </div>
+    <div class="card-mini">
+      <div class="mini"><div class="mini-n">0</div><div class="mini-l">Total</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--red)">0</div><div class="mini-l">On Us</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--blue)">0</div><div class="mini-l">On Cust</div></div>
+    </div>
+    <div class="card-body"><div class="no-calls">No customer calls today</div></div>
+    <a class="view-link" href="Arthy_07Jun2026.html">View full brief →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="avatar av-pritish">PS</div>
+      <div><div class="card-name">Pritish Samal</div>
+        <div class="card-sub">Technical Account Manager</div></div>
+    </div>
+    <div class="card-mini">
+      <div class="mini"><div class="mini-n">0</div><div class="mini-l">Total</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--red)">0</div><div class="mini-l">On Us</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--blue)">0</div><div class="mini-l">On Cust</div></div>
+    </div>
+    <div class="card-body"><div class="no-calls">No customer calls today</div></div>
+    <a class="view-link" href="Pritish_07Jun2026.html">View full brief →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="avatar av-sandeep">SK</div>
+      <div><div class="card-name">Sandeep Sai K</div>
+        <div class="card-sub">Senior Technical Account Manager</div></div>
+    </div>
+    <div class="card-mini">
+      <div class="mini"><div class="mini-n">0</div><div class="mini-l">Total</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--red)">0</div><div class="mini-l">On Us</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--blue)">0</div><div class="mini-l">On Cust</div></div>
+    </div>
+    <div class="card-body"><div class="no-calls">No customer calls today</div></div>
+    <a class="view-link" href="Sandeep_07Jun2026.html">View full brief →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="avatar av-nixon">NN</div>
+      <div><div class="card-name">Nixon Nicholas</div>
+        <div class="card-sub">Technical Account Manager</div></div>
+    </div>
+    <div class="card-mini">
+      <div class="mini"><div class="mini-n">0</div><div class="mini-l">Total</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--red)">0</div><div class="mini-l">On Us</div></div>
+      <div class="mini"><div class="mini-n" style="color:var(--blue)">0</div><div class="mini-l">On Cust</div></div>
+    </div>
+    <div class="card-body"><div class="no-calls">No customer calls today</div></div>
+    <a class="view-link" href="Nixon_07Jun2026.html">View full brief →</a>
+  </div>
+
+</div>
+<div class="note">📌 Generated by TAM Daily Brief · Sunday, 7 June 2026 · Testsigma</div>
+</body>
+</html>
