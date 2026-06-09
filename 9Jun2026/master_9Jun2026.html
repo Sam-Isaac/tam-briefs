@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Overview — TAM Brief 9Jun2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--green:#16a34a;--green-bg:#f0fdf4;--orange:#d97706;--orange-bg:#fffbeb;--tag-bg:#e8e6e0;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;--blue-bg:#111827;--green:#4ade80;--green-bg:#0f1f14;--orange:#fbbf24;--orange-bg:#1c1608;--tag-bg:#2a2926;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.totals{display:flex;gap:12px;padding:20px 32px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.tot{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 18px;flex:1;min-width:100px;}
+.tnum{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;line-height:1;margin-bottom:4px;}
+.tnum.r{color:var(--red);}.tnum.b{color:var(--blue);}.tnum.o{color:var(--orange);}
+.tlabel{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;padding:24px 32px;}
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;}
+.card-head{display:flex;align-items:center;gap:12px;}
+.avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:#fff;flex-shrink:0;}
+.card-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;}
+.card-calls{font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;}
+.mini-stats{display:flex;gap:8px;}
+.ms{flex:1;background:var(--bg2);border-radius:8px;padding:8px 10px;text-align:center;}
+.msn{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;line-height:1;}
+.msn.r{color:var(--red);}.msn.b{color:var(--blue);}
+.msl{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;}
+.call-list{display:flex;flex-direction:column;gap:4px;}
+.call-item{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;background:var(--bg2);border-radius:6px;font-size:12px;}
+.call-co{font-weight:500;}
+.call-time{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);}
+.call-cnt{font-family:'DM Mono',monospace;font-size:10px;padding:1px 6px;border-radius:99px;background:var(--red-bg);color:var(--red);}
+.risk-line{font-size:12px;color:var(--text2);padding-top:4px;border-top:1px solid var(--border);}
+.risk-line strong{color:var(--red);font-size:11px;font-family:'DM Mono',monospace;}
+.nocalls-card{font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;text-align:center;padding:12px;}
+.brief-link{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;padding:6px 12px;border:1px solid var(--border);border-radius:6px;transition:background .15s;}
+.brief-link:hover{background:var(--blue-bg);}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Testsigma · TAM Daily Brief</div>
+  <div class="title">Team Overview <span>/ Tuesday, 9 Jun 2026</span></div>
+</div>
+<div class="totals">
+  <div class="tot"><div class="tnum">8</div><div class="tlabel">TAMs</div></div>
+  <div class="tot"><div class="tnum o">6</div><div class="tlabel">Active Today</div></div>
+  <div class="tot"><div class="tnum o">11</div><div class="tlabel">Calls Today</div></div>
+  <div class="tot"><div class="tnum">14</div><div class="tlabel">Unique Open Cases</div></div>
+  <div class="tot"><div class="tnum r">14</div><div class="tlabel">On Us</div></div>
+  <div class="tot"><div class="tnum b">0</div><div class="tlabel">On Customer</div></div>
+  <div class="tot"><div class="tnum r">26d</div><div class="tlabel">Oldest Ticket</div></div>
+</div>
+<div class="grid" id="grid"></div>
+<script>
+const tams=[
+  {name:"Sam Isaac",initials:"SI",color:"#7c3aed",calls:[{co:"Singular Systems",time:"2:00 PM",open:0},{co:"StateFarm",time:"7:30 PM",open:7},{co:"UCEAP",time:"10:30 PM",open:1}],total:8,onUs:8,onCust:0,risk:"00060837 — 12-day P1 iframe issue for StateFarm unresolved before Training #2",link:"Sam_9Jun2026.html"},
+  {name:"Mohan Kumar N",initials:"MK",color:"#0891b2",calls:[{co:"Space42",time:"4:30 PM",open:3}],total:3,onUs:3,onCust:0,risk:"TP-4866/TP-4865 — Two P1 OnPrem bugs in engineering 4 days with no update",link:"Mohan_9Jun2026.html"},
+  {name:"Shivani Sharma",initials:"SS",color:"#059669",calls:[],total:0,onUs:0,onCust:0,risk:"No customer calls today",link:"Shivani_9Jun2026.html"},
+  {name:"Osten Diniz",initials:"OD",color:"#dc2626",calls:[{co:"StateFarm",time:"7:30 PM",open:7},{co:"UCEAP",time:"10:30 PM",open:1}],total:8,onUs:8,onCust:0,risk:"Gong: parallax answer to UCEAP promised Jun 4 is 5 days overdue",link:"Osten_9Jun2026.html"},
+  {name:"Arthy Mohanraj",initials:"AM",color:"#d97706",calls:[],total:0,onUs:0,onCust:0,risk:"No customer calls today",link:"Arthy_9Jun2026.html"},
+  {name:"Pritish Samal",initials:"PS",color:"#7c3aed",calls:[{co:"StateFarm",time:"7:30 PM",open:7},{co:"UCEAP",time:"10:30 PM",open:1}],total:8,onUs:8,onCust:0,risk:"00061159 — P1 execution failure raised today; must resolve before 7:30 PM training",link:"Pritish_9Jun2026.html"},
+  {name:"Sandeep Sai K",initials:"SK",color:"#0891b2",calls:[{co:"DHL",time:"2:30 PM",open:3},{co:"Acuity Analytics",time:"6:30 PM",open:0}],total:3,onUs:3,onCust:0,risk:"00061169 — DHL agent not in active list, raised today, blocks execution",link:"Sandeep_9Jun2026.html"},
+  {name:"Nixon Nicholas",initials:"NN",color:"#059669",calls:[{co:"Acuity Analytics",time:"6:30 PM",open:0}],total:0,onUs:0,onCust:0,risk:"New POC — capture all requirements and blockers during today's call",link:"Nixon_9Jun2026.html"}
+];
+const grid=document.getElementById('grid');
+tams.forEach(t=>{
+  const card=document.createElement('div');
+  card.className='card';
+  const callsHtml=t.calls.length?t.calls.map(c=>`<div class="call-item"><span class="call-co">${c.co}</span><span class="call-time">${c.time}</span>${c.open>0?`<span class="call-cnt">${c.open}</span>`:''}</div>`).join(''):`<div class="nocalls-card">No customer calls today</div>`;
+  card.innerHTML=`
+    <div class="card-head">
+      <div class="avatar" style="background:${t.color}">${t.initials}</div>
+      <div><div class="card-name">${t.name}</div><div class="card-calls">${t.calls.length} call${t.calls.length!==1?'s':''} today</div></div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="msn">${t.total}</div><div class="msl">Total</div></div>
+      <div class="ms"><div class="msn r">${t.onUs}</div><div class="msl">On Us</div></div>
+      <div class="ms"><div class="msn b">${t.onCust}</div><div class="msl">On Cust</div></div>
+    </div>
+    <div class="call-list">${callsHtml}</div>
+    <div class="risk-line"><strong>RISK</strong> ${t.risk}</div>
+    <a class="brief-link" href="${t.link}">📋 Full brief →</a>`;
+  grid.appendChild(card);
+});
+</script>
+</body></html>
