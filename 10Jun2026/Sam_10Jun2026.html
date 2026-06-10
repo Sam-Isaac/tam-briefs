@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sam Isaac – TAM Brief · 10 Jun 2026</title>
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--border:#dfe1e6;--text:#172b4d;--text2:#5e6c84;--accent:#0052cc;--red:#de350b;--blue:#0065ff;--badge:#dfe1e6;--badge-text:#5e6c84;--old-bg:#ffebe6;--old-text:#bf2600;--tab-bg:#ebecf0;--gong-bg:#fffae6;--gong-bdr:#f6c000}
+@media(prefers-color-scheme:dark){:root{--bg:#1a1d27;--card:#23273a;--border:#353b50;--text:#cdd3e0;--text2:#7b849a;--accent:#4c9aff;--red:#ff5630;--blue:#4c9aff;--badge:#353b50;--badge-text:#7b849a;--old-bg:#3b1a0f;--old-text:#ff7452;--tab-bg:#2c3047;--gong-bg:#2a2514;--gong-bdr:#c9a000}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+.page{max-width:860px;margin:0 auto;padding:24px 16px}
+header{margin-bottom:20px}
+header h1{font-size:22px;font-weight:700}
+header p{color:var(--text2);font-size:13px;margin-top:3px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:2px solid var(--border);margin-bottom:20px}
+.tab-btn{padding:8px 14px;border:none;background:var(--tab-bg);color:var(--text2);border-radius:6px 6px 0 0;cursor:pointer;font-size:13px;font-weight:500;border-bottom:2px solid transparent;margin-bottom:-2px}
+.tab-btn.active{background:var(--card);color:var(--accent);border-color:var(--accent);border-bottom:2px solid var(--card)}
+.tab-pane{display:none}.tab-pane.active{display:block}
+.cust-hdr{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:16px}
+.cust-name{font-size:16px;font-weight:700}
+.cust-time{color:var(--text2);font-size:13px}
+.sec{margin-bottom:14px}
+.sec-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px}
+.red .sec-label{color:var(--red)}
+.blue .sec-label{color:var(--blue)}
+.cases{display:flex;flex-direction:column;gap:4px}
+.case{display:flex;align-items:flex-start;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:6px;padding:9px 12px}
+.red .case{border-left:3px solid var(--red)}
+.blue .case{border-left:3px solid var(--blue)}
+.cnum{font-size:12px;font-weight:700;color:var(--accent);white-space:nowrap;min-width:72px}
+.cbody{flex:1}
+.csub{font-size:13px}
+.cmeta{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.badge{display:inline-block;padding:1px 6px;border-radius:3px;font-size:11px;font-weight:600;background:var(--badge);color:var(--badge-text)}
+.p1{background:#ffebe6;color:#bf2600}.p2{background:#fff0b3;color:#974f0c}.p3{background:#e3fcef;color:#006644}
+.days{background:var(--badge);color:var(--badge-text)}
+.days.old{background:var(--old-bg);color:var(--old-text)}
+@media(prefers-color-scheme:dark){.p1{background:#4a1200;color:#ff7452}.p2{background:#3a2300;color:#ffc400}.p3{background:#072a18;color:#57d9a3}}
+.gong{background:var(--gong-bg);border:1px solid var(--gong-bdr);border-radius:8px;padding:12px 14px;margin-bottom:14px}
+.gong-hdr{font-weight:700;font-size:13px;margin-bottom:3px}
+.gong-meta{font-size:11px;color:var(--text2);margin-bottom:8px}
+.gong ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.gong li{font-size:13px;padding-left:18px;position:relative}
+.gong li.us::before{content:'▷';position:absolute;left:0;color:var(--accent)}
+.gong li.cx::before{content:'◆';position:absolute;left:0;color:var(--text2)}
+.empty{color:var(--text2);font-style:italic;font-size:13px;padding:6px 0}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <h1>Sam Isaac – TAM Brief</h1>
+  <p>Wednesday, 10 Jun 2026 · Technical Account Manager</p>
+</header>
+<div class="tabs" id="tabs"></div>
+<div id="panes"></div>
+</div>
+<script>
+const DATA=[
+{
+  customer:"DHL TaaS",time:"12:30 PM",
+  us:[
+    {num:"00061143",p:"P2",status:"Open",days:2,sub:"Unable to start the agent in VM machine"},
+    {num:"00061150",p:"P2",status:"Open",days:2,sub:"Execution video is not Loading"},
+    {num:"00061209",p:"P2",status:"Pending",days:1,sub:"In Local device it shows agent inactive"},
+    {num:"00061169",p:"P2",status:"Pending",days:1,sub:"Agent Status Not Reflecting in Active List"},
+    {num:"00061170",p:"P3",status:"Waiting on L2",days:1,sub:"Unable to execute the Testplan"},
+    {num:"00061097",p:"P3",status:"Open",days:5,sub:"Unable to upload file"},
+    {num:"00057258",p:"P1",status:"Open",days:99,sub:"Run Results are with blank screenshot"}
+  ],
+  cx:[
+    {num:"00060628",p:"P3",status:"Waiting for Customer",days:20,sub:"Unable to access the Testsigma University"},
+    {num:"00061108",p:"P3",status:"Waiting for Customer",days:5,sub:"New user added wasn't receiving any email"}
+  ],
+  gong:{date:"3 Jun 2026",us:["Raise auto-heal dashboard product request for VP review","Prepare product roadmap deck for VP Andrew"],cx:["Jerry: Discuss costing with Patricia","Kevin: Review optimization report"]}
+},
+{
+  customer:"State Farm",time:"7:30 PM",tenantId:"67514",
+  us:[
+    {num:"00056703",p:"P1",status:"Open",days:106,sub:"Request for Authorization of Support Access to Testsigma Account"},
+    {num:"00056238",p:"P2",status:"Open",days:113,sub:"RBAC Related Feature Asks"}
+  ],
+  cx:[
+    {num:"00061159",p:"P1",status:"Waiting for Customer",days:2,sub:"Test execution getting failed for all test cases"}
+  ],
+  gong:null
+}
+];
+
+function render(){
+  const tabs=document.getElementById('tabs');
+  const panes=document.getElementById('panes');
+  DATA.forEach((d,i)=>{
+    const btn=document.createElement('button');
+    btn.className='tab-btn'+(i===0?' active':'');
+    btn.textContent=d.customer;
+    btn.onclick=()=>{
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('pane'+i).classList.add('active');
+    };
+    tabs.appendChild(btn);
+
+    const pane=document.createElement('div');
+    pane.className='tab-pane'+(i===0?' active':'');
+    pane.id='pane'+i;
+
+    let html=`<div class="cust-hdr"><div class="cust-name">${d.customer}</div><div class="cust-time">${d.time}${d.tenantId?' · TID '+d.tenantId:''}</div></div>`;
+
+    if(d.gong){
+      html+=`<div class="gong"><div class="gong-hdr">🎯 Gong Action Items</div><div class="gong-meta">Last call: ${d.gong.date}</div><ul>`;
+      d.gong.us.forEach(a=>{html+=`<li class="us">${a}</li>`;});
+      d.gong.cx.forEach(a=>{html+=`<li class="cx">${a}</li>`;});
+      html+=`</ul></div>`;
+    }
+
+    if(d.us.length){
+      html+=`<div class="sec red"><div class="sec-label">🔴 Waiting on Us (${d.us.length})</div><div class="cases">`;
+      d.us.forEach(c=>{
+        const old=c.days>30?' old':'';
+        html+=`<div class="case"><div class="cnum">${c.num}</div><div class="cbody"><div class="csub">${c.sub}</div><div class="cmeta"><span class="badge ${c.p.toLowerCase()}">${c.p}</span><span class="badge">${c.status}</span><span class="badge days${old}">${c.days}d</span></div></div></div>`;
+      });
+      html+=`</div></div>`;
+    }
+
+    if(d.cx.length){
+      html+=`<div class="sec blue"><div class="sec-label">🔵 Waiting on Customer (${d.cx.length})</div><div class="cases">`;
+      d.cx.forEach(c=>{
+        const old=c.days>30?' old':'';
+        html+=`<div class="case"><div class="cnum">${c.num}</div><div class="cbody"><div class="csub">${c.sub}</div><div class="cmeta"><span class="badge ${c.p.toLowerCase()}">${c.p}</span><span class="badge days${old}">${c.days}d</span></div></div></div>`;
+      });
+      html+=`</div></div>`;
+    }
+
+    if(!d.us.length&&!d.cx.length) html+=`<p class="empty">No open cases found.</p>`;
+
+    pane.innerHTML=html;
+    panes.appendChild(pane);
+  });
+}
+render();
+</script>
+</body>
+</html>
