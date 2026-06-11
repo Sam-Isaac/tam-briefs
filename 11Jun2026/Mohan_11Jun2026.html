@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohan Kumar N — Daily Brief · 11 Jun 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #22263a; --border: #2e3347;
+    --accent: #6c8ef5; --accent2: #a78bfa; --green: #34d399; --yellow: #fbbf24;
+    --red: #f87171; --orange: #fb923c; --text: #e2e8f0; --muted: #8892a4;
+    --p1: #f87171; --p2: #fb923c; --p3: #fbbf24;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 24px; }
+  .header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #34d399, #6c8ef5); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; flex-shrink: 0; }
+  .header-info h1 { font-size: 22px; font-weight: 700; }
+  .header-info .date { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .opener-box { background: linear-gradient(135deg, rgba(108,142,245,0.12), rgba(167,139,250,0.08)); border: 1px solid rgba(108,142,245,0.3); border-radius: 10px; padding: 14px 18px; margin-bottom: 24px; font-size: 14px; line-height: 1.6; }
+  .opener-box strong { color: var(--accent); }
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .stat-card .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .stat-card .value { font-size: 26px; font-weight: 700; }
+  .stat-card .value.red { color: var(--red); } .stat-card .value.orange { color: var(--orange); }
+  .stat-card .value.green { color: var(--green); } .stat-card .value.accent { color: var(--accent); }
+  .risk-box { background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.25); border-radius: 10px; padding: 12px 16px; margin-bottom: 24px; font-size: 13px; display: flex; align-items: flex-start; gap: 10px; }
+  .risk-box .risk-label { color: var(--red); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; padding-top: 1px; }
+  .section-title { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+  .calls-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+  .call-chip { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 14px; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+  .call-chip .time { color: var(--accent); font-weight: 600; }
+  .cases-grid { display: flex; flex-direction: column; gap: 10px; }
+  .case-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: start; }
+  .case-card.on-customer { border-left: 3px solid var(--green); }
+  .case-card.on-us { border-left: 3px solid var(--red); }
+  .priority-badge { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .priority-badge.p1 { background: rgba(248,113,113,0.18); color: var(--p1); }
+  .priority-badge.p2 { background: rgba(251,146,60,0.18); color: var(--p2); }
+  .priority-badge.p3 { background: rgba(251,191,36,0.18); color: var(--p3); }
+  .case-subject { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .case-subject a { color: var(--text); text-decoration: none; }
+  .case-subject a:hover { color: var(--accent); }
+  .case-meta { font-size: 12px; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; }
+  .case-last { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+  .days-badge { font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .days-badge.old { color: var(--red); } .days-badge.medium { color: var(--orange); } .days-badge.fresh { color: var(--muted); }
+  .section-divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+  .customer-header { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; }
+  .customer-name { font-size: 14px; font-weight: 700; }
+  .customer-tenant { font-size: 11px; color: var(--muted); }
+  .gong-section { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 24px; }
+  .gong-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .gong-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+  .gong-title { font-size: 13px; font-weight: 600; }
+  .gong-link { font-size: 12px; color: var(--accent); text-decoration: none; margin-left: auto; }
+  .action-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-top: 1px solid var(--border); font-size: 13px; line-height: 1.5; }
+  .action-item:first-of-type { border-top: none; }
+  .owner-tag { font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; white-space: nowrap; }
+  .owner-tag.us { background: rgba(248,113,113,0.15); color: var(--red); }
+  .owner-tag.customer { background: rgba(52,211,153,0.15); color: var(--green); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="avatar">MK</div>
+  <div class="header-info">
+    <h1>Mohan Kumar N</h1>
+    <div class="date">Thursday, 11 June 2026 · Daily Brief</div>
+  </div>
+</div>
+
+<div class="opener-box">
+  <strong>Opener:</strong> Good afternoon — ahead of our calls today, I wanted to flag we have 4 open P1s across Space42 and Bounteous that need same-day updates from engineering.
+</div>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="label">Total Open</div><div class="value accent">13</div></div>
+  <div class="stat-card"><div class="label">On Us</div><div class="value red">11</div></div>
+  <div class="stat-card"><div class="label">On Customer</div><div class="value green">2</div></div>
+  <div class="stat-card"><div class="label">Oldest Ticket</div><div class="value orange">120d</div></div>
+</div>
+
+<div class="risk-box">
+  <span class="risk-label">⚠ Biggest Risk</span>
+  <span>00055822 — Articulate case open 120 days with no resolution; risk of account health impact before tonight's call</span>
+</div>
+
+<div class="section-title">Today's Calls</div>
+<div class="calls-row">
+  <div class="call-chip"><span class="time">2:30 PM IST</span> Space42 <span style="color:var(--muted);font-size:11px;">(Tenant 67182)</span></div>
+  <div class="call-chip"><span class="time">5:30 PM IST</span> Bounteous <span style="color:var(--muted);font-size:11px;">(Tenant 66875)</span></div>
+  <div class="call-chip"><span class="time">6:30 PM IST</span> Articulate <span style="color:var(--muted);font-size:11px;">(Tenant 67090)</span></div>
+  <div class="call-chip"><span class="time">9:30 PM IST</span> National University <span style="color:var(--muted);font-size:11px;">(Tenant 67538)</span></div>
+</div>
+
+<hr class="section-divider">
+
+<!-- SPACE42 -->
+<div class="customer-header">
+  <span class="customer-name">Space42</span>
+  <span class="customer-tenant">Tenant 67182 · 3 cases, 3 on-us, oldest 8d</span>
+</div>
+
+<div class="section-title">Waiting on Us</div>
+<div class="cases-grid">
+  <div class="case-card on-us">
+    <div><span class="priority-badge p2">P2</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000zlYG3YAM/view" target="_blank">Issue related to element verification <span style="font-size:11px;color:var(--muted)">#00061074</span></a></div>
+      <div class="case-meta"><span>Mark Angelo Casuco</span><span>Status: Open</span></div>
+      <div class="case-last">Appium error thrown instead of expected validation result when verifying element absence.</div>
+    </div>
+    <div><span class="days-badge fresh">7d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p1">P1</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000zhMtUYAU/view" target="_blank">On Prem - Local Device Opens Default URL Until Browser Refresh <span style="font-size:11px;color:var(--muted)">#00061021</span></a></div>
+      <div class="case-meta"><span>Enterprise Support</span><span>Status: Pending on Dev</span></div>
+      <div class="case-last">Browser opens default URL during on-prem execution instead of configured environment URL, only loads after manual refresh.</div>
+    </div>
+    <div><span class="days-badge medium">8d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p1">P1</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000ziYhHYAU/view" target="_blank">On Prem - Headless Mode Configuration at Test Plan Level <span style="font-size:11px;color:var(--muted)">#00061039</span></a></div>
+      <div class="case-meta"><span>Expert Services</span><span>Status: Pending on Dev</span></div>
+      <div class="case-last">Customer needs headless mode configured at test plan level to avoid adding add-on steps to each test case individually.</div>
+    </div>
+    <div><span class="days-badge medium">8d</span></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- BOUNTEOUS -->
+<div class="customer-header">
+  <span class="customer-name">Bounteous</span>
+  <span class="customer-tenant">Tenant 66875 · 6 cases, 4 on-us, 2 on-customer, oldest 43d</span>
+</div>
+
+<div class="section-title">Gong — Bounteous Action Items</div>
+<div class="gong-section">
+  <div class="gong-header">
+    <div class="gong-dot"></div>
+    <span class="gong-title">Bounteous · Call 27 May 2026</span>
+    <a class="gong-link" href="https://app.gong.io/call?id=3457362088111759396" target="_blank">View in Gong ↗</a>
+  </div>
+  <div class="action-item">
+    <span class="owner-tag us">US</span>
+    <span>Investigate iOS bundle ID mismatch causing app launch failures in test plan execution</span>
+  </div>
+  <div class="action-item">
+    <span class="owner-tag customer">CUSTOMER</span>
+    <span>Abishek to create an isolated test plan for pickup element detection issue and share link via email</span>
+  </div>
+  <div class="action-item">
+    <span class="owner-tag customer">CUSTOMER</span>
+    <span>Hepsibah to confirm with Prabhavati whether Android-only execution is sufficient or if iOS extra cost is approved</span>
+  </div>
+</div>
+
+<div class="section-title">Waiting on Us</div>
+<div class="cases-grid">
+  <div class="case-card on-us">
+    <div><span class="priority-badge p1">P1</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000zwC7XYAU/view" target="_blank">Unable to Execute iOS App Tests – Error Encountered <span style="font-size:11px;color:var(--muted)">#00061163</span></a></div>
+      <div class="case-meta"><span>Abishek Raj</span><span>Status: Waiting on L2</span></div>
+      <div class="case-last">iOS test execution failing with error; impacting ongoing execution activities.</div>
+    </div>
+    <div><span class="days-badge fresh">3d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p3">P3</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00001033SIYAY/view" target="_blank">Query on Unified Mobile App – Import Existing Test Cases <span style="font-size:11px;color:var(--muted)">#00061253</span></a></div>
+      <div class="case-meta"><span>Abishek Raj</span><span>Status: Pending Internal</span></div>
+      <div class="case-last">Customer asking how import works in Unified Mobile App framework and if early access is available.</div>
+    </div>
+    <div><span class="days-badge fresh">1d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p3">P3</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000y95ynYAA/view" target="_blank">Network Logs - Parallel Threads Not in sync <span style="font-size:11px;color:var(--muted)">#00059910</span></a></div>
+      <div class="case-meta"><span>Abishek Raj</span><span>Status: Open</span></div>
+      <div class="case-last">Network logs show mismatch between parallel count and actual executions.</div>
+    </div>
+    <div><span class="days-badge old">43d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p2">P2</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000zndLGYAY/view" target="_blank">TDP not visible in Screen <span style="font-size:11px;color:var(--muted)">#00061104</span></a></div>
+      <div class="case-meta"><span>Abishek Raj</span><span>Status: Open</span></div>
+      <div class="case-last">Test Data Profile not visible in its section after version clone, though present in list view.</div>
+    </div>
+    <div><span class="days-badge fresh">6d</span></div>
+  </div>
+</div>
+
+<div class="section-title" style="margin-top:16px;">Waiting on Customer</div>
+<div class="cases-grid">
+  <div class="case-card on-customer">
+    <div><span class="priority-badge p3">P3</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00001031gbYAA/view" target="_blank">Request to Schedule a Discussion Call <span style="font-size:11px;color:var(--muted)">#00061252</span></a></div>
+      <div class="case-meta"><span>Abishek Raj</span><span>Status: Waiting for Customer</span></div>
+      <div class="case-last">Awaiting customer confirmation on available time slots for discussion.</div>
+    </div>
+    <div><span class="days-badge fresh">1d</span></div>
+  </div>
+  <div class="case-card on-customer">
+    <div><span class="priority-badge p2">P2</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000y9GT1YAM/view" target="_blank">IOS App - Error communicating with the remote browser <span style="font-size:11px;color:var(--muted)">#00059927</span></a></div>
+      <div class="case-meta"><span>Abishek Raj</span><span>Status: Waiting for Customer</span></div>
+      <div class="case-last">Awaiting customer response after troubleshooting steps provided.</div>
+    </div>
+    <div><span class="days-badge old">43d</span></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ARTICULATE -->
+<div class="customer-header">
+  <span class="customer-name">Articulate</span>
+  <span class="customer-tenant">Tenant 67090 · 1 case, 1 on-us, oldest 120d</span>
+</div>
+
+<div class="section-title">Waiting on Us</div>
+<div class="cases-grid">
+  <div class="case-card on-us">
+    <div><span class="priority-badge p3">P3</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000vDPXyYAO/view" target="_blank">Need assistance in Salesforce test case creation <span style="font-size:11px;color:var(--muted)">#00055822</span></a></div>
+      <div class="case-meta"><span>Archie Titov</span><span>Status: Open</span></div>
+      <div class="case-last">Customer needs help creating test cases for Salesforce testing in Testsigma.</div>
+    </div>
+    <div><span class="days-badge old">120d</span></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- NATIONAL UNIVERSITY -->
+<div class="customer-header">
+  <span class="customer-name">National University</span>
+  <span class="customer-tenant">Tenant 67538 · 3 cases, 3 on-us, oldest 70d</span>
+</div>
+
+<div class="section-title">Waiting on Us</div>
+<div class="cases-grid">
+  <div class="case-card on-us">
+    <div><span class="priority-badge p2">P2</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000zNra2YAC/view" target="_blank">Error executing web test plan with Salesforce project test suite <span style="font-size:11px;color:var(--muted)">#00060850</span></a></div>
+      <div class="case-meta"><span>Pranjal Saxena</span><span>Status: Open</span></div>
+      <div class="case-last">Execution fails when a test suite from Salesforce project is included in a web test plan.</div>
+    </div>
+    <div><span class="days-badge medium">13d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p2">P2</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000yfHQXYA2/view" target="_blank">Irrelevant test cases generated through prompt for smaller stories <span style="font-size:11px;color:var(--muted)">#00060344</span></a></div>
+      <div class="case-meta"><span>Neha Sharma</span><span>Status: Open</span></div>
+      <div class="case-last">AI test case generation produces irrelevant cases for small stories; customer requests advanced prompting features.</div>
+    </div>
+    <div><span class="days-badge medium">30d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p2">P2</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000x54lwYAA/view" target="_blank">Automation Type value appearing as Automated by default <span style="font-size:11px;color:var(--muted)">#00058853</span></a></div>
+      <div class="case-meta"><span>Pranjal Saxena</span><span>Status: Open</span></div>
+      <div class="case-last">Newly generated ATTO test cases show as Automated instead of Not Automated, causing dashboard count mismatch.</div>
+    </div>
+    <div><span class="days-badge old">70d</span></div>
+  </div>
+</div>
+
+</body>
+</html>
