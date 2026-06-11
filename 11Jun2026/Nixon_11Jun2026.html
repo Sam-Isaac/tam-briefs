@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nixon Nicholas — Daily Brief · 11 Jun 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #22263a; --border: #2e3347;
+    --accent: #6c8ef5; --accent2: #a78bfa; --green: #34d399; --yellow: #fbbf24;
+    --red: #f87171; --orange: #fb923c; --text: #e2e8f0; --muted: #8892a4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 24px; }
+  .header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #6c8ef5, #34d399); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; flex-shrink: 0; }
+  .header-info h1 { font-size: 22px; font-weight: 700; }
+  .header-info .date { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .opener-box { background: linear-gradient(135deg, rgba(108,142,245,0.12), rgba(167,139,250,0.08)); border: 1px solid rgba(108,142,245,0.3); border-radius: 10px; padding: 14px 18px; margin-bottom: 24px; font-size: 14px; line-height: 1.6; }
+  .opener-box strong { color: var(--accent); }
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .stat-card .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .stat-card .value { font-size: 26px; font-weight: 700; color: var(--muted); }
+  .risk-box { background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.25); border-radius: 10px; padding: 12px 16px; margin-bottom: 24px; font-size: 13px; display: flex; align-items: flex-start; gap: 10px; }
+  .risk-box .risk-label { color: var(--yellow); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; padding-top: 1px; }
+  .section-title { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+  .calls-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+  .call-chip { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 14px; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+  .call-chip .time { color: var(--accent); font-weight: 600; }
+  .section-divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+  .gong-section { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 24px; }
+  .gong-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .gong-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+  .gong-title { font-size: 13px; font-weight: 600; }
+  .gong-meta { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+  .gong-link { font-size: 12px; color: var(--accent); text-decoration: none; }
+  .action-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-top: 1px solid var(--border); font-size: 13px; line-height: 1.5; }
+  .action-item:first-of-type { border-top: none; padding-top: 6px; }
+  .owner-tag { font-size: 10px; font-weight: 700; padding: 3px 7px; border-radius: 3px; white-space: nowrap; margin-top: 1px; }
+  .owner-tag.us { background: rgba(248,113,113,0.15); color: var(--red); }
+  .owner-tag.customer { background: rgba(52,211,153,0.15); color: var(--green); }
+  .action-text { flex: 1; }
+  .no-cases-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; text-align: center; }
+  .no-cases-panel p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .legend { display: flex; gap: 16px; margin-bottom: 16px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+  .legend-dot { width: 8px; height: 8px; border-radius: 2px; }
+  .legend-dot.us { background: var(--red); }
+  .legend-dot.customer { background: var(--green); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="avatar">NN</div>
+  <div class="header-info">
+    <h1>Nixon Nicholas</h1>
+    <div class="date">Thursday, 11 June 2026 · Daily Brief</div>
+  </div>
+</div>
+
+<div class="opener-box">
+  <strong>Opener:</strong> Before today's POC working session, let me check the action items from our June 5th call to make sure everything is ready.
+</div>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="label">Total Open</div><div class="value">0</div></div>
+  <div class="stat-card"><div class="label">On Us</div><div class="value">0</div></div>
+  <div class="stat-card"><div class="label">On Customer</div><div class="value">0</div></div>
+  <div class="stat-card"><div class="label">Oldest Ticket</div><div class="value">—</div></div>
+</div>
+
+<div class="risk-box">
+  <span class="risk-label">⚠ Watch</span>
+  <span>MoEngage POC in active progress — ensure POC deliverables from June 5 Gong call are completed before today's session</span>
+</div>
+
+<div class="section-title">Today's Calls</div>
+<div class="calls-row">
+  <div class="call-chip"><span class="time">12:30 PM IST</span> MoEngage <span style="color:var(--muted);font-size:11px;">POC Working Session</span></div>
+</div>
+
+<hr class="section-divider">
+
+<div class="section-title">MoEngage — Open Cases</div>
+<div class="no-cases-panel">
+  <p>No open support cases for MoEngage. POC is in active progress — focus on action items from the June 5th Gong call.</p>
+</div>
+
+<hr class="section-divider">
+
+<div class="section-title">Gong — MoEngage Action Items</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot us"></div> On Us (Testsigma)</div>
+  <div class="legend-item"><div class="legend-dot customer"></div> On Customer (MoEngage)</div>
+</div>
+
+<div class="gong-section">
+  <div class="gong-header">
+    <div class="gong-dot"></div>
+    <span class="gong-title">Testsigma x MoEngage — POC Connect</span>
+  </div>
+  <div class="gong-meta">
+    Call date: 5 June 2026 &nbsp;·&nbsp;
+    <a class="gong-link" href="https://app.gong.io/call?id=1738115028906512259" target="_blank">View in Gong ↗</a>
+  </div>
+
+  <div class="action-item">
+    <span class="owner-tag us">US</span>
+    <span class="action-text">Investigate and fix drag-and-drop iframe issue in MoEngage test case (Test Case 6) — determine if nested iframes are causing drag-and-drop failure and update the test case with the correct iframe switching steps</span>
+  </div>
+
+  <div class="action-item">
+    <span class="owner-tag us">US</span>
+    <span class="action-text">Nixon to share a demo test case showing dynamic table traversal using while loops and store-count NLP, so MoEngage team can navigate tables by description and perform row-level actions</span>
+  </div>
+
+  <div class="action-item">
+    <span class="owner-tag us">US</span>
+    <span class="action-text">Harsha / Testsigma team to investigate recorder performance lag — system slows/hangs during Copilot recording sessions on MoEngage UI; confirm if issue is on Testsigma side and provide fix or workaround</span>
+  </div>
+
+  <div class="action-item">
+    <span class="owner-tag customer">CUSTOMER</span>
+    <span class="action-text">Ramakrishna (MoEngage) to raise IT/OPS ticket to uninstall and reinstall Testsigma Terminal and Agent so that Chrome is detected correctly in Copilot instead of defaulting to Edge</span>
+  </div>
+
+  <div class="action-item">
+    <span class="owner-tag customer">CUSTOMER</span>
+    <span class="action-text">Bhuvan to set up a session with Kuldeep (Testsigma) to explore JavaScript-bypass approach for faster execution in Flows, as an alternative to AI-driven NLP steps which are currently slow</span>
+  </div>
+
+  <div class="action-item">
+    <span class="owner-tag customer">CUSTOMER</span>
+    <span class="action-text">Sreesatya to record and share failing dropdown and click action scenarios with Bhuvan so element selectors can be reviewed and updated to improve test reliability in the POC</span>
+  </div>
+</div>
+
+</body>
+</html>
