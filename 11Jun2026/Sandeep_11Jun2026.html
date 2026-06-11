@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandeep Sai K — Daily Brief · 11 Jun 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #22263a; --border: #2e3347;
+    --accent: #6c8ef5; --accent2: #a78bfa; --green: #34d399; --yellow: #fbbf24;
+    --red: #f87171; --orange: #fb923c; --text: #e2e8f0; --muted: #8892a4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 24px; }
+  .header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #fbbf24, #fb923c); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; flex-shrink: 0; }
+  .header-info h1 { font-size: 22px; font-weight: 700; }
+  .header-info .date { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .opener-box { background: linear-gradient(135deg, rgba(52,211,153,0.1), rgba(251,191,36,0.07)); border: 1px solid rgba(52,211,153,0.3); border-radius: 10px; padding: 14px 18px; margin-bottom: 24px; font-size: 14px; line-height: 1.6; }
+  .opener-box strong { color: var(--green); }
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .stat-card .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .stat-card .value { font-size: 26px; font-weight: 700; color: var(--muted); }
+  .stat-card .value.green { color: var(--green); }
+  .risk-box { background: rgba(52,211,153,0.07); border: 1px solid rgba(52,211,153,0.25); border-radius: 10px; padding: 12px 16px; margin-bottom: 24px; font-size: 13px; display: flex; align-items: flex-start; gap: 10px; }
+  .risk-box .risk-label { color: var(--green); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; padding-top: 1px; }
+  .section-title { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+  .calls-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+  .call-chip { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 14px; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+  .call-chip .time { color: var(--accent); font-weight: 600; }
+  .proactive-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; text-align: center; }
+  .proactive-panel .icon { font-size: 28px; margin-bottom: 10px; }
+  .proactive-panel p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .proactive-panel strong { color: var(--green); }
+  .customer-header { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin: 16px 0 10px; display: flex; align-items: center; justify-content: space-between; }
+  .customer-name { font-size: 14px; font-weight: 700; }
+  .customer-tenant { font-size: 11px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="avatar">SK</div>
+  <div class="header-info">
+    <h1>Sandeep Sai K</h1>
+    <div class="date">Thursday, 11 June 2026 · Daily Brief</div>
+  </div>
+</div>
+
+<div class="opener-box">
+  <strong>Opener:</strong> Good news — no open cases for either DHL or Carbmee today; use these calls to explore expansion opportunities and proactively identify new requirements.
+</div>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="label">Total Open</div><div class="value">0</div></div>
+  <div class="stat-card"><div class="label">On Us</div><div class="value">0</div></div>
+  <div class="stat-card"><div class="label">On Customer</div><div class="value">0</div></div>
+  <div class="stat-card"><div class="label">Oldest Ticket</div><div class="value">—</div></div>
+</div>
+
+<div class="risk-box">
+  <span class="risk-label">✓ Status</span>
+  <span>DHL and Carbmee have no open cases — today's calls are proactive; use time to surface blockers and expansion opportunities</span>
+</div>
+
+<div class="section-title">Today's Calls</div>
+<div class="calls-row">
+  <div class="call-chip"><span class="time">2:30 PM IST</span> Carbmee</div>
+  <div class="call-chip"><span class="time">3:00 PM IST</span> DHL Chennai <span style="color:var(--muted);font-size:11px;">(Tenant 66388)</span></div>
+</div>
+
+<div class="customer-header">
+  <span class="customer-name">DHL Chennai</span>
+  <span class="customer-tenant">Tenant 66388 · 0 open cases (all recently closed)</span>
+</div>
+<div class="proactive-panel">
+  <div class="icon">✅</div>
+  <p>All cases recently closed. <strong>Proactive call</strong> — focus on upcoming deliverables and expansion.</p>
+</div>
+
+<div class="customer-header">
+  <span class="customer-name">Carbmee</span>
+  <span class="customer-tenant">0 open cases</span>
+</div>
+<div class="proactive-panel">
+  <div class="icon">✅</div>
+  <p>No open cases. <strong>Proactive call</strong> — surface new requirements and identify growth opportunities.</p>
+</div>
+
+</body>
+</html>
