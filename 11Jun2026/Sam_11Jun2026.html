@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sam Isaac — Daily Brief · 11 Jun 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg:#0f1117;--surface:#1a1d27;--surface2:#22263a;--border:#2e3250;
+    --text:#e8eaf6;--muted:#8b90b8;--accent:#6c63ff;--accent2:#4fc3f7;
+    --p1:#ff5252;--p2:#ffb300;--p3:#69f0ae;--p4:#90a4ae;
+    --on-us:#ff7043;--on-cust:#42a5f5;
+    --radius:10px;--shadow:0 4px 24px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:24px}
+  a{color:var(--accent2);text-decoration:none}a:hover{text-decoration:underline}
+  .page-header{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+  .avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#6c63ff,#4fc3f7);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;flex-shrink:0}
+  .page-header h1{font-size:22px;font-weight:700}
+  .page-header .sub{color:var(--muted);font-size:13px;margin-top:3px}
+  .stats-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
+  .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 20px;flex:1;min-width:130px}
+  .stat-card .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px}
+  .stat-card .value{font-size:26px;font-weight:700}
+  .stat-card .value.red{color:var(--p1)}
+  .stat-card .value.amber{color:var(--p2)}
+  .stat-card .value.green{color:var(--p3)}
+  .stat-card .value.blue{color:var(--accent2)}
+  .section-title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:12px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:16px;box-shadow:var(--shadow)}
+  .card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+  .card-header h2{font-size:16px;font-weight:600}
+  .badge{display:inline-flex;align-items:center;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.3px}
+  .badge.p1{background:rgba(255,82,82,.15);color:var(--p1);border:1px solid rgba(255,82,82,.3)}
+  .badge.p2{background:rgba(255,179,0,.15);color:var(--p2);border:1px solid rgba(255,179,0,.3)}
+  .badge.p3{background:rgba(105,240,174,.15);color:var(--p3);border:1px solid rgba(105,240,174,.3)}
+  .badge.p4{background:rgba(144,164,174,.15);color:var(--p4);border:1px solid rgba(144,164,174,.3)}
+  .badge.on-us{background:rgba(255,112,67,.15);color:var(--on-us);border:1px solid rgba(255,112,67,.3)}
+  .badge.on-cust{background:rgba(66,165,245,.15);color:var(--on-cust);border:1px solid rgba(66,165,245,.3)}
+  .badge.status{background:var(--surface2);color:var(--muted);border:1px solid var(--border)}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+  .days{font-size:12px;color:var(--muted)}
+  .days.old{color:var(--p2)}
+  .days.very-old{color:var(--p1)}
+  .last-response{font-size:13px;color:var(--muted);line-height:1.55;border-left:3px solid var(--border);padding-left:10px;margin-top:8px}
+  .sf-link{font-size:12px}
+  .calls-list{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+  .call-item{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:12px}
+  .call-time{font-size:13px;font-weight:600;color:var(--accent2);min-width:90px}
+  .call-customer{font-size:14px;font-weight:600}
+  .call-tenant{font-size:12px;color:var(--muted)}
+  .risk-box{background:rgba(255,82,82,.08);border:1px solid rgba(255,82,82,.25);border-radius:8px;padding:14px;margin-bottom:24px}
+  .risk-box .risk-label{font-size:11px;font-weight:600;text-transform:uppercase;color:var(--p1);letter-spacing:.6px;margin-bottom:6px}
+  .risk-box p{font-size:13px;line-height:1.55}
+  .opener-box{background:rgba(108,99,255,.08);border:1px solid rgba(108,99,255,.3);border-radius:8px;padding:14px;margin-bottom:24px}
+  .opener-box .opener-label{font-size:11px;font-weight:600;text-transform:uppercase;color:var(--accent);letter-spacing:.6px;margin-bottom:6px}
+  .opener-box p{font-size:13px;line-height:1.55;font-style:italic}
+  .gong-section{margin-bottom:24px}
+  .action-item{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
+  .action-item .owner-badge{flex-shrink:0;margin-top:2px}
+  .action-item p{font-size:13px;line-height:1.5}
+  .divider{height:1px;background:var(--border);margin:20px 0}
+  .customer-block{margin-bottom:32px}
+  .customer-title{font-size:18px;font-weight:700;margin-bottom:4px}
+  .customer-meta{font-size:12px;color:var(--muted);margin-bottom:16px}
+  .no-cases{color:var(--muted);font-size:13px;font-style:italic;padding:12px 0}
+  .empty-state{text-align:center;padding:48px 24px;color:var(--muted)}
+  .empty-state h3{font-size:16px;margin-bottom:8px;color:var(--text)}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="avatar">SI</div>
+  <div>
+    <h1>Sam Isaac</h1>
+    <div class="sub">Daily Brief &mdash; Thursday, 11 June 2026</div>
+  </div>
+</div>
+
+<div class="calls-list">
+  <div class="section-title">Today's Calls</div>
+  <div class="call-item">
+    <span class="call-time">7:30 PM IST</span>
+    <div>
+      <div class="call-customer">StateFarm</div>
+      <div class="call-tenant">Tenant 67514</div>
+    </div>
+  </div>
+</div>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="label">Total Open</div><div class="value amber">10</div></div>
+  <div class="stat-card"><div class="label">On Us</div><div class="value red">9</div></div>
+  <div class="stat-card"><div class="label">On Customer</div><div class="value blue">1</div></div>
+  <div class="stat-card"><div class="label">Oldest (days)</div><div class="value red">114</div></div>
+</div>
+
+<div class="opener-box">
+  <div class="opener-label">Suggested Opener</div>
+  <p>Before we kick off Training #4 today, I want to flag that we have 9 open items with your team — the RBAC feature ask from Kirsten is now 114 days old and needs a product update from our side.</p>
+</div>
+
+<div class="risk-box">
+  <div class="risk-label">Biggest Risk</div>
+  <p>00056238 — RBAC feature requests open 114 days with no product update shared to Kirsten</p>
+</div>
+
+<!-- STATEFARM CASES -->
+<div class="customer-block">
+  <div class="customer-title">StateFarm</div>
+  <div class="customer-meta">Tenant 67514 &bull; 10 cases total &bull; 9 on-us &bull; 1 on-customer &bull; oldest 114d</div>
+
+  <div class="section-title">Waiting on Us (9)</div>
+
+  <!-- Case 00061279 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Error message Describe message:</h2>
+      <span class="badge p1">P1</span>
+    </div>
+    <div class="meta-row">
+      <span class="badge on-us">On Us</span>
+      <span class="badge status">Pending</span>
+      <span class="days">1d old</span>
+      <span class="sf-link"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX0000104BsSYAU/view" target="_blank">SF #00061279</a></span>
+    </div>
+    <div class="last-response">CEATS Training Environment - Authentication screen appears instead of segment tier page loading during claim navigation.</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)">Reporter: Salverio Ocoko</div>
+  </div>
+
+  <!-- Case 00056703 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Request for Authorization of Support Access</h2>
+      <span class="badge p1">P1</span>
+    </div>
+    <div class="meta-row">
+      <span class="badge on-us">On Us</span>
+      <span class="badge status">Open</span>
+      <span class="days very-old">107d old</span>
+      <span class="sf-link"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000vkpzyYAA/view" target="_blank">SF #00056703</a></span>
+    </div>
+    <div class="last-response">Kirsten Feldker raised concerns about unauthorized support access request; Sreejith clarified no access was granted and the request is closed.</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)">Reporter: Kirsten Feldker</div>
+  </div>
+
+  <!-- Case 00056238 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Testsigma - RBAC Related Feature Asks</h2>
+      <span class="badge p2">P2</span>
+    </div>
+    <div class="meta-row">
+      <span class="badge on-us">On Us</span>
+      <span class="badge status">Open</span>
+      <span class="days very-old">114d old</span>
+      <span class="sf-link"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000vSvFbYAK/view" target="_blank">SF #00056238</a></span>
+    </div>
+    <div class="last-response">Kirsten shared detailed RBAC requirements including Read-Only role, Local Agents control, log access, and log retention configuration.</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)">Reporter: Kirsten Feldker</div>
+  </div>
+
+  <!-- Case 00060837 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>RE: FW: Support Request - Iframe Issue</h2>
+      <span class="badge p1">P1</span>
+    </div>
+    <div class="meta-row">
+      <span class="badge on-us">On Us</span>
+      <span class="badge status">Open</span>
+      <span class="days old">14d old</span>
+      <span class="sf-link"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000zMHf1YAG/view" target="_blank">SF #00060837</a></span>
+    </div>
+    <div class="last-response">Mani followed reinstall steps but iframe issue recurred; asked Testsigma to set up a meeting to resolve.</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)">Reporter: Mani Elumalai</div>
+  </div>
+
+  <!-- Case 00060527 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>API Keys and assumed privileges</h2>
+      <span class="badge p3">P3</span>
+    </div>
+    <div class="meta-row">
+      <span class="badge on-us">On Us</span>
+      <span class="badge status">Open</span>
+      <span class="days">24d old</span>
+      <span class="sf-link"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000yvKynYAE/view" target="_blank">SF #00060527</a></span>
+    </div>
+    <div class="last-response">Customer asking what privileges API keys grant to non-admin users.</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)">Reporter: Kirsten Feldker</div>
+  </div>
+
+  <!-- Case 00060524 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Query on Add-on Update</h2>
+      <span class="badge p3">P3</span>
+    </div>
+    <div class="meta-row">
+      <span class="badge on-us">On Us</span>
+      <span class="badge status">Open</span>
+      <span class="days">24d old</span>
+      <span class="sf-link"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000yvCv2YAE/view" target="_blank">SF #00060524</a></span>
+    </div>
+    <div class="last-response">Query on how to update an existing add-on in Testsigma.</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)">Reporter: Kirsten Feldker</div>
+  </div>
+
+  <!-- Case 00060420 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Schedule Test Plan on Weekdays</h2>
+      <span class="badge p3">P3</span>
+    </div>
+    <div class="meta-row">
+      <span class="badge on-us">On Us</span>
+      <span class="badge status">Open</span>
+      <span class="days">28d old</span>
+      <span class="sf-link"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000ykO6hYAE/view" target="_blank">SF #00060420</a></span>
+    </div>
+    <div class="last-response">Customer asked if test plans can be scheduled for weekdays only, currently only sees weekly schedule option.</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)">Reporter: Mani Elumalai</div>
+  </div>
+
+  <!-- Case 00060528 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Unit of Measure on the Dashboard</h2>
+      <span class="badge p3">P3</span>
+    </div>
+    <div class="meta-row">
+      <span class="badge on-us">On Us</span>
+      <span class="badge status">Open</span>
+      <span class="days">24d old</span>
+      <span class="sf-link"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000yvQw5YAE/view" target="_blank">SF #00060528</a></span>
+    </div>
+    <div class="last-response">Dashboard execution duration trend missing unit labels (secs/days/time).</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)">Reporter: Kirsten Feldker</div>
+  </div>
+
+  <!-- Case 00060526 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>API calls for Audit Logs</h2>
+      <span class="badge p3">P3</span>
+    </div>
+    <div class="meta-row">
+      <span class="badge on-us">On Us</span>
+      <span class="badge status">Open</span>
+      <span class="days">24d old</span>
+      <span class="sf-link"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000yvOESYA2/view" target="_blank">SF #00060526</a></span>
+    </div>
+    <div class="last-response">Customer wants API-enabled audit logs for automated retention per company policies.</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)">Reporter: Kirsten Feldker</div>
+  </div>
+
+  <div class="section-title" style="margin-top:20px">Waiting on Customer (1)</div>
+
+  <!-- Case 00061159 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Test execution getting failed for all test cases</h2>
+      <span class="badge p1">P1</span>
+    </div>
+    <div class="meta-row">
+      <span class="badge on-cust">On Customer</span>
+      <span class="badge status">Waiting for Customer</span>
+      <span class="days">3d old</span>
+      <span class="sf-link"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000zwK4zYAE/view" target="_blank">SF #00061159</a></span>
+    </div>
+    <div class="last-response">Test cases that worked previously are now failing on cloud portal; awaiting customer confirmation after fix.</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)">Reporter: Mani Elumalai</div>
+  </div>
+
+</div><!-- /customer-block -->
+
+<div class="gong-section">
+  <div class="section-title">Gong — Recent Call Action Items</div>
+  <div class="no-cases">No pending customer action items (most recent Gong call was internal prep only).</div>
+</div>
+
+</body>
+</html>
