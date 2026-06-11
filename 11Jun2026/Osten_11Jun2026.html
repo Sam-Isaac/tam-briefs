@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Osten Diniz — Daily Brief · 11 Jun 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #22263a; --border: #2e3347;
+    --accent: #6c8ef5; --accent2: #a78bfa; --green: #34d399; --yellow: #fbbf24;
+    --red: #f87171; --orange: #fb923c; --text: #e2e8f0; --muted: #8892a4;
+    --p1: #f87171; --p2: #fb923c; --p3: #fbbf24;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 24px; }
+  .header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #fb923c, #f87171); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; flex-shrink: 0; }
+  .header-info h1 { font-size: 22px; font-weight: 700; }
+  .header-info .date { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .opener-box { background: linear-gradient(135deg, rgba(108,142,245,0.12), rgba(167,139,250,0.08)); border: 1px solid rgba(108,142,245,0.3); border-radius: 10px; padding: 14px 18px; margin-bottom: 24px; font-size: 14px; line-height: 1.6; }
+  .opener-box strong { color: var(--accent); }
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .stat-card .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .stat-card .value { font-size: 26px; font-weight: 700; }
+  .stat-card .value.red { color: var(--red); } .stat-card .value.orange { color: var(--orange); }
+  .stat-card .value.green { color: var(--green); } .stat-card .value.accent { color: var(--accent); }
+  .risk-box { background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.25); border-radius: 10px; padding: 12px 16px; margin-bottom: 24px; font-size: 13px; display: flex; align-items: flex-start; gap: 10px; }
+  .risk-box .risk-label { color: var(--red); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; padding-top: 1px; }
+  .section-title { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+  .calls-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+  .call-chip { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 14px; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+  .call-chip .time { color: var(--accent); font-weight: 600; }
+  .cases-grid { display: flex; flex-direction: column; gap: 10px; }
+  .case-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: start; }
+  .case-card.on-customer { border-left: 3px solid var(--green); }
+  .case-card.on-us { border-left: 3px solid var(--red); }
+  .priority-badge { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .priority-badge.p1 { background: rgba(248,113,113,0.18); color: var(--p1); }
+  .priority-badge.p2 { background: rgba(251,146,60,0.18); color: var(--p2); }
+  .priority-badge.p3 { background: rgba(251,191,36,0.18); color: var(--p3); }
+  .case-subject { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .case-subject a { color: var(--text); text-decoration: none; }
+  .case-subject a:hover { color: var(--accent); }
+  .case-meta { font-size: 12px; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; }
+  .case-last { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+  .days-badge { font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .days-badge.old { color: var(--red); } .days-badge.medium { color: var(--orange); } .days-badge.fresh { color: var(--muted); }
+  .section-divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+  .customer-header { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; }
+  .customer-name { font-size: 14px; font-weight: 700; }
+  .customer-tenant { font-size: 11px; color: var(--muted); }
+  .shared-note { background: rgba(108,142,245,0.07); border: 1px solid rgba(108,142,245,0.2); border-radius: 8px; padding: 10px 14px; font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="avatar">OD</div>
+  <div class="header-info">
+    <h1>Osten Diniz</h1>
+    <div class="date">Thursday, 11 June 2026 · Daily Brief</div>
+  </div>
+</div>
+
+<div class="opener-box">
+  <strong>Opener:</strong> Before we start the AI + BYOK walkthrough today, I want to make sure we address the 3 open cases — one of which is 300 days old and unresolved.
+</div>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="label">Total Open</div><div class="value accent">13</div></div>
+  <div class="stat-card"><div class="label">On Us</div><div class="value red">12</div></div>
+  <div class="stat-card"><div class="label">On Customer</div><div class="value green">1</div></div>
+  <div class="stat-card"><div class="label">Oldest Ticket</div><div class="value red">300d</div></div>
+</div>
+
+<div class="risk-box">
+  <span class="risk-label">⚠ Biggest Risk</span>
+  <span>00049006 — Zurich case open 300 days with unresolved data-driven test failures; today's AI+BYOK walkthrough is at risk if trust erodes further</span>
+</div>
+
+<div class="section-title">Today's Calls</div>
+<div class="calls-row">
+  <div class="call-chip"><span class="time">2:00 PM IST</span> Zurich <span style="color:var(--muted);font-size:11px;">(Tenant 66250)</span></div>
+  <div class="call-chip"><span class="time">7:30 PM IST</span> StateFarm <span style="color:var(--muted);font-size:11px;">(Tenant 67514)</span></div>
+  <div class="call-chip"><span class="time">9:00 PM IST</span> PairPEO</div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ZURICH -->
+<div class="customer-header">
+  <span class="customer-name">Zurich</span>
+  <span class="customer-tenant">Tenant 66250 · 3 cases, 3 on-us, oldest 300d</span>
+</div>
+
+<div class="section-title">Waiting on Us</div>
+<div class="cases-grid">
+  <div class="case-card on-us">
+    <div><span class="priority-badge p2">P2</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000zu7oZYAQ/view" target="_blank">Custom Addons failing after Testsigma upgrade <span style="font-size:11px;color:var(--muted)">#00061136</span></a></div>
+      <div class="case-meta"><span>Nurin Hannah Hamdan</span><span>Status: Open</span></div>
+      <div class="case-last">Custom addon test cases failing after Testsigma upgrade; previously worked fine.</div>
+    </div>
+    <div><span class="days-badge fresh">3d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p2">P2</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000x1qqhYAA/view" target="_blank">Unable to check checkbox during test execution and in recorder <span style="font-size:11px;color:var(--muted)">#00058761</span></a></div>
+      <div class="case-meta"><span>Ayubkhan Patan</span><span>Status: Open</span></div>
+      <div class="case-last">Checkbox step shows Passed but actual action not performed; tap on coordinates also failed.</div>
+    </div>
+    <div><span class="days-badge old">71d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p1">P1</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000nTWy3YAG/view" target="_blank">Issues Found during TestSigma Run <span style="font-size:11px;color:var(--muted)">#00049006</span></a></div>
+      <div class="case-meta"><span>Nurin Hannah Hamdan</span><span>Status: Open</span></div>
+      <div class="case-last">Data-driven test inconsistencies and text 'contains' detection failures in parallel test executions; open since Aug 2025.</div>
+    </div>
+    <div><span class="days-badge old">300d</span></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- PAIRPEO -->
+<div class="customer-header">
+  <span class="customer-name">PairPEO</span>
+  <span class="customer-tenant">Call 9:00 PM IST · 0 open cases</span>
+</div>
+<div class="shared-note">No open cases for PairPEO — proactive call. Use time to surface blockers and identify expansion opportunities.</div>
+
+<hr class="section-divider">
+
+<!-- STATEFARM (shared) -->
+<div class="customer-header">
+  <span class="customer-name">StateFarm</span>
+  <span class="customer-tenant">Tenant 67514 · 10 cases, 9 on-us, 1 on-customer, oldest 114d · Shared with Sam Isaac &amp; Pritish Samal</span>
+</div>
+
+<div class="section-title">Waiting on Us (9 cases)</div>
+<div class="cases-grid">
+  <div class="case-card on-us">
+    <div><span class="priority-badge p1">P1</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX0000104BsSYAU/view" target="_blank">Error message Describe message: <span style="font-size:11px;color:var(--muted)">#00061279</span></a></div>
+      <div class="case-meta"><span>Salverio Ocoko</span><span>Pending</span></div>
+      <div class="case-last">CEATS Training Environment - Authentication screen appears instead of segment tier page loading.</div>
+    </div>
+    <div><span class="days-badge fresh">1d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p1">P1</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000vkpzyYAA/view" target="_blank">Request for Authorization of Support Access <span style="font-size:11px;color:var(--muted)">#00056703</span></a></div>
+      <div class="case-meta"><span>Kirsten Feldker</span><span>Open</span></div>
+      <div class="case-last">Unauthorized support access concern; request already closed per Sreejith.</div>
+    </div>
+    <div><span class="days-badge old">107d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p2">P2</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000vSvFbYAK/view" target="_blank">Testsigma - RBAC Related Feature Asks <span style="font-size:11px;color:var(--muted)">#00056238</span></a></div>
+      <div class="case-meta"><span>Kirsten Feldker</span><span>Open</span></div>
+      <div class="case-last">Detailed RBAC requirements: Read-Only role, Local Agents control, log access, log retention.</div>
+    </div>
+    <div><span class="days-badge old">114d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p1">P1</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000zMHf1YAG/view" target="_blank">RE: FW: Support Request - Iframe Issue <span style="font-size:11px;color:var(--muted)">#00060837</span></a></div>
+      <div class="case-meta"><span>Mani Elumalai</span><span>Open</span></div>
+      <div class="case-last">Mani followed reinstall steps but iframe issue recurred; needs meeting.</div>
+    </div>
+    <div><span class="days-badge medium">14d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p3">P3</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000yvKynYAE/view" target="_blank">API Keys and assumed privileges <span style="font-size:11px;color:var(--muted)">#00060527</span></a></div>
+      <div class="case-meta"><span>Kirsten Feldker</span><span>Open</span></div>
+      <div class="case-last">Customer asking what privileges API keys grant to non-admin users.</div>
+    </div>
+    <div><span class="days-badge medium">24d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p3">P3</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000yvCv2YAE/view" target="_blank">Query on Add-on Update <span style="font-size:11px;color:var(--muted)">#00060524</span></a></div>
+      <div class="case-meta"><span>Kirsten Feldker</span><span>Open</span></div>
+      <div class="case-last">Query on how to update an existing add-on in Testsigma.</div>
+    </div>
+    <div><span class="days-badge medium">24d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p3">P3</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000ykO6hYAE/view" target="_blank">Schedule Test Plan on Weekdays <span style="font-size:11px;color:var(--muted)">#00060420</span></a></div>
+      <div class="case-meta"><span>Mani Elumalai</span><span>Open</span></div>
+      <div class="case-last">Customer asked if test plans can be scheduled for weekdays only.</div>
+    </div>
+    <div><span class="days-badge medium">28d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p3">P3</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000yvQw5YAE/view" target="_blank">Unit of Measure on the Dashboard <span style="font-size:11px;color:var(--muted)">#00060528</span></a></div>
+      <div class="case-meta"><span>Kirsten Feldker</span><span>Open</span></div>
+      <div class="case-last">Dashboard execution duration trend missing unit labels.</div>
+    </div>
+    <div><span class="days-badge medium">24d</span></div>
+  </div>
+  <div class="case-card on-us">
+    <div><span class="priority-badge p3">P3</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000yvOESYA2/view" target="_blank">API calls for Audit Logs <span style="font-size:11px;color:var(--muted)">#00060526</span></a></div>
+      <div class="case-meta"><span>Kirsten Feldker</span><span>Open</span></div>
+      <div class="case-last">Customer wants API-enabled audit logs for automated retention.</div>
+    </div>
+    <div><span class="days-badge medium">24d</span></div>
+  </div>
+</div>
+
+<div class="section-title" style="margin-top:16px;">Waiting on Customer (1 case)</div>
+<div class="cases-grid">
+  <div class="case-card on-customer">
+    <div><span class="priority-badge p1">P1</span></div>
+    <div>
+      <div class="case-subject"><a href="https://testsigma.lightning.force.com/lightning/r/Case/500OX00000zwK4zYAE/view" target="_blank">Test execution getting failed for all test cases <span style="font-size:11px;color:var(--muted)">#00061159</span></a></div>
+      <div class="case-meta"><span>Mani Elumalai</span><span>Waiting for Customer</span></div>
+      <div class="case-last">Awaiting customer confirmation after fix applied.</div>
+    </div>
+    <div><span class="days-badge fresh">3d</span></div>
+  </div>
+</div>
+
+</body>
+</html>
