@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Overview — 11 Jun 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #22263a; --border: #2e3347;
+    --accent: #6c8ef5; --accent2: #a78bfa; --green: #34d399; --yellow: #fbbf24;
+    --red: #f87171; --orange: #fb923c; --text: #e2e8f0; --muted: #8892a4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 24px; }
+  .page-header { margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .page-header h1 { font-size: 26px; font-weight: 700; margin-bottom: 4px; }
+  .page-header .subtitle { color: var(--muted); font-size: 14px; }
+  .team-stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 32px; }
+  .team-stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .team-stat .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .team-stat .value { font-size: 24px; font-weight: 700; }
+  .team-stat .value.accent { color: var(--accent); }
+  .team-stat .value.red { color: var(--red); }
+  .team-stat .value.green { color: var(--green); }
+  .team-stat .value.orange { color: var(--orange); }
+  .section-title { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; }
+  .tam-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+  .tam-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-decoration: none; color: inherit; display: block; transition: border-color 0.15s; }
+  .tam-card:hover { border-color: var(--accent); }
+  .tam-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; flex-shrink: 0; }
+  .avatar.si { background: linear-gradient(135deg, #6c8ef5, #a78bfa); }
+  .avatar.mk { background: linear-gradient(135deg, #34d399, #6c8ef5); }
+  .avatar.ss { background: linear-gradient(135deg, #f472b6, #a78bfa); }
+  .avatar.od { background: linear-gradient(135deg, #fb923c, #f87171); }
+  .avatar.am { background: linear-gradient(135deg, #34d399, #fbbf24); }
+  .avatar.ps { background: linear-gradient(135deg, #a78bfa, #6c8ef5); }
+  .avatar.sk { background: linear-gradient(135deg, #fbbf24, #fb923c); }
+  .avatar.nn { background: linear-gradient(135deg, #6c8ef5, #34d399); }
+  .tam-name { font-size: 16px; font-weight: 700; }
+  .tam-role { font-size: 12px; color: var(--muted); margin-top: 1px; }
+  .mini-stats { display: flex; gap: 12px; margin-bottom: 14px; }
+  .mini-stat { background: var(--surface2); border-radius: 6px; padding: 6px 10px; flex: 1; text-align: center; }
+  .mini-stat .ms-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
+  .mini-stat .ms-value { font-size: 16px; font-weight: 700; }
+  .ms-value.red { color: var(--red); } .ms-value.green { color: var(--green); } .ms-value.muted { color: var(--muted); }
+  .calls-list { margin-bottom: 14px; }
+  .call-row { display: flex; align-items: center; gap: 8px; padding: 5px 0; border-top: 1px solid var(--border); font-size: 13px; }
+  .call-row:first-child { border-top: none; }
+  .call-time { color: var(--accent); font-weight: 600; font-size: 12px; width: 90px; flex-shrink: 0; }
+  .call-customer { font-weight: 500; }
+  .no-calls { color: var(--muted); font-size: 13px; font-style: italic; }
+  .risk-row { background: var(--surface2); border-radius: 6px; padding: 8px 10px; font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .risk-row .risk-label { color: var(--red); font-weight: 600; font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; display: block; margin-bottom: 2px; }
+  .risk-row.no-risk .risk-label { color: var(--yellow); }
+  .view-brief { display: inline-block; margin-top: 12px; font-size: 12px; color: var(--accent); text-decoration: none; }
+  .view-brief:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Team Overview</h1>
+  <div class="subtitle">Thursday, 11 June 2026 · 8 TAMs · Generated at session start</div>
+</div>
+
+<div class="team-stats">
+  <div class="team-stat"><div class="label">TAMs Active</div><div class="value accent">6</div></div>
+  <div class="team-stat"><div class="label">Customer Calls</div><div class="value accent">10</div></div>
+  <div class="team-stat"><div class="label">Total Open</div><div class="value accent">26</div></div>
+  <div class="team-stat"><div class="label">On Us</div><div class="value red">23</div></div>
+  <div class="team-stat"><div class="label">On Customer</div><div class="value green">3</div></div>
+  <div class="team-stat"><div class="label">Oldest Ticket</div><div class="value orange">300d</div></div>
+</div>
+
+<div class="section-title">TAM Briefs</div>
+
+<div class="tam-grid">
+
+  <!-- SAM ISAAC -->
+  <a class="tam-card" href="Sam_11Jun2026.html">
+    <div class="tam-card-header">
+      <div class="avatar si">SI</div>
+      <div>
+        <div class="tam-name">Sam Isaac</div>
+        <div class="tam-role">1 call today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="mini-stat"><div class="ms-label">Total</div><div class="ms-value">10</div></div>
+      <div class="mini-stat"><div class="ms-label">On Us</div><div class="ms-value red">9</div></div>
+      <div class="mini-stat"><div class="ms-label">On Cust</div><div class="ms-value green">1</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-row"><span class="call-time">7:30 PM IST</span><span class="call-customer">StateFarm (Training #4)</span></div>
+    </div>
+    <div class="risk-row">
+      <span class="risk-label">⚠ Risk</span>
+      00056238 — RBAC feature requests open 114 days with no product update shared to Kirsten
+    </div>
+    <span class="view-brief">View full brief →</span>
+  </a>
+
+  <!-- MOHAN KUMAR N -->
+  <a class="tam-card" href="Mohan_11Jun2026.html">
+    <div class="tam-card-header">
+      <div class="avatar mk">MK</div>
+      <div>
+        <div class="tam-name">Mohan Kumar N</div>
+        <div class="tam-role">4 calls today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="mini-stat"><div class="ms-label">Total</div><div class="ms-value">13</div></div>
+      <div class="mini-stat"><div class="ms-label">On Us</div><div class="ms-value red">11</div></div>
+      <div class="mini-stat"><div class="ms-label">On Cust</div><div class="ms-value green">2</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-row"><span class="call-time">2:30 PM IST</span><span class="call-customer">Space42</span></div>
+      <div class="call-row"><span class="call-time">5:30 PM IST</span><span class="call-customer">Bounteous</span></div>
+      <div class="call-row"><span class="call-time">6:30 PM IST</span><span class="call-customer">Articulate</span></div>
+      <div class="call-row"><span class="call-time">9:30 PM IST</span><span class="call-customer">National University</span></div>
+    </div>
+    <div class="risk-row">
+      <span class="risk-label">⚠ Risk</span>
+      00055822 — Articulate case open 120 days; account health risk before tonight's call
+    </div>
+    <span class="view-brief">View full brief →</span>
+  </a>
+
+  <!-- SHIVANI SHARMA -->
+  <a class="tam-card" href="Shivani_11Jun2026.html">
+    <div class="tam-card-header">
+      <div class="avatar ss">SS</div>
+      <div>
+        <div class="tam-name">Shivani Sharma</div>
+        <div class="tam-role">No calls today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="mini-stat"><div class="ms-label">Total</div><div class="ms-value muted">0</div></div>
+      <div class="mini-stat"><div class="ms-label">On Us</div><div class="ms-value muted">0</div></div>
+      <div class="mini-stat"><div class="ms-label">On Cust</div><div class="ms-value muted">0</div></div>
+    </div>
+    <div class="no-calls">No customer calls scheduled today.</div>
+    <div class="risk-row no-risk" style="margin-top:14px;">
+      <span class="risk-label">ℹ Note</span>
+      Ensure calendar events include Tenant ID for proper tracking
+    </div>
+    <span class="view-brief">View full brief →</span>
+  </a>
+
+  <!-- OSTEN DINIZ -->
+  <a class="tam-card" href="Osten_11Jun2026.html">
+    <div class="tam-card-header">
+      <div class="avatar od">OD</div>
+      <div>
+        <div class="tam-name">Osten Diniz</div>
+        <div class="tam-role">3 calls today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="mini-stat"><div class="ms-label">Total</div><div class="ms-value">13</div></div>
+      <div class="mini-stat"><div class="ms-label">On Us</div><div class="ms-value red">12</div></div>
+      <div class="mini-stat"><div class="ms-label">On Cust</div><div class="ms-value green">1</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-row"><span class="call-time">2:00 PM IST</span><span class="call-customer">Zurich (AI+BYOK)</span></div>
+      <div class="call-row"><span class="call-time">7:30 PM IST</span><span class="call-customer">StateFarm</span></div>
+      <div class="call-row"><span class="call-time">9:00 PM IST</span><span class="call-customer">PairPEO</span></div>
+    </div>
+    <div class="risk-row">
+      <span class="risk-label">⚠ Risk</span>
+      00049006 — Zurich case open 300 days; AI+BYOK walkthrough at risk if trust erodes
+    </div>
+    <span class="view-brief">View full brief →</span>
+  </a>
+
+  <!-- ARTHY MOHANRAJ -->
+  <a class="tam-card" href="Arthy_11Jun2026.html">
+    <div class="tam-card-header">
+      <div class="avatar am">AM</div>
+      <div>
+        <div class="tam-name">Arthy Mohanraj</div>
+        <div class="tam-role">No calls today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="mini-stat"><div class="ms-label">Total</div><div class="ms-value muted">0</div></div>
+      <div class="mini-stat"><div class="ms-label">On Us</div><div class="ms-value muted">0</div></div>
+      <div class="mini-stat"><div class="ms-label">On Cust</div><div class="ms-value muted">0</div></div>
+    </div>
+    <div class="no-calls">No customer calls scheduled today.</div>
+    <div class="risk-row no-risk" style="margin-top:14px;">
+      <span class="risk-label">ℹ Note</span>
+      Monitor SF AI project deliverables discussed in morning prep session
+    </div>
+    <span class="view-brief">View full brief →</span>
+  </a>
+
+  <!-- PRITISH SAMAL -->
+  <a class="tam-card" href="Pritish_11Jun2026.html">
+    <div class="tam-card-header">
+      <div class="avatar ps">PS</div>
+      <div>
+        <div class="tam-name">Pritish Samal</div>
+        <div class="tam-role">2 calls today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="mini-stat"><div class="ms-label">Total</div><div class="ms-value">13</div></div>
+      <div class="mini-stat"><div class="ms-label">On Us</div><div class="ms-value red">12</div></div>
+      <div class="mini-stat"><div class="ms-label">On Cust</div><div class="ms-value green">1</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-row"><span class="call-time">7:30 PM IST</span><span class="call-customer">StateFarm (Training #4)</span></div>
+      <div class="call-row"><span class="call-time">9:30 PM IST</span><span class="call-customer">National University</span></div>
+    </div>
+    <div class="risk-row">
+      <span class="risk-label">⚠ Risk</span>
+      00056238 — StateFarm RBAC asks open 114 days; Kirsten likely to raise during Training #4
+    </div>
+    <span class="view-brief">View full brief →</span>
+  </a>
+
+  <!-- SANDEEP SAI K -->
+  <a class="tam-card" href="Sandeep_11Jun2026.html">
+    <div class="tam-card-header">
+      <div class="avatar sk">SK</div>
+      <div>
+        <div class="tam-name">Sandeep Sai K</div>
+        <div class="tam-role">2 calls today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="mini-stat"><div class="ms-label">Total</div><div class="ms-value muted">0</div></div>
+      <div class="mini-stat"><div class="ms-label">On Us</div><div class="ms-value muted">0</div></div>
+      <div class="mini-stat"><div class="ms-label">On Cust</div><div class="ms-value muted">0</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-row"><span class="call-time">2:30 PM IST</span><span class="call-customer">Carbmee</span></div>
+      <div class="call-row"><span class="call-time">3:00 PM IST</span><span class="call-customer">DHL Chennai</span></div>
+    </div>
+    <div class="risk-row no-risk" style="background:rgba(52,211,153,0.07);border-color:rgba(52,211,153,0.2);">
+      <span class="risk-label" style="color:var(--green);">✓ Clean</span>
+      No open cases — proactive calls for both DHL and Carbmee
+    </div>
+    <span class="view-brief">View full brief →</span>
+  </a>
+
+  <!-- NIXON NICHOLAS -->
+  <a class="tam-card" href="Nixon_11Jun2026.html">
+    <div class="tam-card-header">
+      <div class="avatar nn">NN</div>
+      <div>
+        <div class="tam-name">Nixon Nicholas</div>
+        <div class="tam-role">1 call today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="mini-stat"><div class="ms-label">Total</div><div class="ms-value muted">0</div></div>
+      <div class="mini-stat"><div class="ms-label">On Us</div><div class="ms-value muted">0</div></div>
+      <div class="mini-stat"><div class="ms-label">On Cust</div><div class="ms-value muted">0</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-row"><span class="call-time">12:30 PM IST</span><span class="call-customer">MoEngage (POC)</span></div>
+    </div>
+    <div class="risk-row no-risk">
+      <span class="risk-label">⚠ Watch</span>
+      MoEngage POC active — 3 Testsigma action items pending from June 5 Gong call
+    </div>
+    <span class="view-brief">View full brief →</span>
+  </a>
+
+</div>
+
+</body>
+</html>
