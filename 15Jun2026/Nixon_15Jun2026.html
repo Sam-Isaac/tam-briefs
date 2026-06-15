@@ -78,7 +78,7 @@ tr:hover td{background:var(--bg2);}
     <div class="eyebrow">Testsigma · TAM Daily Brief</div>
     <div class="title">Nixon Nicholas <span>/ Monday, June 15 2026</span></div>
     <div class="meta">
-      <div class="pill"><span class="dot dr"></span>1 call today</div>
+      <div class="pill"><span class="dot dr"></span>1 calls today</div>
       <div class="pill"><span class="dot dr"></span>0 on Us</div>
       <div class="pill"><span class="dot db"></span>0 on Customer</div>
     </div>
@@ -89,12 +89,12 @@ tr:hover td{background:var(--bg2);}
   <div class="stat"><div class="snum r">0</div><div class="slabel">On Us</div></div>
   <div class="stat"><div class="snum b">0</div><div class="slabel">On Customer</div></div>
   <div class="stat"><div class="snum o">1</div><div class="slabel">Calls Today</div></div>
-  <div class="stat"><div class="snum r">—</div><div class="slabel">Oldest Ticket</div></div>
+  <div class="stat"><div class="snum r">0d</div><div class="slabel">Oldest Ticket</div></div>
 </div>
 <div class="tabs" id="tabs"></div>
 <div class="content" id="content"></div>
 <script>
-const customers = [{"name": "Hong Leong Bank", "callTime": "9:00 AM SGT", "tenantId": null, "onUs": 0, "onCustomer": 0, "gong": null, "waitingOnUs": [], "waitingOnCustomer": [], "jiraTickets": [], "biggestRisk": "No open support cases — early implementation phase; ensure adoption velocity and surface any unlogged blockers during today's session.", "opener": "Danny, great to be on this call — as we continue the implementation, what's been the biggest friction point your team has hit so far, and is there anything we haven't officially logged yet?"}];
+const customers = [{"name":"Hong Leong Bank","callTime":"9:00 AM SGT","tenantId":null,"onUs":0,"onCustomer":0,"gong":null,"waitingOnUs":[],"waitingOnCustomer":[],"jiraTickets":[],"biggestRisk":"No open support cases — early implementation phase; ensure adoption velocity and surface any unlogged blockers during today's session.","opener":"Danny, great to be on this call — as we continue the implementation, what's been the biggest friction point your team has hit so far, and is there anything we haven't officially logged yet?"}];
 function render(){
   const tabs=document.getElementById('tabs');
   const content=document.getElementById('content');
