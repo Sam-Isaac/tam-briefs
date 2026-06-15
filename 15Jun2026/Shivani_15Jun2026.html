@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivani Sharma — TAM Brief 15Jun2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--green:#16a34a;--green-bg:#f0fdf4;--orange:#d97706;--orange-bg:#fffbeb;--jira:#0052cc;--tag-bg:#e8e6e0;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;--blue-bg:#111827;--green:#4ade80;--green-bg:#0f1f14;--orange:#fbbf24;--orange-bg:#1c1608;--jira:#4d9de0;--tag-bg:#2a2926;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.meta{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap;}
+.pill{display:flex;align-items:center;gap:6px;background:var(--tag-bg);border-radius:99px;padding:4px 12px;font-size:12px;color:var(--text2);font-family:'DM Mono',monospace;}
+.dot{width:6px;height:6px;border-radius:50%;}
+.dr{background:var(--red);}.db{background:var(--blue);}
+.stats{display:flex;gap:12px;padding:20px 32px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.stat{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 18px;flex:1;min-width:100px;}
+.snum{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;line-height:1;margin-bottom:4px;}
+.snum.r{color:var(--red);}.snum.b{color:var(--blue);}.snum.o{color:var(--orange);}
+.slabel{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;}
+.tabs{display:flex;padding:16px 32px 0;border-bottom:1px solid var(--border);overflow-x:auto;}
+.tab{padding:10px 18px;font-size:13px;font-weight:500;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;background:none;border-left:none;border-right:none;border-top:none;font-family:'DM Sans',sans-serif;}
+.tab:hover{color:var(--text);}
+.tab.active{color:var(--text);border-bottom:2px solid var(--text);font-weight:600;}
+.cnt{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;font-size:10px;margin-left:6px;font-family:'DM Mono',monospace;}
+.cnt.r{background:var(--red-bg);color:var(--red);}.cnt.b{background:var(--blue-bg);color:var(--blue);}
+.content{padding:24px 32px;}
+.panel{display:none;}.panel.active{display:block;}
+.gong{background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:10px;padding:16px 20px;margin-bottom:20px;}
+.gong-hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.gong-ttl{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.05em;}
+.glink{font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;margin-left:auto;}
+.glink:hover{text-decoration:underline;}
+.gi{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text);padding:2px 0;}
+.ob{font-size:10px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;font-weight:500;white-space:nowrap;}
+.ou{background:var(--red-bg);color:var(--red);}.oc{background:var(--blue-bg);color:var(--blue);}
+.sh{display:flex;align-items:center;gap:10px;margin:20px 0 12px;}
+.sl{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;}
+.sl.r{color:var(--red);}.sl.b{color:var(--blue);}.sl.j{color:var(--jira);}
+.sc{font-family:'DM Mono',monospace;font-size:11px;padding:2px 8px;border-radius:99px;}
+.sc.r{background:var(--red-bg);color:var(--red);}.sc.b{background:var(--blue-bg);color:var(--blue);}.sc.j{background:var(--blue-bg);color:var(--jira);}
+.tw{background:var(--bg3);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:20px;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead tr{background:var(--bg2);border-bottom:1px solid var(--border);}
+th{padding:10px 14px;text-align:left;font-family:'DM Mono',monospace;font-size:10px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;}
+td{padding:11px 14px;color:var(--text);vertical-align:top;border-bottom:1px solid var(--border);}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:var(--bg2);}
+.tid{font-family:'DM Mono',monospace;font-size:12px;color:var(--blue);text-decoration:none;white-space:nowrap;}
+.tid:hover{text-decoration:underline;}
+.sb{font-size:11px;font-family:'DM Mono',monospace;padding:2px 8px;border-radius:4px;white-space:nowrap;display:inline-block;}
+.su{background:var(--red-bg);color:var(--red);}.scu{background:var(--blue-bg);color:var(--blue);}.so{background:var(--orange-bg);color:var(--orange);}.sp{background:var(--blue-bg);color:var(--blue);}
+.pb{font-size:10px;font-family:'DM Mono',monospace;padding:2px 6px;border-radius:3px;white-space:nowrap;}
+.p1{background:#fde8e8;color:#b91c1c;}.p2{background:var(--orange-bg);color:var(--orange);}.p3{background:var(--blue-bg);color:var(--blue);}
+.jb{font-family:'DM Mono',monospace;font-size:11px;color:var(--jira);text-decoration:none;background:var(--blue-bg);padding:2px 7px;border-radius:4px;white-space:nowrap;}
+.jb:hover{text-decoration:underline;}
+.db2{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);}
+.db2.old{color:var(--red);}
+.st{color:var(--text2);font-size:12px;line-height:1.5;max-width:280px;}
+.opener{background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:10px;padding:14px 18px;margin-top:20px;display:flex;gap:12px;}
+.ol{font-family:'DM Mono',monospace;font-size:10px;color:var(--green);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;margin-top:2px;}
+.ot{font-size:13px;color:var(--text);font-style:italic;line-height:1.6;}
+.risk{background:var(--red-bg);border:1px solid var(--border);border-left:3px solid var(--red);border-radius:10px;padding:12px 16px;margin-top:12px;display:flex;gap:10px;align-items:center;}
+.rl{font-family:'DM Mono',monospace;font-size:10px;color:var(--red);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;}
+.rt{font-size:13px;color:var(--text);}
+.note{font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;margin-top:20px;padding-top:16px;border-top:1px solid var(--border);}
+.no-calls{text-align:center;padding:60px 32px;color:var(--text3);font-family:'DM Mono',monospace;font-size:13px;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <div class="eyebrow">Testsigma · TAM Daily Brief</div>
+    <div class="title">Shivani Sharma <span>/ Monday, June 15 2026</span></div>
+    <div class="meta">
+      <div class="pill"><span class="dot dr"></span>2 calls today</div>
+      <div class="pill"><span class="dot dr"></span>6 on Us</div>
+      <div class="pill"><span class="dot db"></span>0 on Customer</div>
+    </div>
+  </div>
+</div>
+<div class="stats">
+  <div class="stat"><div class="snum">6</div><div class="slabel">Total Open</div></div>
+  <div class="stat"><div class="snum r">6</div><div class="slabel">On Us</div></div>
+  <div class="stat"><div class="snum b">0</div><div class="slabel">On Customer</div></div>
+  <div class="stat"><div class="snum o">2</div><div class="slabel">Calls Today</div></div>
+  <div class="stat"><div class="snum r">34d</div><div class="slabel">Oldest Ticket</div></div>
+</div>
+<div class="tabs" id="tabs"></div>
+<div class="content" id="content"></div>
+<script>
+const customers = [{"name": "Spacewell", "callTime": "3:00 PM IST", "tenantId": null, "onUs": 5, "onCustomer": 0, "gong": {"date": "28 May 2026", "link": "https://app.gong.io/call?id=1631331819780284415", "items": [{"text": "Share ETA from engineering on all auto-heal fixes — auto-heal is Spacewell's #1 priority this year", "owner": "US"}, {"text": "Investigate accessibility report WCAG version filter bug and report generation time > 24 hrs", "owner": "US"}, {"text": "Explore custom report script for stakeholder-level pass/fail summary", "owner": "US"}, {"text": "Shyam to raise separate ticket for WCAG version not filtering in downloaded accessibility reports", "owner": "CUSTOMER"}, {"text": "Arun to send email detailing required report specifications for stakeholders", "owner": "CUSTOMER"}]}, "waitingOnUs": [{"id": "00060329", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX00000yeAvxYAE/view", "lastResponse": "Auto-heal performing click on wrong element (host contact details instead of visitor license number); Testsigma told customer issue is resolved but customer still sees it. 34 days open.", "reporter": "Shyam Jeedi", "jira": null, "days": 34, "priority": "P2"}, {"id": "00060587", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX00000yzfrhYAA/view", "lastResponse": "Auto-heal causing while-loop to execute even when target OK-button element is not on screen — locator healed to different element on wrong screen causing test to navigate incorrectly.", "reporter": "Bhavith Sannidanam", "jira": null, "days": 26, "priority": "P2"}, {"id": "00060691", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX00000z692LYAQ/view", "lastResponse": "Personal button not on page but auto-healed with different unrelated element — click performed on wrong UI element causing downstream failure.", "reporter": "Shyam Jeedi", "jira": null, "days": 24, "priority": "P2"}, {"id": "00060823", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX00000zL2DUYA0/view", "lastResponse": "Accessibility report generates all WCAG issues regardless of WCAG 2.2 AA guideline selected in test plan — filter not applied to downloaded PDF output.", "reporter": "Shyam Jeedi", "jira": null, "days": 18, "priority": "P2"}, {"id": "00061298", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX00001069TDYAY/view", "lastResponse": "Shyam asks for bulk-approval mechanism for all auto-healed elements — currently requires going into each test case and step group individually which is unmanageable at scale.", "reporter": "Shyam Jeedi", "jira": null, "days": 4, "priority": "P2"}], "waitingOnCustomer": [], "jiraTickets": [], "biggestRisk": "00060329 (34 days) — Spacewell has stated auto-heal is their #1 priority this year and are currently disabling it for all regression runs; if engineering doesn't deliver a fix with ETA today, churn risk rises significantly.", "opener": "Arun, before we dive into today's agenda — I've checked with engineering and I have an update on the auto-heal ETA that I know you've been waiting for."}, {"name": "Ceipal", "callTime": "3:30 PM IST", "tenantId": null, "onUs": 1, "onCustomer": 0, "gong": {"date": "8 Jun 2026", "link": "https://app.gong.io/call?id=1741179053075768756", "items": [{"text": "Investigate root cause of recurring 'unable to create session' error and provide permanent fix", "owner": "US"}, {"text": "Sreeram to raise new support ticket referencing previous case 00060892 — DONE (00061157 raised)", "owner": "CUSTOMER"}]}, "waitingOnUs": [{"id": "00061157", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX00000zwJYcYAM/view", "lastResponse": "Sreeram Reddy reports session creation issue recurring again despite previous fix in case 00060892 — team running sprint regression today and needs stable execution.", "reporter": "Sreeram Reddy", "jira": null, "days": 7, "priority": "P2"}], "waitingOnCustomer": [], "jiraTickets": [], "biggestRisk": "00061157 — Session creation recurring post-fix; Ceipal functional team depends on automation reports for sprint leadership reviews.", "opener": "Sreeram, quick update on the session creation issue — I've shared the details with the support team and they're investigating the root cause so it doesn't recur during today's regression."}];
+function render(){
+  const tabs=document.getElementById('tabs');
+  const content=document.getElementById('content');
+  if(!customers.length){
+    content.innerHTML='<div class="no-calls">No customer calls today. Nothing to display.</div>';
+    return;
+  }
+  customers.forEach((c,i)=>{
+    const t=document.createElement('button');
+    t.className='tab'+(i===0?' active':'');
+    t.onclick=()=>sw(i);
+    t.innerHTML=c.name+' <span class="cnt '+(c.onUs>0?'r':'b')+'">'+(c.onUs+c.onCustomer)+'</span>';
+    tabs.appendChild(t);
+    const p=document.createElement('div');
+    p.className='panel'+(i===0?' active':'');
+    p.id='p'+i;
+    p.innerHTML=buildPanel(c);
+    content.appendChild(p);
+  });
+}
+function sw(i){
+  document.querySelectorAll('.tab').forEach((t,j)=>t.classList.toggle('active',i===j));
+  document.querySelectorAll('.panel').forEach((p,j)=>p.classList.toggle('active',i===j));
+}
+function buildPanel(c){
+  let h='';
+  if(c.gong){
+    h+=`<div class="gong"><div class="gong-hdr"><div class="gong-ttl">📞 Gong — Pending Actions · ${c.gong.date}</div><a class="glink" href="${c.gong.link}" target="_blank">🔗 View recording →</a></div>${c.gong.items.map(i=>`<div class="gi">• ${i.text} <span class="ob ${i.owner==='US'?'ou':'oc'}">${i.owner}</span></div>`).join('')}</div>`;
+  }
+  if(c.waitingOnUs&&c.waitingOnUs.length){
+    h+=`<div class="sh"><div class="sl r">🔴 Waiting on Us</div><div class="sc r">${c.waitingOnUs.length} cases</div></div><div class="tw"><table><thead><tr><th>Ticket ID</th><th>Last Response</th><th>Reporter</th><th>Linked Jira</th><th>Days Open</th><th>Priority</th><th>Status</th></tr></thead><tbody>${c.waitingOnUs.map(t=>`<tr><td><a class="tid" href="${t.sfLink}" target="_blank">${t.id}</a></td><td><div class="st">${t.lastResponse}</div></td><td style="font-size:12px;white-space:nowrap;">${t.reporter}</td><td>${t.jira?`<a class="jb" href="https://testsigma.atlassian.net/browse/${t.jira}" target="_blank">${t.jira}</a>`:'—'}</td><td><span class="db2${t.days>30?' old':''}">${t.days}d</span></td><td><span class="pb p${t.priority.replace('P','')}">${t.priority}</span></td><td><span class="sb su">On Us</span></td></tr>`).join('')}</tbody></table></div>`;
+  }
+  if(c.waitingOnCustomer&&c.waitingOnCustomer.length){
+    h+=`<div class="sh"><div class="sl b">🔵 Waiting on Customer</div><div class="sc b">${c.waitingOnCustomer.length} cases</div></div><div class="tw"><table><thead><tr><th>Ticket ID</th><th>Last Response</th><th>Reporter</th><th>Linked Jira</th><th>Days Open</th><th>Priority</th><th>Status</th></tr></thead><tbody>${c.waitingOnCustomer.map(t=>`<tr><td><a class="tid" href="${t.sfLink}" target="_blank">${t.id}</a></td><td><div class="st">${t.lastResponse}</div></td><td style="font-size:12px;white-space:nowrap;">${t.reporter}</td><td>${t.jira?`<a class="jb" href="https://testsigma.atlassian.net/browse/${t.jira}" target="_blank">${t.jira}</a>`:'—'}</td><td><span class="db2${t.days>30?' old':''}">${t.days}d</span></td><td><span class="pb p${t.priority.replace('P','')}">${t.priority}</span></td><td><span class="sb scu">On Customer</span></td></tr>`).join('')}</tbody></table></div>`;
+  }
+  if(!c.waitingOnUs?.length&&!c.waitingOnCustomer?.length){
+    h+='<div class="no-calls" style="padding:40px 0;">No open support cases found for this customer.</div>';
+  }
+  h+=`<div class="risk"><div class="rl">🚨 Biggest Risk</div><div class="rt">${c.biggestRisk}</div></div>`;
+  h+=`<div class="opener"><div class="ol">🗣️ Open with</div><div class="ot">"${c.opener}"</div></div>`;
+  h+=`<div class="note">📌 If any customer call is missing, ensure the calendar event has "Tenant ID: XXXXX" in the description or the customer company name in the event title.</div>`;
+  return h;
+}
+render();
+</script>
+</body>
+</html>
