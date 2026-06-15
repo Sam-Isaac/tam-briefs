@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Overview — TAM Brief 15Jun2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--green:#16a34a;--green-bg:#f0fdf4;--orange:#d97706;--orange-bg:#fffbeb;--tag-bg:#e8e6e0;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;--blue-bg:#111827;--green:#4ade80;--green-bg:#0f1f14;--orange:#fbbf24;--orange-bg:#1c1608;--tag-bg:#2a2926;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.totals{display:flex;gap:12px;padding:20px 32px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.t{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 18px;flex:1;min-width:100px;}
+.tn{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;line-height:1;margin-bottom:4px;}
+.tn.r{color:var(--red);}.tn.b{color:var(--blue);}.tn.o{color:var(--orange);}
+.tl{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;padding:24px 32px;}
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:14px;}
+.card-hdr{display:flex;align-items:center;gap:12px;}
+.avatar{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#fff;flex-shrink:0;}
+.card-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;}
+.card-sub{font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;}
+.mini-stats{display:flex;gap:8px;}
+.ms{flex:1;background:var(--bg2);border-radius:8px;padding:10px 12px;text-align:center;}
+.msn{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;}
+.msn.r{color:var(--red);}.msn.b{color:var(--blue);}
+.msl{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;}
+.calls-list{display:flex;flex-direction:column;gap:6px;}
+.call-item{display:flex;align-items:center;justify-content:space-between;background:var(--bg2);border-radius:6px;padding:8px 12px;font-size:12px;}
+.call-co{font-weight:500;color:var(--text);}
+.call-time{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);}
+.call-cnt{font-family:'DM Mono',monospace;font-size:10px;padding:2px 6px;border-radius:99px;}
+.call-cnt.r{background:var(--red-bg);color:var(--red);}.call-cnt.b{background:var(--blue-bg);color:var(--blue);}
+.risk-line{font-size:12px;color:var(--text2);border-top:1px solid var(--border);padding-top:12px;line-height:1.5;}
+.risk-label{font-family:'DM Mono',monospace;font-size:10px;color:var(--red);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;}
+.no-calls-card{text-align:center;padding:20px;color:var(--text3);font-family:'DM Mono',monospace;font-size:12px;border-top:1px solid var(--border);}
+a.view-btn{display:inline-block;font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;border:1px solid var(--border);border-radius:6px;padding:4px 10px;margin-top:4px;transition:background .15s;}
+a.view-btn:hover{background:var(--blue-bg);}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Testsigma · TAM Team Overview</div>
+  <div class="title">Team Brief <span>/ Monday, June 15 2026</span></div>
+</div>
+<div class="totals">
+  <div class="t"><div class="tn">7</div><div class="tl">TAMs Active</div></div>
+  <div class="t"><div class="tn o">12</div><div class="tl">Calls Today</div></div>
+  <div class="t"><div class="tn">34</div><div class="tl">Total Open</div></div>
+  <div class="t"><div class="tn r">33</div><div class="tl">On Us</div></div>
+  <div class="t"><div class="tn b">1</div><div class="tl">On Customer</div></div>
+  <div class="t"><div class="tn r">104d</div><div class="tl">Oldest Ticket</div></div>
+</div>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#6366f1;">SI</div>
+      <div><div class="card-name">Sam Isaac</div><div class="card-sub">Sr. TAM · 1 call today</div></div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="msn">2</div><div class="msl">Total</div></div>
+      <div class="ms"><div class="msn r">2</div><div class="msl">On Us</div></div>
+      <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-item"><span class="call-co">Accops</span><span class="call-time">4:00 PM IST</span><span class="call-cnt r">2</span></div>
+    </div>
+    <div class="risk-line"><div class="risk-label">🚨 Biggest Risk</div>00061288 — Customer threatening to evaluate alternatives after 7 months of unresolved failures.</div>
+    <a class="view-btn" href="Sam_15Jun2026.html">View Full Brief →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#0ea5e9;">MK</div>
+      <div><div class="card-name">Mohan Kumar N</div><div class="card-sub">TAM · 3 calls today</div></div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="msn">7</div><div class="msl">Total</div></div>
+      <div class="ms"><div class="msn r">7</div><div class="msl">On Us</div></div>
+      <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-item"><span class="call-co">Carrier</span><span class="call-time">2:30 PM IST</span><span class="call-cnt r">3</span></div>
+      <div class="call-item"><span class="call-co">Space42</span><span class="call-time">2:30 PM IST</span><span class="call-cnt r">3</span></div>
+      <div class="call-item"><span class="call-co">Ceipal</span><span class="call-time">3:30 PM IST</span><span class="call-cnt r">1</span></div>
+    </div>
+    <div class="risk-line"><div class="risk-label">🚨 Biggest Risk</div>00061021 (P1) — Space42 On-Prem opens wrong URL, pending Dev with no ETA; 2 P1s signal stability risk.</div>
+    <a class="view-btn" href="Mohan_15Jun2026.html">View Full Brief →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#ec4899;">SS</div>
+      <div><div class="card-name">Shivani Sharma</div><div class="card-sub">TAM · 2 calls today</div></div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="msn">6</div><div class="msl">Total</div></div>
+      <div class="ms"><div class="msn r">6</div><div class="msl">On Us</div></div>
+      <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-item"><span class="call-co">Spacewell</span><span class="call-time">3:00 PM IST</span><span class="call-cnt r">5</span></div>
+      <div class="call-item"><span class="call-co">Ceipal</span><span class="call-time">3:30 PM IST</span><span class="call-cnt r">1</span></div>
+    </div>
+    <div class="risk-line"><div class="risk-label">🚨 Biggest Risk</div>00060329 (34d) — Spacewell auto-heal is their #1 priority; disabling it entirely for regression runs.</div>
+    <a class="view-btn" href="Shivani_15Jun2026.html">View Full Brief →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#10b981;">OD</div>
+      <div><div class="card-name">Osten Diniz</div><div class="card-sub">TAM · 1 call today</div></div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="msn">5</div><div class="msl">Total</div></div>
+      <div class="ms"><div class="msn r">5</div><div class="msl">On Us</div></div>
+      <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-item"><span class="call-co">Spacewell</span><span class="call-time">3:00 PM IST</span><span class="call-cnt r">5</span></div>
+    </div>
+    <div class="risk-line"><div class="risk-label">🚨 Biggest Risk</div>00060329 (34d) — Auto-heal disabled for all Spacewell regression runs; ETA needed today.</div>
+    <a class="view-btn" href="Osten_15Jun2026.html">View Full Brief →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#8b5cf6;">AM</div>
+      <div><div class="card-name">Arthy Mohanraj</div><div class="card-sub">TAM · No calls today</div></div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="msn">0</div><div class="msl">Total</div></div>
+      <div class="ms"><div class="msn r">0</div><div class="msl">On Us</div></div>
+      <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+    </div>
+    <div class="no-calls-card">No customer calls today.</div>
+    <a class="view-btn" href="Arthy_15Jun2026.html">View Full Brief →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#f59e0b;">PS</div>
+      <div><div class="card-name">Pritish Samal</div><div class="card-sub">TAM · 2 calls today</div></div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="msn">1</div><div class="msl">Total</div></div>
+      <div class="ms"><div class="msn r">1</div><div class="msl">On Us</div></div>
+      <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-item"><span class="call-co">NTT Data</span><span class="call-time">3:00 PM IST</span><span class="call-cnt r">1</span></div>
+      <div class="call-item"><span class="call-co">NTT Data</span><span class="call-time">3:30 PM IST</span><span class="call-cnt b">0</span></div>
+    </div>
+    <div class="risk-line"><div class="risk-label">🚨 Biggest Risk</div>00061360 — Support access blocked by permissions error; investigation stalled until NTT authorizes.</div>
+    <a class="view-btn" href="Pritish_15Jun2026.html">View Full Brief →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#ef4444;">SK</div>
+      <div><div class="card-name">Sandeep Sai K</div><div class="card-sub">Sr. TAM · 3 calls today</div></div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="msn">12</div><div class="msl">Total</div></div>
+      <div class="ms"><div class="msn r">11</div><div class="msl">On Us</div></div>
+      <div class="ms"><div class="msn b">1</div><div class="msl">On Cust</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-item"><span class="call-co">DHL DSC</span><span class="call-time">12:00 PM IST</span><span class="call-cnt r">10</span></div>
+      <div class="call-item"><span class="call-co">Carbmee</span><span class="call-time">2:30 PM IST</span><span class="call-cnt b">0</span></div>
+      <div class="call-item"><span class="call-co">Accops</span><span class="call-time">4:00 PM IST</span><span class="call-cnt r">2</span></div>
+    </div>
+    <div class="risk-line"><div class="risk-label">🚨 Biggest Risk</div>00057258 (P1, 104d) — Blank screenshots blocking all DHL debug; 2 new P1s raised this morning.</div>
+    <a class="view-btn" href="Sandeep_15Jun2026.html">View Full Brief →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#14b8a6;">NN</div>
+      <div><div class="card-name">Nixon Nicholas</div><div class="card-sub">TAM · 1 call today</div></div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="msn">0</div><div class="msl">Total</div></div>
+      <div class="ms"><div class="msn r">0</div><div class="msl">On Us</div></div>
+      <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-item"><span class="call-co">Hong Leong Bank</span><span class="call-time">9:00 AM SGT</span><span class="call-cnt b">0</span></div>
+    </div>
+    <div class="risk-line"><div class="risk-label">🚨 Biggest Risk</div>No open cases — early implementation phase; surface unlogged blockers today.</div>
+    <a class="view-btn" href="Nixon_15Jun2026.html">View Full Brief →</a>
+  </div>
+
+</div>
+</body>
+</html>
