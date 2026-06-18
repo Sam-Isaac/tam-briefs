@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAM Team Brief — 18 Jun 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f0f13; --surface: #1a1a22; --surface2: #22222e; --border: #2e2e3e;
+      --text: #e8e8f0; --text-muted: #888899; --accent: #7c6af7;
+      --red: #ef4444; --blue: #3b82f6; --green: #22c55e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; color: var(--accent); }
+    .header-sub { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .header-date { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text-muted); }
+    .main { max-width: 1200px; margin: 0 auto; padding: 36px 40px; }
+    .section-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+    .mc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: 14px; transition: all 0.15s; cursor: pointer; }
+    .mc:hover { border-color: var(--accent); background: var(--surface2); transform: translateY(-1px); }
+    .mc-header { display: flex; align-items: center; gap: 12px; }
+    .mc-avatar { width: 40px; height: 40px; border-radius: 10px; background: rgba(124,106,247,0.15); border: 1px solid rgba(124,106,247,0.3); display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--accent); flex-shrink: 0; }
+    .mc-name { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 600; }
+    .mc-role { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+    .mc-calls { display: flex; flex-direction: column; gap: 3px; }
+    .mc-call-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .mc-call-names { font-size: 13px; color: var(--text); line-height: 1.4; }
+    .mc-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 2px; }
+    .mc-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+    .mc-badge { font-family: 'DM Mono', monospace; font-size: 11px; padding: 3px 8px; border-radius: 4px; font-weight: 600; }
+    .mc-badge.red { background: rgba(239,68,68,0.12); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
+    .mc-badge.blue { background: rgba(59,130,246,0.12); color: var(--blue); border: 1px solid rgba(59,130,246,0.3); }
+    .mc-badge.green { background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid rgba(34,197,94,0.25); }
+    .mc-badge.grey { background: var(--surface2); color: var(--text-muted); border: 1px solid var(--border); }
+    .mc-link { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 32px; }
+    .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; }
+    .stat-value { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 700; color: var(--text); }
+    .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+    @media (max-width: 700px) {
+      .main { padding: 16px; }
+      .stats { grid-template-columns: repeat(2,1fr); }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <div class="logo">Testsigma TAM — Team Brief</div>
+      <div class="header-sub">Daily Intelligence Report</div>
+    </div>
+    <div class="header-date">📅 18 Jun 2026 · Thursday</div>
+  </div>
+  <div class="main">
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-value">6</div>
+        <div class="stat-label">TAMs with calls today</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">11</div>
+        <div class="stat-label">Total customer calls</div>
+      </div>
+      <div class="stat-card" style="border-color:rgba(239,68,68,0.3)">
+        <div class="stat-value" style="color:var(--red)">8</div>
+        <div class="stat-label">🔴 Cases waiting on us</div>
+      </div>
+      <div class="stat-card" style="border-color:rgba(59,130,246,0.3)">
+        <div class="stat-value" style="color:var(--blue)">2</div>
+        <div class="stat-label">🔵 Cases waiting on customer</div>
+      </div>
+    </div>
+    <div class="section-title">Team Overview</div>
+    <div class="grid">
+      
+    <a class="mc" href="https://sam-isaac.github.io/tam-briefs/18Jun2026/Sam_18Jun2026.html" target="_blank">
+      <div class="mc-header">
+        <div class="mc-avatar">S</div>
+        <div>
+          <div class="mc-name">Sam Isaac</div>
+          <div class="mc-role">Technical Account Manager</div>
+        </div>
+      </div>
+      <div class="mc-calls">
+        <span class="mc-call-label">Today's calls (1)</span>
+        <span class="mc-call-names">Quality Kiosk</span>
+      </div>
+      <div class="mc-footer">
+        <div class="mc-badges"><span class="mc-badge green">All clear</span></div>
+        <span class="mc-link">View Brief →</span>
+      </div>
+    </a>
+    <a class="mc" href="https://sam-isaac.github.io/tam-briefs/18Jun2026/Mohan_18Jun2026.html" target="_blank">
+      <div class="mc-header">
+        <div class="mc-avatar">M</div>
+        <div>
+          <div class="mc-name">Mohan Kumar N</div>
+          <div class="mc-role">Technical Account Manager</div>
+        </div>
+      </div>
+      <div class="mc-calls">
+        <span class="mc-call-label">Today's calls (2)</span>
+        <span class="mc-call-names">Space42, National University</span>
+      </div>
+      <div class="mc-footer">
+        <div class="mc-badges"><span class="mc-badge red">5 🔴</span></div>
+        <span class="mc-link">View Brief →</span>
+      </div>
+    </a>
+    <a class="mc" href="https://sam-isaac.github.io/tam-briefs/18Jun2026/Shivani_18Jun2026.html" target="_blank">
+      <div class="mc-header">
+        <div class="mc-avatar">S</div>
+        <div>
+          <div class="mc-name">Shivani Sharma</div>
+          <div class="mc-role">Technical Account Manager</div>
+        </div>
+      </div>
+      <div class="mc-calls">
+        <span class="mc-call-label">Today's calls (0)</span>
+        <span class="mc-call-names">No customer calls</span>
+      </div>
+      <div class="mc-footer">
+        <div class="mc-badges"><span class="mc-badge grey">No calls</span></div>
+        <span class="mc-link">View Brief →</span>
+      </div>
+    </a>
+    <a class="mc" href="https://sam-isaac.github.io/tam-briefs/18Jun2026/Osten_18Jun2026.html" target="_blank">
+      <div class="mc-header">
+        <div class="mc-avatar">O</div>
+        <div>
+          <div class="mc-name">Osten Diniz</div>
+          <div class="mc-role">Technical Account Manager</div>
+        </div>
+      </div>
+      <div class="mc-calls">
+        <span class="mc-call-label">Today's calls (0)</span>
+        <span class="mc-call-names">No customer calls</span>
+      </div>
+      <div class="mc-footer">
+        <div class="mc-badges"><span class="mc-badge grey">No calls</span></div>
+        <span class="mc-link">View Brief →</span>
+      </div>
+    </a>
+    <a class="mc" href="https://sam-isaac.github.io/tam-briefs/18Jun2026/Arthy_18Jun2026.html" target="_blank">
+      <div class="mc-header">
+        <div class="mc-avatar">A</div>
+        <div>
+          <div class="mc-name">Arthy Mohanraj</div>
+          <div class="mc-role">Technical Account Manager</div>
+        </div>
+      </div>
+      <div class="mc-calls">
+        <span class="mc-call-label">Today's calls (2)</span>
+        <span class="mc-call-names">PTSG, Quality Kiosk</span>
+      </div>
+      <div class="mc-footer">
+        <div class="mc-badges"><span class="mc-badge green">All clear</span></div>
+        <span class="mc-link">View Brief →</span>
+      </div>
+    </a>
+    <a class="mc" href="https://sam-isaac.github.io/tam-briefs/18Jun2026/Pritish_18Jun2026.html" target="_blank">
+      <div class="mc-header">
+        <div class="mc-avatar">P</div>
+        <div>
+          <div class="mc-name">Pritish Samal</div>
+          <div class="mc-role">Technical Account Manager</div>
+        </div>
+      </div>
+      <div class="mc-calls">
+        <span class="mc-call-label">Today's calls (2)</span>
+        <span class="mc-call-names">National University, NTT Data</span>
+      </div>
+      <div class="mc-footer">
+        <div class="mc-badges"><span class="mc-badge red">2 🔴</span></div>
+        <span class="mc-link">View Brief →</span>
+      </div>
+    </a>
+    <a class="mc" href="https://sam-isaac.github.io/tam-briefs/18Jun2026/Sandeep_18Jun2026.html" target="_blank">
+      <div class="mc-header">
+        <div class="mc-avatar">S</div>
+        <div>
+          <div class="mc-name">Sandeep Sai K</div>
+          <div class="mc-role">Technical Account Manager</div>
+        </div>
+      </div>
+      <div class="mc-calls">
+        <span class="mc-call-label">Today's calls (1)</span>
+        <span class="mc-call-names">DHL DSC</span>
+      </div>
+      <div class="mc-footer">
+        <div class="mc-badges"><span class="mc-badge red">1 🔴</span><span class="mc-badge blue">2 🔵</span></div>
+        <span class="mc-link">View Brief →</span>
+      </div>
+    </a>
+    <a class="mc" href="https://sam-isaac.github.io/tam-briefs/18Jun2026/Nixon_18Jun2026.html" target="_blank">
+      <div class="mc-header">
+        <div class="mc-avatar">N</div>
+        <div>
+          <div class="mc-name">Nixon Nicholas</div>
+          <div class="mc-role">Technical Account Manager</div>
+        </div>
+      </div>
+      <div class="mc-calls">
+        <span class="mc-call-label">Today's calls (3)</span>
+        <span class="mc-call-names">HLB (Hong Leong Bank), MoEngage, Quality Kiosk</span>
+      </div>
+      <div class="mc-footer">
+        <div class="mc-badges"><span class="mc-badge green">All clear</span></div>
+        <span class="mc-link">View Brief →</span>
+      </div>
+    </a>
+    </div>
+  </div>
+</body>
+</html>
