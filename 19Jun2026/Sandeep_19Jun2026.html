@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandeep Sai K · TAM Brief · 19 Jun 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Syne:wght@400..800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f8f9fb;--surface:#fff;--border:#e2e6ea;--text:#1a1d23;--muted:#6b7280;--accent:#4f46e5;--red:#ef4444;--blue:#3b82f6;--yellow:#f59e0b;--p1-bg:#fef2f2;--p1-text:#dc2626;--p2-bg:#fff7ed;--p2-text:#d97706;--p3-bg:#f0fdf4;--p3-text:#16a34a;--su-bg:#fef2f2;--su-text:#dc2626;--scu-bg:#eff6ff;--scu-text:#1d4ed8}
+[data-theme=dark]{--bg:#0f1117;--surface:#1a1d23;--border:#2d3139;--text:#e8eaf0;--muted:#9ca3af;--accent:#818cf8;--red:#f87171;--blue:#60a5fa;--yellow:#fbbf24;--p1-bg:#2d1b1b;--p1-text:#f87171;--p2-bg:#2d2310;--p2-text:#fbbf24;--p3-bg:#0f2a1f;--p3-text:#34d399;--su-bg:#2d1b1b;--su-text:#f87171;--scu-bg:#1b2340;--scu-text:#60a5fa}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.hdr{background:var(--surface);border-bottom:1px solid var(--border);padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+.hdr h1{font-family:'Syne',sans-serif;font-size:22px;font-weight:700}
+.hdr p{font-size:13px;color:var(--muted);margin-top:3px}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:8px;padding:6px 14px;cursor:pointer;font-size:13px;color:var(--muted);font-family:'DM Sans',sans-serif}
+.stats{display:flex;background:var(--surface);border-bottom:1px solid var(--border)}
+.stat{flex:1;padding:14px 20px;border-right:1px solid var(--border);text-align:center}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'DM Mono',monospace;font-size:26px;font-weight:500}
+.stat-l{font-size:11px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.5px}
+.red{color:var(--red)}.blue{color:var(--blue)}
+.main{padding:24px 32px;max-width:1100px;margin:0 auto}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:16px;overflow:hidden}
+.card-hdr{padding:12px 18px;border-bottom:1px solid var(--border);font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
+.card-body{padding:0}
+.call-row{display:flex;align-items:flex-start;gap:16px;padding:14px 18px;border-bottom:1px solid var(--border)}
+.call-row:last-child{border-bottom:none}
+.call-time{font-family:'DM Mono',monospace;font-size:13px;color:var(--muted);min-width:90px}
+.call-info strong{font-size:14px;font-weight:600}
+.call-info p{font-size:13px;color:var(--muted);margin-top:2px}
+.gong-row{padding:10px 18px;border-bottom:1px solid var(--border);font-size:13px;display:flex;gap:12px;align-items:flex-start}
+.gong-row:last-child{border-bottom:none}
+.gong-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;min-width:80px;margin-top:2px}
+.gong-tag.us{color:var(--red)}.gong-tag.cu{color:var(--blue)}
+.tabs{display:flex;border-bottom:1px solid var(--border);background:var(--bg)}
+.tab{padding:10px 18px;font-size:13px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;color:var(--muted);white-space:nowrap}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent);background:var(--surface)}
+.tab-pane{display:none}.tab-pane.active{display:block}
+.badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600;font-family:'DM Mono',monospace}
+.p1{background:var(--p1-bg);color:var(--p1-text)}.p2{background:var(--p2-bg);color:var(--p2-text)}.p3{background:var(--p3-bg);color:var(--p3-text)}
+.su{background:var(--su-bg);color:var(--su-text)}.scu{background:var(--scu-bg);color:var(--scu-text)}
+.mono{font-family:'DM Mono',monospace;font-size:12px}
+.days-old{color:var(--red);font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-weight:600;background:var(--bg)}
+td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+.risk-box{background:#fef2f2;border:1px solid #fca5a5;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:#dc2626}
+[data-theme=dark] .risk-box{background:#2d1b1b;border-color:#7f1d1d;color:#f87171}
+.tip-box{background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:#1d4ed8}
+[data-theme=dark] .tip-box{background:#1b2340;border-color:#1e3a5f;color:#60a5fa}
+footer{text-align:center;padding:20px;font-size:11px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div>
+    <h1>Sandeep Sai K · TAM Brief</h1>
+    <p>Friday, 19 June 2026 · Technical Account Manager</p>
+  </div>
+  <button class="theme-btn" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark'">☀ / 🌙</button>
+</div>
+<div class="stats">
+  <div class="stat"><div class="stat-n">10</div><div class="stat-l">Total Open Cases</div></div>
+  <div class="stat"><div class="stat-n red">6</div><div class="stat-l">Waiting on Us</div></div>
+  <div class="stat"><div class="stat-n blue">4</div><div class="stat-l">Waiting on Customer</div></div>
+  <div class="stat"><div class="stat-n days-old">11d</div><div class="stat-l">Oldest Case</div></div>
+  <div class="stat"><div class="stat-n">1</div><div class="stat-l">Calls Today</div></div>
+</div>
+<div class="main">
+
+  <!-- Biggest Risk -->
+  <div class="risk-box">
+    🔴 <strong>Biggest Risk:</strong> Case 00061529 — agent not starting in Malaysia (DHL DSC), blocking daily automation runs. Additionally, OCR Q/0 misidentification (P1/Highest, cases 00061587 + 00061585) requires an addon-level fix — ETA not yet communicated to customer. Subhopriyo on PTO; Sandeep covering.
+  </div>
+
+  <!-- Opener Suggestion -->
+  <div class="tip-box">
+    💬 <strong>Suggested Opener:</strong> Give a quick status on the Malaysia agent-start issue (00061529) and the OCR Q/0 addon fix ETA. Confirm Lifen has raised the OMS/WMS ticket and fixed the 26 prerequisite test configs.
+  </div>
+
+  <!-- Today's Calls -->
+  <div class="card">
+    <div class="card-hdr">📅 Today's Customer Calls</div>
+    <div class="call-row">
+      <div class="call-time">10:30 IST</div>
+      <div class="call-info">
+        <strong>DHL</strong>
+        <p>Weekly DHL eCase - Testsigma TAM connect</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gong Action Items -->
+  <div class="card">
+    <div class="card-hdr">🎙 Gong Action Items — DHL DSC Standup (18 Jun 2026)</div>
+    <div class="gong-row">
+      <span class="gong-tag us">🔴 Us</span>
+      <span>Sandeep to cover for Subhopriyo (PTO) across all DHL accounts during this period.</span>
+    </div>
+    <div class="gong-row">
+      <span class="gong-tag us">🔴 Us</span>
+      <span>Provide a concrete ETA to DHL on the IE mode feature request.</span>
+    </div>
+    <div class="gong-row">
+      <span class="gong-tag us">🔴 Us</span>
+      <span>Share an update on the OCR Q/0 misidentification bug — specifically when the addon-level fix will be available.</span>
+    </div>
+    <div class="gong-row">
+      <span class="gong-tag cu">🔵 Customer</span>
+      <span>Lifen Chong It (DHL Info Asia-Pacific) to raise an official support ticket for the OMS/WMS intermittent connectivity issue.</span>
+    </div>
+    <div class="gong-row">
+      <span class="gong-tag cu">🔵 Customer</span>
+      <span>Lifen Chong It (DHL Info Asia-Pacific) to fix the 26 prerequisite test configurations that are causing execution failures.</span>
+    </div>
+  </div>
+
+  <!-- Salesforce Cases — tabbed view -->
+  <div class="card">
+    <div class="card-hdr">📋 Salesforce Open Cases — DHL (10 total)</div>
+    <div class="tabs">
+      <div class="tab active" onclick="showTab('tab-all',this)">All (10)</div>
+      <div class="tab" onclick="showTab('tab-us',this)">🔴 On Us (6)</div>
+      <div class="tab" onclick="showTab('tab-cu',this)">🔵 On Customer (4)</div>
+    </div>
+
+    <!-- All Cases -->
+    <div id="tab-all" class="tab-pane active">
+      <table>
+        <thead><tr><th>Case #</th><th>Subject</th><th>Status</th><th>Priority</th><th>Age</th><th>Reporter</th><th>Jira</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="mono">00061529</span></td>
+            <td>Urgent - agent not starting (Win sys)</td>
+            <td><span class="badge su">🔴 On Us</span><br><small style="color:var(--muted);font-size:11px">Open</small></td>
+            <td><span class="badge p2">P2</span></td>
+            <td><span class="mono">2d</span></td>
+            <td>Venu Gopal Vedullapalli</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061587</span></td>
+            <td>OCR Engine misidentifies Q as 0</td>
+            <td><span class="badge su">🔴 On Us</span><br><small style="color:var(--muted);font-size:11px">Closed With Jira</small></td>
+            <td><span class="badge p1">P1</span></td>
+            <td><span class="mono">1d</span></td>
+            <td>Expert Services</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061585</span></td>
+            <td>OCR Engine misidentifies Q as 0</td>
+            <td><span class="badge su">🔴 On Us</span><br><small style="color:var(--muted);font-size:11px">Open</small></td>
+            <td><span class="badge p1">P1</span></td>
+            <td><span class="mono">1d</span></td>
+            <td>Enterprise Support</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061170</span></td>
+            <td>Unable to execute Testplan</td>
+            <td><span class="badge su">🔴 On Us</span><br><small style="color:var(--muted);font-size:11px">Resolved</small></td>
+            <td><span class="badge p3">P3</span></td>
+            <td><span class="mono">10d</span></td>
+            <td>Lifen Chong It</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061381</span></td>
+            <td>Unable to execute Test plan.</td>
+            <td><span class="badge su">🔴 On Us</span><br><small style="color:var(--muted);font-size:11px">Resolved</small></td>
+            <td><span class="badge p2">P2</span></td>
+            <td><span class="mono">4d</span></td>
+            <td>Sumanth Suragari</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061451</span></td>
+            <td>Facing issue executing testplan</td>
+            <td><span class="badge su">🔴 On Us</span><br><small style="color:var(--muted);font-size:11px">Pending</small></td>
+            <td><span class="badge p2">P2</span></td>
+            <td><span class="mono">3d</span></td>
+            <td>Clearance Testing</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061575</span></td>
+            <td>Intermittent OMS/WMS connectivity</td>
+            <td><span class="badge scu">🔵 On Customer</span><br><small style="color:var(--muted);font-size:11px">Waiting for Customer</small></td>
+            <td><span class="badge p1">P1</span></td>
+            <td><span class="mono">1d</span></td>
+            <td>Lifen Chong It</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061150</span></td>
+            <td>Execution video not Loading</td>
+            <td><span class="badge scu">🔵 On Customer</span><br><small style="color:var(--muted);font-size:11px">Waiting for Customer</small></td>
+            <td><span class="badge p2">P2</span></td>
+            <td><span class="mono days-old">11d</span></td>
+            <td>Lifen Chong It</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061573</span></td>
+            <td>Inconsistent behavior in cloud execution</td>
+            <td><span class="badge scu">🔵 On Customer</span><br><small style="color:var(--muted);font-size:11px">Waiting for Customer</small></td>
+            <td><span class="badge p3">P3</span></td>
+            <td><span class="mono">1d</span></td>
+            <td>Kavin Arul</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061571</span></td>
+            <td>Script unable to open web browser</td>
+            <td><span class="badge scu">🔵 On Customer</span><br><small style="color:var(--muted);font-size:11px">Waiting for Customer</small></td>
+            <td><span class="badge p1">P1</span></td>
+            <td><span class="mono">1d</span></td>
+            <td>ITS</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- On Us -->
+    <div id="tab-us" class="tab-pane">
+      <table>
+        <thead><tr><th>Case #</th><th>Subject</th><th>Status</th><th>Priority</th><th>Age</th><th>Reporter</th><th>Jira</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="mono">00061529</span></td>
+            <td>Urgent - agent not starting (Win sys)</td>
+            <td><span class="badge su">🔴 On Us</span><br><small style="color:var(--muted);font-size:11px">Open</small></td>
+            <td><span class="badge p2">P2</span></td>
+            <td><span class="mono">2d</span></td>
+            <td>Venu Gopal Vedullapalli</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061587</span></td>
+            <td>OCR Engine misidentifies Q as 0</td>
+            <td><span class="badge su">🔴 On Us</span><br><small style="color:var(--muted);font-size:11px">Closed With Jira</small></td>
+            <td><span class="badge p1">P1</span></td>
+            <td><span class="mono">1d</span></td>
+            <td>Expert Services</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061585</span></td>
+            <td>OCR Engine misidentifies Q as 0</td>
+            <td><span class="badge su">🔴 On Us</span><br><small style="color:var(--muted);font-size:11px">Open</small></td>
+            <td><span class="badge p1">P1</span></td>
+            <td><span class="mono">1d</span></td>
+            <td>Enterprise Support</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061170</span></td>
+            <td>Unable to execute Testplan</td>
+            <td><span class="badge su">🔴 On Us</span><br><small style="color:var(--muted);font-size:11px">Resolved</small></td>
+            <td><span class="badge p3">P3</span></td>
+            <td><span class="mono">10d</span></td>
+            <td>Lifen Chong It</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061381</span></td>
+            <td>Unable to execute Test plan.</td>
+            <td><span class="badge su">🔴 On Us</span><br><small style="color:var(--muted);font-size:11px">Resolved</small></td>
+            <td><span class="badge p2">P2</span></td>
+            <td><span class="mono">4d</span></td>
+            <td>Sumanth Suragari</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061451</span></td>
+            <td>Facing issue executing testplan</td>
+            <td><span class="badge su">🔴 On Us</span><br><small style="color:var(--muted);font-size:11px">Pending</small></td>
+            <td><span class="badge p2">P2</span></td>
+            <td><span class="mono">3d</span></td>
+            <td>Clearance Testing</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- On Customer -->
+    <div id="tab-cu" class="tab-pane">
+      <table>
+        <thead><tr><th>Case #</th><th>Subject</th><th>Status</th><th>Priority</th><th>Age</th><th>Reporter</th><th>Jira</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="mono">00061575</span></td>
+            <td>Intermittent OMS/WMS connectivity</td>
+            <td><span class="badge scu">🔵 On Customer</span><br><small style="color:var(--muted);font-size:11px">Waiting for Customer</small></td>
+            <td><span class="badge p1">P1</span></td>
+            <td><span class="mono">1d</span></td>
+            <td>Lifen Chong It</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061150</span></td>
+            <td>Execution video not Loading</td>
+            <td><span class="badge scu">🔵 On Customer</span><br><small style="color:var(--muted);font-size:11px">Waiting for Customer</small></td>
+            <td><span class="badge p2">P2</span></td>
+            <td><span class="mono days-old">11d</span></td>
+            <td>Lifen Chong It</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061573</span></td>
+            <td>Inconsistent behavior in cloud execution</td>
+            <td><span class="badge scu">🔵 On Customer</span><br><small style="color:var(--muted);font-size:11px">Waiting for Customer</small></td>
+            <td><span class="badge p3">P3</span></td>
+            <td><span class="mono">1d</span></td>
+            <td>Kavin Arul</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+          <tr>
+            <td><span class="mono">00061571</span></td>
+            <td>Script unable to open web browser</td>
+            <td><span class="badge scu">🔵 On Customer</span><br><small style="color:var(--muted);font-size:11px">Waiting for Customer</small></td>
+            <td><span class="badge p1">P1</span></td>
+            <td><span class="mono">1d</span></td>
+            <td>ITS</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+<footer>Generated by TAM Brief Automation · 19 Jun 2026</footer>
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+const CUSTOMERS_JSON_ARRAY = [
+  {
+    name: "DHL",
+    total: 10,
+    onUs: 6,
+    onCust: 4,
+    oldest: 11,
+    cases: [
+      { id:"00061529", sfId:"500OX000010OiaWYAS", subject:"Urgent - agent not starting (Win sys)", status:"Open", bucket:"su", priority:"P2", age:2, reporter:"Venu Gopal Vedullapalli", jira:null },
+      { id:"00061587", sfId:"500OX000010Tw8FYAS", subject:"OCR Engine misidentifies Q as 0", status:"Closed With Jira", bucket:"su", priority:"P1", age:1, reporter:"Expert Services", jira:null },
+      { id:"00061585", sfId:"500OX000010TmVUYA0", subject:"OCR Engine misidentifies Q as 0", status:"Open", bucket:"su", priority:"P1", age:1, reporter:"Enterprise Support", jira:null },
+      { id:"00061170", sfId:"500OX00000zxXjOYAU", subject:"Unable to execute Testplan", status:"Resolved", bucket:"su", priority:"P3", age:10, reporter:"Lifen Chong It", jira:null },
+      { id:"00061381", sfId:"500OX000010H8tZYAS", subject:"Unable to execute Test plan.", status:"Resolved", bucket:"su", priority:"P2", age:4, reporter:"Sumanth Suragari", jira:null },
+      { id:"00061451", sfId:"500OX000010KsyUYAS", subject:"Facing issue executing testplan", status:"Pending", bucket:"su", priority:"P2", age:3, reporter:"Clearance Testing", jira:null },
+      { id:"00061575", sfId:"500OX000010SqnyYAC", subject:"Intermittent OMS/WMS connectivity", status:"Waiting for Customer", bucket:"scu", priority:"P1", age:1, reporter:"Lifen Chong It", jira:null },
+      { id:"00061150", sfId:"500OX00000zvliMYAQ", subject:"Execution video not Loading", status:"Waiting for Customer", bucket:"scu", priority:"P2", age:11, reporter:"Lifen Chong It", jira:null },
+      { id:"00061573", sfId:"500OX000010RzSKYA0", subject:"Inconsistent behavior in cloud execution", status:"Waiting for Customer", bucket:"scu", priority:"P3", age:1, reporter:"Kavin Arul", jira:null },
+      { id:"00061571", sfId:"500OX000010S4EzYAK", subject:"Script unable to open web browser", status:"Waiting for Customer", bucket:"scu", priority:"P1", age:1, reporter:"ITS", jira:null }
+    ],
+    gong: {
+      callDate: "18 Jun 2026",
+      callTitle: "DHL DSC Standup",
+      callId: "6835316968833446899",
+      pending: [
+        { owner: "us", text: "Sandeep to cover for Subhopriyo (PTO) across all DHL accounts" },
+        { owner: "us", text: "Provide ETA on IE mode feature request" },
+        { owner: "us", text: "Share update on OCR Q/0 addon-level fix ETA" },
+        { owner: "customer", text: "Lifen Chong It to raise support ticket for OMS/WMS intermittent connectivity" },
+        { owner: "customer", text: "Lifen Chong It to fix 26 prerequisite test configurations" }
+      ]
+    }
+  }
+];
+</script>
+</body>
+</html>
