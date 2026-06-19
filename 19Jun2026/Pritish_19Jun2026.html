@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pritish Samal · TAM Brief · 19 Jun 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Syne:wght@400..800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f8f9fb;--surface:#fff;--border:#e2e6ea;--text:#1a1d23;--muted:#6b7280;--accent:#4f46e5;--red:#ef4444;--blue:#3b82f6;--yellow:#f59e0b;--p1-bg:#fef2f2;--p1-text:#dc2626;--p2-bg:#fff7ed;--p2-text:#d97706;--p3-bg:#f0fdf4;--p3-text:#16a34a;--su-bg:#fef2f2;--su-text:#dc2626;--scu-bg:#eff6ff;--scu-text:#1d4ed8}
+[data-theme=dark]{--bg:#0f1117;--surface:#1a1d23;--border:#2d3139;--text:#e8eaf0;--muted:#9ca3af;--accent:#818cf8;--red:#f87171;--blue:#60a5fa;--yellow:#fbbf24;--p1-bg:#2d1b1b;--p1-text:#f87171;--p2-bg:#2d2310;--p2-text:#fbbf24;--p3-bg:#0f2a1f;--p3-text:#34d399;--su-bg:#2d1b1b;--su-text:#f87171;--scu-bg:#1b2340;--scu-text:#60a5fa}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.hdr{background:var(--surface);border-bottom:1px solid var(--border);padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+.hdr h1{font-family:'Syne',sans-serif;font-size:22px;font-weight:700}
+.hdr p{font-size:13px;color:var(--muted);margin-top:3px}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:8px;padding:6px 14px;cursor:pointer;font-size:13px;color:var(--muted);font-family:'DM Sans',sans-serif}
+.stats{display:flex;background:var(--surface);border-bottom:1px solid var(--border)}
+.stat{flex:1;padding:14px 20px;border-right:1px solid var(--border);text-align:center}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'DM Mono',monospace;font-size:26px;font-weight:500}
+.stat-l{font-size:11px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.5px}
+.red{color:var(--red)}.blue{color:var(--blue)}
+.main{padding:24px 32px;max-width:1100px;margin:0 auto}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:16px;overflow:hidden}
+.card-hdr{padding:12px 18px;border-bottom:1px solid var(--border);font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
+.card-body{padding:18px}
+.call-row{display:flex;align-items:flex-start;gap:16px;padding:10px 0;border-bottom:1px solid var(--border)}
+.call-row:last-child{border-bottom:none}
+.call-time{font-family:'DM Mono',monospace;font-size:13px;color:var(--muted);min-width:90px}
+.call-info strong{font-size:14px;font-weight:600}
+.call-info p{font-size:13px;color:var(--muted);margin-top:2px}
+.gong-row{padding:9px 0;border-bottom:1px solid var(--border);font-size:13px;display:flex;gap:10px;align-items:flex-start}
+.gong-row:last-child{border-bottom:none}
+.gong-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;min-width:80px;margin-top:1px}
+.gong-tag.us{color:var(--red)}.gong-tag.cu{color:var(--blue)}
+.badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600;font-family:'DM Mono',monospace}
+.p1{background:var(--p1-bg);color:var(--p1-text)}.p2{background:var(--p2-bg);color:var(--p2-text)}.p3{background:var(--p3-bg);color:var(--p3-text)}
+.su{background:var(--su-bg);color:var(--su-text)}.scu{background:var(--scu-bg);color:var(--scu-text)}
+.mono{font-family:'DM Mono',monospace;font-size:12px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-weight:600;background:var(--bg)}
+td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+.risk-box{background:#fef2f2;border:1px solid #fca5a5;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:#dc2626}
+[data-theme=dark] .risk-box{background:#2d1b1b;border-color:#7f1d1d;color:#f87171}
+.tip-box{background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:#1d4ed8}
+[data-theme=dark] .tip-box{background:#1b2340;border-color:#1e3a5f;color:#60a5fa}
+footer{text-align:center;padding:20px;font-size:11px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div>
+    <h1>Pritish Samal · TAM Brief</h1>
+    <p>Friday, 19 June 2026 · Technical Account Manager</p>
+  </div>
+  <button class="theme-btn" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark'">☀ / 🌙</button>
+</div>
+<div class="stats">
+  <div class="stat"><div class="stat-n">1</div><div class="stat-l">Total Open Cases</div></div>
+  <div class="stat"><div class="stat-n red">1</div><div class="stat-l">Waiting on Us</div></div>
+  <div class="stat"><div class="stat-n blue">0</div><div class="stat-l">Waiting on Customer</div></div>
+  <div class="stat"><div class="stat-n">7d</div><div class="stat-l">Oldest Case</div></div>
+  <div class="stat"><div class="stat-n">1</div><div class="stat-l">Calls Today</div></div>
+</div>
+<div class="main">
+
+  <!-- Biggest Risk -->
+  <div class="risk-box">
+    🔴 <strong>Biggest Risk:</strong> Case 00061360 — Altudo has been blocked from granting Testsigma support access for 7 days. NTT Data admin (Iqran Husain) has not yet acted on the forwarded request.
+  </div>
+
+  <!-- Opener Suggestion -->
+  <div class="tip-box">
+    💬 <strong>Suggested Opener:</strong> Ask Jan Vorster (NTT Data) to follow up with Iqran Husain to resolve the support-access grant. Confirm with Yash whether the XPath scroll ticket has been raised in the portal.
+  </div>
+
+  <!-- Today's Calls -->
+  <div class="card">
+    <div class="card-hdr">📅 Today's Customer Calls</div>
+    <div class="card-body">
+      <div class="call-row">
+        <div class="call-time">15:30 IST</div>
+        <div class="call-info">
+          <strong>NTT Data / Altudo</strong>
+          <p>NTT Data &lt;&gt; Testsigma I Standup</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gong Action Items -->
+  <div class="card">
+    <div class="card-hdr">🎙 Gong Action Items — NTT Data / Altudo Standup (18 Jun 2026)</div>
+    <div class="card-body">
+      <div class="gong-row">
+        <span class="gong-tag us">🔴 Us</span>
+        <span>Pritish to prioritize Yash's XPath scroll-into-view ticket — ensure it is picked up in the next sprint.</span>
+      </div>
+      <div class="gong-row">
+        <span class="gong-tag cu">🔵 Customer</span>
+        <span>Yash Sharma (Altudo) to create a support ticket for the XPath scroll-into-view issue.</span>
+      </div>
+      <div class="gong-row">
+        <span class="gong-tag cu">🔵 Customer</span>
+        <span>Rohit Kumar (Altudo) to fill in the automation progress tracking sheet.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Salesforce Cases -->
+  <div class="card">
+    <div class="card-hdr">📋 Salesforce Open Cases — Altudo (via NTT Data)</div>
+    <div class="card-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Case #</th>
+            <th>Subject</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Age</th>
+            <th>Reporter</th>
+            <th>Jira</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="mono">00061360</span></td>
+            <td>Request for Authorization of Support Access to Testsigma Account</td>
+            <td><span class="badge su">🔴 On Us</span><br><small style="color:var(--muted);font-size:11px">Pending Internal</small></td>
+            <td><span class="badge p2">P2</span></td>
+            <td><span class="mono">7d</span></td>
+            <td>Anudeep Chikka</td>
+            <td><span style="color:var(--muted);font-size:12px">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+<footer>Generated by TAM Brief Automation · 19 Jun 2026</footer>
+<script>
+const CUSTOMERS_JSON_ARRAY = [
+  {
+    name: "Altudo (via NTT Data)",
+    total: 1,
+    onUs: 1,
+    onCust: 0,
+    oldest: 7,
+    cases: [
+      {
+        id: "00061360",
+        sfId: "500OX000010A2zOYAS",
+        subject: "Request for Authorization of Support Access to Testsigma Account",
+        status: "Pending Internal",
+        bucket: "su",
+        priority: "P2",
+        age: 7,
+        reporter: "Anudeep Chikka",
+        jira: null
+      }
+    ],
+    gong: {
+      callDate: "18 Jun 2026",
+      callTitle: "NTT Data / Altudo Standup",
+      callId: "5126275195125794045",
+      pending: [
+        { owner: "us", text: "Pritish to prioritize Yash's XPath scroll-into-view ticket" },
+        { owner: "customer", text: "Yash Sharma (Altudo) to create a support ticket for XPath scroll issue" },
+        { owner: "customer", text: "Rohit Kumar (Altudo) to fill in the automation progress tracking sheet" }
+      ]
+    }
+  }
+];
+</script>
+</body>
+</html>
