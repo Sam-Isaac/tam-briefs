@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAM Team Brief — 22 Jun 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2f4fb;--sf:#fff;--sf2:#eef0f9;--bd:#dde0ee;
+  --tx:#1b1e2f;--tx2:#575d7d;--tx3:#9298b5;
+  --ac:#4f52d8;--acs:#ecedff;
+  --red:#dc2626;--reds:#fef2f2;--blue:#2563eb;--blues:#eff6ff;
+  --grn:#16a34a;--grns:#f0fdf4;
+  --amb:#d97706;--ambs:#fffbeb;
+  --r:10px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#0b0d18;--sf:#15172a;--sf2:#1c1f32;--bd:#252840;
+    --tx:#e3e6f5;--tx2:#888eb0;--tx3:#585e80;
+    --ac:#818cf8;--acs:#1d1f40;
+    --red:#f87171;--reds:#2a1515;--blue:#60a5fa;--blues:#142035;
+    --grn:#4ade80;--grns:#0f2018;
+    --amb:#fbbf24;--ambs:#2a1f0a;
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--tx);margin:0;padding:0;min-height:100vh}
+.hdr{background:var(--sf);border-bottom:1px solid var(--bd);padding:15px 28px;display:flex;align-items:center;gap:14px;box-shadow:0 1px 6px rgba(0,0,0,.07)}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:16px;color:var(--ac)}
+.hdiv{width:1px;height:20px;background:var(--bd)}
+.htitle{font-family:'Syne',sans-serif;font-weight:700;font-size:14px}
+.hdate{font-family:'DM Mono',monospace;font-size:11px;color:var(--tx3);margin-left:auto}
+.page{padding:24px 28px}
+h2{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--tx3);margin:0 0 14px}
+.team-stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.ts{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:14px 20px;min-width:130px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.tsl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--tx3);margin-bottom:5px}
+.tsv{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;line-height:1}
+.tsv.red{color:var(--red)}.tsv.blue{color:var(--blue)}.tsv.grn{color:var(--grn)}
+.alerts{background:var(--reds);border:1px solid var(--red);border-radius:var(--r);padding:14px 18px;margin-bottom:24px}
+.alert-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--red);margin-bottom:10px}
+.alert-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px}
+.alert-item{font-size:12px;color:var(--tx);display:flex;gap:8px;align-items:flex-start;line-height:1.4}
+.alert-item::before{content:"⚠";flex-shrink:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin-bottom:32px}
+.tam-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);box-shadow:0 1px 4px rgba(0,0,0,.06);overflow:hidden;display:flex;flex-direction:column}
+.tc-head{padding:14px 17px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--bd)}
+.tc-avatar{width:36px;height:36px;border-radius:50%;background:var(--acs);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:var(--ac);flex-shrink:0}
+.tc-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700}
+.tc-ooo{font-size:11px;background:var(--ambs);color:var(--amb);padding:2px 7px;border-radius:4px;font-weight:600;margin-left:auto}
+.tc-body{padding:14px 17px;flex:1}
+.tc-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.badge{font-family:'DM Mono',monospace;font-size:11px;padding:3px 9px;border-radius:5px;font-weight:500}
+.badge-calls{background:var(--sf2);color:var(--tx2)}
+.badge-us{background:var(--reds);color:var(--red)}
+.badge-cu{background:var(--blues);color:var(--blue)}
+.badge-clean{background:var(--grns);color:var(--grn)}
+.tc-risk{font-size:12px;color:var(--tx);line-height:1.4;margin-bottom:12px}
+.tc-risk-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--red);margin-bottom:3px}
+.tc-link{display:block;text-align:center;background:var(--acs);color:var(--ac);font-size:12px;font-weight:600;text-decoration:none;padding:9px 14px;border-top:1px solid var(--bd);transition:background .12s}
+.tc-link:hover{background:var(--ac);color:#fff}
+.ftr{padding:14px 28px;border-top:1px solid var(--bd);font-family:'DM Mono',monospace;font-size:10px;color:var(--tx3);display:flex;gap:16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <span class="logo">Testsigma</span>
+  <div class="hdiv"></div>
+  <span class="htitle">TAM Team Brief</span>
+  <span class="hdate">22 Jun 2026 · TAM Briefing Bot</span>
+</div>
+<div class="page">
+  <h2>Team Overview</h2>
+  <div class="team-stats" id="team-stats"></div>
+  <div class="alerts" id="alerts"></div>
+  <h2>TAM Snapshot</h2>
+  <div class="grid" id="grid"></div>
+</div>
+<div class="ftr">
+  <span>TAM Briefing Bot · 22 Jun 2026</span>
+  <span>Sources: Salesforce · Gong · Jira · Google Calendar</span>
+</div>
+<script>
+const BASE="https://sam-isaac.github.io/tam-briefs/22Jun2026/";
+const TAMS=[{"name": "Sam Isaac", "calls": 1, "onUs": 0, "onCu": 0, "ooo": false, "risk": "No open support cases \u2014 monitor for any escalations post-call", "alert": null, "file": "Sam_22Jun2026.html"}, {"name": "Mohan Kumar N", "calls": 3, "onUs": 6, "onCu": 1, "ooo": false, "risk": "00061021 (Space42) \u2014 P1 On-Prem default URL opens instead of configured URL; Pending on Dev 19 days with no fix ETA", "alert": "Space42: 2\u00d7P1 on-prem issues Pending Dev 19d with no fix ETA", "file": "Mohan_22Jun2026.html"}, {"name": "Shivani Sharma", "calls": 3, "onUs": 6, "onCu": 2, "ooo": false, "risk": "00060329 (Spacewell) \u2014 Auto-heal 41d open; URGENT: accessibility report RCA committed for TODAY on Jun 19 call", "alert": "Spacewell accessibility RCA due TODAY \u2014 committed on Jun 19 Gong call", "file": "Shivani_22Jun2026.html"}, {"name": "Osten Diniz", "calls": 3, "onUs": 6, "onCu": 2, "ooo": false, "risk": "00060329 (Spacewell) \u2014 Auto-heal performing action on wrong element; 41 days open, no customer-facing resolution", "alert": "Spacewell accessibility RCA due TODAY \u2014 coordinate with Shivani", "file": "Osten_22Jun2026.html"}, {"name": "Arthy Mohanraj", "calls": 1, "onUs": 0, "onCu": 0, "ooo": false, "risk": "No open customer support cases today \u2014 internal prep call only", "alert": null, "file": "Arthy_22Jun2026.html"}, {"name": "Pritish Samal", "calls": 0, "onUs": 0, "onCu": 0, "ooo": true, "risk": "N/A \u2014 Out of Office until Jun 29, 2026", "alert": null, "file": "Pritish_22Jun2026.html"}, {"name": "Sandeep Sai K", "calls": 2, "onUs": 9, "onCu": 1, "ooo": false, "risk": "00061585 (DHL) \u2014 P-Highest: OCR engine misidentifies 'Q' as '0' in Putty; AI Addon workaround fails; requires addon-level code fix", "alert": "DHL P-Highest OCR bug: 'Q' misread as '0', AI Addon workaround fails", "file": "Sandeep_22Jun2026.html"}, {"name": "Nixon Nicholas", "calls": 0, "onUs": 0, "onCu": 0, "ooo": false, "risk": "No customer calls or open cases today", "alert": null, "file": "Nixon_22Jun2026.html"}];
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function render(){
+  const totCalls=TAMS.reduce((s,t)=>s+t.calls,0);
+  const totUs=TAMS.reduce((s,t)=>s+t.onUs,0);
+  const totCu=TAMS.reduce((s,t)=>s+t.onCu,0);
+  const ooo=TAMS.filter(t=>t.ooo).length;
+  const noCalls=TAMS.filter(t=>!t.ooo&&t.calls===0).length;
+  document.getElementById('team-stats').innerHTML=`
+    <div class="ts"><div class="tsl">Active TAMs</div><div class="tsv grn">${TAMS.filter(t=>!t.ooo).length}</div></div>
+    <div class="ts"><div class="tsl">Calls Today</div><div class="tsv">${totCalls}</div></div>
+    <div class="ts"><div class="tsl">On Us (Total)</div><div class="tsv red">${totUs}</div></div>
+    <div class="ts"><div class="tsl">On Customer</div><div class="tsv blue">${totCu}</div></div>
+    <div class="ts"><div class="tsl">OOO Today</div><div class="tsv">${ooo}</div></div>
+    <div class="ts"><div class="tsl">No Calls</div><div class="tsv">${noCalls}</div></div>`;
+  const alertItems=TAMS.filter(t=>t.alert).map(t=>`<li class="alert-item"><strong>${esc(t.name)}:</strong> ${esc(t.alert)}</li>`).join('');
+  document.getElementById('alerts').innerHTML=`<div class="alert-title">🚨 Critical Alerts Today</div><ul class="alert-list">${alertItems}</ul>`;
+  document.getElementById('grid').innerHTML=TAMS.map(t=>{
+    const initials=t.name.split(' ').map(w=>w[0]).slice(0,2).join('');
+    const usBadge=t.onUs>0?`<span class="badge badge-us">🔴 ${t.onUs} On Us</span>`:'';
+    const cuBadge=t.onCu>0?`<span class="badge badge-cu">🔵 ${t.onCu} On Cust</span>`:'';
+    const cleanBadge=(t.onUs===0&&t.onCu===0&&!t.ooo)?`<span class="badge badge-clean">✓ Clean</span>`:'';
+    const oooBadge=t.ooo?`<span class="tc-ooo">OOO</span>`:'';
+    return`<div class="tam-card">
+      <div class="tc-head">
+        <div class="tc-avatar">${initials}</div>
+        <div>
+          <div class="tc-name">${esc(t.name)}</div>
+          <div style="font-size:11px;color:var(--tx3);margin-top:2px">${t.calls} call${t.calls!==1?'s':''} today</div>
+        </div>
+        ${oooBadge}
+      </div>
+      <div class="tc-body">
+        <div class="tc-badges">
+          <span class="badge badge-calls">📞 ${t.calls} call${t.calls!==1?'s':''}</span>
+          ${usBadge}${cuBadge}${cleanBadge}
+        </div>
+        <div class="tc-risk-lbl">⚡ Biggest Risk</div>
+        <div class="tc-risk">${esc(t.risk)}</div>
+      </div>
+      <a class="tc-link" href="${BASE}${t.file}" target="_blank">View Full Brief →</a>
+    </div>`;
+  }).join('');
+}
+render();
+</script>
+</body>
+</html>
