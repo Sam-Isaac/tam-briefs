@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Overview — TAM Brief 23 Jun 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;
+--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;
+--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--green:#16a34a;
+--green-bg:#f0fdf4;--orange:#d97706;--orange-bg:#fffbeb;
+--jira:#0052cc;--tag-bg:#e8e6e0;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;
+--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;
+--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;
+--blue-bg:#111827;--green:#4ade80;--green-bg:#0f1f14;--orange:#fbbf24;
+--orange-bg:#1c1608;--jira:#4d9de0;--tag-bg:#2a2926;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.totals{display:flex;gap:12px;padding:20px 32px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.tot{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 18px;flex:1;min-width:100px;}
+.tnum{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;line-height:1;margin-bottom:4px;}
+.tnum.r{color:var(--red);}.tnum.b{color:var(--blue);}.tnum.o{color:var(--orange);}.tnum.g{color:var(--green);}
+.tlabel{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;padding:24px 32px;}
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;transition:box-shadow .15s;}
+.card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);}
+.card-header{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
+.avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:15px;color:#fff;flex-shrink:0;}
+.card-meta{flex:1;}
+.card-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;line-height:1.2;}
+.card-name a{color:var(--text);text-decoration:none;}
+.card-name a:hover{color:var(--blue);text-decoration:underline;}
+.call-badge{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);margin-top:3px;}
+.mini-stats{display:flex;gap:8px;margin-bottom:14px;}
+.ms{background:var(--bg2);border-radius:8px;padding:8px 12px;flex:1;text-align:center;}
+.ms-num{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;line-height:1;}
+.ms-num.r{color:var(--red);}.ms-num.b{color:var(--blue);}
+.ms-lbl{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.04em;margin-top:2px;}
+.calls-list{margin-bottom:12px;}
+.call-item{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;background:var(--bg2);border-radius:6px;margin-bottom:4px;font-size:12px;}
+.call-time{font-family:'DM Mono',monospace;color:var(--text3);font-size:11px;}
+.call-co{font-weight:500;color:var(--text);}
+.call-cnt{font-family:'DM Mono',monospace;font-size:10px;padding:1px 6px;border-radius:99px;}
+.call-cnt.r{background:var(--red-bg);color:var(--red);}
+.call-cnt.n{background:var(--bg);color:var(--text3);}
+.no-calls{font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;padding:8px 0;font-style:italic;}
+.ooo-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:10px;padding:2px 8px;border-radius:4px;background:var(--orange-bg);color:var(--orange);margin-bottom:8px;}
+.risk-line{font-size:12px;color:var(--text2);border-top:1px solid var(--border);padding-top:10px;line-height:1.5;}
+.risk-line strong{color:var(--red);font-family:'DM Mono',monospace;font-size:11px;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Testsigma · TAM Team Overview</div>
+  <div class="title">Team Brief <span>/ Monday, 23 Jun 2026</span></div>
+</div>
+<div class="totals">
+  <div class="tot"><div class="tnum g">3</div><div class="tlabel">TAMs w/ Calls</div></div>
+  <div class="tot"><div class="tnum o">4</div><div class="tlabel">Calls Today</div></div>
+  <div class="tot"><div class="tnum">14</div><div class="tlabel">Total Open</div></div>
+  <div class="tot"><div class="tnum r">8</div><div class="tlabel">On Us</div></div>
+  <div class="tot"><div class="tnum b">6</div><div class="tlabel">On Customer</div></div>
+  <div class="tot"><div class="tnum r">14d</div><div class="tlabel">Oldest Ticket</div></div>
+</div>
+<div class="grid">
+
+  <!-- Sam Isaac -->
+  <div class="card">
+    <div class="card-header">
+      <div class="avatar" style="background:#2563eb;">SI</div>
+      <div class="card-meta">
+        <div class="card-name"><a href="Sam_23Jun2026.html">Sam Isaac</a></div>
+        <div class="call-badge">1 call today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="ms-num">7</div><div class="ms-lbl">Total</div></div>
+      <div class="ms"><div class="ms-num r">5</div><div class="ms-lbl">On Us</div></div>
+      <div class="ms"><div class="ms-num b">2</div><div class="ms-lbl">On Cust</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-item">
+        <span class="call-time">14:30 IST</span>
+        <span class="call-co">AIA</span>
+        <span class="call-cnt r">7 open</span>
+      </div>
+    </div>
+    <div class="risk-line"><strong>🚨 Risk:</strong> 00061653 + 00061654 — Two P1s same day; agent v9.1.5 breaking Edge at AIA</div>
+  </div>
+
+  <!-- Mohan Kumar N -->
+  <div class="card">
+    <div class="card-header">
+      <div class="avatar" style="background:#16a34a;">MK</div>
+      <div class="card-meta">
+        <div class="card-name"><a href="Mohan_23Jun2026.html">Mohan Kumar N</a></div>
+        <div class="call-badge">0 calls today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="ms-num">0</div><div class="ms-lbl">Total</div></div>
+      <div class="ms"><div class="ms-num r">0</div><div class="ms-lbl">On Us</div></div>
+      <div class="ms"><div class="ms-num b">0</div><div class="ms-lbl">On Cust</div></div>
+    </div>
+    <div class="no-calls">No customer calls today.</div>
+  </div>
+
+  <!-- Shivani Sharma -->
+  <div class="card">
+    <div class="card-header">
+      <div class="avatar" style="background:#9333ea;">SS</div>
+      <div class="card-meta">
+        <div class="card-name"><a href="Shivani_23Jun2026.html">Shivani Sharma</a></div>
+        <div class="call-badge">0 calls today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="ms-num">0</div><div class="ms-lbl">Total</div></div>
+      <div class="ms"><div class="ms-num r">0</div><div class="ms-lbl">On Us</div></div>
+      <div class="ms"><div class="ms-num b">0</div><div class="ms-lbl">On Cust</div></div>
+    </div>
+    <div class="no-calls">No customer calls today.</div>
+  </div>
+
+  <!-- Osten Diniz -->
+  <div class="card">
+    <div class="card-header">
+      <div class="avatar" style="background:#d97706;">OD</div>
+      <div class="card-meta">
+        <div class="card-name"><a href="Osten_23Jun2026.html">Osten Diniz</a></div>
+        <div class="call-badge">2 calls today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="ms-num">0</div><div class="ms-lbl">Total</div></div>
+      <div class="ms"><div class="ms-num r">0</div><div class="ms-lbl">On Us</div></div>
+      <div class="ms"><div class="ms-num b">0</div><div class="ms-lbl">On Cust</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-item">
+        <span class="call-time">14:00 IST</span>
+        <span class="call-co">VFC</span>
+        <span class="call-cnt n">0 open</span>
+      </div>
+      <div class="call-item">
+        <span class="call-time">20:00 IST</span>
+        <span class="call-co">Pairpeo</span>
+        <span class="call-cnt n">0 open</span>
+      </div>
+    </div>
+    <div class="risk-line"><strong>🚨 Risk:</strong> VFC — desktop automation session not scheduled; Pairpeo — Arcus demo + email pending 12d</div>
+  </div>
+
+  <!-- Arthy Mohanraj -->
+  <div class="card">
+    <div class="card-header">
+      <div class="avatar" style="background:#dc2626;">AM</div>
+      <div class="card-meta">
+        <div class="card-name"><a href="Arthy_23Jun2026.html">Arthy Mohanraj</a></div>
+        <div class="call-badge">0 calls today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="ms-num">0</div><div class="ms-lbl">Total</div></div>
+      <div class="ms"><div class="ms-num r">0</div><div class="ms-lbl">On Us</div></div>
+      <div class="ms"><div class="ms-num b">0</div><div class="ms-lbl">On Cust</div></div>
+    </div>
+    <div class="no-calls">No customer calls today.</div>
+  </div>
+
+  <!-- Pritish Samal -->
+  <div class="card">
+    <div class="card-header">
+      <div class="avatar" style="background:#0891b2;">PS</div>
+      <div class="card-meta">
+        <div class="card-name"><a href="Pritish_23Jun2026.html">Pritish Samal</a></div>
+        <div class="call-badge">0 calls today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="ms-num">0</div><div class="ms-lbl">Total</div></div>
+      <div class="ms"><div class="ms-num r">0</div><div class="ms-lbl">On Us</div></div>
+      <div class="ms"><div class="ms-num b">0</div><div class="ms-lbl">On Cust</div></div>
+    </div>
+    <div class="ooo-badge">🏖️ OOO 22–29 Jun</div>
+    <div class="no-calls">Out of office — returns 29 Jun 2026.</div>
+  </div>
+
+  <!-- Sandeep Sai K -->
+  <div class="card">
+    <div class="card-header">
+      <div class="avatar" style="background:#65a30d;">SK</div>
+      <div class="card-meta">
+        <div class="card-name"><a href="Sandeep_23Jun2026.html">Sandeep Sai K</a></div>
+        <div class="call-badge">0 calls today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="ms-num">0</div><div class="ms-lbl">Total</div></div>
+      <div class="ms"><div class="ms-num r">0</div><div class="ms-lbl">On Us</div></div>
+      <div class="ms"><div class="ms-num b">0</div><div class="ms-lbl">On Cust</div></div>
+    </div>
+    <div class="no-calls">No customer calls today.</div>
+  </div>
+
+  <!-- Nixon Nicholas -->
+  <div class="card">
+    <div class="card-header">
+      <div class="avatar" style="background:#ea580c;">NN</div>
+      <div class="card-meta">
+        <div class="card-name"><a href="Nixon_23Jun2026.html">Nixon Nicholas</a></div>
+        <div class="call-badge">1 call today</div>
+      </div>
+    </div>
+    <div class="mini-stats">
+      <div class="ms"><div class="ms-num">7</div><div class="ms-lbl">Total</div></div>
+      <div class="ms"><div class="ms-num r">3</div><div class="ms-lbl">On Us</div></div>
+      <div class="ms"><div class="ms-num b">4</div><div class="ms-lbl">On Cust</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-item">
+        <span class="call-time">15:30 IST</span>
+        <span class="call-co">IIFL Capital</span>
+        <span class="call-cnt r">7 open</span>
+      </div>
+    </div>
+    <div class="risk-line"><strong>🚨 Risk:</strong> 00061173 — 14d Pending On-Prem enterprise features case; renewal risk if unresolved</div>
+  </div>
+
+</div>
+</body>
+</html>
