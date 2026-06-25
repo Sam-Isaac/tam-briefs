@@ -23,14 +23,12 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 .hstat-num.urgent-num{color:#FCA5A5;}
 .hstat-lbl{font-family:var(--mono);font-size:10px;opacity:0.4;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;}
 .window-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:6px 12px;font-family:var(--mono);font-size:11px;opacity:0.7;margin-top:1.25rem;}
-.window-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:#86EFAC;flex-shrink:0;}
+.window-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:#FCA5A5;flex-shrink:0;}
 .body{max-width:900px;margin:0 auto;padding:2rem 2.5rem;}
-.priority-box{background:var(--urgent-bg);border:1px solid var(--urgent-border);border-left:3px solid var(--urgent);border-radius:0 10px 10px 0;padding:1rem 1.25rem;margin-bottom:1.75rem;}
-.priority-label{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--urgent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;}
-.priority-items{display:flex;flex-direction:column;gap:6px;}
-.priority-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;}
-.priority-dot{width:5px;height:5px;border-radius:50%;background:var(--urgent);flex-shrink:0;margin-top:6px;}
-.priority-client{font-weight:500;color:var(--urgent);}
+.error-box{background:#FEF2F2;border:1px solid #FECACA;border-left:3px solid #DC2626;border-radius:0 10px 10px 0;padding:1.25rem 1.5rem;margin-bottom:1.75rem;}
+.error-label{font-family:var(--mono);font-size:10px;font-weight:500;color:#DC2626;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;}
+.error-text{font-size:13px;color:#991B1B;line-height:1.6;}
+.error-sub{font-size:12px;color:#B91C1C;font-family:var(--mono);margin-top:6px;}
 .section{margin-bottom:2rem;}
 .section-header{display:flex;align-items:center;gap:10px;margin-bottom:0.75rem;padding-bottom:0.75rem;border-bottom:1px solid var(--border);}
 .section-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
@@ -39,36 +37,8 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 .section-icon.cc{background:var(--cc-bg);}
 .section-title{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:var(--text2);}
 .section-count{font-family:var(--mono);font-size:11px;color:var(--text3);margin-left:auto;}
-.client-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:hidden;}
-.client-head{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--surface2);border-bottom:1px solid var(--border);}
-.client-avatar{width:32px;height:32px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;letter-spacing:0.02em;flex-shrink:0;font-family:var(--mono);}
-.client-name{font-size:14px;font-weight:600;}
-.client-email{font-size:11px;color:var(--text3);font-family:var(--mono);margin-top:1px;}
-.client-badge{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
-.client-badge.direct{background:var(--direct-bg);color:var(--direct);}
-.client-badge.fwd{background:var(--fwd-bg);color:var(--fwd);}
-.client-badge.cc{background:var(--cc-bg);color:var(--cc);}
-.thread{padding:14px 16px;border-bottom:1px solid var(--border);}
-.thread:last-child{border-bottom:none;}
-.thread-meta{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap;}
-.thread-subject{font-size:13px;font-weight:500;flex:1;min-width:200px;}
-.thread-time{font-family:var(--mono);font-size:11px;color:var(--text3);}
-.urgent-tag{font-family:var(--mono);font-size:10px;font-weight:500;background:var(--urgent-bg);color:var(--urgent);border:1px solid var(--urgent-border);padding:1px 7px;border-radius:4px;white-space:nowrap;}
-.actions{display:flex;flex-direction:column;gap:5px;}
-.action{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5;padding:5px 10px;border-radius:6px;background:var(--surface2);}
-.action-arrow{color:var(--text3);flex-shrink:0;font-size:12px;margin-top:2px;font-family:var(--mono);}
-.action.is-urgent{background:var(--urgent-bg);}
-.action.is-urgent .action-arrow{color:var(--urgent);}
-.action.is-urgent .action-text{color:var(--urgent);font-weight:500;}
 .empty{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem 1.25rem;text-align:center;}
 .empty-text{font-size:13px;color:var(--text3);font-family:var(--mono);}
-.inbox-clear{background:var(--green-bg);border:1px solid #BBF7D0;border-radius:10px;padding:2rem;text-align:center;margin-top:1rem;}
-.inbox-clear-icon{font-size:32px;margin-bottom:8px;}
-.inbox-clear-text{font-size:15px;font-weight:500;color:var(--green);}
-.inbox-clear-sub{font-size:12px;color:var(--text3);font-family:var(--mono);margin-top:4px;}
-.warn-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:3px solid #B45309;border-radius:0 10px 10px 0;padding:1rem 1.25rem;margin-bottom:1.75rem;}
-.warn-label{font-family:var(--mono);font-size:10px;font-weight:500;color:#B45309;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;}
-.warn-text{font-size:13px;color:#92400E;}
 .footer{border-top:1px solid var(--border);padding:1.5rem 2.5rem;}
 .footer-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
 .footer-left{font-family:var(--mono);font-size:11px;color:var(--text3);}
@@ -81,22 +51,39 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 <div class="hero"><div class="hero-inner">
 <div class="hero-eyebrow">Morning Brief · Auto-generated</div>
 <div class="hero-heading">Email Action Items <span>/ Yesterday</span></div>
-<div class="hero-sub">Tuesday, 23 June 2026 · Scanned at 08:00 IST</div>
+<div class="hero-sub">Thursday, 25 June 2026 · Scanned at 08:00 IST</div>
 <div class="hero-stats">
-<div class="hstat"><div class="hstat-num">0</div><div class="hstat-lbl">Action items</div></div>
-<div class="hstat"><div class="hstat-num">0</div><div class="hstat-lbl">Clients</div></div>
-<div class="hstat"><div class="hstat-num">0</div><div class="hstat-lbl">Urgent</div></div>
-<div class="hstat"><div class="hstat-num">0</div><div class="hstat-lbl">Scanned</div></div>
+<div class="hstat"><div class="hstat-num">—</div><div class="hstat-lbl">Action items</div></div>
+<div class="hstat"><div class="hstat-num">—</div><div class="hstat-lbl">Clients</div></div>
+<div class="hstat"><div class="hstat-num">—</div><div class="hstat-lbl">Urgent</div></div>
+<div class="hstat"><div class="hstat-num">—</div><div class="hstat-lbl">Scanned</div></div>
 </div>
-<div class="window-badge">Scan window: Mon 22 Jun 00:00 IST → Tue 23 Jun 08:00 IST</div>
+<div class="window-badge">Scan window: Wed 24 Jun 00:00 IST → Thu 25 Jun 08:00 IST · Gmail unavailable</div>
 </div></div>
 
 <div class="body">
 
-<div class="warn-box"><div class="warn-label">⚠ Gmail scan unavailable</div><div class="warn-text">The Gmail integration did not connect during this run. No emails were scanned. Please verify the Gmail MCP server configuration and re-run the brief manually if needed.</div></div>
+<div class="error-box">
+  <div class="error-label">⚠ Gmail Scan Failed — Manual check required</div>
+  <div class="error-text">The Gmail MCP integration was unavailable during this morning's automated scan. Email action items could not be extracted for the period <strong>Wed 24 Jun 00:00 IST → Thu 25 Jun 08:00 IST</strong>.</div>
+  <div class="error-sub">Action: Please check your inbox manually at mail.google.com · Next scheduled scan: Fri 26 Jun 08:00 IST</div>
+</div>
 
-<div class="inbox-clear"><div class="inbox-clear-icon">⚠️</div><div class="inbox-clear-text">Gmail scan could not complete — 0 emails scanned</div><div class="inbox-clear-sub">Mon 22 Jun 00:00 IST → Tue 23 Jun 08:00 IST · Gmail MCP unavailable</div></div>
+<div class="section">
+<div class="section-header"><div class="section-icon direct">🔵</div><div class="section-title">Direct Emails</div><div class="section-count">Gmail unavailable</div></div>
+<div class="empty"><div class="empty-text">Gmail scan could not be completed — check inbox manually</div></div>
+</div>
+
+<div class="section">
+<div class="section-header"><div class="section-icon fwd">🟡</div><div class="section-title">Forwarded Emails</div><div class="section-count">Gmail unavailable</div></div>
+<div class="empty"><div class="empty-text">Gmail scan could not be completed — check inbox manually</div></div>
+</div>
+
+<div class="section">
+<div class="section-header"><div class="section-icon cc">⚪</div><div class="section-title">CC'd Emails</div><div class="section-count">Gmail unavailable</div></div>
+<div class="empty"><div class="empty-text">Gmail scan could not be completed — check inbox manually</div></div>
+</div>
 
 </div>
-<div class="footer"><div class="footer-inner"><div class="footer-left">Sam Isaac · TAM · Testsigma</div><div class="footer-right">Auto-generated by Email Action Agent · Tuesday, 23 June 2026 08:00 IST</div></div></div>
+<div class="footer"><div class="footer-inner"><div class="footer-left">Sam Isaac · TAM · Testsigma</div><div class="footer-right">Auto-generated by Email Action Agent · Thursday, 25 June 2026 08:00 IST</div></div></div>
 </body></html>
