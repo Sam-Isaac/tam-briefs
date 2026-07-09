@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAM Brief — Osten Diniz — 09 Jul 2026</title>
+<style>
+:root{--bg:#f7f8fa;--surface:#fff;--border:#e2e5ea;--text:#1a1d23;--muted:#6b7280;--accent:#2563eb;--red:#dc2626;--blue:#2563eb;--red-bg:#fef2f2;--blue-bg:#eff6ff;--green:#16a34a;--green-bg:#f0fdf4;--shadow:0 1px 3px rgba(0,0,0,.08)}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1117;--surface:#1a1d23;--border:#2d3139;--text:#e5e7eb;--muted:#9ca3af;--red-bg:#2d1515;--blue-bg:#0f1d35;--green-bg:#0f1f0f}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+.header{background:var(--accent);color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center}
+.header h1{font-size:18px;font-weight:700}
+.header .meta{font-size:12px;opacity:.85}
+.stats{display:flex;gap:12px;padding:16px 24px;background:var(--surface);border-bottom:1px solid var(--border)}
+.stat{text-align:center;padding:8px 16px;border-radius:8px;background:var(--bg);min-width:80px}
+.stat .n{font-size:22px;font-weight:700;line-height:1}
+.stat .l{font-size:11px;color:var(--muted);margin-top:3px}
+.stat.red .n{color:var(--red)} .stat.blue .n{color:var(--blue)} .stat.green .n{color:var(--green)}
+.content{padding:20px 24px;display:flex;flex-direction:column;gap:16px;max-width:900px;margin:0 auto}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+.card-header{padding:12px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.card-header .customer{font-weight:700;font-size:15px}
+.card-header .time{font-size:12px;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:12px}
+.card-body{padding:16px}
+.section-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:8px}
+.gong-box{background:var(--bg);border-radius:6px;padding:10px 12px;margin-bottom:12px;font-size:13px}
+.cases{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.case-row{display:flex;align-items:flex-start;gap:8px;font-size:13px;padding:6px 10px;border-radius:6px}
+.case-row.red{background:var(--red-bg)} .case-row.blue{background:var(--blue-bg)}
+.case-num{font-weight:600;white-space:nowrap;min-width:100px}
+.case-subj{color:var(--text);flex:1}
+.case-status{font-size:11px;white-space:nowrap;color:var(--muted)}
+.actions{display:flex;flex-direction:column;gap:5px}
+.action-item{display:flex;align-items:flex-start;gap:8px;font-size:13px}
+.action-item::before{content:'→';color:var(--accent);flex-shrink:0;margin-top:1px}
+.empty-cases{font-size:13px;color:var(--muted);padding:6px 0}
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>Osten Diniz</h1>
+    <div class="meta">Technical Account Manager · 09 Jul 2026 (Wednesday)</div>
+  </div>
+  <div class="meta" style="text-align:right">Testsigma TAM Brief<br>Auto-generated</div>
+</div>
+<div class="stats">
+  <div class="stat green"><div class="n">4</div><div class="l">Calls Today</div></div>
+  <div class="stat red"><div class="n">0</div><div class="l">🔴 Waiting on Us</div></div>
+  <div class="stat blue"><div class="n">0</div><div class="l">🔵 Waiting on Customer</div></div>
+</div>
+<div class="content" id="content"></div>
+<script>
+const customers = [
+  {
+    name: "Rain Stella Technologies",
+    time: "3:00 PM",
+    type: "Training Day 1 (continued)",
+    gong: {
+      date: "08 Jul 2026",
+      notes: "Day 1 training kicked off with Imran Ullah, Qamar, and Zain. Covered Testsigma basics: dashboard, project creation, test case structure, copilot introduction, agent setup. Team is new to the platform. Osten introduced as TAM for next 3 months. Training to continue across scheduled sessions.",
+    },
+    actions: [
+      "Continue Day 1 training — cover elements recording, NLPs, test suites",
+      "Create and share Q&A spreadsheet with Rain Stella team for async questions",
+      "Send training agenda so team can preview upcoming topics",
+      "Schedule remaining training sessions for the 3-month onboarding period"
+    ],
+    sfRed: [],
+    sfBlue: []
+  },
+  {
+    name: "Omnex Inc",
+    time: "3:00 PM",
+    type: "Support / POC Session",
+    gong: {
+      date: "07 Jul 2026",
+      notes: "Session led by Pramath. Customers Shweta (Dhanapal) and Gopi (Gopinath R) raised dropdown automation issues affecting multiple modules. Shweta: supplier type dropdown not picking values; Gopi: double-click required to show dropdown, wrong element captured in grid cells. Workaround shared: image-based click + click-on-text NLPs. JavaScript shared in chat for drag-and-drop resize fix (width:1000, height:600). Inspection sheet loop XPath investigation still pending.",
+    },
+    actions: [
+      "Resolve dropdown automation issues for Shweta (supplier module) and Gopi (RFD module)",
+      "Follow up via email: get Shweta's and Gopi's emails shared in meeting chat",
+      "Verify Gopi tried JavaScript drag-and-drop fix (width/height resize)",
+      "Investigate XPath DOM structure for inspection sheet dynamic row loop (Shweta)",
+      "Confirm fix works across all dropdown instances — not just examples from session"
+    ],
+    sfRed: [],
+    sfBlue: []
+  },
+  {
+    name: "Zensar Technologies",
+    time: "6:00 PM",
+    type: "Week 1 Training (Session 2)",
+    gong: {
+      date: "06 Jul 2026",
+      notes: "Week 1 Training Day 1 completed. Covered: dashboard overview, project creation, multiple application types, copilot session, recording, step groups. Team lead Joel C (IT manager) asked about reporting capabilities and Jira integration. Winnie asked about parameterization and multiple app types. Session ran over time. Next session (Thursday) to cover test suites, environments, data profiles, and advanced features. Shared Q&A spreadsheet setup agreed.",
+    },
+    actions: [
+      "Create and share Q&A Google spreadsheet link with Zensar team (Vijay to distribute)",
+      "Share Thursday training agenda with team in advance (Winnie requested)",
+      "Cover: test suites, environments, test data profiles, parameterization in today's session",
+      "Follow up with Joel C and Vijay on their separate internal question from Session 1",
+      "Confirm Jira integration details — available without additional license via webhook"
+    ],
+    sfRed: [],
+    sfBlue: []
+  },
+  {
+    name: "UCEAP",
+    time: "10:30 PM",
+    type: "Weekly Check-in",
+    gong: {
+      date: "25 Jun 2026",
+      notes: "Fernando Sandoval and Maggie Moser. Persistent Copilot issue: incorrect XPath capture — assigns array index to elements that appear only once on page. Element recording freezes/crashes occasionally. Working on test data profiles for country-based randomization testing. Osten missed following up on item from prior call. Best practices for Copilot prompting requested.",
+    },
+    actions: [
+      "Raise internal ticket for Copilot incorrect XPath capture bug — provide Gong recording as evidence",
+      "Review prior session Gong recording to identify any unresolved pending action items",
+      "Find better approach for randomizing country/page link testing across European countries",
+      "Share Copilot best practices document when available from product team",
+      "Assist Fernando with support ticket for element recording freeze issue"
+    ],
+    sfRed: [],
+    sfBlue: []
+  }
+];
+
+function render() {
+  const container = document.getElementById('content');
+  customers.forEach(c => {
+    const redCases = c.sfRed.map(r => `<div class="case-row red"><span class="case-num">🔴 ${r.num}</span><span class="case-subj">${r.subject}</span><span class="case-status">${r.status}</span></div>`).join('');
+    const blueCases = c.sfBlue.map(r => `<div class="case-row blue"><span class="case-num">🔵 ${r.num}</span><span class="case-subj">${r.subject}</span><span class="case-status">${r.status}</span></div>`).join('');
+    const caseSection = (c.sfRed.length + c.sfBlue.length === 0)
+      ? `<div class="empty-cases">No open SF cases</div>`
+      : redCases + blueCases;
+    const actionItems = c.actions.map(a => `<div class="action-item">${a}</div>`).join('');
+    container.innerHTML += `
+      <div class="card">
+        <div class="card-header">
+          <span class="customer">${c.name}</span>
+          <span class="time">${c.time} · ${c.type}</span>
+        </div>
+        <div class="card-body">
+          <div class="section-label">Last Gong Call · ${c.gong.date}</div>
+          <div class="gong-box">${c.gong.notes}</div>
+          <div class="section-label">SF Open Cases</div>
+          <div class="cases">${caseSection}</div>
+          <div class="section-label">Action Items</div>
+          <div class="actions">${actionItems}</div>
+        </div>
+      </div>`;
+  });
+}
+render();
+</script>
+</body>
+</html>

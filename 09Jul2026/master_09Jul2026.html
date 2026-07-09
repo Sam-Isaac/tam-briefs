@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAM Team Brief — 09 Jul 2026</title>
+<style>
+:root{--bg:#f7f8fa;--surface:#fff;--border:#e2e5ea;--text:#1a1d23;--muted:#6b7280;--accent:#2563eb;--red:#dc2626;--blue:#2563eb;--red-bg:#fef2f2;--blue-bg:#eff6ff;--green:#16a34a;--green-bg:#f0fdf4;--yellow:#d97706;--yellow-bg:#fffbeb;--shadow:0 1px 3px rgba(0,0,0,.08)}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1117;--surface:#1a1d23;--border:#2d3139;--text:#e5e7eb;--muted:#9ca3af;--red-bg:#2d1515;--blue-bg:#0f1d35;--green-bg:#0f1f0f;--yellow-bg:#1f1a0a}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+.header{background:var(--accent);color:#fff;padding:20px 24px;display:flex;justify-content:space-between;align-items:center}
+.header h1{font-size:20px;font-weight:700}
+.header .meta{font-size:12px;opacity:.85;text-align:right}
+.team-stats{display:flex;gap:12px;padding:16px 24px;background:var(--surface);border-bottom:1px solid var(--border);flex-wrap:wrap}
+.stat{text-align:center;padding:10px 20px;border-radius:8px;background:var(--bg);min-width:90px}
+.stat .n{font-size:26px;font-weight:700;line-height:1}
+.stat .l{font-size:11px;color:var(--muted);margin-top:3px}
+.stat.red .n{color:var(--red)} .stat.blue .n{color:var(--blue)} .stat.green .n{color:var(--green)}
+.content{padding:20px 24px;max-width:1100px;margin:0 auto}
+.section-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:12px}
+.alerts{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.alert{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:8px;font-size:13px}
+.alert.red{background:var(--red-bg);border-left:3px solid var(--red)}
+.alert.yellow{background:var(--yellow-bg);border-left:3px solid var(--yellow)}
+.alert-icon{font-size:15px;flex-shrink:0}
+.alert-body strong{display:block;font-weight:600;margin-bottom:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:24px}
+.tam-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:var(--shadow);text-decoration:none;color:inherit;display:block;transition:box-shadow .15s}
+.tam-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.tam-card-header{padding:12px 14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start}
+.tam-name{font-weight:700;font-size:14px}
+.tam-role{font-size:11px;color:var(--muted);margin-top:1px}
+.tam-badge{font-size:11px;padding:2px 8px;border-radius:10px;font-weight:600;white-space:nowrap}
+.tam-badge.active{background:var(--green-bg);color:var(--green)}
+.tam-badge.idle{background:var(--bg);color:var(--muted)}
+.tam-card-body{padding:12px 14px}
+.tam-calls{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+.call-line{font-size:12px;display:flex;align-items:center;gap:6px}
+.call-time{font-weight:600;min-width:64px;color:var(--accent);font-size:11px}
+.call-customer{flex:1}
+.call-type{font-size:11px;color:var(--muted)}
+.no-calls-note{font-size:12px;color:var(--muted);font-style:italic}
+.cases-row{display:flex;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
+.case-badge{display:flex;align-items:center;gap:4px;font-size:12px;padding:3px 8px;border-radius:6px;font-weight:600}
+.case-badge.red{background:var(--red-bg);color:var(--red)}
+.case-badge.blue{background:var(--blue-bg);color:var(--blue)}
+.case-badge.none{color:var(--muted);font-size:11px;font-weight:normal}
+.table-section{margin-bottom:24px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--surface);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+th{background:var(--bg);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:10px 14px;text-align:left;border-bottom:1px solid var(--border)}
+td{padding:10px 14px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.chip-red{display:inline-flex;align-items:center;gap:3px;background:var(--red-bg);color:var(--red);border-radius:4px;padding:1px 6px;font-size:11px;font-weight:600}
+.chip-blue{display:inline-flex;align-items:center;gap:3px;background:var(--blue-bg);color:var(--blue);border-radius:4px;padding:1px 6px;font-size:11px;font-weight:600}
+.link-cell a{color:var(--accent);text-decoration:none;font-size:12px}
+.link-cell a:hover{text-decoration:underline}
+.age-warn{color:var(--red);font-weight:600}
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>TAM Team Brief</h1>
+    <div style="font-size:13px;opacity:.9;margin-top:2px">Wednesday, 09 Jul 2026 · Testsigma</div>
+  </div>
+  <div class="meta">8 TAMs &nbsp;·&nbsp; Auto-generated</div>
+</div>
+
+<div class="team-stats">
+  <div class="stat green"><div class="n">13</div><div class="l">Calls Today</div></div>
+  <div class="stat red"><div class="n">2</div><div class="l">🔴 Waiting on Us</div></div>
+  <div class="stat blue"><div class="n">6</div><div class="l">🔵 Waiting on Customer</div></div>
+  <div class="stat"><div class="n" style="color:var(--text)">8</div><div class="l">Total Open Cases</div></div>
+  <div class="stat"><div class="n" style="color:var(--muted)">1</div><div class="l">No Calls Today</div></div>
+</div>
+
+<div class="content">
+
+  <div class="section-title">Attention Required</div>
+  <div class="alerts">
+    <div class="alert red">
+      <div class="alert-icon">🔴</div>
+      <div class="alert-body">
+        <strong>Nixon Nicholas — Nuvama Wealth — 1 case "Waiting on Us"</strong>
+        SF #00062310: "Ticket raised for AfterTest BeforeTest NLP" — Status: Resolved. Confirm resolution communicated to customer and close out in SF. Nuvama standup at 3:00 PM today.
+      </div>
+    </div>
+    <div class="alert red">
+      <div class="alert-icon">🔴</div>
+      <div class="alert-body">
+        <strong>Mohan Kumar N — Space42 — Case aging 36 days</strong>
+        SF #00061021: "On Prem - Local Device Execution Opens Default URL Instead of Configured Environment URL Until Browser Refresh" — Status: Pending on Dev. Created 03 Jun 2026, no resolution yet. Needs engineering escalation update before today's Space42 call (12:30 PM).
+      </div>
+    </div>
+    <div class="alert yellow">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-body">
+        <strong>Pritish Samal — Uare.ai — No Gong call in 7+ weeks</strong>
+        Last recorded Gong call was 18 May 2026. Tonight's check-in (10:00 PM) is a re-engagement opportunity — check platform usage metrics before the call.
+      </div>
+    </div>
+    <div class="alert yellow">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-body">
+        <strong>Osten Diniz — UCEAP — Persistent Copilot XPath bug unresolved</strong>
+        Copilot assigns array index to elements that appear only once on page. Last discussed 25 Jun 2026 — internal ticket should have been raised. Verify ticket status before tonight's UCEAP call (10:30 PM).
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">TAM Cards</div>
+  <div class="grid">
+
+    <a class="tam-card" href="Sam_09Jul2026.html">
+      <div class="tam-card-header">
+        <div><div class="tam-name">Sam Isaac</div><div class="tam-role">Senior TAM</div></div>
+        <div class="tam-badge active">2 calls</div>
+      </div>
+      <div class="tam-card-body">
+        <div class="tam-calls">
+          <div class="call-line"><span class="call-time">11:00 AM</span><span class="call-customer">Apex Group</span><span class="call-type">Training S6</span></div>
+          <div class="call-line"><span class="call-time">10:30 PM</span><span class="call-customer">UCEAP</span><span class="call-type">Weekly Check-in</span></div>
+        </div>
+        <div class="cases-row"><span class="case-badge none">No open cases</span></div>
+      </div>
+    </a>
+
+    <a class="tam-card" href="Nixon_09Jul2026.html">
+      <div class="tam-card-header">
+        <div><div class="tam-name">Nixon Nicholas</div><div class="tam-role">TAM</div></div>
+        <div class="tam-badge active">1 call</div>
+      </div>
+      <div class="tam-card-body">
+        <div class="tam-calls">
+          <div class="call-line"><span class="call-time">3:00 PM</span><span class="call-customer">Nuvama Wealth</span><span class="call-type">Weekly Standup</span></div>
+        </div>
+        <div class="cases-row">
+          <span class="case-badge red">🔴 1</span>
+          <span class="case-badge blue">🔵 6</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="tam-card" href="Mohan_09Jul2026.html">
+      <div class="tam-card-header">
+        <div><div class="tam-name">Mohan Kumar N</div><div class="tam-role">TAM</div></div>
+        <div class="tam-badge active">1 call</div>
+      </div>
+      <div class="tam-card-body">
+        <div class="tam-calls">
+          <div class="call-line"><span class="call-time">12:30 PM</span><span class="call-customer">Space42</span><span class="call-type">Weekly Check-in</span></div>
+        </div>
+        <div class="cases-row">
+          <span class="case-badge red">🔴 1</span>
+          <span style="font-size:11px;color:var(--muted)">36 days old</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="tam-card" href="Shivani_09Jul2026.html">
+      <div class="tam-card-header">
+        <div><div class="tam-name">Shivani Sharma</div><div class="tam-role">TAM</div></div>
+        <div class="tam-badge active">1 call</div>
+      </div>
+      <div class="tam-card-body">
+        <div class="tam-calls">
+          <div class="call-line"><span class="call-time">8:00 PM</span><span class="call-customer">Dokmee</span><span class="call-type">Training Session</span></div>
+        </div>
+        <div class="cases-row"><span class="case-badge none">No open cases</span></div>
+      </div>
+    </a>
+
+    <a class="tam-card" href="Osten_09Jul2026.html">
+      <div class="tam-card-header">
+        <div><div class="tam-name">Osten Diniz</div><div class="tam-role">TAM</div></div>
+        <div class="tam-badge active">4 calls</div>
+      </div>
+      <div class="tam-card-body">
+        <div class="tam-calls">
+          <div class="call-line"><span class="call-time">3:00 PM</span><span class="call-customer">Rain Stella</span><span class="call-type">Training Day 1</span></div>
+          <div class="call-line"><span class="call-time">3:00 PM</span><span class="call-customer">Omnex Inc</span><span class="call-type">Support/POC</span></div>
+          <div class="call-line"><span class="call-time">6:00 PM</span><span class="call-customer">Zensar</span><span class="call-type">Training W1 S2</span></div>
+          <div class="call-line"><span class="call-time">10:30 PM</span><span class="call-customer">UCEAP</span><span class="call-type">Weekly Check-in</span></div>
+        </div>
+        <div class="cases-row"><span class="case-badge none">No open cases</span></div>
+      </div>
+    </a>
+
+    <a class="tam-card" href="Arthy_09Jul2026.html">
+      <div class="tam-card-header">
+        <div><div class="tam-name">Arthy Mohanraj</div><div class="tam-role">TAM</div></div>
+        <div class="tam-badge idle">No calls</div>
+      </div>
+      <div class="tam-card-body">
+        <div class="no-calls-note">No customer calls today — internal day</div>
+        <div class="cases-row"><span class="case-badge none">No open cases</span></div>
+      </div>
+    </a>
+
+    <a class="tam-card" href="Pritish_09Jul2026.html">
+      <div class="tam-card-header">
+        <div><div class="tam-name">Pritish Samal</div><div class="tam-role">TAM</div></div>
+        <div class="tam-badge active">3 calls</div>
+      </div>
+      <div class="tam-card-body">
+        <div class="tam-calls">
+          <div class="call-line"><span class="call-time">3:30 PM</span><span class="call-customer">NTT Data</span><span class="call-type">Weekly Standup</span></div>
+          <div class="call-line"><span class="call-time">10:00 PM</span><span class="call-customer">Uare.ai</span><span class="call-type">Check-in</span></div>
+          <div class="call-line"><span class="call-time">10:30 PM</span><span class="call-customer">UCEAP</span><span class="call-type">Weekly Check-in</span></div>
+        </div>
+        <div class="cases-row"><span class="case-badge none">No open cases</span></div>
+      </div>
+    </a>
+
+    <a class="tam-card" href="Sandeep_09Jul2026.html">
+      <div class="tam-card-header">
+        <div><div class="tam-name">Sandeep Sai K</div><div class="tam-role">Senior TAM</div></div>
+        <div class="tam-badge active">1 call</div>
+      </div>
+      <div class="tam-card-body">
+        <div class="tam-calls">
+          <div class="call-line"><span class="call-time">11:00 AM</span><span class="call-customer">Apex Group</span><span class="call-type">Training Session 6</span></div>
+        </div>
+        <div class="cases-row"><span class="case-badge none">No open cases</span></div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="section-title">Open Salesforce Cases</div>
+  <div class="table-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Case #</th>
+          <th>TAM</th>
+          <th>Customer</th>
+          <th>Subject</th>
+          <th>Status</th>
+          <th>Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="chip-red">🔴 00062310</span></td>
+          <td>Nixon Nicholas</td>
+          <td>Nuvama Wealth</td>
+          <td>Ticket raised for AfterTest BeforeTest NLP</td>
+          <td>Resolved</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="chip-red">🔴 00061021</span></td>
+          <td>Mohan Kumar N</td>
+          <td>Space42</td>
+          <td>On Prem - Local Device Execution Opens Default URL Instead of Configured Environment URL Until Browser Refresh</td>
+          <td>Pending on Dev</td>
+          <td><span class="age-warn">36 days</span></td>
+        </tr>
+        <tr>
+          <td><span class="chip-blue">🔵 00062249</span></td>
+          <td>Nixon Nicholas</td>
+          <td>Nuvama Wealth</td>
+          <td>Test cases are failing in consecutive runs</td>
+          <td>Waiting for Customer</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="chip-blue">🔵 00062304</span></td>
+          <td>Nixon Nicholas</td>
+          <td>Nuvama Wealth</td>
+          <td>After testcase option is not visible</td>
+          <td>Waiting for Customer</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="chip-blue">🔵 00062220</span></td>
+          <td>Nixon Nicholas</td>
+          <td>Nuvama Wealth</td>
+          <td>Ascending/Descending Functionality incorrect expected values</td>
+          <td>Waiting for Customer</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="chip-blue">🔵 00062213</span></td>
+          <td>Nixon Nicholas</td>
+          <td>Nuvama Wealth</td>
+          <td>Getting error while recording step using local devices</td>
+          <td>Waiting for Customer</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="chip-blue">🔵 00062214</span></td>
+          <td>Nixon Nicholas</td>
+          <td>Nuvama Wealth</td>
+          <td>Unable to Execute Test Cases in Microsoft Edge</td>
+          <td>Waiting for Customer</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="chip-blue">🔵 00062190</span></td>
+          <td>Nixon Nicholas</td>
+          <td>Nuvama Wealth</td>
+          <td>Conversation with Nuvama</td>
+          <td>Waiting for Customer</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</body>
+</html>
