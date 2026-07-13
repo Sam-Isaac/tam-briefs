@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivani Sharma · TAM Brief · 13 Jul 2026</title>
+<style>
+:root{--bg:#f6f8fa;--surface:#fff;--surface2:#f0f4f8;--border:#d0d7de;--text:#1f2328;--muted:#57606a;--accent:#0969da;--red-bg:#fff0ee;--red-bd:#f85149;--red-tx:#d1242f;--blue-bg:#ddf4ff;--blue-bd:#54aeff;--blue-tx:#0969da;--tab-bg:#0969da;--tab-tx:#fff}
+[data-theme="dark"]{--bg:#0d1117;--surface:#161b22;--surface2:#21262d;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--accent:#58a6ff;--red-bg:#2c1113;--red-bd:#f85149;--red-tx:#ff7b72;--blue-bg:#0c2031;--blue-bd:#388bfd;--blue-tx:#79c0ff;--tab-bg:#388bfd;--tab-tx:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:14px;line-height:1.6}
+.hdr{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.hdr h1{font-size:17px;font-weight:600}
+.hdr .dt{color:var(--muted);font-size:12px;margin-top:2px}
+.theme-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:5px 12px;border-radius:6px;cursor:pointer;font-size:12px}
+.tabs{display:flex;gap:2px;padding:14px 24px 0;background:var(--surface);border-bottom:1px solid var(--border);overflow-x:auto}
+.tab{padding:7px 14px;border-radius:6px 6px 0 0;cursor:pointer;border:1px solid transparent;border-bottom:none;color:var(--muted);font-size:13px;white-space:nowrap;transition:all .15s}
+.tab.active{background:var(--tab-bg);color:var(--tab-tx);border-color:var(--border)}
+.tab:hover:not(.active){background:var(--surface2);color:var(--text)}
+.content{max-width:860px;margin:0 auto;padding:24px}
+.panel{display:none}.panel.active{display:block}
+.sec{background:var(--surface);border:1px solid var(--border);border-radius:8px;margin-bottom:14px;overflow:hidden}
+.sec-hdr{padding:10px 16px;background:var(--surface2);border-bottom:1px solid var(--border);font-weight:600;font-size:13px}
+.sec-body{padding:16px}
+.call-time{font-size:28px;font-weight:700;color:var(--accent)}
+.call-label{color:var(--muted);font-size:12px;margin-top:4px}
+.case-card{border:1px solid var(--border);border-radius:6px;padding:12px;margin-bottom:8px}
+.case-card:last-child{margin-bottom:0}
+.case-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:6px}
+.case-id{font-family:monospace;font-size:12px;color:var(--muted)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600}
+.badge-red{background:var(--red-bg);color:var(--red-tx);border:1px solid var(--red-bd)}
+.badge-blue{background:var(--blue-bg);color:var(--blue-tx);border:1px solid var(--blue-bd)}
+.case-subj{font-weight:600;margin-bottom:4px}
+.case-meta{color:var(--muted);font-size:12px}
+.gong-date{font-size:12px;color:var(--muted);margin-bottom:8px;font-style:italic}
+.gong-body{color:var(--text);line-height:1.7}
+.ai-item{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.ai-item:last-child{border-bottom:none}
+.owner{flex-shrink:0;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px}
+.us{background:#ddf4ff;color:#0969da}
+.cust{background:#fff8c5;color:#9a6700}
+[data-theme="dark"] .us{background:#0c2031;color:#79c0ff}
+[data-theme="dark"] .cust{background:#2d2000;color:#e3b341}
+.empty{text-align:center;padding:24px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div><h1 id="tt"></h1><div class="dt">July 13, 2026 · TAM Daily Brief</div></div>
+  <button class="theme-btn" onclick="toggleTheme()">☀️ / 🌙</button>
+</div>
+<div class="tabs" id="tabs"></div>
+<div class="content" id="content"></div>
+<script>
+const TAM="Shivani Sharma";
+const CUSTOMERS=[
+  {
+    name:"Brownbox Consulting",
+    callTime:"2:00 PM",
+    sfCases:[],
+    gong:{
+      date:"Last Gong call: July 10, 2026",
+      summary:"Session 1 training call led by Shivani. A team member from Hrishikesh's side was unable to attend the session. The call focused on getting the Brownbox team started with Testsigma fundamentals. Recording needs to be shared with the absent attendee.",
+      actionItems:[
+        {owner:"US",text:"Share the July 10 Session 1 training recording with the team member from Hrishikesh's side who couldn't attend"}
+      ]
+    }
+  },
+  {
+    name:"Ceipal",
+    callTime:"3:30 PM",
+    sfCases:[
+      {id:"00062269",subject:"Urgent: Recurring Session ID Issue",status:"Resolved",priority:"P2",age:6,contact:"Sreeram Reddy",bucket:"red"}
+    ],
+    gong:{
+      date:"Last Gong call: July 6, 2026",
+      summary:"Customer reported an error communicating with the remote browser — a session head issue causing recurring session ID failures. Shivani agreed to create an internal ticket and investigate the root cause. Though the case status shows Resolved, the issue was flagged as recurring and needs proper root cause analysis.",
+      actionItems:[
+        {owner:"US",text:"Create internal Jira ticket for 'error communicating with remote browser' / session head issue and investigate root cause for Ceipal"}
+      ]
+    }
+  },
+  {
+    name:"Zensar / AAA",
+    callTime:"7:00 PM",
+    sfCases:[],
+    gong:{
+      date:"Last Gong call: July 9, 2026",
+      summary:"Week 1 training session with Zensar/AAA (American Automobile Association). Osten and Rama co-facilitated. A participant named Misbha Ahmed encountered a Google Doc access issue during the session — an IT challenge on the ADR organization side that prevented her from accessing shared training materials.",
+      actionItems:[
+        {owner:"US",text:"Help resolve Google Doc access restriction for Misbha Ahmed — coordinate with Zensar IT or ADR org to grant access to shared training documents"}
+      ]
+    }
+  }
+];
+
+function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):''}
+function toggleTheme(){const r=document.documentElement;r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')}
+
+document.getElementById('tt').textContent=TAM+' · TAM Brief';
+const tabsEl=document.getElementById('tabs');
+const contentEl=document.getElementById('content');
+
+CUSTOMERS.forEach((c,i)=>{
+  const t=document.createElement('div');
+  t.className='tab'+(i===0?' active':'');
+  t.textContent=c.name;
+  t.onclick=(()=>{const idx=i;return()=>{
+    document.querySelectorAll('.tab').forEach((x,j)=>x.className='tab'+(j===idx?' active':''));
+    document.querySelectorAll('.panel').forEach((x,j)=>x.className='panel'+(j===idx?' active':''));
+  }})();
+  tabsEl.appendChild(t);
+  const p=document.createElement('div');
+  p.className='panel'+(i===0?' active':'');
+  p.innerHTML=buildPanel(c);
+  contentEl.appendChild(p);
+});
+
+function buildPanel(c){
+  let h='';
+  h+='<div class="sec"><div class="sec-hdr">📞 Today\'s Call</div><div class="sec-body"><div class="call-time">'+esc(c.callTime)+'</div><div class="call-label">Scheduled call with '+esc(c.name)+'</div></div></div>';
+  h+='<div class="sec"><div class="sec-hdr">🎫 Salesforce Cases ('+c.sfCases.length+')</div><div class="sec-body">';
+  if(!c.sfCases.length){h+='<div class="empty">✓ No open Salesforce cases</div>';}
+  else{c.sfCases.forEach(cas=>{
+    const bc=cas.bucket==='red'?'badge-red':'badge-blue';
+    const bl=cas.bucket==='red'?'🔴 Waiting on Us':'🔵 Waiting on Customer';
+    h+='<div class="case-card"><div class="case-top"><span class="case-id">'+esc(cas.id)+'</span><span class="badge '+bc+'">'+bl+'</span></div><div class="case-subj">'+esc(cas.subject)+'</div><div class="case-meta">Priority: '+esc(cas.priority)+' · Age: '+cas.age+'d · Status: '+esc(cas.status)+' · Contact: '+esc(cas.contact)+'</div></div>';
+  });}
+  h+='</div></div>';
+  if(c.gong){
+    h+='<div class="sec"><div class="sec-hdr">🎙️ Recent Gong Call</div><div class="sec-body"><div class="gong-date">'+esc(c.gong.date)+'</div><div class="gong-body">'+esc(c.gong.summary)+'</div></div></div>';
+    if(c.gong.actionItems&&c.gong.actionItems.length){
+      h+='<div class="sec"><div class="sec-hdr">✅ Action Items</div><div class="sec-body">';
+      c.gong.actionItems.forEach(ai=>{h+='<div class="ai-item"><span class="owner '+(ai.owner==='US'?'us':'cust')+'">'+(ai.owner==='US'?'US':'CUSTOMER')+'</span><span>'+esc(ai.text)+'</span></div>';});
+      h+='</div></div>';
+    }else{h+='<div class="sec"><div class="sec-hdr">✅ Action Items</div><div class="sec-body"><div class="empty">No pending action items from last call</div></div></div>';}
+  }
+  return h;
+}
+</script>
+</body>
+</html>

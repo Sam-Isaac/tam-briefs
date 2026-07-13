@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAM Team Master Brief · 13 Jul 2026</title>
+<style>
+:root{--bg:#f6f8fa;--surface:#fff;--surface2:#f0f4f8;--border:#d0d7de;--text:#1f2328;--muted:#57606a;--accent:#0969da;--red-bg:#fff0ee;--red-bd:#f85149;--red-tx:#d1242f;--blue-bg:#ddf4ff;--blue-bd:#54aeff;--blue-tx:#0969da;--green-bg:#dafbe1;--green-bd:#2da44e;--green-tx:#116329}
+[data-theme="dark"]{--bg:#0d1117;--surface:#161b22;--surface2:#21262d;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--accent:#58a6ff;--red-bg:#2c1113;--red-bd:#f85149;--red-tx:#ff7b72;--blue-bg:#0c2031;--blue-bd:#388bfd;--blue-tx:#79c0ff;--green-bg:#0d2818;--green-bd:#3fb950;--green-tx:#56d364}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:14px;line-height:1.5}
+.hdr{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.hdr-left h1{font-size:18px;font-weight:700}
+.hdr-left p{color:var(--muted);font-size:12px;margin-top:2px}
+.theme-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px}
+.stats-bar{display:flex;gap:16px;padding:16px 24px;background:var(--surface);border-bottom:1px solid var(--border);flex-wrap:wrap}
+.stat{text-align:center}
+.stat .val{font-size:22px;font-weight:700;color:var(--accent)}
+.stat .lbl{font-size:11px;color:var(--muted);margin-top:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;padding:24px;max-width:1200px;margin:0 auto}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.card-hdr{padding:14px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.card-name{font-size:15px;font-weight:600}
+.card-link{font-size:12px;color:var(--accent);text-decoration:none;padding:4px 10px;border:1px solid var(--accent);border-radius:20px}
+.card-link:hover{background:var(--accent);color:#fff}
+.card-body{padding:14px 16px;flex:1}
+.meta-row{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.chip{font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;border:1px solid}
+.chip-calls{background:var(--blue-bg);color:var(--blue-tx);border-color:var(--blue-bd)}
+.chip-cases{background:var(--red-bg);color:var(--red-tx);border-color:var(--red-bd)}
+.chip-ok{background:var(--green-bg);color:var(--green-tx);border-color:var(--green-bd)}
+.customers{display:flex;flex-direction:column;gap:6px}
+.cust-row{display:flex;justify-content:space-between;align-items:flex-start;padding:8px;background:var(--surface2);border-radius:6px;font-size:13px}
+.cust-name{font-weight:600}
+.cust-time{color:var(--muted);font-size:12px}
+.case-pills{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+.pill{font-size:10px;padding:1px 6px;border-radius:10px;border:1px solid;font-weight:600}
+.pill-red{background:var(--red-bg);color:var(--red-tx);border-color:var(--red-bd)}
+.no-calls-msg{color:var(--muted);font-size:13px;text-align:center;padding:16px}
+.oldest-badge{font-size:11px;color:var(--red-tx);font-weight:600}
+.section-label{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:8px;letter-spacing:.5px}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-left">
+    <h1>TAM Team Master Brief</h1>
+    <p>July 13, 2026 · 8 TAMs · Generated automatically</p>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()">☀️ / 🌙</button>
+</div>
+<div class="stats-bar" id="stats"></div>
+<div class="grid" id="grid"></div>
+<script>
+const BASE_URL="https://sam-isaac.github.io/tam-briefs/13Jul2026/";
+const TAMS=[
+  {
+    name:"Sam Isaac",
+    file:"Sam_13Jul2026.html",
+    calls:[
+      {name:"Brownbox Consulting",time:"2:00 PM",cases:[]},
+      {name:"APEX Group",time:"2:00 PM",cases:[]}
+    ],
+    totalOnUs:0,totalOnCust:0,oldestDays:0
+  },
+  {
+    name:"Mohan Kumar N",
+    file:"Mohan_13Jul2026.html",
+    calls:[
+      {name:"Space42",time:"12:30 PM",cases:[]},
+      {name:"Carrier",time:"2:30 PM",cases:[{id:"00060878",bucket:"red",age:44}]},
+      {name:"Ceipal",time:"3:30 PM",cases:[{id:"00062269",bucket:"red",age:6}]}
+    ],
+    totalOnUs:2,totalOnCust:0,oldestDays:44
+  },
+  {
+    name:"Shivani Sharma",
+    file:"Shivani_13Jul2026.html",
+    calls:[
+      {name:"Brownbox Consulting",time:"2:00 PM",cases:[]},
+      {name:"Ceipal",time:"3:30 PM",cases:[{id:"00062269",bucket:"red",age:6}]},
+      {name:"Zensar / AAA",time:"7:00 PM",cases:[]}
+    ],
+    totalOnUs:1,totalOnCust:0,oldestDays:6
+  },
+  {
+    name:"Osten Diniz",
+    file:"Osten_13Jul2026.html",
+    calls:[
+      {name:"Rain Stella Technologies",time:"3:00 PM",cases:[]},
+      {name:"Omnex Inc",time:"3:00 PM",cases:[]},
+      {name:"Zensar / AAA",time:"7:00 PM",cases:[]},
+      {name:"Pairpeo",time:"8:30 PM",cases:[]}
+    ],
+    totalOnUs:0,totalOnCust:0,oldestDays:0
+  },
+  {
+    name:"Arthy Mohanraj",
+    file:"Arthy_13Jul2026.html",
+    calls:[],
+    totalOnUs:0,totalOnCust:0,oldestDays:0
+  },
+  {
+    name:"Pritish Samal",
+    file:"Pritish_13Jul2026.html",
+    calls:[
+      {name:"NTT Data",time:"3:00 PM & 3:30 PM",cases:[{id:"00061895",bucket:"red",age:20}]},
+      {name:"GuidePoint Security",time:"8:00 PM",cases:[
+        {id:"00062388",bucket:"red",age:4},
+        {id:"00062422",bucket:"red",age:2},
+        {id:"00062368",bucket:"red",age:4},
+        {id:"00062387",bucket:"red",age:4},
+        {id:"00061941",bucket:"red",age:19}
+      ]}
+    ],
+    totalOnUs:6,totalOnCust:0,oldestDays:20
+  },
+  {
+    name:"Sandeep Sai K",
+    file:"Sandeep_13Jul2026.html",
+    calls:[
+      {name:"APEX Group",time:"2:00 PM",cases:[]}
+    ],
+    totalOnUs:0,totalOnCust:0,oldestDays:0
+  },
+  {
+    name:"Nixon Nicholas",
+    file:"Nixon_13Jul2026.html",
+    calls:[
+      {name:"Kmart Australia",time:"11:30 AM",cases:[]}
+    ],
+    totalOnUs:0,totalOnCust:0,oldestDays:0
+  }
+];
+
+function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):''}
+function toggleTheme(){const r=document.documentElement;r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')}
+
+// Stats
+const totalCalls=TAMS.reduce((a,t)=>a+t.calls.length,0);
+const totalOnUs=TAMS.reduce((a,t)=>a+t.totalOnUs,0);
+const totalOnCust=TAMS.reduce((a,t)=>a+t.totalOnCust,0);
+const totalCases=totalOnUs+totalOnCust;
+const maxOldest=Math.max(...TAMS.map(t=>t.oldestDays));
+
+const statsEl=document.getElementById('stats');
+[
+  {val:TAMS.length,lbl:'TAMs'},
+  {val:totalCalls,lbl:'Customer Calls Today'},
+  {val:totalCases,lbl:'Open Cases Total'},
+  {val:totalOnUs,lbl:'Waiting on Us'},
+  {val:totalOnCust,lbl:'Waiting on Customer'},
+  {val:maxOldest+'d',lbl:'Oldest Open Case'}
+].forEach(s=>{
+  const d=document.createElement('div');
+  d.className='stat';
+  d.innerHTML='<div class="val">'+s.val+'</div><div class="lbl">'+s.lbl+'</div>';
+  statsEl.appendChild(d);
+});
+
+// Cards
+const gridEl=document.getElementById('grid');
+TAMS.forEach(tam=>{
+  const card=document.createElement('div');
+  card.className='card';
+
+  const totalCasesForTam=tam.totalOnUs+tam.totalOnCust;
+  const casesChip=totalCasesForTam>0
+    ?'<span class="chip chip-cases">'+totalCasesForTam+' case'+(totalCasesForTam!==1?'s':'')+' on us</span>'
+    :'<span class="chip chip-ok">No open cases</span>';
+  const callsChip=tam.calls.length>0
+    ?'<span class="chip chip-calls">'+tam.calls.length+' call'+(tam.calls.length!==1?'s':'')+' today</span>'
+    :'<span class="chip" style="background:var(--surface2);border-color:var(--border);color:var(--muted)">No calls today</span>';
+
+  let callsHtml='';
+  if(tam.calls.length===0){
+    callsHtml='<div class="no-calls-msg">No scheduled customer calls</div>';
+  }else{
+    callsHtml='<div class="customers">';
+    tam.calls.forEach(c=>{
+      const caseCount=c.cases.length;
+      const redCount=c.cases.filter(x=>x.bucket==='red').length;
+      callsHtml+='<div class="cust-row"><div><div class="cust-name">'+esc(c.name)+'</div><div class="cust-time">'+esc(c.time)+'</div>';
+      if(caseCount>0){
+        callsHtml+='<div class="case-pills">';
+        if(redCount>0)callsHtml+='<span class="pill pill-red">'+redCount+' on us</span>';
+        callsHtml+='</div>';
+      }
+      callsHtml+='</div></div>';
+    });
+    callsHtml+='</div>';
+  }
+
+  const oldestNote=tam.oldestDays>0?'<div class="oldest-badge">Oldest: '+tam.oldestDays+'d</div>':'';
+
+  card.innerHTML=
+    '<div class="card-hdr"><span class="card-name">'+esc(tam.name)+'</span><a class="card-link" href="'+BASE_URL+esc(tam.file)+'" target="_blank">View Brief →</a></div>'+
+    '<div class="card-body">'+
+      '<div class="meta-row">'+callsChip+casesChip+oldestNote+'</div>'+
+      '<div class="section-label">Today\'s Calls</div>'+
+      callsHtml+
+    '</div>';
+
+  gridEl.appendChild(card);
+});
+</script>
+</body>
+</html>
