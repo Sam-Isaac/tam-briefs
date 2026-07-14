@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAM Team Brief — Monday, 14 Jul 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;
+--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;
+--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--green:#16a34a;
+--green-bg:#f0fdf4;--orange:#d97706;--orange-bg:#fffbeb;
+--jira:#0052cc;--tag-bg:#e8e6e0;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;
+--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;
+--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;
+--blue-bg:#111827;--green:#4ade80;--green-bg:#0f1f14;--orange:#fbbf24;
+--orange-bg:#1c1608;--jira:#4d9de0;--tag-bg:#2a2926;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.subtitle{font-size:13px;color:var(--text2);margin-top:8px;}
+.stats{display:flex;gap:12px;padding:20px 32px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.stat{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 18px;flex:1;min-width:100px;}
+.snum{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;line-height:1;margin-bottom:4px;}
+.snum.r{color:var(--red);}.snum.b{color:var(--blue);}.snum.o{color:var(--orange);}.snum.g{color:var(--green);}
+.slabel{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;padding:24px 32px;}
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:box-shadow .15s;}
+.card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);}
+.card.alert{border-left:3px solid var(--red);}
+.card-header{padding:16px 18px 12px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;}
+.tam-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;}
+.tam-role{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;margin-top:2px;}
+.brief-link{font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;padding:4px 10px;background:var(--blue-bg);border-radius:6px;white-space:nowrap;}
+.brief-link:hover{text-decoration:underline;}
+.card-body{padding:14px 18px;}
+.customers{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+.ctag{font-size:11px;font-family:'DM Mono',monospace;background:var(--tag-bg);color:var(--text2);padding:2px 8px;border-radius:4px;}
+.metrics{display:flex;gap:16px;margin-bottom:10px;}
+.metric{text-align:center;}
+.metric-val{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;}
+.metric-val.r{color:var(--red);}.metric-val.b{color:var(--blue);}.metric-val.o{color:var(--orange);}
+.metric-label{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;}
+.highlight{font-size:12px;color:var(--text2);line-height:1.5;padding:8px 10px;background:var(--bg2);border-radius:6px;margin-top:4px;}
+.highlight.red{background:var(--red-bg);color:var(--red);}
+.no-calls{color:var(--text3);font-family:'DM Mono',monospace;font-size:12px;padding:8px 0;}
+.footer{padding:20px 32px;border-top:1px solid var(--border);color:var(--text3);font-family:'DM Mono',monospace;font-size:11px;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Testsigma · TAM Team Brief · Master View</div>
+  <div class="title">TAM Team Overview <span>/ Monday, 14 Jul 2026</span></div>
+  <div class="subtitle">8 TAMs · 19 customer calls today · 17 open Salesforce cases · Oldest ticket: 32d</div>
+</div>
+<div class="stats">
+  <div class="stat"><div class="snum">17</div><div class="slabel">Total Open Cases</div></div>
+  <div class="stat"><div class="snum r">13</div><div class="slabel">On Us</div></div>
+  <div class="stat"><div class="snum b">4</div><div class="slabel">On Customer</div></div>
+  <div class="stat"><div class="snum o">19</div><div class="slabel">Calls Today</div></div>
+  <div class="stat"><div class="snum r">32d</div><div class="slabel">Oldest Ticket</div></div>
+  <div class="stat"><div class="snum g">8</div><div class="slabel">Active TAMs</div></div>
+</div>
+<div class="grid">
+  <div class="card alert">
+    <div class="card-header">
+      <div>
+        <div class="tam-name">Sam Isaac</div>
+        <div class="tam-role">Team Lead TAM</div>
+      </div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/14Jul2026/Sam_14Jul2026.html" target="_blank">View Brief &rarr;</a>
+    </div>
+    <div class="card-body">
+      <div class="customers"><span class="ctag">AIA</span><span class="ctag">Brownbox</span><span class="ctag">State Farm</span><span class="ctag">UCEAP</span></div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-val o">4</div><div class="metric-label">Calls</div></div>
+        <div class="metric"><div class="metric-val r">11</div><div class="metric-label">On Us</div></div>
+        <div class="metric"><div class="metric-val b">4</div><div class="metric-label">On Cust</div></div>
+        <div class="metric"><div class="metric-val r">32d</div><div class="metric-label">Oldest</div></div>
+      </div>
+      <div class="highlight red">Organizer for State Farm 7:30 PM — 32-day P1 needs resolution plan today</div>
+    </div>
+  </div>
+  <div class="card alert">
+    <div class="card-header">
+      <div>
+        <div class="tam-name">Mohan Kumar N</div>
+        <div class="tam-role">TAM</div>
+      </div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/14Jul2026/Mohan_14Jul2026.html" target="_blank">View Brief &rarr;</a>
+    </div>
+    <div class="card-body">
+      <div class="customers"><span class="ctag">AIA</span><span class="ctag">Space42</span></div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-val o">4</div><div class="metric-label">Calls</div></div>
+        <div class="metric"><div class="metric-val r">7</div><div class="metric-label">On Us</div></div>
+        <div class="metric"><div class="metric-val b">3</div><div class="metric-label">On Cust</div></div>
+        <div class="metric"><div class="metric-val r">28d</div><div class="metric-label">Oldest</div></div>
+      </div>
+      <div class="highlight red">2 new P1 AIA cases opened today — address in 11:30 AM catchup</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="tam-name">Shivani Sharma</div>
+        <div class="tam-role">TAM</div>
+      </div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/14Jul2026/Shivani_14Jul2026.html" target="_blank">View Brief &rarr;</a>
+    </div>
+    <div class="card-body">
+      <div class="customers"><span class="ctag">Brownbox</span><span class="ctag">Dokmee</span></div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-val o">2</div><div class="metric-label">Calls</div></div>
+        <div class="metric"><div class="metric-val r">0</div><div class="metric-label">On Us</div></div>
+        <div class="metric"><div class="metric-val b">0</div><div class="metric-label">On Cust</div></div>
+        <div class="metric"><div class="metric-val b">0d</div><div class="metric-label">Oldest</div></div>
+      </div>
+      <div class="highlight">Chrome extension install prerequisite not confirmed for 2:00 PM Brownbox session</div>
+    </div>
+  </div>
+  <div class="card alert">
+    <div class="card-header">
+      <div>
+        <div class="tam-name">Osten Diniz</div>
+        <div class="tam-role">TAM</div>
+      </div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/14Jul2026/Osten_14Jul2026.html" target="_blank">View Brief &rarr;</a>
+    </div>
+    <div class="card-body">
+      <div class="customers"><span class="ctag">Rain Stella</span><span class="ctag">Omnex Inc</span><span class="ctag">State Farm</span><span class="ctag">UCEAP</span></div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-val o">4</div><div class="metric-label">Calls</div></div>
+        <div class="metric"><div class="metric-val r">4</div><div class="metric-label">On Us</div></div>
+        <div class="metric"><div class="metric-val b">1</div><div class="metric-label">On Cust</div></div>
+        <div class="metric"><div class="metric-val r">32d</div><div class="metric-label">Oldest</div></div>
+      </div>
+      <div class="highlight red">Busiest day — 4 calls including State Farm 7:30 PM and UCEAP 10:30 PM</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="tam-name">Arthy Mohanraj</div>
+        <div class="tam-role">TAM</div>
+      </div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/14Jul2026/Arthy_14Jul2026.html" target="_blank">View Brief &rarr;</a>
+    </div>
+    <div class="card-body">
+      <div class="no-calls">No customer calls today</div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-val o">0</div><div class="metric-label">Calls</div></div>
+        <div class="metric"><div class="metric-val r">0</div><div class="metric-label">On Us</div></div>
+        <div class="metric"><div class="metric-val b">0</div><div class="metric-label">On Cust</div></div>
+        <div class="metric"><div class="metric-val b">0d</div><div class="metric-label">Oldest</div></div>
+      </div>
+      <div class="highlight">No customer calls today</div>
+    </div>
+  </div>
+  <div class="card alert">
+    <div class="card-header">
+      <div>
+        <div class="tam-name">Pritish Samal</div>
+        <div class="tam-role">TAM</div>
+      </div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/14Jul2026/Pritish_14Jul2026.html" target="_blank">View Brief &rarr;</a>
+    </div>
+    <div class="card-body">
+      <div class="customers"><span class="ctag">NAO</span><span class="ctag">State Farm</span><span class="ctag">UCEAP</span></div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-val o">3</div><div class="metric-label">Calls</div></div>
+        <div class="metric"><div class="metric-val r">4</div><div class="metric-label">On Us</div></div>
+        <div class="metric"><div class="metric-val b">1</div><div class="metric-label">On Cust</div></div>
+        <div class="metric"><div class="metric-val r">32d</div><div class="metric-label">Oldest</div></div>
+      </div>
+      <div class="highlight red">NAO IT whitelist/proxy still unresolved — Testsigma agent blocked</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="tam-name">Sandeep Sai K</div>
+        <div class="tam-role">TAM</div>
+      </div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/14Jul2026/Sandeep_14Jul2026.html" target="_blank">View Brief &rarr;</a>
+    </div>
+    <div class="card-body">
+      <div class="no-calls">No customer calls today</div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-val o">0</div><div class="metric-label">Calls</div></div>
+        <div class="metric"><div class="metric-val r">0</div><div class="metric-label">On Us</div></div>
+        <div class="metric"><div class="metric-val b">0</div><div class="metric-label">On Cust</div></div>
+        <div class="metric"><div class="metric-val b">0d</div><div class="metric-label">Oldest</div></div>
+      </div>
+      <div class="highlight">No customer calls today</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="tam-name">Nixon Nicholas</div>
+        <div class="tam-role">TAM</div>
+      </div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/14Jul2026/Nixon_14Jul2026.html" target="_blank">View Brief &rarr;</a>
+    </div>
+    <div class="card-body">
+      <div class="customers"><span class="ctag">E-vis</span><span class="ctag">Nuvama Wealth</span></div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-val o">2</div><div class="metric-label">Calls</div></div>
+        <div class="metric"><div class="metric-val r">2</div><div class="metric-label">On Us</div></div>
+        <div class="metric"><div class="metric-val b">0</div><div class="metric-label">On Cust</div></div>
+        <div class="metric"><div class="metric-val b">7d</div><div class="metric-label">Oldest</div></div>
+      </div>
+      <div class="highlight">Nuvama consecutive failures (P2, 7d) escalated to L2 — IP whitelist follow-up critical</div>
+    </div>
+  </div>
+</div>
+<div class="footer">Generated automatically by TAM Brief Routine &middot; Monday, 14 Jul 2026 &middot; Data sources: Google Calendar, Salesforce, Gong, Jira</div>
+</body>
+</html>
