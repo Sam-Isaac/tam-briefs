@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Overview — TAM Brief 15Jul2026</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;
+--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;
+--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--green:#16a34a;
+--green-bg:#f0fdf4;--orange:#d97706;--orange-bg:#fffbeb;
+--tag-bg:#e8e6e0;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;
+--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;
+--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;
+--blue-bg:#111827;--green:#4ade80;--green-bg:#0f1f14;--orange:#fbbf24;
+--orange-bg:#1c1608;--tag-bg:#2a2926;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);
+color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);
+letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;
+letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.totals{display:flex;gap:12px;padding:20px 32px;
+border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.tot{background:var(--bg3);border:1px solid var(--border);
+border-radius:10px;padding:14px 18px;flex:1;min-width:100px;}
+.tnum{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;
+line-height:1;margin-bottom:4px;}
+.tnum.r{color:var(--red);}.tnum.b{color:var(--blue);}
+.tnum.o{color:var(--orange);}.tnum.g{color:var(--green);}
+.tlabel{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;
+text-transform:uppercase;letter-spacing:.06em;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+gap:16px;padding:24px 32px;}
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;
+overflow:hidden;}
+.card-hdr{display:flex;align-items:center;gap:12px;padding:16px 18px;
+border-bottom:1px solid var(--border);}
+.avatar{width:40px;height:40px;border-radius:50%;display:flex;
+align-items:center;justify-content:center;font-family:'Syne',sans-serif;
+font-size:14px;font-weight:800;color:#fff;flex-shrink:0;}
+.card-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;}
+.card-calls{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;
+margin-top:2px;}
+.card-stats{display:flex;gap:8px;padding:12px 18px;
+border-bottom:1px solid var(--border);}
+.cs{flex:1;text-align:center;}
+.csn{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;}
+.csn.r{color:var(--red);}.csn.b{color:var(--blue);}
+.csl{font-size:9px;color:var(--text3);font-family:'DM Mono',monospace;
+text-transform:uppercase;letter-spacing:.05em;}
+.card-body{padding:12px 18px;}
+.call-row{display:flex;align-items:center;gap:8px;padding:6px 0;
+border-bottom:1px solid var(--border);}
+.call-row:last-child{border-bottom:none;}
+.ctime{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);
+white-space:nowrap;}
+.cco{font-size:13px;color:var(--text);flex:1;}
+.ctix{font-family:'DM Mono',monospace;font-size:10px;padding:1px 6px;
+border-radius:99px;}
+.ctix.r{background:var(--red-bg);color:var(--red);}
+.ctix.b{background:var(--blue-bg);color:var(--blue);}
+.no-calls{font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;
+padding:8px 0;}
+.risk-line{font-size:11px;color:var(--red);font-family:'DM Mono',monospace;
+padding:10px 18px;border-top:1px solid var(--border);
+background:var(--red-bg);line-height:1.4;}
+.card-link{display:block;text-align:center;padding:10px;
+font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);
+text-decoration:none;border-top:1px solid var(--border);}
+.card-link:hover{text-decoration:underline;}
+
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Testsigma · TAM Daily Brief</div>
+  <div class="title">Team Overview <span>/ Wednesday, 15 Jul 2026</span></div>
+</div>
+<div class="totals">
+  <div class="tot"><div class="tnum g">8</div><div class="tlabel">TAMs</div></div>
+  <div class="tot"><div class="tnum g">3</div><div class="tlabel">With Calls</div></div>
+  <div class="tot"><div class="tnum o">3</div><div class="tlabel">Calls Today</div></div>
+  <div class="tot"><div class="tnum">0</div><div class="tlabel">Total Open</div></div>
+  <div class="tot"><div class="tnum r">0</div><div class="tlabel">On Us</div></div>
+  <div class="tot"><div class="tnum b">0</div><div class="tlabel">On Customer</div></div>
+  <div class="tot"><div class="tnum r">&mdash;</div><div class="tlabel">Oldest Ticket</div></div>
+</div>
+<div class="grid">
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#6366f1">SI</div>
+    <div>
+      <div class="card-name">Sam Isaac</div>
+      <div class="card-calls">1 call today</div>
+    </div>
+  </div>
+  <div class="card-stats">
+    <div class="cs"><div class="csn">0</div><div class="csl">Total</div></div>
+    <div class="cs"><div class="csn r">0</div><div class="csl">On Us</div></div>
+    <div class="cs"><div class="csn b">0</div><div class="csl">On Cust</div></div>
+  </div>
+  <div class="card-body"><div class="call-row">
+              <span class="ctime">2:00 PM IST</span>
+              <span class="cco">Brownbox</span>
+              <span class="ctix b">0 open</span>
+            </div></div>
+  <div class="risk-line">&#128680; No open SF cases — stop execution bug internal ticket in progress</div>
+  <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/15Jul2026/Sam_15Jul2026.html">View full brief &rarr;</a>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#0891b2">MK</div>
+    <div>
+      <div class="card-name">Mohan Kumar N</div>
+      <div class="card-calls">No calls today</div>
+    </div>
+  </div>
+  <div class="card-stats">
+    <div class="cs"><div class="csn">0</div><div class="csl">Total</div></div>
+    <div class="cs"><div class="csn r">0</div><div class="csl">On Us</div></div>
+    <div class="cs"><div class="csn b">0</div><div class="csl">On Cust</div></div>
+  </div>
+  <div class="card-body"><div class="no-calls">No customer calls today.</div></div>
+  
+  <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/15Jul2026/Mohan_15Jul2026.html">View full brief &rarr;</a>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#be185d">SS</div>
+    <div>
+      <div class="card-name">Shivani Sharma</div>
+      <div class="card-calls">1 call today</div>
+    </div>
+  </div>
+  <div class="card-stats">
+    <div class="cs"><div class="csn">0</div><div class="csl">Total</div></div>
+    <div class="cs"><div class="csn r">0</div><div class="csl">On Us</div></div>
+    <div class="cs"><div class="csn b">0</div><div class="csl">On Cust</div></div>
+  </div>
+  <div class="card-body"><div class="call-row">
+              <span class="ctime">2:00 PM IST</span>
+              <span class="cco">Brownbox</span>
+              <span class="ctix b">0 open</span>
+            </div></div>
+  <div class="risk-line">&#128680; No open SF cases — stop execution bug internal ticket in progress</div>
+  <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/15Jul2026/Shivani_15Jul2026.html">View full brief &rarr;</a>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#059669">OD</div>
+    <div>
+      <div class="card-name">Osten Diniz</div>
+      <div class="card-calls">No calls today</div>
+    </div>
+  </div>
+  <div class="card-stats">
+    <div class="cs"><div class="csn">0</div><div class="csl">Total</div></div>
+    <div class="cs"><div class="csn r">0</div><div class="csl">On Us</div></div>
+    <div class="cs"><div class="csn b">0</div><div class="csl">On Cust</div></div>
+  </div>
+  <div class="card-body"><div class="no-calls">No customer calls today.</div></div>
+  
+  <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/15Jul2026/Osten_15Jul2026.html">View full brief &rarr;</a>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#b45309">AM</div>
+    <div>
+      <div class="card-name">Arthy Mohanraj</div>
+      <div class="card-calls">No calls today</div>
+    </div>
+  </div>
+  <div class="card-stats">
+    <div class="cs"><div class="csn">0</div><div class="csl">Total</div></div>
+    <div class="cs"><div class="csn r">0</div><div class="csl">On Us</div></div>
+    <div class="cs"><div class="csn b">0</div><div class="csl">On Cust</div></div>
+  </div>
+  <div class="card-body"><div class="no-calls">No customer calls today.</div></div>
+  
+  <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/15Jul2026/Arthy_15Jul2026.html">View full brief &rarr;</a>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#7c3aed">PS</div>
+    <div>
+      <div class="card-name">Pritish Samal</div>
+      <div class="card-calls">1 call today</div>
+    </div>
+  </div>
+  <div class="card-stats">
+    <div class="cs"><div class="csn">0</div><div class="csl">Total</div></div>
+    <div class="cs"><div class="csn r">0</div><div class="csl">On Us</div></div>
+    <div class="cs"><div class="csn b">0</div><div class="csl">On Cust</div></div>
+  </div>
+  <div class="card-body"><div class="call-row">
+              <span class="ctime">9:30 PM IST</span>
+              <span class="cco">Collective Health</span>
+              <span class="ctix b">0 open</span>
+            </div></div>
+  <div class="risk-line">&#128680; No open SF cases — Safari ~50% failure rate flagged, investigation pending</div>
+  <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/15Jul2026/Pritish_15Jul2026.html">View full brief &rarr;</a>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#dc2626">SK</div>
+    <div>
+      <div class="card-name">Sandeep Sai K</div>
+      <div class="card-calls">No calls today</div>
+    </div>
+  </div>
+  <div class="card-stats">
+    <div class="cs"><div class="csn">0</div><div class="csl">Total</div></div>
+    <div class="cs"><div class="csn r">0</div><div class="csl">On Us</div></div>
+    <div class="cs"><div class="csn b">0</div><div class="csl">On Cust</div></div>
+  </div>
+  <div class="card-body"><div class="no-calls">No customer calls today.</div></div>
+  
+  <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/15Jul2026/Sandeep_15Jul2026.html">View full brief &rarr;</a>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#0369a1">NN</div>
+    <div>
+      <div class="card-name">Nixon Nicholas</div>
+      <div class="card-calls">No calls today</div>
+    </div>
+  </div>
+  <div class="card-stats">
+    <div class="cs"><div class="csn">0</div><div class="csl">Total</div></div>
+    <div class="cs"><div class="csn r">0</div><div class="csl">On Us</div></div>
+    <div class="cs"><div class="csn b">0</div><div class="csl">On Cust</div></div>
+  </div>
+  <div class="card-body"><div class="no-calls">No customer calls today.</div></div>
+  
+  <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/15Jul2026/Nixon_15Jul2026.html">View full brief &rarr;</a>
+</div>
+</div>
+</body>
+</html>
