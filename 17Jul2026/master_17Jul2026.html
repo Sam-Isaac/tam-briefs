@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAM Team Brief — 17 Jul 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0d1117;color:#c9d1d9}
+.header{background:linear-gradient(135deg,#0f3460,#1a1a2e);padding:22px 32px;border-bottom:3px solid #e94560}
+.header h1{font-size:1.6rem;color:#fff;margin-bottom:4px}
+.header .sub{font-size:0.85rem;color:#8b949e}
+.header .logo{font-size:0.78rem;color:#e94560;margin-top:2px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.team-stats{display:flex;gap:0;background:#161b22;border-bottom:1px solid #21262d;flex-wrap:wrap}
+.tstat{flex:1;min-width:120px;padding:14px 20px;border-right:1px solid #21262d;text-align:center}
+.tstat:last-child{border-right:none}
+.tstat-n{font-size:2rem;font-weight:700;display:block;line-height:1}
+.tstat-l{font-size:0.68rem;color:#8b949e;text-transform:uppercase;letter-spacing:0.6px;margin-top:4px;display:block}
+.n-white{color:#f0f6fc}.n-red{color:#e74c3c}.n-blue{color:#3498db}.n-yellow{color:#f39c12}.n-green{color:#2ecc71}
+.body{padding:24px 32px;max-width:1400px}
+.section-title{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.8px;color:#8b949e;font-weight:600;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid #21262d}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-bottom:32px}
+.tam-card{background:#161b22;border:1px solid #21262d;border-radius:8px;overflow:hidden;transition:border-color .2s}
+.tam-card:hover{border-color:#30363d}
+.tam-card.has-cases{border-left:3px solid #e94560}
+.tam-card.no-calls{opacity:.7}
+.card-top{padding:14px 16px;background:#1c2128;display:flex;align-items:center;gap:10px}
+.avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#e94560,#0f3460);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;color:#fff;flex-shrink:0}
+.tam-info{flex:1}
+.tam-name{font-weight:600;font-size:0.95rem;color:#f0f6fc}
+.tam-calls{font-size:0.75rem;color:#8b949e;margin-top:1px}
+.case-nums{display:flex;gap:6px;flex-shrink:0}
+.cn-badge{padding:2px 8px;border-radius:9px;font-size:0.7rem;font-weight:700}
+.cn-red{background:rgba(231,76,60,.15);color:#e74c3c;border:1px solid rgba(231,76,60,.3)}
+.cn-blue{background:rgba(52,152,219,.15);color:#3498db;border:1px solid rgba(52,152,219,.3)}
+.cn-gray{background:rgba(139,148,158,.1);color:#6e7681;border:1px solid rgba(139,148,158,.2)}
+.card-body{padding:12px 16px}
+.customers-today{font-size:0.8rem;color:#8b949e;margin-bottom:8px}
+.cust-chip{display:inline-block;padding:2px 8px;border-radius:12px;background:#0d1117;border:1px solid #21262d;font-size:0.75rem;color:#c9d1d9;margin:2px}
+.cust-chip.has-cases{border-color:rgba(231,76,60,.3);color:#e74c3c}
+.risk-preview{font-size:0.78rem;color:#8b949e;line-height:1.4;margin-top:8px;border-top:1px solid #21262d;padding-top:8px}
+.risk-preview strong{color:#f39c12}
+.view-link{display:block;text-align:center;padding:8px;background:#0d1117;color:#58a6ff;font-size:0.78rem;text-decoration:none;border-top:1px solid #21262d;transition:background .2s}
+.view-link:hover{background:#161b22}
+.no-calls-tag{font-size:0.72rem;color:#484f58;font-style:italic;padding:8px 0}
+.alert-row{background:rgba(231,76,60,.06);border:1px solid rgba(231,76,60,.2);border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:0.875rem;line-height:1.6}
+.alert-row strong{color:#e74c3c}
+.footer{padding:14px 32px;border-top:1px solid #21262d;font-size:0.74rem;color:#484f58;margin-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">Testsigma TAM Team</div>
+  <h1>Daily Team Brief</h1>
+  <div class="sub">Friday, 17 July 2026 &nbsp;·&nbsp; 8 TAMs</div>
+</div>
+
+<div class="team-stats">
+  <div class="tstat">
+    <span class="tstat-n n-white">5</span>
+    <span class="tstat-l">TAMs Active Today</span>
+  </div>
+  <div class="tstat">
+    <span class="tstat-n n-white">8</span>
+    <span class="tstat-l">Total Calls</span>
+  </div>
+  <div class="tstat">
+    <span class="tstat-n n-white">8</span>
+    <span class="tstat-l">Open Cases</span>
+  </div>
+  <div class="tstat">
+    <span class="tstat-n n-red">3</span>
+    <span class="tstat-l">Waiting on Us</span>
+  </div>
+  <div class="tstat">
+    <span class="tstat-n n-blue">5</span>
+    <span class="tstat-l">Waiting on Customer</span>
+  </div>
+  <div class="tstat">
+    <span class="tstat-n n-yellow">28d</span>
+    <span class="tstat-l">Oldest Open Case</span>
+  </div>
+  <div class="tstat">
+    <span class="tstat-n n-white">3</span>
+    <span class="tstat-l">TAMs No Calls</span>
+  </div>
+</div>
+
+<div class="body">
+
+  <div class="alert-row">
+    <strong>⚠ Attention Items:</strong>
+    &nbsp;&middot;&nbsp; <strong>Omnex POC closes TODAY</strong> (Osten — 15:00 IST) — drag-and-drop still broken, escalate XPath fix now.
+    &nbsp;&middot;&nbsp; <strong>DHL 00061616 (28d, P2)</strong> (Sandeep) — Testsigma University 404 reopened after closure.
+    &nbsp;&middot;&nbsp; <strong>DHL 00062605 (P1, 1d)</strong> (Sandeep) — SCMS failures, urgent call needed.
+    &nbsp;&middot;&nbsp; <strong>IIFL 00062076 (17d, P2)</strong> (Nixon) — remote browser disconnect unresolved.
+  </div>
+
+  <div class="section-title">TAM Status Overview</div>
+  <div class="grid">
+
+    <!-- SAM ISAAC -->
+    <div class="tam-card no-calls">
+      <div class="card-top">
+        <div class="avatar">SI</div>
+        <div class="tam-info">
+          <div class="tam-name">Sam Isaac</div>
+          <div class="tam-calls">No customer calls today</div>
+        </div>
+        <div class="case-nums">
+          <span class="cn-badge cn-gray">0 cases</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="no-calls-tag">No external customer meetings on calendar.</div>
+      </div>
+      <a href="Sam_17Jul2026.html" class="view-link">View Full Brief →</a>
+    </div>
+
+    <!-- MOHAN KUMAR N -->
+    <div class="tam-card no-calls">
+      <div class="card-top">
+        <div class="avatar">MK</div>
+        <div class="tam-info">
+          <div class="tam-name">Mohan Kumar N</div>
+          <div class="tam-calls">No customer calls today</div>
+        </div>
+        <div class="case-nums">
+          <span class="cn-badge cn-gray">0 cases</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="no-calls-tag">No external customer meetings on calendar.</div>
+      </div>
+      <a href="Mohan_17Jul2026.html" class="view-link">View Full Brief →</a>
+    </div>
+
+    <!-- SHIVANI SHARMA -->
+    <div class="tam-card">
+      <div class="card-top">
+        <div class="avatar">SS</div>
+        <div class="tam-info">
+          <div class="tam-name">Shivani Sharma</div>
+          <div class="tam-calls">1 call today</div>
+        </div>
+        <div class="case-nums">
+          <span class="cn-badge cn-gray">0 cases</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="customers-today">Customers:</div>
+        <span class="cust-chip">Inspectivity · 11:00 IST</span>
+        <div class="risk-preview">Cloud lab session persistence concern from Nirmal — needs answer before it blocks adoption. Recording sharing to be confirmed.</div>
+      </div>
+      <a href="Shivani_17Jul2026.html" class="view-link">View Full Brief →</a>
+    </div>
+
+    <!-- OSTEN DINIZ -->
+    <div class="tam-card has-cases">
+      <div class="card-top">
+        <div class="avatar">OD</div>
+        <div class="tam-info">
+          <div class="tam-name">Osten Diniz</div>
+          <div class="tam-calls">2 calls today</div>
+        </div>
+        <div class="case-nums">
+          <span class="cn-badge cn-gray">0 cases</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="customers-today">Customers:</div>
+        <span class="cust-chip">Rain Stella · 15:00 IST</span>
+        <span class="cust-chip has-cases">Omnex · 15:00 IST ⚠ POC TODAY</span>
+        <div class="risk-preview"><strong>POC DEADLINE TODAY:</strong> Omnex drag-and-drop fix must be ready before 15:00 IST call or POC misses close date.</div>
+      </div>
+      <a href="Osten_17Jul2026.html" class="view-link">View Full Brief →</a>
+    </div>
+
+    <!-- ARTHY MOHANRAJ -->
+    <div class="tam-card no-calls">
+      <div class="card-top">
+        <div class="avatar">AM</div>
+        <div class="tam-info">
+          <div class="tam-name">Arthy Mohanraj</div>
+          <div class="tam-calls">No customer calls today</div>
+        </div>
+        <div class="case-nums">
+          <span class="cn-badge cn-gray">0 cases</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="no-calls-tag">No external customer meetings on calendar.</div>
+      </div>
+      <a href="Arthy_17Jul2026.html" class="view-link">View Full Brief →</a>
+    </div>
+
+    <!-- PRITISH SAMAL -->
+    <div class="tam-card">
+      <div class="card-top">
+        <div class="avatar">PS</div>
+        <div class="tam-info">
+          <div class="tam-name">Pritish Samal</div>
+          <div class="tam-calls">1 call today</div>
+        </div>
+        <div class="case-nums">
+          <span class="cn-badge cn-gray">0 cases</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="customers-today">Customers:</div>
+        <span class="cust-chip">NTT Data · 15:30 IST (Standup)</span>
+        <div class="risk-preview">Training Day 2 — Iqran Husain missed Day 1. Confirm recording sent. Friday slot still pending from Jan/Dan.</div>
+      </div>
+      <a href="Pritish_17Jul2026.html" class="view-link">View Full Brief →</a>
+    </div>
+
+    <!-- SANDEEP SAI K -->
+    <div class="tam-card has-cases">
+      <div class="card-top">
+        <div class="avatar">SK</div>
+        <div class="tam-info">
+          <div class="tam-name">Sandeep Sai K</div>
+          <div class="tam-calls">1 call today</div>
+        </div>
+        <div class="case-nums">
+          <span class="cn-badge cn-red">2 On Us</span>
+          <span class="cn-badge cn-blue">4 On Cust</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="customers-today">Customers:</div>
+        <span class="cust-chip has-cases">DHL eCase · 10:30 IST</span>
+        <div class="risk-preview"><strong>P1 00062605 (1d)</strong> — SCMS failures, urgent call. <strong>P2 00061616 (28d)</strong> — TU 404 reopened. SOP + bi-weekly session commitments due today.</div>
+      </div>
+      <a href="Sandeep_17Jul2026.html" class="view-link">View Full Brief →</a>
+    </div>
+
+    <!-- NIXON NICHOLAS -->
+    <div class="tam-card has-cases">
+      <div class="card-top">
+        <div class="avatar">NN</div>
+        <div class="tam-info">
+          <div class="tam-name">Nixon Nicholas</div>
+          <div class="tam-calls">3 calls today</div>
+        </div>
+        <div class="case-nums">
+          <span class="cn-badge cn-red">1 On Us</span>
+          <span class="cn-badge cn-blue">1 On Cust</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="customers-today">Customers:</div>
+        <span class="cust-chip">E-vis · 11:30 IST</span>
+        <span class="cust-chip">Mycronic · 12:30 IST</span>
+        <span class="cust-chip has-cases">IIFL Home Loans · 15:30 IST</span>
+        <div class="risk-preview"><strong>00062076 (P2, 17d)</strong> — IIFL remote browser disconnect. EU cloud migration Javis ticket (Mycronic) due since Monday — verify status.</div>
+      </div>
+      <a href="Nixon_17Jul2026.html" class="view-link">View Full Brief →</a>
+    </div>
+
+  </div>
+
+  <div class="section-title">Open Case Distribution</div>
+  <div style="background:#161b22;border:1px solid #21262d;border-radius:8px;padding:16px;margin-bottom:20px;font-size:0.85rem">
+    <table style="width:100%;border-collapse:collapse">
+      <thead>
+        <tr style="border-bottom:1px solid #21262d">
+          <th style="text-align:left;padding:6px 10px;color:#8b949e;font-size:0.7rem;font-weight:600;text-transform:uppercase">TAM</th>
+          <th style="text-align:left;padding:6px 10px;color:#8b949e;font-size:0.7rem;font-weight:600;text-transform:uppercase">Customer</th>
+          <th style="text-align:center;padding:6px 10px;color:#e74c3c;font-size:0.7rem;font-weight:600;text-transform:uppercase">On Us</th>
+          <th style="text-align:center;padding:6px 10px;color:#3498db;font-size:0.7rem;font-weight:600;text-transform:uppercase">On Customer</th>
+          <th style="text-align:center;padding:6px 10px;color:#8b949e;font-size:0.7rem;font-weight:600;text-transform:uppercase">Total</th>
+          <th style="text-align:center;padding:6px 10px;color:#f39c12;font-size:0.7rem;font-weight:600;text-transform:uppercase">Oldest</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-top:1px solid #1a1f28">
+          <td style="padding:7px 10px;color:#f0f6fc;font-weight:600">Sandeep Sai K</td>
+          <td style="padding:7px 10px">DHL eCase</td>
+          <td style="padding:7px 10px;text-align:center;color:#e74c3c;font-weight:700">2</td>
+          <td style="padding:7px 10px;text-align:center;color:#3498db;font-weight:700">4</td>
+          <td style="padding:7px 10px;text-align:center;font-weight:700">6</td>
+          <td style="padding:7px 10px;text-align:center"><span style="background:rgba(231,76,60,.15);color:#e74c3c;padding:1px 7px;border-radius:8px;font-size:0.72rem;font-weight:700">28d ⚠</span></td>
+        </tr>
+        <tr style="border-top:1px solid #1a1f28">
+          <td style="padding:7px 10px;color:#f0f6fc;font-weight:600">Nixon Nicholas</td>
+          <td style="padding:7px 10px">IIFL Home Loans</td>
+          <td style="padding:7px 10px;text-align:center;color:#e74c3c;font-weight:700">1</td>
+          <td style="padding:7px 10px;text-align:center;color:#3498db;font-weight:700">1</td>
+          <td style="padding:7px 10px;text-align:center;font-weight:700">2</td>
+          <td style="padding:7px 10px;text-align:center"><span style="background:rgba(243,156,18,.15);color:#f39c12;padding:1px 7px;border-radius:8px;font-size:0.72rem;font-weight:700">17d</span></td>
+        </tr>
+        <tr style="border-top:1px solid #21262d;background:rgba(255,255,255,.02)">
+          <td style="padding:7px 10px;font-weight:700;color:#f0f6fc" colspan="2">Team Total</td>
+          <td style="padding:7px 10px;text-align:center;color:#e74c3c;font-weight:700;font-size:1rem">3</td>
+          <td style="padding:7px 10px;text-align:center;color:#3498db;font-weight:700;font-size:1rem">5</td>
+          <td style="padding:7px 10px;text-align:center;font-weight:700;font-size:1rem">8</td>
+          <td style="padding:7px 10px;text-align:center"><span style="background:rgba(231,76,60,.15);color:#e74c3c;padding:1px 7px;border-radius:8px;font-size:0.72rem;font-weight:700">28d</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="footer">
+  <span>Generated by Testsigma TAM Brief Automation · 17 Jul 2026</span>
+  <span>Individual briefs: <a href="Sam_17Jul2026.html" style="color:#58a6ff">Sam</a> · <a href="Mohan_17Jul2026.html" style="color:#58a6ff">Mohan</a> · <a href="Shivani_17Jul2026.html" style="color:#58a6ff">Shivani</a> · <a href="Osten_17Jul2026.html" style="color:#58a6ff">Osten</a> · <a href="Arthy_17Jul2026.html" style="color:#58a6ff">Arthy</a> · <a href="Pritish_17Jul2026.html" style="color:#58a6ff">Pritish</a> · <a href="Sandeep_17Jul2026.html" style="color:#58a6ff">Sandeep</a> · <a href="Nixon_17Jul2026.html" style="color:#58a6ff">Nixon</a></span>
+</div>
+
+</body>
+</html>
