@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAM Team Brief — 21 Jul 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--green:#16a34a;--green-bg:#f0fdf4;--orange:#d97706;--orange-bg:#fffbeb;--tag-bg:#e8e6e0;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;--blue-bg:#111827;--green:#4ade80;--green-bg:#0f1f14;--orange:#fbbf24;--orange-bg:#1c1608;--tag-bg:#2a2926;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.subtitle{font-size:13px;color:var(--text3);margin-top:6px;}
+.teamstats{display:flex;gap:12px;padding:20px 32px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.tstat{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 18px;flex:1;min-width:110px;}
+.tsnum{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;line-height:1;margin-bottom:4px;}
+.tsnum.r{color:var(--red);}.tsnum.b{color:var(--blue);}.tsnum.o{color:var(--orange);}.tsnum.g{color:var(--green);}
+.tslabel{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;padding:24px 32px;}
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:box-shadow .15s;}
+.card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);}
+.card-top{padding:16px 18px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.tam-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;}
+.ooo-badge{font-family:'DM Mono',monospace;font-size:10px;background:var(--orange-bg);color:var(--orange);padding:2px 8px;border-radius:99px;}
+.brief-link{font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;padding:4px 10px;border:1px solid var(--border);border-radius:6px;}
+.brief-link:hover{background:var(--bg2);}
+.card-stats{display:flex;gap:0;padding:0;}
+.cs{flex:1;padding:12px 14px;text-align:center;border-right:1px solid var(--border);}
+.cs:last-child{border-right:none;}
+.csn{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;line-height:1;margin-bottom:2px;}
+.csn.r{color:var(--red);}.csn.b{color:var(--blue);}.csn.o{color:var(--orange);}
+.csl{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.04em;}
+.card-calls{padding:12px 18px;border-top:1px solid var(--border);}
+.calls-label{font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}
+.call-row{display:flex;align-items:center;gap:8px;font-size:12px;padding:2px 0;}
+.call-time{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);min-width:64px;}
+.call-name{color:var(--text);font-weight:500;}
+.no-calls-sm{font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;font-style:italic;}
+.risk-row{padding:10px 18px;border-top:1px solid var(--border);display:flex;gap:8px;align-items:flex-start;}
+.risk-icon{font-size:12px;margin-top:1px;}
+.risk-text{font-size:12px;color:var(--text2);line-height:1.4;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Testsigma · TAM Daily Brief · Master View</div>
+  <div class="title">TAM Team <span>/ Tuesday, 21 Jul 2026</span></div>
+  <div class="subtitle">8 TAMs · Generated automatically at 6:00 AM IST</div>
+</div>
+<div class="teamstats">
+  <div class="tstat"><div class="tsnum g">8</div><div class="tslabel">TAMs Active</div></div>
+  <div class="tstat"><div class="tsnum o">6</div><div class="tslabel">Calls Today</div></div>
+  <div class="tstat"><div class="tsnum">12</div><div class="tslabel">Total Open</div></div>
+  <div class="tstat"><div class="tsnum r">7</div><div class="tslabel">On Us</div></div>
+  <div class="tstat"><div class="tsnum b">5</div><div class="tslabel">On Customer</div></div>
+  <div class="tstat"><div class="tsnum r">131d</div><div class="tslabel">Oldest Ticket</div></div>
+</div>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-top">
+      <div class="tam-name">Sam Isaac</div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/21Jul2026/Sam_21Jul2026.html" target="_blank">View Brief →</a>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="csn">0</div><div class="csl">Total</div></div>
+      <div class="cs"><div class="csn r">0</div><div class="csl">On Us</div></div>
+      <div class="cs"><div class="csn b">0</div><div class="csl">On Cust</div></div>
+      <div class="cs"><div class="csn o">1</div><div class="csl">Calls</div></div>
+    </div>
+    <div class="card-calls">
+      <div class="calls-label">Today's calls</div>
+      <div class="call-row"><span class="call-time">10:00 PM</span><span class="call-name">UCEAP</span></div>
+    </div>
+    <div class="risk-row"><span class="risk-icon">⚠️</span><span class="risk-text">UCEAP not in Salesforce — add Tenant ID to calendar event for case attribution</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="tam-name">Osten</div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/21Jul2026/Osten_21Jul2026.html" target="_blank">View Brief →</a>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="csn">0</div><div class="csl">Total</div></div>
+      <div class="cs"><div class="csn r">0</div><div class="csl">On Us</div></div>
+      <div class="cs"><div class="csn b">0</div><div class="csl">On Cust</div></div>
+      <div class="cs"><div class="csn o">1</div><div class="csl">Calls</div></div>
+    </div>
+    <div class="card-calls">
+      <div class="calls-label">Today's calls</div>
+      <div class="call-row"><span class="call-time">10:00 PM</span><span class="call-name">UCEAP (organizer)</span></div>
+    </div>
+    <div class="risk-row"><span class="risk-icon">⚠️</span><span class="risk-text">UCEAP not in Salesforce — no case tracking; co-creation session with PDF add-on demo</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="tam-name">Pritish</div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/21Jul2026/Pritish_21Jul2026.html" target="_blank">View Brief →</a>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="csn">0</div><div class="csl">Total</div></div>
+      <div class="cs"><div class="csn r">0</div><div class="csl">On Us</div></div>
+      <div class="cs"><div class="csn b">0</div><div class="csl">On Cust</div></div>
+      <div class="cs"><div class="csn o">1</div><div class="csl">Calls</div></div>
+    </div>
+    <div class="card-calls">
+      <div class="calls-label">Today's calls</div>
+      <div class="call-row"><span class="call-time">10:00 PM</span><span class="call-name">UCEAP</span></div>
+    </div>
+    <div class="risk-row"><span class="risk-icon">⚠️</span><span class="risk-text">UCEAP not in Salesforce — add Tenant ID to calendar event for case attribution</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="tam-name">Mohan Kumar</div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/21Jul2026/Mohan_21Jul2026.html" target="_blank">View Brief →</a>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="csn">2</div><div class="csl">Total</div></div>
+      <div class="cs"><div class="csn r">2</div><div class="csl">On Us</div></div>
+      <div class="cs"><div class="csn b">0</div><div class="csl">On Cust</div></div>
+      <div class="cs"><div class="csn o">2</div><div class="csl">Calls</div></div>
+    </div>
+    <div class="card-calls">
+      <div class="calls-label">Today's calls</div>
+      <div class="call-row"><span class="call-time">12:30 PM</span><span class="call-name">Space42</span></div>
+      <div class="call-row"><span class="call-time">4:30 PM</span><span class="call-name">Astrolabs</span></div>
+    </div>
+    <div class="risk-row"><span class="risk-icon">🚨</span><span class="risk-text">Space42 P1 — add-on steps failure raised yesterday (00062681); no response yet — may block standup</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="tam-name">Nixon</div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/21Jul2026/Nixon_21Jul2026.html" target="_blank">View Brief →</a>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="csn">10</div><div class="csl">Total</div></div>
+      <div class="cs"><div class="csn r">5</div><div class="csl">On Us</div></div>
+      <div class="cs"><div class="csn b">5</div><div class="csl">On Cust</div></div>
+      <div class="cs"><div class="csn o">1</div><div class="csl">Calls</div></div>
+    </div>
+    <div class="card-calls">
+      <div class="calls-label">Today's calls</div>
+      <div class="call-row"><span class="call-time">3:00 PM</span><span class="call-name">Nuvama Wealth</span></div>
+    </div>
+    <div class="risk-row"><span class="risk-icon">🚨</span><span class="risk-text">Nuvama 00062381 (12d) — cloud exec failures unresolved; escalation risk if IP ranges not sent today</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="tam-name">Shivani Sharma</div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/21Jul2026/Shivani_21Jul2026.html" target="_blank">View Brief →</a>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="csn">0</div><div class="csl">Total</div></div>
+      <div class="cs"><div class="csn r">0</div><div class="csl">On Us</div></div>
+      <div class="cs"><div class="csn b">0</div><div class="csl">On Cust</div></div>
+      <div class="cs"><div class="csn o">0</div><div class="csl">Calls</div></div>
+    </div>
+    <div class="card-calls">
+      <div class="calls-label">Today's calls</div>
+      <div class="no-calls-sm">No customer calls today</div>
+    </div>
+    <div class="risk-row"><span class="risk-icon">ℹ️</span><span class="risk-text">No open tickets or calls today</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="tam-name">Arthy Mohanraj</div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/21Jul2026/Arthy_21Jul2026.html" target="_blank">View Brief →</a>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="csn">0</div><div class="csl">Total</div></div>
+      <div class="cs"><div class="csn r">0</div><div class="csl">On Us</div></div>
+      <div class="cs"><div class="csn b">0</div><div class="csl">On Cust</div></div>
+      <div class="cs"><div class="csn o">0</div><div class="csl">Calls</div></div>
+    </div>
+    <div class="card-calls">
+      <div class="calls-label">Today's calls</div>
+      <div class="no-calls-sm">No customer calls today</div>
+    </div>
+    <div class="risk-row"><span class="risk-icon">ℹ️</span><span class="risk-text">No open tickets or calls today</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="tam-name">Sandeep Sai K</div>
+      <div class="ooo-badge">🏖️ OOO</div>
+      <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/21Jul2026/Sandeep_21Jul2026.html" target="_blank">View Brief →</a>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="csn">0</div><div class="csl">Total</div></div>
+      <div class="cs"><div class="csn r">0</div><div class="csl">On Us</div></div>
+      <div class="cs"><div class="csn b">0</div><div class="csl">On Cust</div></div>
+      <div class="cs"><div class="csn o">0</div><div class="csl">Calls</div></div>
+    </div>
+    <div class="card-calls">
+      <div class="calls-label">Today's calls</div>
+      <div class="no-calls-sm">Out of office — all invites declined</div>
+    </div>
+    <div class="risk-row"><span class="risk-icon">🏖️</span><span class="risk-text">Sandeep is OOO today — all calendar events declined</span></div>
+  </div>
+
+</div>
+</body>
+</html>

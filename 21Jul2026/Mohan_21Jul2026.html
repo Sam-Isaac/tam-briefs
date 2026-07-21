@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohan Kumar — TAM Brief 21Jul2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--green:#16a34a;--green-bg:#f0fdf4;--orange:#d97706;--orange-bg:#fffbeb;--jira:#0052cc;--tag-bg:#e8e6e0;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;--blue-bg:#111827;--green:#4ade80;--green-bg:#0f1f14;--orange:#fbbf24;--orange-bg:#1c1608;--jira:#4d9de0;--tag-bg:#2a2926;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.meta{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap;}
+.pill{display:flex;align-items:center;gap:6px;background:var(--tag-bg);border-radius:99px;padding:4px 12px;font-size:12px;color:var(--text2);font-family:'DM Mono',monospace;}
+.dot{width:6px;height:6px;border-radius:50%;}
+.dr{background:var(--red);}.db{background:var(--blue);}
+.stats{display:flex;gap:12px;padding:20px 32px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.stat{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 18px;flex:1;min-width:100px;}
+.snum{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;line-height:1;margin-bottom:4px;}
+.snum.r{color:var(--red);}.snum.b{color:var(--blue);}.snum.o{color:var(--orange);}
+.slabel{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;}
+.tabs{display:flex;padding:16px 32px 0;border-bottom:1px solid var(--border);overflow-x:auto;}
+.tab{padding:10px 18px;font-size:13px;font-weight:500;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;background:none;border-left:none;border-right:none;border-top:none;font-family:'DM Sans',sans-serif;}
+.tab:hover{color:var(--text);}
+.tab.active{color:var(--text);border-bottom:2px solid var(--text);font-weight:600;}
+.cnt{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;font-size:10px;margin-left:6px;font-family:'DM Mono',monospace;}
+.cnt.r{background:var(--red-bg);color:var(--red);}.cnt.b{background:var(--blue-bg);color:var(--blue);}
+.content{padding:24px 32px;}
+.panel{display:none;}.panel.active{display:block;}
+.gong{background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:10px;padding:16px 20px;margin-bottom:20px;}
+.gong-hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.gong-ttl{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.05em;}
+.glink{font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;margin-left:auto;}
+.glink:hover{text-decoration:underline;}
+.gi{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text);padding:2px 0;}
+.ob{font-size:10px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;font-weight:500;white-space:nowrap;}
+.ou{background:var(--red-bg);color:var(--red);}.oc{background:var(--blue-bg);color:var(--blue);}
+.sh{display:flex;align-items:center;gap:10px;margin:20px 0 12px;}
+.sl{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;}
+.sl.r{color:var(--red);}.sl.b{color:var(--blue);}.sl.j{color:var(--jira);}
+.sc{font-family:'DM Mono',monospace;font-size:11px;padding:2px 8px;border-radius:99px;}
+.sc.r{background:var(--red-bg);color:var(--red);}.sc.b{background:var(--blue-bg);color:var(--blue);}.sc.j{background:var(--blue-bg);color:var(--jira);}
+.tw{background:var(--bg3);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:20px;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead tr{background:var(--bg2);border-bottom:1px solid var(--border);}
+th{padding:10px 14px;text-align:left;font-family:'DM Mono',monospace;font-size:10px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;}
+td{padding:11px 14px;color:var(--text);vertical-align:top;border-bottom:1px solid var(--border);}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:var(--bg2);}
+.tid{font-family:'DM Mono',monospace;font-size:12px;color:var(--blue);text-decoration:none;white-space:nowrap;}
+.tid:hover{text-decoration:underline;}
+.sb{font-size:11px;font-family:'DM Mono',monospace;padding:2px 8px;border-radius:4px;white-space:nowrap;display:inline-block;}
+.su{background:var(--red-bg);color:var(--red);}.scu{background:var(--blue-bg);color:var(--blue);}.so{background:var(--orange-bg);color:var(--orange);}.sp{background:var(--blue-bg);color:var(--blue);}
+.pb{font-size:10px;font-family:'DM Mono',monospace;padding:2px 6px;border-radius:3px;white-space:nowrap;}
+.p1{background:#fde8e8;color:#b91c1c;}.p2{background:var(--orange-bg);color:var(--orange);}.p3{background:var(--blue-bg);color:var(--blue);}
+.jb{font-family:'DM Mono',monospace;font-size:11px;color:var(--jira);text-decoration:none;background:var(--blue-bg);padding:2px 7px;border-radius:4px;white-space:nowrap;}
+.jb:hover{text-decoration:underline;}
+.db2{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);}
+.db2.old{color:var(--red);}
+.st{color:var(--text2);font-size:12px;line-height:1.5;max-width:280px;}
+.opener{background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:10px;padding:14px 18px;margin-top:20px;display:flex;gap:12px;}
+.ol{font-family:'DM Mono',monospace;font-size:10px;color:var(--green);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;margin-top:2px;}
+.ot{font-size:13px;color:var(--text);font-style:italic;line-height:1.6;}
+.risk{background:var(--red-bg);border:1px solid var(--border);border-left:3px solid var(--red);border-radius:10px;padding:12px 16px;margin-top:12px;display:flex;gap:10px;align-items:center;}
+.rl{font-family:'DM Mono',monospace;font-size:10px;color:var(--red);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;}
+.rt{font-size:13px;color:var(--text);}
+.note{font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;margin-top:20px;padding-top:16px;border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <div class="eyebrow">Testsigma · TAM Daily Brief</div>
+    <div class="title">Mohan Kumar <span>/ Tuesday, 21 Jul 2026</span></div>
+    <div class="meta">
+      <div class="pill"><span class="dot dr"></span>2 calls today</div>
+      <div class="pill"><span class="dot dr"></span>2 on Us</div>
+      <div class="pill"><span class="dot db"></span>0 on Customer</div>
+    </div>
+  </div>
+</div>
+<div class="stats">
+  <div class="stat"><div class="snum">2</div><div class="slabel">Total Open</div></div>
+  <div class="stat"><div class="snum r">2</div><div class="slabel">On Us</div></div>
+  <div class="stat"><div class="snum b">0</div><div class="slabel">On Customer</div></div>
+  <div class="stat"><div class="snum o">2</div><div class="slabel">Calls Today</div></div>
+  <div class="stat"><div class="snum r">131d</div><div class="slabel">Oldest Ticket</div></div>
+</div>
+<div class="tabs" id="tabs"></div>
+<div class="content" id="content"></div>
+<script>
+const customers = [
+  {
+    "name": "Space42",
+    "callTime": "12:30 PM",
+    "tenantId": null,
+    "onUs": 2,
+    "onCustomer": 0,
+    "gong": null,
+    "waitingOnUs": [
+      {
+        "id": "00062681",
+        "lastResponse": "Add-on Steps Not Working at the Test Case Level",
+        "reporter": "Pragathi yerraguntla",
+        "jira": null,
+        "days": 1,
+        "priority": "P1",
+        "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX000012A0zaYAC/view"
+      },
+      {
+        "id": "00062527",
+        "lastResponse": "Testsigma Terminal Login Redirect Issue",
+        "reporter": "Pragathi yerraguntla",
+        "jira": null,
+        "days": 7,
+        "priority": "P1",
+        "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX000011sNDBYA2/view"
+      }
+    ],
+    "waitingOnCustomer": [],
+    "jiraTickets": [
+      {
+        "id": "CUS-11224",
+        "summary": "Custom LLM integration for intelligent test step generation — Space42 on-prem feature request",
+        "status": "In Progress",
+        "lastComment": "Engineering scoping custom LLM connector; pending product sign-off for on-prem deployment",
+        "reporter": "Pragathi yerraguntla",
+        "assignee": "Sridhar Kommi",
+        "priority": "P1",
+        "days": 131
+      },
+      {
+        "id": "CUS-12386",
+        "summary": "On-prem add-on management improvements — bulk step operations and search enhancements",
+        "status": "Product Qualified",
+        "lastComment": "Qualified by product team; awaiting roadmap scheduling for Q3 sprint",
+        "reporter": "Pragathi yerraguntla",
+        "assignee": "Sridhar Kommi",
+        "priority": "P1",
+        "days": 84
+      }
+    ],
+    "biggestRisk": "00062681 — P1 critical on-prem add-on failure raised yesterday with no response yet; may block today's standup",
+    "opener": "Good morning Pragathi — checking on the add-on steps issue from yesterday: have you been able to reproduce it consistently, and do you have logs from the on-prem instance?"
+  },
+  {
+    "name": "Astrolabs",
+    "callTime": "4:30 PM",
+    "tenantId": null,
+    "onUs": 0,
+    "onCustomer": 0,
+    "gong": {
+      "date": "16 Jul 2026",
+      "link": "https://app.gong.io/call?id=547901358961263535",
+      "items": [
+        {"text": "Build co-creation environment and test suite scaffolding for Astrolabs POC phase", "owner": "US"},
+        {"text": "Demo AI-assisted test case generation aligned to Astrolabs mobile workflow", "owner": "US"},
+        {"text": "Integrate Gmail forwarding for test confirmation and notification emails", "owner": "US"},
+        {"text": "Coordinate evaluation timeline and decision criteria with Dinesh by Tuesday", "owner": "US"},
+        {"text": "Complete Gmail forwarding setup before today's co-creation session", "owner": "CUSTOMER"},
+        {"text": "Share test scenarios and automation scripts prepared for co-creation review", "owner": "CUSTOMER"},
+        {"text": "Confirm evaluation decision timeline with internal stakeholders by Tuesday", "owner": "CUSTOMER"},
+        {"text": "Provide Testsigma team with access credentials for Astrolabs test environment", "owner": "CUSTOMER"}
+      ]
+    },
+    "waitingOnUs": [],
+    "waitingOnCustomer": [],
+    "jiraTickets": [
+      {
+        "id": "CUS-12481",
+        "summary": "Astrolabs test automation evaluation — Co-creation POC for mobile and web coverage",
+        "status": "Co-Creation/POC",
+        "lastComment": "POC in active co-creation phase; Mohan leading sessions weekly. Evaluation decision expected this week.",
+        "reporter": "Rohit",
+        "assignee": "Mohan Kumar N",
+        "priority": "P1",
+        "days": 83
+      }
+    ],
+    "biggestRisk": "CUS-12481 — Astrolabs POC is in co-creation phase; customer needs to confirm evaluation decision with Dinesh by Tuesday",
+    "opener": "Hi Rohit, excited for today's session — quick recap from last Tuesday: are the co-creation prep items done, and is the Gmail forwarding sorted out?"
+  }
+];
+function render(){
+  const tabs=document.getElementById('tabs');
+  const content=document.getElementById('content');
+  customers.forEach((c,i)=>{
+    const t=document.createElement('button');
+    t.className='tab'+(i===0?' active':'');
+    t.onclick=()=>sw(i);
+    t.innerHTML=c.name+' <span class="cnt '+(c.onUs>0?'r':'b')+'">'+(c.onUs+c.onCustomer)+'</span>';
+    tabs.appendChild(t);
+    const p=document.createElement('div');
+    p.className='panel'+(i===0?' active':'');
+    p.id='p'+i;
+    p.innerHTML=buildPanel(c);
+    content.appendChild(p);
+  });
+}
+function sw(i){
+  document.querySelectorAll('.tab').forEach((t,j)=>t.classList.toggle('active',i===j));
+  document.querySelectorAll('.panel').forEach((p,j)=>p.classList.toggle('active',i===j));
+}
+function buildPanel(c){
+  let h='';
+  if(c.gong){
+    h+=`<div class="gong"><div class="gong-hdr"><div class="gong-ttl">📞 Gong — Pending · ${c.gong.date}</div><a class="glink" href="${c.gong.link}" target="_blank">🔗 View recording →</a></div>${c.gong.items.map(i=>`<div class="gi">• ${i.text} <span class="ob ${i.owner==='US'?'ou':'oc'}">${i.owner}</span></div>`).join('')}</div>`;
+  }
+  if(c.waitingOnUs.length){
+    h+=`<div class="sh"><div class="sl r">🔴 Waiting on Us</div><div class="sc r">${c.waitingOnUs.length} cases</div></div><div class="tw"><table><thead><tr><th>Ticket ID</th><th>Subject</th><th>Reporter</th><th>Linked Jira</th><th>Days Open</th><th>Priority</th><th>Status</th></tr></thead><tbody>${c.waitingOnUs.map(t=>`<tr><td><a class="tid" href="${t.sfLink}" target="_blank">${t.id}</a></td><td><div class="st">${t.lastResponse}</div></td><td style="font-size:12px;white-space:nowrap;">${t.reporter}</td><td>${t.jira?`<a class="jb" href="https://testsigma.atlassian.net/browse/${t.jira}" target="_blank">${t.jira}</a>`:'—'}</td><td><span class="db2${t.days>30?' old':''}">${t.days}d</span></td><td><span class="pb p${t.priority.replace('P','')}">${t.priority}</span></td><td><span class="sb su">On Us</span></td></tr>`).join('')}</tbody></table></div>`;
+  }
+  if(c.waitingOnCustomer.length){
+    h+=`<div class="sh"><div class="sl b">🔵 Waiting on Customer</div><div class="sc b">${c.waitingOnCustomer.length} cases</div></div><div class="tw"><table><thead><tr><th>Ticket ID</th><th>Subject</th><th>Reporter</th><th>Linked Jira</th><th>Days Open</th><th>Priority</th><th>Status</th></tr></thead><tbody>${c.waitingOnCustomer.map(t=>`<tr><td><a class="tid" href="${t.sfLink}" target="_blank">${t.id}</a></td><td><div class="st">${t.lastResponse}</div></td><td style="font-size:12px;white-space:nowrap;">${t.reporter}</td><td>${t.jira?`<a class="jb" href="https://testsigma.atlassian.net/browse/${t.jira}" target="_blank">${t.jira}</a>`:'—'}</td><td><span class="db2${t.days>30?' old':''}">${t.days}d</span></td><td><span class="pb p${t.priority.replace('P','')}">${t.priority}</span></td><td><span class="sb scu">On Customer</span></td></tr>`).join('')}</tbody></table></div>`;
+  }
+  if(c.jiraTickets&&c.jiraTickets.length){
+    h+=`<div class="sh"><div class="sl j">🎫 Jira Tickets</div><div class="sc j">${c.jiraTickets.length} tickets</div></div><div class="tw"><table><thead><tr><th>Ticket ID</th><th>Summary</th><th>Status</th><th>Last Comment</th><th>Reporter</th><th>Assignee</th><th>Priority</th><th>Days Open</th></tr></thead><tbody>${c.jiraTickets.map(t=>`<tr><td><a class="tid" href="https://testsigma.atlassian.net/browse/${t.id}" target="_blank">${t.id}</a></td><td><div class="st">${t.summary}</div></td><td><span class="sb sp">${t.status}</span></td><td><div class="st">${t.lastComment}</div></td><td style="font-size:12px;">${t.reporter}</td><td style="font-size:12px;">${t.assignee}</td><td><span class="pb p${t.priority.replace('P','')}">${t.priority}</span></td><td><span class="db2${t.days>30?' old':''}">${t.days}d</span></td></tr>`).join('')}</tbody></table></div>`;
+  }
+  h+=`<div class="risk"><div class="rl">🚨 Biggest Risk</div><div class="rt">${c.biggestRisk}</div></div>`;
+  h+=`<div class="opener"><div class="ol">🗣️ Open with</div><div class="ot">"${c.opener}"</div></div>`;
+  h+=`<div class="note">📌 If any customer call is missing, ensure the calendar event has "Tenant ID: XXXXX" in the description or the customer company name in the title.</div>`;
+  return h;
+}
+render();
+</script>
+</body>
+</html>
