@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohan Kumar N — TAM Brief · 22 Jul 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #161920;
+    --surface2: #1e2229;
+    --border: #2a2f3a;
+    --text: #e8eaf0;
+    --muted: #7a8099;
+    --red: #ff4d6a;
+    --red-bg: #2a1520;
+    --blue: #4d9fff;
+    --blue-bg: #0f1e33;
+    --green: #4dffb4;
+    --yellow: #ffd166;
+    --accent: #7c6af7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.6; }
+  .page { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+  .header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 28px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+  .tam-name { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; color: var(--text); }
+  .date-badge { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); background: var(--surface2); padding: 4px 10px; border-radius: 4px; border: 1px solid var(--border); }
+  .role { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 12px; }
+  .call-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin-bottom: 8px; display: flex; gap: 14px; align-items: flex-start; }
+  .call-time { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); min-width: 70px; padding-top: 2px; }
+  .call-info { flex: 1; }
+  .call-customer { font-weight: 600; font-size: 14px; color: var(--text); }
+  .call-title { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .case-grid { display: grid; gap: 8px; }
+  .case-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; display: grid; grid-template-columns: auto 1fr auto auto; gap: 10px 14px; align-items: center; }
+  .case-card.red { border-left: 3px solid var(--red); background: var(--red-bg); }
+  .case-card.blue { border-left: 3px solid var(--blue); background: var(--blue-bg); }
+  .case-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .case-dot.red { background: var(--red); }
+  .case-dot.blue { background: var(--blue); }
+  .case-num { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); }
+  .case-subject { font-size: 13px; color: var(--text); font-weight: 500; }
+  .case-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .case-age { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .case-priority { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 3px; }
+  .p1 { background: #3d1a1a; color: #ff6b6b; }
+  .p2 { background: #2a2200; color: #ffd166; }
+  .p3 { background: #1a2200; color: #a8d672; }
+  .case-link { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-decoration: none; }
+  .case-link:hover { text-decoration: underline; }
+  .risk-block { background: var(--red-bg); border: 1px solid var(--red); border-radius: 8px; padding: 14px 16px; }
+  .risk-label { font-size: 10px; font-weight: 600; color: var(--red); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .risk-text { font-size: 13px; color: var(--text); }
+  .opener-block { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin-bottom: 8px; }
+  .opener-label { font-size: 10px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .opener-text { font-size: 13px; color: var(--text); font-style: italic; }
+  .customer-group { margin-bottom: 16px; }
+  .customer-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; padding-left: 2px; }
+  .no-cases { font-size: 12px; color: var(--muted); font-style: italic; padding: 8px 4px; }
+  .footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="tam-name">Mohan Kumar N</div>
+        <div class="role">Technical Account Manager · Space42, Astrolabs</div>
+      </div>
+      <div class="date-badge">Wednesday, 22 Jul 2026</div>
+    </div>
+  </div>
+
+  <!-- TODAY'S CALLS -->
+  <div class="section">
+    <div class="section-title">Today's Customer Calls</div>
+    <div class="call-card">
+      <div class="call-time">12:30 IST</div>
+      <div class="call-info">
+        <div class="call-customer">Space42</div>
+        <div class="call-title">Space42 Weekly Check-in</div>
+      </div>
+    </div>
+    <div class="call-card">
+      <div class="call-time">16:00 IST</div>
+      <div class="call-info">
+        <div class="call-customer">Astrolabs</div>
+        <div class="call-title">Astrolabs Weekly Sync</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPEN CASES -->
+  <div class="section">
+    <div class="section-title">Open Cases</div>
+    <div class="customer-group">
+      <div class="customer-label">Space42</div>
+      <div class="case-grid">
+        <div class="case-card red">
+          <div class="case-dot red"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062681/view" target="_blank">00062681</a></div>
+            <div class="case-subject">Add-on Steps Not Working During Test Case Execution</div>
+            <div class="case-meta">Pragathi yerraguntla · 2 days old</div>
+          </div>
+          <div class="case-priority p1">P1</div>
+          <div class="case-age">2d</div>
+        </div>
+        <div class="case-card red">
+          <div class="case-dot red"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062527/view" target="_blank">00062527</a></div>
+            <div class="case-subject">On-prem Terminal Login Redirect Issue</div>
+            <div class="case-meta">Pragathi yerraguntla · 8 days old</div>
+          </div>
+          <div class="case-priority p1">P1</div>
+          <div class="case-age">8d</div>
+        </div>
+      </div>
+    </div>
+    <div class="customer-group">
+      <div class="customer-label">Astrolabs</div>
+      <div class="no-cases">No open cases</div>
+    </div>
+  </div>
+
+  <!-- BIGGEST RISK -->
+  <div class="section">
+    <div class="section-title">Biggest Risk Today</div>
+    <div class="risk-block">
+      <div class="risk-label">⚠ High</div>
+      <div class="risk-text">00062527 — P1 On-prem Terminal Login Redirect Issue unresolved for 8 days, directly blocking Space42's on-premise setup and adoption. Needs engineering escalation today.</div>
+    </div>
+  </div>
+
+  <!-- CALL OPENERS -->
+  <div class="section">
+    <div class="section-title">Suggested Call Openers</div>
+    <div class="opener-block">
+      <div class="opener-label">Space42 · 12:30 IST</div>
+      <div class="opener-text">"Hey Mark, glad everything's stable from yesterday's check. When we chat today, let's quickly touch on the on-prem terminal redirect issue and the add-on steps not working during test case execution."</div>
+    </div>
+    <div class="opener-block">
+      <div class="opener-label">Astrolabs · 16:00 IST</div>
+      <div class="opener-text">"Hi team — great to connect today. Everything's looking clean on the case front, so let's use this time to check in on your progress and see how we can keep the momentum going."</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Testsigma TAM Daily Brief</span>
+    <span>Generated 22 Jul 2026 · Auto-generated</span>
+  </div>
+</div>
+</body>
+</html>

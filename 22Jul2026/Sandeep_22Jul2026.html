@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandeep Sai K — TAM Brief · 22 Jul 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #161920;
+    --surface2: #1e2229;
+    --border: #2a2f3a;
+    --text: #e8eaf0;
+    --muted: #7a8099;
+    --red: #ff4d6a;
+    --red-bg: #2a1520;
+    --blue: #4d9fff;
+    --blue-bg: #0f1e33;
+    --green: #4dffb4;
+    --yellow: #ffd166;
+    --accent: #7c6af7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.6; }
+  .page { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+  .header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 28px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+  .tam-name { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; color: var(--text); }
+  .date-badge { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); background: var(--surface2); padding: 4px 10px; border-radius: 4px; border: 1px solid var(--border); }
+  .role { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 12px; }
+  .call-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin-bottom: 8px; display: flex; gap: 14px; align-items: flex-start; }
+  .call-time { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); min-width: 70px; padding-top: 2px; }
+  .call-info { flex: 1; }
+  .call-customer { font-weight: 600; font-size: 14px; color: var(--text); }
+  .call-title { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .case-grid { display: grid; gap: 8px; }
+  .case-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; display: grid; grid-template-columns: auto 1fr auto auto; gap: 10px 14px; align-items: center; }
+  .case-card.red { border-left: 3px solid var(--red); background: var(--red-bg); }
+  .case-card.blue { border-left: 3px solid var(--blue); background: var(--blue-bg); }
+  .case-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .case-dot.red { background: var(--red); }
+  .case-dot.blue { background: var(--blue); }
+  .case-num { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); }
+  .case-subject { font-size: 13px; color: var(--text); font-weight: 500; }
+  .case-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .case-age { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .case-priority { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 3px; }
+  .p1 { background: #3d1a1a; color: #ff6b6b; }
+  .p2 { background: #2a2200; color: #ffd166; }
+  .p3 { background: #1a2200; color: #a8d672; }
+  .case-link { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-decoration: none; }
+  .case-link:hover { text-decoration: underline; }
+  .gong-block { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .gong-header { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+  .gong-call-title { font-weight: 600; font-size: 13px; }
+  .gong-call-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+  .gong-link { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-decoration: none; margin-left: auto; }
+  .action-list { list-style: none; }
+  .action-item { display: flex; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .action-item:last-child { border-bottom: none; }
+  .owner-tag { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 3px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .owner-us { background: #1a2d1a; color: #4dffb4; }
+  .owner-cust { background: #2d1a1a; color: #ff8080; }
+  .risk-block { background: var(--red-bg); border: 1px solid var(--red); border-radius: 8px; padding: 14px 16px; }
+  .risk-label { font-size: 10px; font-weight: 600; color: var(--red); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .risk-text { font-size: 13px; color: var(--text); }
+  .opener-block { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .opener-label { font-size: 10px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .opener-text { font-size: 13px; color: var(--text); font-style: italic; }
+  .customer-group { margin-bottom: 16px; }
+  .customer-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; padding-left: 2px; }
+  .footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="tam-name">Sandeep Sai K</div>
+        <div class="role">Technical Account Manager · DHL</div>
+      </div>
+      <div class="date-badge">Wednesday, 22 Jul 2026</div>
+    </div>
+  </div>
+
+  <!-- TODAY'S CALLS -->
+  <div class="section">
+    <div class="section-title">Today's Customer Calls</div>
+    <div class="call-card">
+      <div class="call-time">15:00 IST</div>
+      <div class="call-info">
+        <div class="call-customer">DHL</div>
+        <div class="call-title">DHL Chennai Weekly Scrum</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPEN CASES -->
+  <div class="section">
+    <div class="section-title">Open Cases</div>
+    <div class="customer-group">
+      <div class="customer-label">DHL</div>
+      <div class="case-grid">
+        <div class="case-card red">
+          <div class="case-dot red"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062720/view" target="_blank">00062720</a></div>
+            <div class="case-subject">Agent Auto-Update Failing</div>
+            <div class="case-meta">Venu Gopal · 1 day old</div>
+          </div>
+          <div class="case-priority p1">P1</div>
+          <div class="case-age">1d</div>
+        </div>
+        <div class="case-card red">
+          <div class="case-dot red"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062605/view" target="_blank">00062605</a></div>
+            <div class="case-subject">SLTF Latency / Network Performance Issue</div>
+            <div class="case-meta">Bathula · 6 days old</div>
+          </div>
+          <div class="case-priority p2">P2</div>
+          <div class="case-age">6d</div>
+        </div>
+        <div class="case-card red">
+          <div class="case-dot red"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062722/view" target="_blank">00062722</a></div>
+            <div class="case-subject">Test Execution Environment Configuration</div>
+            <div class="case-meta">Lifen Chong It · 1 day old</div>
+          </div>
+          <div class="case-priority p3">P3</div>
+          <div class="case-age">1d</div>
+        </div>
+        <div class="case-card red">
+          <div class="case-dot red"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062754/view" target="_blank">00062754</a></div>
+            <div class="case-subject">Test Results Dashboard Inconsistency</div>
+            <div class="case-meta">Madhu Kapli · 0 days old</div>
+          </div>
+          <div class="case-priority p3">P3</div>
+          <div class="case-age">0d</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GONG BLOCK -->
+  <div class="section">
+    <div class="section-title">Pending Action Items (Gong)</div>
+    <div class="gong-block">
+      <div class="gong-header">
+        <div>
+          <div class="gong-call-title">DHL Roadmap Discussion</div>
+          <div class="gong-call-date">21 Jul 2026</div>
+        </div>
+        <a class="gong-link" href="https://app.gong.io/call?id=1358107180122575589" target="_blank">View in Gong →</a>
+      </div>
+      <ul class="action-list">
+        <li class="action-item">
+          <span class="owner-tag owner-us">US</span>
+          <span>Send must-have features list response to DHL today or tomorrow</span>
+        </li>
+        <li class="action-item">
+          <span class="owner-tag owner-us">US</span>
+          <span>SLTF latency logs sent to engineering — update Peggy urgently (steerco today, project closure at risk this month if unresolved)</span>
+        </li>
+        <li class="action-item">
+          <span class="owner-tag owner-us">US</span>
+          <span>Review Jerry's Jira dashboard requirements document when shared</span>
+        </li>
+        <li class="action-item">
+          <span class="owner-tag owner-cust">CUSTOMER</span>
+          <span>Jerry to share Jira dashboard requirements document</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BIGGEST RISK -->
+  <div class="section">
+    <div class="section-title">Biggest Risk Today</div>
+    <div class="risk-block">
+      <div class="risk-label">⚠ Critical</div>
+      <div class="risk-text">00062720 (P1) + SLTF latency — Agent auto-update failing and SLTF project deadline at risk this month. Steerco is today — Peggy needs an update on the latency issue before that meeting.</div>
+    </div>
+  </div>
+
+  <!-- CALL OPENER -->
+  <div class="section">
+    <div class="section-title">Suggested Call Opener</div>
+    <div class="opener-block">
+      <div class="opener-label">DHL · 15:00 IST</div>
+      <div class="opener-text">"Good morning DHL team — the SLTF latency logs reached engineering yesterday and we've escalated for a swift resolution. Let's also cover the open agent auto-update cases today and make sure we have a clear path forward."</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Testsigma TAM Daily Brief</span>
+    <span>Generated 22 Jul 2026 · Auto-generated</span>
+  </div>
+</div>
+</body>
+</html>

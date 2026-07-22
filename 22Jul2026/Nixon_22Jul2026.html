@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nixon Nicholas — TAM Brief · 22 Jul 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #161920;
+    --surface2: #1e2229;
+    --border: #2a2f3a;
+    --text: #e8eaf0;
+    --muted: #7a8099;
+    --red: #ff4d6a;
+    --red-bg: #2a1520;
+    --blue: #4d9fff;
+    --blue-bg: #0f1e33;
+    --green: #4dffb4;
+    --yellow: #ffd166;
+    --accent: #7c6af7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.6; }
+  .page { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+  .header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 28px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+  .tam-name { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; color: var(--text); }
+  .date-badge { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); background: var(--surface2); padding: 4px 10px; border-radius: 4px; border: 1px solid var(--border); }
+  .role { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 12px; }
+  .call-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin-bottom: 8px; display: flex; gap: 14px; align-items: flex-start; }
+  .call-time { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); min-width: 70px; padding-top: 2px; }
+  .call-info { flex: 1; }
+  .call-customer { font-weight: 600; font-size: 14px; color: var(--text); }
+  .call-title { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .case-grid { display: grid; gap: 8px; }
+  .case-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; display: grid; grid-template-columns: auto 1fr auto auto; gap: 10px 14px; align-items: center; }
+  .case-card.red { border-left: 3px solid var(--red); background: var(--red-bg); }
+  .case-card.blue { border-left: 3px solid var(--blue); background: var(--blue-bg); }
+  .case-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .case-dot.red { background: var(--red); }
+  .case-dot.blue { background: var(--blue); }
+  .case-num { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); }
+  .case-subject { font-size: 13px; color: var(--text); font-weight: 500; }
+  .case-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .case-age { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .case-priority { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 3px; }
+  .p1 { background: #3d1a1a; color: #ff6b6b; }
+  .p2 { background: #2a2200; color: #ffd166; }
+  .p3 { background: #1a2200; color: #a8d672; }
+  .case-link { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-decoration: none; }
+  .case-link:hover { text-decoration: underline; }
+  .gong-block { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .gong-header { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; flex-wrap: wrap; }
+  .gong-call-title { font-weight: 600; font-size: 13px; }
+  .gong-call-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+  .gong-link { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-decoration: none; margin-left: auto; }
+  .action-list { list-style: none; }
+  .action-item { display: flex; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .action-item:last-child { border-bottom: none; }
+  .owner-tag { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 3px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .owner-us { background: #1a2d1a; color: #4dffb4; }
+  .owner-cust { background: #2d1a1a; color: #ff8080; }
+  .risk-block { background: var(--red-bg); border: 1px solid var(--red); border-radius: 8px; padding: 14px 16px; }
+  .risk-label { font-size: 10px; font-weight: 600; color: var(--red); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .risk-text { font-size: 13px; color: var(--text); }
+  .opener-block { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin-bottom: 8px; }
+  .opener-label { font-size: 10px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .opener-text { font-size: 13px; color: var(--text); font-style: italic; }
+  .customer-group { margin-bottom: 16px; }
+  .customer-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; padding-left: 2px; }
+  .no-cases { font-size: 12px; color: var(--muted); font-style: italic; padding: 8px 4px; }
+  .cases-count { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-left: 8px; }
+  .footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="tam-name">Nixon Nicholas</div>
+        <div class="role">Technical Account Manager · E-VIS, Nuvama Wealth</div>
+      </div>
+      <div class="date-badge">Wednesday, 22 Jul 2026</div>
+    </div>
+  </div>
+
+  <!-- TODAY'S CALLS -->
+  <div class="section">
+    <div class="section-title">Today's Customer Calls</div>
+    <div class="call-card">
+      <div class="call-time">11:30 IST</div>
+      <div class="call-info">
+        <div class="call-customer">E-VIS Pty Ltd</div>
+        <div class="call-title">E-VIS Weekly Check-in</div>
+      </div>
+    </div>
+    <div class="call-card">
+      <div class="call-time">13:30 IST</div>
+      <div class="call-info">
+        <div class="call-customer">Nuvama Wealth</div>
+        <div class="call-title">Nuvama Wealth &lt;&gt; Testsigma | Office Hours</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPEN CASES -->
+  <div class="section">
+    <div class="section-title">Open Cases</div>
+    <div class="customer-group">
+      <div class="customer-label">E-VIS Pty Ltd</div>
+      <div class="no-cases">No open cases (all closed)</div>
+    </div>
+    <div class="customer-group">
+      <div class="customer-label">Nuvama Wealth <span class="cases-count">10 open</span></div>
+      <div class="case-grid">
+        <!-- RED cases (On Us) -->
+        <div class="case-card red">
+          <div class="case-dot red"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062381/view" target="_blank">00062381</a></div>
+            <div class="case-subject">Intermittent Cloud Execution Failures — Run #14113 (6/28 failures, 20%+ rate)</div>
+            <div class="case-meta">Mayuresh Udas · 13 days old</div>
+          </div>
+          <div class="case-priority p2">P2</div>
+          <div class="case-age">13d</div>
+        </div>
+        <div class="case-card red">
+          <div class="case-dot red"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062532/view" target="_blank">00062532</a></div>
+            <div class="case-subject">Android Source Code Display Issue (needs data cleared to reproduce)</div>
+            <div class="case-meta">DN · 8 days old</div>
+          </div>
+          <div class="case-priority p2">P2</div>
+          <div class="case-age">8d</div>
+        </div>
+        <div class="case-card red">
+          <div class="case-dot red"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062613/view" target="_blank">00062613</a></div>
+            <div class="case-subject">Test Execution Issue — Environment Stability</div>
+            <div class="case-meta">nuvama · 5 days old</div>
+          </div>
+          <div class="case-priority p2">P2</div>
+          <div class="case-age">5d</div>
+        </div>
+        <div class="case-card red">
+          <div class="case-dot red"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062665/view" target="_blank">00062665</a></div>
+            <div class="case-subject">Test Step Execution Failure</div>
+            <div class="case-meta">Sahana R · 2 days old</div>
+          </div>
+          <div class="case-priority p2">P2</div>
+          <div class="case-age">2d</div>
+        </div>
+        <!-- BLUE cases (Waiting for Customer) -->
+        <div class="case-card blue">
+          <div class="case-dot blue"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062544/view" target="_blank">00062544</a></div>
+            <div class="case-subject">NLP Command Not Recognized</div>
+            <div class="case-meta">nuvama · 7 days old</div>
+          </div>
+          <div class="case-priority p2">P2</div>
+          <div class="case-age">7d</div>
+        </div>
+        <div class="case-card blue">
+          <div class="case-dot blue"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062491/view" target="_blank">00062491</a></div>
+            <div class="case-subject">Test Data Management Configuration Issue</div>
+            <div class="case-meta">Sahana R · 8 days old</div>
+          </div>
+          <div class="case-priority p2">P2</div>
+          <div class="case-age">8d</div>
+        </div>
+        <div class="case-card blue">
+          <div class="case-dot blue"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062625/view" target="_blank">00062625</a></div>
+            <div class="case-subject">Report Export Issue</div>
+            <div class="case-meta">nuvama · 5 days old</div>
+          </div>
+          <div class="case-priority p2">P2</div>
+          <div class="case-age">5d</div>
+        </div>
+        <div class="case-card blue">
+          <div class="case-dot blue"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062675/view" target="_blank">00062675</a></div>
+            <div class="case-subject">Element Locator Issue — Dynamic ID</div>
+            <div class="case-meta">nuvama · 2 days old</div>
+          </div>
+          <div class="case-priority p2">P2</div>
+          <div class="case-age">2d</div>
+        </div>
+        <div class="case-card blue">
+          <div class="case-dot blue"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062708/view" target="_blank">00062708</a></div>
+            <div class="case-subject">Test Suite Configuration Question</div>
+            <div class="case-meta">Nidhi Gupta · 1 day old</div>
+          </div>
+          <div class="case-priority p2">P2</div>
+          <div class="case-age">1d</div>
+        </div>
+        <div class="case-card blue">
+          <div class="case-dot blue"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062729/view" target="_blank">00062729</a></div>
+            <div class="case-subject">Sorting NLP Command — New Request</div>
+            <div class="case-meta">nuvama · 1 day old</div>
+          </div>
+          <div class="case-priority p2">P2</div>
+          <div class="case-age">1d</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GONG BLOCK -->
+  <div class="section">
+    <div class="section-title">Pending Action Items (Gong)</div>
+    <div class="gong-block">
+      <div class="gong-header">
+        <div>
+          <div class="gong-call-title">Nuvama Wealth &lt;&gt; Testsigma | Office Hours</div>
+          <div class="gong-call-date">Recent</div>
+        </div>
+        <a class="gong-link" href="https://app.gong.io/call?id=5019831005981348471" target="_blank">View in Gong →</a>
+      </div>
+      <ul class="action-list">
+        <li class="action-item">
+          <span class="owner-tag owner-us">US</span>
+          <span>Check on Android source code display issue (case 00062532 — Kamla's ticket) — needs customer data cleared to reproduce; confirm next steps</span>
+        </li>
+        <li class="action-item">
+          <span class="owner-tag owner-cust">CUSTOMER</span>
+          <span>Nithin to raise sorting NLP ticket (likely became case 00062729)</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BIGGEST RISK -->
+  <div class="section">
+    <div class="section-title">Biggest Risk Today</div>
+    <div class="risk-block">
+      <div class="risk-label">⚠ High</div>
+      <div class="risk-text">00062381 — Nuvama P2 intermittent cloud execution failures (6/28 = 20%+ failure rate), 13 days open, directly undermining confidence in the platform. Must open today's Office Hours with a clear status update on this.</div>
+    </div>
+  </div>
+
+  <!-- CALL OPENERS -->
+  <div class="section">
+    <div class="section-title">Suggested Call Openers</div>
+    <div class="opener-block">
+      <div class="opener-label">E-VIS · 11:30 IST</div>
+      <div class="opener-text">"Hi team — great news on the support side, everything is looking clean. Let's catch up on your progress and see what's next on your roadmap with Testsigma."</div>
+    </div>
+    <div class="opener-block">
+      <div class="opener-label">Nuvama Wealth · 13:30 IST</div>
+      <div class="opener-text">"Hi Mayuresh and team — I want to open with a status update on the intermittent cloud execution issue from run #14113 — that's been our top priority this week. We have 10 open cases across the account and I want to make sure we're aligned on priorities."</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Testsigma TAM Daily Brief</span>
+    <span>Generated 22 Jul 2026 · Auto-generated</span>
+  </div>
+</div>
+</body>
+</html>

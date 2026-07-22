@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivani Sharma — TAM Brief · 22 Jul 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #161920;
+    --surface2: #1e2229;
+    --border: #2a2f3a;
+    --text: #e8eaf0;
+    --muted: #7a8099;
+    --red: #ff4d6a;
+    --red-bg: #2a1520;
+    --blue: #4d9fff;
+    --blue-bg: #0f1e33;
+    --green: #4dffb4;
+    --yellow: #ffd166;
+    --accent: #7c6af7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.6; }
+  .page { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+  .header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 28px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+  .tam-name { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; color: var(--text); }
+  .date-badge { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); background: var(--surface2); padding: 4px 10px; border-radius: 4px; border: 1px solid var(--border); }
+  .role { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section { margin-bottom: 28px; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 12px; }
+  .call-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin-bottom: 8px; display: flex; gap: 14px; align-items: flex-start; }
+  .call-time { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); min-width: 70px; padding-top: 2px; }
+  .call-info { flex: 1; }
+  .call-customer { font-weight: 600; font-size: 14px; color: var(--text); }
+  .call-title { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .case-grid { display: grid; gap: 8px; }
+  .case-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; display: grid; grid-template-columns: auto 1fr auto auto; gap: 10px 14px; align-items: center; }
+  .case-card.red { border-left: 3px solid var(--red); background: var(--red-bg); }
+  .case-card.blue { border-left: 3px solid var(--blue); background: var(--blue-bg); }
+  .case-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .case-dot.red { background: var(--red); }
+  .case-dot.blue { background: var(--blue); }
+  .case-num { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); }
+  .case-subject { font-size: 13px; color: var(--text); font-weight: 500; }
+  .case-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .case-age { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .case-priority { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 3px; }
+  .p1 { background: #3d1a1a; color: #ff6b6b; }
+  .p2 { background: #2a2200; color: #ffd166; }
+  .p3 { background: #1a2200; color: #a8d672; }
+  .case-link { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); text-decoration: none; }
+  .case-link:hover { text-decoration: underline; }
+  .risk-block { background: var(--red-bg); border: 1px solid var(--red); border-radius: 8px; padding: 14px 16px; }
+  .risk-label { font-size: 10px; font-weight: 600; color: var(--red); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .risk-text { font-size: 13px; color: var(--text); }
+  .opener-block { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin-bottom: 8px; }
+  .opener-label { font-size: 10px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .opener-text { font-size: 13px; color: var(--text); font-style: italic; }
+  .customer-group { margin-bottom: 16px; }
+  .customer-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; padding-left: 2px; }
+  .no-cases { font-size: 12px; color: var(--muted); font-style: italic; padding: 8px 4px; }
+  .footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="tam-name">Shivani Sharma</div>
+        <div class="role">Technical Account Manager · Inspectivity, ITILITE, Zensar</div>
+      </div>
+      <div class="date-badge">Wednesday, 22 Jul 2026</div>
+    </div>
+  </div>
+
+  <!-- TODAY'S CALLS -->
+  <div class="section">
+    <div class="section-title">Today's Customer Calls</div>
+    <div class="call-card">
+      <div class="call-time">11:00 IST</div>
+      <div class="call-info">
+        <div class="call-customer">Inspectivity</div>
+        <div class="call-title">Inspectivity Technical Training</div>
+      </div>
+    </div>
+    <div class="call-card">
+      <div class="call-time">16:30 IST</div>
+      <div class="call-info">
+        <div class="call-customer">ITILITE</div>
+        <div class="call-title">ITILITE Weekly Check-in</div>
+      </div>
+    </div>
+    <div class="call-card">
+      <div class="call-time">18:00 IST</div>
+      <div class="call-info">
+        <div class="call-customer">Zensar</div>
+        <div class="call-title">Zensar-AAA Training Session</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPEN CASES -->
+  <div class="section">
+    <div class="section-title">Open Cases</div>
+    <div class="customer-group">
+      <div class="customer-label">Inspectivity</div>
+      <div class="no-cases">No open cases</div>
+    </div>
+    <div class="customer-group">
+      <div class="customer-label">ITILITE</div>
+      <div class="case-grid">
+        <div class="case-card blue">
+          <div class="case-dot blue"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062299/view" target="_blank">00062299</a></div>
+            <div class="case-subject">Site Can't Be Reached — Network Connectivity Error</div>
+            <div class="case-meta">Lekhana V · 14 days old</div>
+          </div>
+          <div class="case-priority p2">P2</div>
+          <div class="case-age">14d</div>
+        </div>
+      </div>
+    </div>
+    <div class="customer-group">
+      <div class="customer-label">Zensar</div>
+      <div class="case-grid">
+        <div class="case-card blue">
+          <div class="case-dot blue"></div>
+          <div>
+            <div class="case-num"><a class="case-link" href="https://testsigma.lightning.force.com/lightning/r/Case/00062666/view" target="_blank">00062666</a></div>
+            <div class="case-subject">Agent Auto-Update + Element Display Issue</div>
+            <div class="case-meta">Raj Kiran · 2 days old</div>
+          </div>
+          <div class="case-priority p2">P2</div>
+          <div class="case-age">2d</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BIGGEST RISK -->
+  <div class="section">
+    <div class="section-title">Biggest Risk Today</div>
+    <div class="risk-block">
+      <div class="risk-label">⚠ Medium</div>
+      <div class="risk-text">00062299 — ITILITE 'Site Can't Be Reached' has been open 14 days. Waiting on customer — confirm they've resolved their network issue and can close this out on today's call.</div>
+    </div>
+  </div>
+
+  <!-- CALL OPENERS -->
+  <div class="section">
+    <div class="section-title">Suggested Call Openers</div>
+    <div class="opener-block">
+      <div class="opener-label">Inspectivity · 11:00 IST</div>
+      <div class="opener-text">"Hi Nirmal — excited to kick off the Inspectivity technical training today! We'll walk through the key workflows step by step. Feel free to stop me with questions at any point."</div>
+    </div>
+    <div class="opener-block">
+      <div class="opener-label">ITILITE · 16:30 IST</div>
+      <div class="opener-text">"Hi Lekhana — I wanted to follow up on case 00062299, the network connectivity issue. Were you able to get that resolved on your end? Happy to close it out today if so."</div>
+    </div>
+    <div class="opener-block">
+      <div class="opener-label">Zensar · 18:00 IST</div>
+      <div class="opener-text">"Hi Raj Kiran — looking forward to today's training session. I also wanted to touch on the agent auto-update and element display issue briefly — any new observations since you last wrote in?"</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Testsigma TAM Daily Brief</span>
+    <span>Generated 22 Jul 2026 · Auto-generated</span>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAM Daily Brief — Master · 22 Jul 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #161920;
+    --surface2: #1e2229;
+    --border: #2a2f3a;
+    --text: #e8eaf0;
+    --muted: #7a8099;
+    --red: #ff4d6a;
+    --red-bg: #2a1520;
+    --blue: #4d9fff;
+    --blue-bg: #0f1e33;
+    --green: #4dffb4;
+    --green-bg: #0d2a1e;
+    --yellow: #ffd166;
+    --accent: #7c6af7;
+    --orange: #ff9f43;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.6; }
+  .page { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+  .header { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 32px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+  .title { font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 800; color: var(--text); }
+  .subtitle { font-size: 14px; color: var(--muted); margin-top: 4px; }
+  .date-badge { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); background: var(--surface2); padding: 4px 10px; border-radius: 4px; border: 1px solid var(--border); }
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 32px; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; color: var(--accent); }
+  .stat-label { font-size: 11px; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.8px; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 14px; }
+  .tam-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  .tam-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; transition: border-color 0.2s; }
+  .tam-card:hover { border-color: var(--accent); }
+  .tam-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .tam-card-name { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; }
+  .tam-card-name a { color: var(--text); text-decoration: none; }
+  .tam-card-name a:hover { color: var(--accent); }
+  .tam-card-badges { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+  .badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+  .badge-calls { background: #1a1a3d; color: var(--accent); }
+  .badge-ooo { background: #2a1e00; color: var(--orange); }
+  .badge-clear { background: var(--green-bg); color: var(--green); }
+  .tam-customers { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+  .case-summary { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  .case-pill { font-family: 'DM Mono', monospace; font-size: 11px; padding: 3px 8px; border-radius: 4px; display: flex; align-items: center; gap: 5px; }
+  .case-pill.red { background: var(--red-bg); color: var(--red); border: 1px solid rgba(255,77,106,0.3); }
+  .case-pill.blue { background: var(--blue-bg); color: var(--blue); border: 1px solid rgba(77,159,255,0.3); }
+  .tam-risk { font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 10px; margin-top: 6px; }
+  .tam-risk-label { font-size: 10px; color: var(--red); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .tam-risk.low .tam-risk-label { color: var(--green); }
+  .escalations { background: var(--red-bg); border: 1px solid var(--red); border-radius: 10px; padding: 18px; margin-bottom: 32px; }
+  .escalation-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--red); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+  .escalation-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,77,106,0.2); font-size: 13px; }
+  .escalation-item:last-child { border-bottom: none; }
+  .esc-badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 3px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .esc-badge-crit { background: #3d0000; color: var(--red); }
+  .esc-badge-high { background: #2a1800; color: var(--orange); }
+  .esc-tam { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="title">TAM Daily Brief</div>
+        <div class="subtitle">Testsigma · Customer Success · All TAMs</div>
+      </div>
+      <div class="date-badge">Wednesday, 22 Jul 2026</div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">8</div>
+      <div class="stat-label">TAMs</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">11</div>
+      <div class="stat-label">Customer Calls Today</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color: var(--red);">10</div>
+      <div class="stat-label">🔴 On Us</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color: var(--blue);">9</div>
+      <div class="stat-label">🔵 On Customer</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">19</div>
+      <div class="stat-label">Total Open Cases</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color: var(--orange);">13d</div>
+      <div class="stat-label">Oldest Case</div>
+    </div>
+  </div>
+
+  <!-- ESCALATIONS / TOP RISKS -->
+  <div class="escalations">
+    <div class="escalation-title">Top Risks Requiring Attention</div>
+    <div class="escalation-item">
+      <div>
+        <span class="esc-badge esc-badge-crit">CRITICAL</span>
+      </div>
+      <div>
+        <div><strong>DHL SLTF Latency</strong> — Steerco happening today. Project closure at risk this month if network latency not resolved. Engineering has logs; Peggy needs an update before meeting.</div>
+        <div class="esc-tam">TAMs: Sam Isaac, Sandeep Sai K · Case 00062605</div>
+      </div>
+    </div>
+    <div class="escalation-item">
+      <div>
+        <span class="esc-badge esc-badge-crit">P1</span>
+      </div>
+      <div>
+        <div><strong>DHL Agent Auto-Update Failing</strong> — P1 open 1 day, Venu Gopal. Active investigation needed.</div>
+        <div class="esc-tam">TAMs: Sam Isaac, Sandeep Sai K · Case 00062720</div>
+      </div>
+    </div>
+    <div class="escalation-item">
+      <div>
+        <span class="esc-badge esc-badge-high">HIGH</span>
+      </div>
+      <div>
+        <div><strong>Nuvama Cloud Execution Failures</strong> — 20%+ failure rate (6/28 runs), 13 days open, undermining platform confidence. Nixon addressing in today's Office Hours.</div>
+        <div class="esc-tam">TAM: Nixon Nicholas · Case 00062381</div>
+      </div>
+    </div>
+    <div class="escalation-item">
+      <div>
+        <span class="esc-badge esc-badge-high">P1</span>
+      </div>
+      <div>
+        <div><strong>Space42 On-prem Terminal Login Redirect</strong> — P1 open 8 days, blocking on-premise setup adoption. Needs engineering escalation.</div>
+        <div class="esc-tam">TAM: Mohan Kumar N · Case 00062527</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAM CARDS -->
+  <div class="section">
+    <div class="section-title">All TAMs</div>
+    <div class="tam-grid">
+
+      <!-- SAM ISAAC -->
+      <div class="tam-card">
+        <div class="tam-card-header">
+          <div>
+            <div class="tam-card-name"><a href="Sam_22Jul2026.html">Sam Isaac</a></div>
+            <div class="tam-customers">DHL</div>
+          </div>
+          <div class="tam-card-badges">
+            <span class="badge badge-calls">1 call</span>
+          </div>
+        </div>
+        <div class="case-summary">
+          <span class="case-pill red">🔴 4 on us</span>
+        </div>
+        <div class="tam-risk">
+          <div class="tam-risk-label">Risk</div>
+          DHL P1 agent auto-update + SLTF steerco today, project closure at risk
+        </div>
+      </div>
+
+      <!-- MOHAN KUMAR N -->
+      <div class="tam-card">
+        <div class="tam-card-header">
+          <div>
+            <div class="tam-card-name"><a href="Mohan_22Jul2026.html">Mohan Kumar N</a></div>
+            <div class="tam-customers">Space42, Astrolabs</div>
+          </div>
+          <div class="tam-card-badges">
+            <span class="badge badge-calls">2 calls</span>
+          </div>
+        </div>
+        <div class="case-summary">
+          <span class="case-pill red">🔴 2 on us</span>
+        </div>
+        <div class="tam-risk">
+          <div class="tam-risk-label">Risk</div>
+          Space42 P1 on-prem terminal redirect unresolved 8 days
+        </div>
+      </div>
+
+      <!-- SHIVANI SHARMA -->
+      <div class="tam-card">
+        <div class="tam-card-header">
+          <div>
+            <div class="tam-card-name"><a href="Shivani_22Jul2026.html">Shivani Sharma</a></div>
+            <div class="tam-customers">Inspectivity, ITILITE, Zensar</div>
+          </div>
+          <div class="tam-card-badges">
+            <span class="badge badge-calls">3 calls</span>
+          </div>
+        </div>
+        <div class="case-summary">
+          <span class="case-pill blue">🔵 2 on customer</span>
+        </div>
+        <div class="tam-risk">
+          <div class="tam-risk-label">Risk</div>
+          ITILITE 'Site Can't Be Reached' open 14 days — confirm customer resolved
+        </div>
+      </div>
+
+      <!-- OSTEN DINIZ -->
+      <div class="tam-card">
+        <div class="tam-card-header">
+          <div>
+            <div class="tam-card-name"><a href="Osten_22Jul2026.html">Osten Diniz</a></div>
+            <div class="tam-customers">Rain Stella, Omnex, Zensar, Pairpeo</div>
+          </div>
+          <div class="tam-card-badges">
+            <span class="badge badge-calls">4 calls</span>
+          </div>
+        </div>
+        <div class="case-summary">
+          <span class="case-pill blue">🔵 2 on customer</span>
+        </div>
+        <div class="tam-risk">
+          <div class="tam-risk-label">Risk</div>
+          Zensar onboarding stall risk if no response at today's training
+        </div>
+      </div>
+
+      <!-- ARTHY MOHANRAJ -->
+      <div class="tam-card">
+        <div class="tam-card-header">
+          <div>
+            <div class="tam-card-name"><a href="Arthy_22Jul2026.html">Arthy Mohanraj</a></div>
+            <div class="tam-customers">—</div>
+          </div>
+          <div class="tam-card-badges">
+            <span class="badge badge-clear">No calls</span>
+          </div>
+        </div>
+        <div class="case-summary">
+          <span style="font-size:12px; color: var(--muted); font-style: italic;">No open cases</span>
+        </div>
+        <div class="tam-risk low">
+          <div class="tam-risk-label">Status</div>
+          No customer calls or open cases today
+        </div>
+      </div>
+
+      <!-- PRITISH SAMAL -->
+      <div class="tam-card">
+        <div class="tam-card-header">
+          <div>
+            <div class="tam-card-name"><a href="Pritish_22Jul2026.html">Pritish Samal</a></div>
+            <div class="tam-customers">—</div>
+          </div>
+          <div class="tam-card-badges">
+            <span class="badge badge-ooo">OOO</span>
+          </div>
+        </div>
+        <div class="case-summary">
+          <span style="font-size:12px; color: var(--muted); font-style: italic;">No open cases</span>
+        </div>
+        <div class="tam-risk low">
+          <div class="tam-risk-label">Status</div>
+          Out of office — all meetings declined
+        </div>
+      </div>
+
+      <!-- SANDEEP SAI K -->
+      <div class="tam-card">
+        <div class="tam-card-header">
+          <div>
+            <div class="tam-card-name"><a href="Sandeep_22Jul2026.html">Sandeep Sai K</a></div>
+            <div class="tam-customers">DHL</div>
+          </div>
+          <div class="tam-card-badges">
+            <span class="badge badge-calls">1 call</span>
+          </div>
+        </div>
+        <div class="case-summary">
+          <span class="case-pill red">🔴 4 on us</span>
+        </div>
+        <div class="tam-risk">
+          <div class="tam-risk-label">Risk</div>
+          DHL P1 agent auto-update + SLTF steerco today, project closure at risk
+        </div>
+      </div>
+
+      <!-- NIXON NICHOLAS -->
+      <div class="tam-card">
+        <div class="tam-card-header">
+          <div>
+            <div class="tam-card-name"><a href="Nixon_22Jul2026.html">Nixon Nicholas</a></div>
+            <div class="tam-customers">E-VIS Pty Ltd, Nuvama Wealth</div>
+          </div>
+          <div class="tam-card-badges">
+            <span class="badge badge-calls">2 calls</span>
+          </div>
+        </div>
+        <div class="case-summary">
+          <span class="case-pill red">🔴 4 on us</span>
+          <span class="case-pill blue">🔵 6 on customer</span>
+        </div>
+        <div class="tam-risk">
+          <div class="tam-risk-label">Risk</div>
+          Nuvama 20%+ cloud execution failure rate, 13 days open — platform confidence at risk
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Testsigma TAM Daily Brief · Master Overview</span>
+    <span>Generated 22 Jul 2026 · Auto-generated · 8 TAMs · 19 open cases</span>
+  </div>
+</div>
+</body>
+</html>
