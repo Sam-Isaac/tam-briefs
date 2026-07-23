@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nixon Nicholas – TAM Brief 23 Jul 2026</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f6f9;color:#1a202c;font-size:14px}
+  .header{background:linear-gradient(135deg,#0d7377 0%,#14a085 100%);color:#fff;padding:20px 28px;display:flex;align-items:center;gap:16px}
+  .header-avatar{width:52px;height:52px;border-radius:50%;background:#fff3;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#fff;border:2px solid rgba(255,255,255,0.4)}
+  .header-info h1{font-size:20px;font-weight:700}
+  .header-info p{font-size:12px;opacity:.85;margin-top:2px}
+  .badge-role{background:rgba(255,255,255,0.2);border-radius:20px;padding:2px 10px;font-size:11px;margin-left:8px}
+  .main{max-width:860px;margin:24px auto;padding:0 16px}
+  .card{background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:16px;overflow:hidden}
+  .card-header{padding:12px 18px;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;gap:8px;justify-content:space-between}
+  .card-header-left{display:flex;align-items:center;gap:8px}
+  .card-header h2{font-size:14px;font-weight:600;color:#2d3748}
+  .card-header .icon{font-size:16px}
+  .card-body{padding:16px 18px}
+  .empty{color:#a0aec0;font-style:italic;font-size:13px;text-align:center;padding:10px 0}
+  .call-item{border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;margin-bottom:10px;background:#fafafa}
+  .call-item:last-child{margin-bottom:0}
+  .call-title{font-weight:600;color:#2d3748;font-size:14px}
+  .call-meta{color:#718096;font-size:12px;margin-top:5px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .tag{background:#e6fffa;color:#0d7377;border-radius:12px;padding:2px 9px;font-size:11px;font-weight:600}
+  .tag-time{background:#f0fff4;color:#276749}
+  .count-badge{background:#edf2f7;color:#718096;border-radius:10px;padding:1px 8px;font-size:11px;font-weight:600}
+  .section-label{font-size:12px;font-weight:700;color:#718096;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;margin-top:4px}
+  .case-row{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #f7fafc}
+  .case-row:last-child{border-bottom:none;padding-bottom:0}
+  .badge-red{background:#fed7d7;color:#c53030;border-radius:12px;padding:2px 9px;font-size:11px;font-weight:700;white-space:nowrap}
+  .badge-blue{background:#bee3f8;color:#2b6cb0;border-radius:12px;padding:2px 9px;font-size:11px;font-weight:700;white-space:nowrap}
+  .case-detail{flex:1;min-width:0}
+  .case-num a{font-weight:700;color:#c05621;font-size:13px}
+  .case-desc{color:#4a5568;font-size:13px;margin-top:2px}
+  .case-meta{color:#a0aec0;font-size:11px;margin-top:3px}
+  a{color:#0d7377;text-decoration:none}
+  a:hover{text-decoration:underline}
+  .jira-row{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid #f7fafc}
+  .jira-row:last-child{border-bottom:none;padding-bottom:0}
+  .jira-key a{font-family:monospace;background:#edf2f7;border-radius:4px;padding:2px 7px;font-size:12px;font-weight:700;color:#2d3748;white-space:nowrap}
+  .jira-detail{flex:1;min-width:0}
+  .jira-summary{color:#4a5568;font-size:13px}
+  .jira-meta{margin-top:3px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+  .jstatus{font-size:11px;border-radius:10px;padding:1px 8px;font-weight:600}
+  .js-open{background:#fed7d7;color:#c53030}
+  .js-progress{background:#fefcbf;color:#744210}
+  .js-eng{background:#fed7d7;color:#c53030}
+  .js-qualified{background:#c6f6d5;color:#276749}
+  .js-discovery{background:#e9d8fd;color:#553c9a}
+  .action-block{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #f0f4f8}
+  .action-block:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+  .action-customer{font-size:13px;font-weight:700;color:#2d3748;margin-bottom:4px;padding-bottom:4px;border-bottom:1px dashed #e2e8f0}
+  .owner-us{color:#0d7377;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin:6px 0 3px}
+  .owner-cx{color:#c05621;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin:6px 0 3px}
+  ul.alist{list-style:none;padding:0}
+  ul.alist li{padding:3px 0 3px 16px;position:relative;color:#4a5568;font-size:13px;line-height:1.5}
+  ul.alist li::before{content:"→";position:absolute;left:0;color:#0d7377}
+  .footer{text-align:center;color:#a0aec0;font-size:11px;padding:16px;margin-top:8px}
+  .alert-box{background:#fff5f5;border:1px solid #fc8181;border-radius:6px;padding:8px 12px;font-size:12px;color:#742a2a;margin-bottom:8px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-avatar">NN</div>
+  <div class="header-info">
+    <h1>Nixon Nicholas <span class="badge-role">TAM</span></h1>
+    <p>Thursday, 23 Jul 2026 &nbsp;·&nbsp; Daily TAM Brief</p>
+  </div>
+</div>
+<div class="main">
+
+  <!-- TODAY'S CALLS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left"><span class="icon">📅</span><h2>Today's Customer Calls</h2></div>
+      <span class="count-badge">2 calls</span>
+    </div>
+    <div class="card-body">
+
+      <div class="call-item">
+        <div class="call-title">Nuvama Wealth &nbsp;— Nuvama Wealth &lt;&gt; Testsigma | Office Hours</div>
+        <div class="call-meta">
+          <span class="tag tag-time">🕓 15:00 IST</span>
+          <span class="tag">Nixon Nicholas</span>
+          <span style="color:#a0aec0">No Tenant ID in invite</span>
+        </div>
+      </div>
+
+      <div class="call-item">
+        <div class="call-title">Abysalto &nbsp;— GenAI capabilities demo | Testsigma | Abysalto</div>
+        <div class="call-meta">
+          <span class="tag tag-time">🕔 17:30 IST</span>
+          <span class="tag">Nixon Nicholas &amp; Mohan Kumar N</span>
+          <span style="color:#a0aec0">No Tenant ID in invite</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SF CASES -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left"><span class="icon">🗂️</span><h2>Open Salesforce Cases</h2></div>
+      <span class="count-badge">10 cases</span>
+    </div>
+    <div class="card-body">
+
+      <div class="section-label">Nuvama Wealth &nbsp;<span style="font-weight:400;color:#a0aec0">(9 cases)</span></div>
+
+      <div class="case-row">
+        <span class="badge-red">🔴 On Us</span>
+        <div class="case-detail">
+          <div class="case-num"><a href="https://testsigma.lightning.force.com/500OX000010fT3XYAU" target="_blank">00062613</a></div>
+          <div class="case-desc">Need an NLP in mobile application to verify the file is downloaded or not</div>
+          <div class="case-meta">P2-High &nbsp;·&nbsp; Open &nbsp;·&nbsp; Created 17 Jul 2026 (6 days ago) &nbsp;·&nbsp; Reporter: nuvama</div>
+        </div>
+      </div>
+
+      <div class="case-row">
+        <span class="badge-blue">🔵 On Cx</span>
+        <div class="case-detail">
+          <div class="case-num"><a href="https://testsigma.lightning.force.com/500OX000010fSzHYAU" target="_blank">00062532</a></div>
+          <div class="case-desc">Android Project — Source code is not getting displayed for the particular page</div>
+          <div class="case-meta">P2-High &nbsp;·&nbsp; Waiting for Customer &nbsp;·&nbsp; Created 14 Jul 2026 (9 days ago) &nbsp;·&nbsp; Reporter: DN &nbsp;·&nbsp; <strong>⚠️ Requires data clearing in DB before re-run</strong></div>
+        </div>
+      </div>
+
+      <div class="case-row">
+        <span class="badge-blue">🔵 On Cx</span>
+        <div class="case-detail">
+          <div class="case-num"><a href="https://testsigma.lightning.force.com/500OX000010fSyCYAU" target="_blank">00062491</a></div>
+          <div class="case-desc">Automation Script Redirecting to Lead Dashboard Page – Assistance Required</div>
+          <div class="case-meta">P2-High &nbsp;·&nbsp; Waiting for Customer &nbsp;·&nbsp; Created 14 Jul 2026 (9 days ago) &nbsp;·&nbsp; Reporter: Sahana R - Nuvama Wealth</div>
+        </div>
+      </div>
+
+      <div class="case-row">
+        <span class="badge-blue">🔵 On Cx</span>
+        <div class="case-detail">
+          <div class="case-num"><a href="https://testsigma.lightning.force.com/500OX000010fTKvYAM" target="_blank">00062764</a></div>
+          <div class="case-desc">Auto updating of the agent failed.</div>
+          <div class="case-meta">P2-High &nbsp;·&nbsp; Waiting for Customer &nbsp;·&nbsp; Created 22 Jul 2026 (1 day ago) &nbsp;·&nbsp; Reporter: Sahana R - Nuvama Wealth</div>
+        </div>
+      </div>
+
+      <div class="case-row">
+        <span class="badge-blue">🔵 On Cx</span>
+        <div class="case-detail">
+          <div class="case-num"><a href="https://testsigma.lightning.force.com/500OX000010fTHrYAM" target="_blank">00062729</a></div>
+          <div class="case-desc">Need an NLP to check whether data is sorted Ascending/Descending order</div>
+          <div class="case-meta">P2-High &nbsp;·&nbsp; Waiting for Customer &nbsp;·&nbsp; Created 21 Jul 2026 (2 days ago) &nbsp;·&nbsp; Reporter: nuvama &nbsp;·&nbsp; <em>Feature request pending Jira ticket</em></div>
+        </div>
+      </div>
+
+      <div class="case-row">
+        <span class="badge-blue">🔵 On Cx</span>
+        <div class="case-detail">
+          <div class="case-num"><a href="https://testsigma.lightning.force.com/500OX000010fTG0YAM" target="_blank">00062708</a></div>
+          <div class="case-desc">Copilot remains in 'Auto Heal in Progress' state for a long time after a test step fails</div>
+          <div class="case-meta">P2-High &nbsp;·&nbsp; Waiting for Customer &nbsp;·&nbsp; Created 21 Jul 2026 (2 days ago) &nbsp;·&nbsp; Reporter: Nidhi Gupta - Nuvama Wealth</div>
+        </div>
+      </div>
+
+      <div class="case-row">
+        <span class="badge-blue">🔵 On Cx</span>
+        <div class="case-detail">
+          <div class="case-num"><a href="https://testsigma.lightning.force.com/500OX000010fTDXYA2" target="_blank">00062675</a></div>
+          <div class="case-desc">Testsigma slowness issue</div>
+          <div class="case-meta">P2-High &nbsp;·&nbsp; Waiting for Customer &nbsp;·&nbsp; Created 20 Jul 2026 (3 days ago) &nbsp;·&nbsp; Reporter: nuvama</div>
+        </div>
+      </div>
+
+      <div class="case-row">
+        <span class="badge-blue">🔵 On Cx</span>
+        <div class="case-detail">
+          <div class="case-num"><a href="https://testsigma.lightning.force.com/500OX000010fT3cYAC" target="_blank">00062625</a></div>
+          <div class="case-desc">textbox not showing proper.</div>
+          <div class="case-meta">P2-High &nbsp;·&nbsp; Waiting for Customer &nbsp;·&nbsp; Created 17 Jul 2026 (6 days ago) &nbsp;·&nbsp; Reporter: nuvama</div>
+        </div>
+      </div>
+
+      <div class="case-row">
+        <span class="badge-blue">🔵 On Cx</span>
+        <div class="case-detail">
+          <div class="case-num"><a href="https://testsigma.lightning.force.com/500OX000010fT3XYAE" target="_blank">00062624</a></div>
+          <div class="case-desc">OTP not getting updated if we enter in mobile.</div>
+          <div class="case-meta">P2-High &nbsp;·&nbsp; Waiting for Customer &nbsp;·&nbsp; Created 17 Jul 2026 (6 days ago) &nbsp;·&nbsp; Reporter: nuvama</div>
+        </div>
+      </div>
+
+      <div class="section-label" style="margin-top:16px">Abysalto &nbsp;<span style="font-weight:400;color:#a0aec0">(1 case)</span></div>
+
+      <div class="case-row">
+        <span class="badge-red">🔴 On Us</span>
+        <div class="case-detail">
+          <div class="case-num"><a href="https://testsigma.lightning.force.com/500OX000010eR5xYAE" target="_blank">00061682</a></div>
+          <div class="case-desc">Version Upgrade (v8.5.0 → v8.9.9 or directly to v9.1.3)</div>
+          <div class="case-meta">P2-High &nbsp;·&nbsp; Open &nbsp;·&nbsp; Created 22 Jun 2026 (31 days ago) &nbsp;·&nbsp; Last updated 20 Jul 2026 &nbsp;·&nbsp; Reporter: Arun S on behalf of Abysalto</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JIRA -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left"><span class="icon">🎟️</span><h2>Linked Jira Tickets</h2></div>
+      <span class="count-badge">4 tickets</span>
+    </div>
+    <div class="card-body">
+
+      <div class="section-label">Nuvama Wealth</div>
+
+      <div class="jira-row">
+        <div class="jira-key"><a href="https://testsigma.atlassian.net/browse/CUS-13432" target="_blank">CUS-13432</a></div>
+        <div class="jira-detail">
+          <div class="jira-summary">L2 Query: Custom Dashboard drill-down for Error type ("No Such Element" = 40% of failures)</div>
+          <div class="jira-meta"><span class="jstatus js-qualified">Product Qualified</span> <span style="color:#a0aec0;font-size:11px">Highest · Submitter: Sakshi Bagri · Updated 29 Jun</span></div>
+        </div>
+      </div>
+
+      <div class="jira-row">
+        <div class="jira-key"><a href="https://testsigma.atlassian.net/browse/CUS-13941" target="_blank">CUS-13941</a></div>
+        <div class="jira-detail">
+          <div class="jira-summary">[Account Specific] Step Group Execution Time Not Displayed when step group is last step in Test Plan execution</div>
+          <div class="jira-meta"><span class="jstatus js-eng">Waiting on Engineering</span> <span style="color:#a0aec0;font-size:11px">Highest · Assignee: Kavya G · Updated 21 Jul 2026</span></div>
+        </div>
+      </div>
+
+      <div class="jira-row">
+        <div class="jira-key"><a href="https://testsigma.atlassian.net/browse/IDE-888" target="_blank">IDE-888</a></div>
+        <div class="jira-detail">
+          <div class="jira-summary">Custom Dashboard drill-down for Error type (CR — Nuvama: 40% No Such Element failures)</div>
+          <div class="jira-meta"><span class="jstatus js-discovery">Discovery</span> <span style="color:#a0aec0;font-size:11px">Medium · Assignee: Shubham Agrawal · Updated 23 Jul 2026</span></div>
+        </div>
+      </div>
+
+      <div class="section-label" style="margin-top:12px">Abysalto</div>
+
+      <div class="jira-row">
+        <div class="jira-key"><a href="https://testsigma.atlassian.net/browse/CUS-13429" target="_blank">CUS-13429</a></div>
+        <div class="jira-detail">
+          <div class="jira-summary">[On-Prem] Version upgrade request — v8.5.0 → v9.1.3 on OpenShift/EKS</div>
+          <div class="jira-meta"><span class="jstatus js-open">Open</span> <span style="color:#a0aec0;font-size:11px">Highest · Assignee: Rajesh Reddy K · Updated 26 Jun</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GONG ACTIONS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left"><span class="icon">⚡</span><h2>Pending Actions from Gong</h2></div>
+    </div>
+    <div class="card-body">
+
+      <div class="action-block">
+        <div class="action-customer">Nuvama Wealth &nbsp;<span style="color:#a0aec0;font-size:11px;font-weight:400">· Last call: 21 Jul 2026 "Nuvama Wealth &lt;&gt; Testsigma | Office Hours"</span></div>
+        <div class="owner-us">Testsigma (Sakshi Bagri / Nixon)</div>
+        <ul class="alist">
+          <li>Raise Jira ticket for Sorting NLP feature request (customer asked &gt;1 month ago — SF case 00062729)</li>
+          <li>Follow up on source code not displaying ticket (00062532) — requires data clearing in DB before re-run; coordinate with engineering</li>
+        </ul>
+        <div class="owner-cx">Nuvama</div>
+        <ul class="alist">
+          <li>Raise ticket for sorting NLP feature request</li>
+          <li>Kamla to contact support directly (not via TAM) for future issues</li>
+        </ul>
+      </div>
+
+      <div class="action-block">
+        <div class="action-customer">Abysalto &nbsp;<span style="color:#a0aec0;font-size:11px;font-weight:400">· Last call: 9 Jul 2026 "On-Prem version upgrade | Testsigma | Abysalto"</span></div>
+        <div class="owner-us">Testsigma (Harshitha / Arun S / Nixon)</div>
+        <ul class="alist">
+          <li>Provide license file for v9.1.3 (Aleksandar is waiting to start forge application)</li>
+          <li>Share post-migration shell commands for Aleksandar to run once forge is up</li>
+          <li>Provide comprehensive upgrade documentation for future upgrades</li>
+          <li>Support AI service setup once Aleksandar obtains API key from manager</li>
+        </ul>
+        <div class="owner-cx">Abysalto (Aleksandar Petkov)</div>
+        <ul class="alist">
+          <li>Start forge application with new v9.1.3 license once received</li>
+          <li>Run post-migration commands and share output</li>
+          <li>Provision AI services and get API key (manager to respond next week)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<div class="footer">Generated by TAM Briefing Routine · 23 Jul 2026</div>
+</body>
+</html>

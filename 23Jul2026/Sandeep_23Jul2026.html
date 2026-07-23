@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandeep Sai K – TAM Brief 23 Jul 2026</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f6f9;color:#1a202c;font-size:14px}
+  .header{background:linear-gradient(135deg,#0d7377 0%,#14a085 100%);color:#fff;padding:20px 28px;display:flex;align-items:center;gap:16px}
+  .header-avatar{width:52px;height:52px;border-radius:50%;background:#fff3;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#fff;border:2px solid rgba(255,255,255,0.4)}
+  .header-info h1{font-size:20px;font-weight:700}
+  .header-info p{font-size:12px;opacity:.85;margin-top:2px}
+  .badge-role{background:rgba(255,255,255,0.2);border-radius:20px;padding:2px 10px;font-size:11px;margin-left:8px}
+  .main{max-width:860px;margin:24px auto;padding:0 16px}
+  .card{background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:16px;overflow:hidden}
+  .card-header{padding:12px 18px;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;gap:8px;justify-content:space-between}
+  .card-header-left{display:flex;align-items:center;gap:8px}
+  .card-header h2{font-size:14px;font-weight:600;color:#2d3748}
+  .card-header .icon{font-size:16px}
+  .card-body{padding:16px 18px}
+  .empty{color:#a0aec0;font-style:italic;font-size:13px;text-align:center;padding:10px 0}
+  .call-item{border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;margin-bottom:10px;background:#fafafa}
+  .call-item:last-child{margin-bottom:0}
+  .call-title{font-weight:600;color:#2d3748;font-size:14px}
+  .call-meta{color:#718096;font-size:12px;margin-top:5px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .tag{background:#e6fffa;color:#0d7377;border-radius:12px;padding:2px 9px;font-size:11px;font-weight:600}
+  .tag-tenant{background:#ebf8ff;color:#2b6cb0}
+  .tag-time{background:#f0fff4;color:#276749}
+  .count-badge{background:#edf2f7;color:#718096;border-radius:10px;padding:1px 8px;font-size:11px;font-weight:600}
+  .section-label{font-size:12px;font-weight:700;color:#718096;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;margin-top:4px}
+  .case-row{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #f7fafc}
+  .case-row:last-child{border-bottom:none;padding-bottom:0}
+  .badge-red{background:#fed7d7;color:#c53030;border-radius:12px;padding:2px 9px;font-size:11px;font-weight:700;white-space:nowrap}
+  .badge-blue{background:#bee3f8;color:#2b6cb0;border-radius:12px;padding:2px 9px;font-size:11px;font-weight:700;white-space:nowrap}
+  .case-detail{flex:1;min-width:0}
+  .case-num a{font-weight:700;color:#c05621;font-size:13px}
+  .case-desc{color:#4a5568;font-size:13px;margin-top:2px}
+  .case-meta{color:#a0aec0;font-size:11px;margin-top:3px}
+  a{color:#0d7377;text-decoration:none}
+  a:hover{text-decoration:underline}
+  .jira-row{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid #f7fafc}
+  .jira-row:last-child{border-bottom:none;padding-bottom:0}
+  .jira-key a{font-family:monospace;background:#edf2f7;border-radius:4px;padding:2px 7px;font-size:12px;font-weight:700;color:#2d3748;white-space:nowrap}
+  .jira-detail{flex:1;min-width:0}
+  .jira-summary{color:#4a5568;font-size:13px}
+  .jira-meta{margin-top:3px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+  .jstatus{font-size:11px;border-radius:10px;padding:1px 8px;font-weight:600}
+  .js-open{background:#fed7d7;color:#c53030}
+  .js-progress{background:#fefcbf;color:#744210}
+  .js-waiting{background:#bee3f8;color:#2b6cb0}
+  .js-qualified{background:#c6f6d5;color:#276749}
+  .js-need-info{background:#faf089;color:#744210}
+  .action-block{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #f0f4f8}
+  .action-block:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+  .action-customer{font-size:13px;font-weight:700;color:#2d3748;margin-bottom:4px;padding-bottom:4px;border-bottom:1px dashed #e2e8f0}
+  .owner-us{color:#0d7377;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin:6px 0 3px}
+  .owner-cx{color:#c05621;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin:6px 0 3px}
+  ul.alist{list-style:none;padding:0}
+  ul.alist li{padding:3px 0 3px 16px;position:relative;color:#4a5568;font-size:13px;line-height:1.5}
+  ul.alist li::before{content:"→";position:absolute;left:0;color:#0d7377}
+  .footer{text-align:center;color:#a0aec0;font-size:11px;padding:16px;margin-top:8px}
+  .highlight-box{background:#fffbeb;border:1px solid #f6e05e;border-radius:6px;padding:8px 12px;font-size:12px;color:#744210;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-avatar">SK</div>
+  <div class="header-info">
+    <h1>Sandeep Sai K <span class="badge-role">TAM</span></h1>
+    <p>Thursday, 23 Jul 2026 &nbsp;·&nbsp; Daily TAM Brief</p>
+  </div>
+</div>
+<div class="main">
+
+  <!-- TODAY'S CALLS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left"><span class="icon">📅</span><h2>Today's Customer Calls</h2></div>
+      <span class="count-badge">2 calls</span>
+    </div>
+    <div class="card-body">
+
+      <div class="call-item">
+        <div class="call-title">DHL eCase &nbsp;— DHL eCase &lt;&gt; Testsigma TAM Sync</div>
+        <div class="call-meta">
+          <span class="tag tag-time">🕜 13:30 IST</span>
+          <span class="tag">Sandeep Sai K</span>
+          <span class="tag tag-tenant">Tenant ID: 64597</span>
+        </div>
+      </div>
+
+      <div class="call-item">
+        <div class="call-title">PTSG &nbsp;— PTSG | Visual Testing &amp; Copilot Discussion</div>
+        <div class="call-meta">
+          <span class="tag tag-time">🕝 14:30 IST</span>
+          <span class="tag">Sandeep Sai K (Arun S)</span>
+          <span style="color:#a0aec0">Attendee: donovan.andrew@ptsg.co.uk &nbsp;·&nbsp; No Tenant ID in invite</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SF CASES -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left"><span class="icon">🗂️</span><h2>Open Salesforce Cases</h2></div>
+      <span class="count-badge">3 cases · DHL</span>
+    </div>
+    <div class="card-body">
+
+      <div class="section-label">DHL</div>
+
+      <div class="case-row">
+        <span class="badge-red">🔴 On Us</span>
+        <div class="case-detail">
+          <div class="case-num"><a href="https://testsigma.lightning.force.com/500OX000010eRHzYAM" target="_blank">00061616</a></div>
+          <div class="case-desc">RE: Support Ticket Closed — 00060628</div>
+          <div class="case-meta">P2-High &nbsp;·&nbsp; Open &nbsp;·&nbsp; Created 19 Jun 2026 (34 days ago) &nbsp;·&nbsp; Last updated 20 Jul 2026</div>
+        </div>
+      </div>
+
+      <div class="case-row">
+        <span class="badge-blue">🔵 On Cx</span>
+        <div class="case-detail">
+          <div class="case-num"><a href="https://testsigma.lightning.force.com/500OX000010fT2LYAU" target="_blank">00062571</a></div>
+          <div class="case-desc">Request for Troubleshooting Session for Surya</div>
+          <div class="case-meta">P3-Normal &nbsp;·&nbsp; Waiting for Customer &nbsp;·&nbsp; Created 16 Jul 2026 (7 days ago) &nbsp;·&nbsp; Last updated 22 Jul 2026</div>
+        </div>
+      </div>
+
+      <div class="case-row">
+        <span class="badge-blue">🔵 On Cx</span>
+        <div class="case-detail">
+          <div class="case-num"><a href="https://testsigma.lightning.force.com/500OX000010fT2MAAU" target="_blank">00062605</a></div>
+          <div class="case-desc">After reviewing the test cases in SCMS and fixing, still few test cases are failing</div>
+          <div class="case-meta">P2-High &nbsp;·&nbsp; Waiting for Customer &nbsp;·&nbsp; Created 16 Jul 2026 (7 days ago) &nbsp;·&nbsp; Last updated 22 Jul 2026</div>
+        </div>
+      </div>
+
+      <div class="section-label" style="margin-top:14px">PTSG</div>
+      <div class="empty">No open Salesforce cases updated in the last 30 days.<br><small style="color:#cbd5e0">00051471 "Infosec for PTSG" is Open but last modified 22 Oct 2025 — outside 30-day window.</small></div>
+
+    </div>
+  </div>
+
+  <!-- JIRA -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left"><span class="icon">🎟️</span><h2>Linked Jira Tickets</h2></div>
+      <span class="count-badge">4 tickets · DHL</span>
+    </div>
+    <div class="card-body">
+
+      <div class="section-label">DHL — Open / In-Progress Tickets</div>
+
+      <div class="jira-row">
+        <div class="jira-key"><a href="https://testsigma.atlassian.net/browse/CUS-14056" target="_blank">CUS-14056</a></div>
+        <div class="jira-detail">
+          <div class="jira-summary">L2 Query: DHL network team cannot trace/ping the whitelisted Testsigma server IP</div>
+          <div class="jira-meta"><span class="jstatus js-progress">In Progress</span> <span style="color:#a0aec0;font-size:11px">High · Assignee: Surendra Orugunta · Updated 22 Jul 2026</span></div>
+        </div>
+      </div>
+
+      <div class="jira-row">
+        <div class="jira-key"><a href="https://testsigma.atlassian.net/browse/TP-5511" target="_blank">TP-5511</a></div>
+        <div class="jira-detail">
+          <div class="jira-summary">Data Generator no longer supports custom date formats after UI change (DHL DSC — khairul.azahar@dhl.com)</div>
+          <div class="jira-meta"><span class="jstatus js-open">Open</span> <span style="color:#a0aec0;font-size:11px">Highest · Assignee: Jithish Sekar · Updated 22 Jul 2026</span></div>
+        </div>
+      </div>
+
+      <div class="jira-row">
+        <div class="jira-key"><a href="https://testsigma.atlassian.net/browse/TP-5319" target="_blank">TP-5319</a></div>
+        <div class="jira-detail">
+          <div class="jira-summary">Browser could not reach the application — splsterling-test.dhl.com:8445 (intermittent OMS IE loop)</div>
+          <div class="jira-meta"><span class="jstatus js-waiting">Waiting for Customer</span> <span style="color:#a0aec0;font-size:11px">Highest · Assignee: Dhayananda D · Updated 21 Jul 2026</span></div>
+        </div>
+      </div>
+
+      <div class="jira-row">
+        <div class="jira-key"><a href="https://testsigma.atlassian.net/browse/CUS-12427" target="_blank">CUS-12427</a></div>
+        <div class="jira-detail">
+          <div class="jira-summary">[DHL] Enhancement to include Stepgroups in testcase generation with Atto</div>
+          <div class="jira-meta"><span class="jstatus js-qualified">Product Qualified</span> <span style="color:#a0aec0;font-size:11px">Highest · Assignee: Shubham Agrawal · Updated 20 Jul 2026</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GONG ACTIONS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left"><span class="icon">⚡</span><h2>Pending Actions from Gong</h2></div>
+    </div>
+    <div class="card-body">
+
+      <div class="action-block">
+        <div class="action-customer">DHL eCase &nbsp;<span style="color:#a0aec0;font-size:11px;font-weight:400">· Last call: 22 Jul 2026 "BAU | DHL &lt;&gt; Testsigma" (Tenant 64597)</span></div>
+        <div class="highlight-box">⚠️ Sandeep being introduced as new technical lead today — first call with Lifen Chong (DHL IT)</div>
+        <div class="owner-us">Testsigma (Sandeep / Arun)</div>
+        <ul class="alist">
+          <li>Confirm IE compatibility mode investigation result (linked: CUS-14056)</li>
+          <li>Debug parallel execution failure — discrepancy between test plan run and dry run results</li>
+          <li>Share tracert / whitelist analysis with DHL network team (linked: CUS-14056)</li>
+          <li>Formally introduce Sandeep as new technical lead on this account</li>
+          <li>Schedule 30-min strategic call with Lifen Chong (DHL IT)</li>
+        </ul>
+        <div class="owner-cx">DHL (Lifen Chong IT)</div>
+        <ul class="alist">
+          <li>Share tracert output in group chat</li>
+          <li>Reconfigure test plan to use full VM (not cloud execution) for the failing cases</li>
+          <li>Cherry-pick non-IE test cases to run on local VM and share success rate with Testsigma</li>
+        </ul>
+      </div>
+
+      <div class="action-block">
+        <div class="action-customer">PTSG &nbsp;<span style="color:#a0aec0;font-size:11px;font-weight:400">· Last call: 16 Jul 2026 "BAU Sync-up | Testsigma | PTSG"</span></div>
+        <div class="owner-us">Testsigma (Arun S / Sandeep)</div>
+        <ul class="alist">
+          <li>Investigate Clarity V2 comparison / visual testing approach and respond by end of next day</li>
+          <li>Schedule Copilot co-creation session (pending Arthy's return)</li>
+          <li>Investigate D365 Entra TOTP/OTP login failure — check if this is a platform issue or configuration</li>
+        </ul>
+        <div class="owner-cx">PTSG (Donovan Andrew / Simon)</div>
+        <ul class="alist">
+          <li>Raise a ticket for the D365 TOTP OTP issue with test case URL</li>
+          <li>Speak to Simon about authenticator setup</li>
+          <li>Consider Clarity V2 test strategy for August</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<div class="footer">Generated by TAM Briefing Routine · 23 Jul 2026</div>
+</body>
+</html>
