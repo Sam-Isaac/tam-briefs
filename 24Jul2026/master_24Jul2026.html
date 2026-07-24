@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAM Team Overview — 24Jul2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--green:#16a34a;--orange:#d97706;--tag-bg:#e8e6e0;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;--blue-bg:#111827;--green:#4ade80;--orange:#fbbf24;--tag-bg:#2a2926;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.totals{display:flex;gap:12px;padding:20px 32px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.tot{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 18px;flex:1;min-width:100px;}
+.tnum{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;line-height:1;margin-bottom:4px;}
+.tnum.r{color:var(--red);}.tnum.b{color:var(--blue);}.tnum.o{color:var(--orange);}
+.tlabel{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;padding:24px 32px;}
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:14px;}
+.card-header{display:flex;align-items:center;gap:12px;}
+.avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:15px;flex-shrink:0;}
+.card-name{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;}
+.card-sub{font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;}
+.card-link{margin-left:auto;font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;white-space:nowrap;}
+.card-link:hover{text-decoration:underline;}
+.mini-stats{display:flex;gap:8px;}
+.ms{background:var(--bg2);border-radius:8px;padding:10px 14px;flex:1;text-align:center;}
+.ms-num{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;line-height:1;margin-bottom:2px;}
+.ms-num.r{color:var(--red);}.ms-num.b{color:var(--blue);}
+.ms-label{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.05em;}
+.calls-list{font-size:12px;color:var(--text2);}
+.risk-line{font-size:12px;color:var(--red);font-family:'DM Mono',monospace;padding-top:10px;border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Testsigma · TAM Team Overview</div>
+  <div class="title">Team Overview <span>/ Friday, 24 Jul 2026</span></div>
+</div>
+<div class="totals">
+  <div class="tot"><div class="tnum">8</div><div class="tlabel">TAMs</div></div>
+  <div class="tot"><div class="tnum o">0</div><div class="tlabel">Active Calls</div></div>
+  <div class="tot"><div class="tnum">0</div><div class="tlabel">Total Open</div></div>
+  <div class="tot"><div class="tnum r">0</div><div class="tlabel">On Us</div></div>
+  <div class="tot"><div class="tnum b">0</div><div class="tlabel">On Customer</div></div>
+  <div class="tot"><div class="tnum o">0</div><div class="tlabel">Calls Today</div></div>
+</div>
+<div class="grid">
+
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar" style="background:#2563eb">SI</div>
+        <div>
+          <div class="card-name">Sam Isaac</div>
+          <div class="card-sub">0 calls today</div>
+        </div>
+        <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/24Jul2026/Sam_24Jul2026.html">View Brief →</a>
+      </div>
+      <div class="mini-stats">
+        <div class="ms"><div class="ms-num">0</div><div class="ms-label">Total Open</div></div>
+        <div class="ms"><div class="ms-num r">0</div><div class="ms-label">On Us</div></div>
+        <div class="ms"><div class="ms-num b">0</div><div class="ms-label">On Customer</div></div>
+      </div>
+      <div class="calls-list"><p style='color:var(--text3);font-size:12px;font-family:DM Mono,monospace;'>No customer calls today</p></div>
+      <div class="risk-line">🚨 No customer calls today.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar" style="background:#16a34a">MK</div>
+        <div>
+          <div class="card-name">Mohan Kumar N</div>
+          <div class="card-sub">0 calls today</div>
+        </div>
+        <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/24Jul2026/Mohan_24Jul2026.html">View Brief →</a>
+      </div>
+      <div class="mini-stats">
+        <div class="ms"><div class="ms-num">0</div><div class="ms-label">Total Open</div></div>
+        <div class="ms"><div class="ms-num r">0</div><div class="ms-label">On Us</div></div>
+        <div class="ms"><div class="ms-num b">0</div><div class="ms-label">On Customer</div></div>
+      </div>
+      <div class="calls-list"><p style='color:var(--text3);font-size:12px;font-family:DM Mono,monospace;'>No customer calls today</p></div>
+      <div class="risk-line">🚨 No customer calls today.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar" style="background:#9333ea">SS</div>
+        <div>
+          <div class="card-name">Shivani Sharma</div>
+          <div class="card-sub">0 calls today</div>
+        </div>
+        <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/24Jul2026/Shivani_24Jul2026.html">View Brief →</a>
+      </div>
+      <div class="mini-stats">
+        <div class="ms"><div class="ms-num">0</div><div class="ms-label">Total Open</div></div>
+        <div class="ms"><div class="ms-num r">0</div><div class="ms-label">On Us</div></div>
+        <div class="ms"><div class="ms-num b">0</div><div class="ms-label">On Customer</div></div>
+      </div>
+      <div class="calls-list"><p style='color:var(--text3);font-size:12px;font-family:DM Mono,monospace;'>No customer calls today</p></div>
+      <div class="risk-line">🚨 No customer calls today.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar" style="background:#d97706">OD</div>
+        <div>
+          <div class="card-name">Osten Diniz</div>
+          <div class="card-sub">0 calls today</div>
+        </div>
+        <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/24Jul2026/Osten_24Jul2026.html">View Brief →</a>
+      </div>
+      <div class="mini-stats">
+        <div class="ms"><div class="ms-num">0</div><div class="ms-label">Total Open</div></div>
+        <div class="ms"><div class="ms-num r">0</div><div class="ms-label">On Us</div></div>
+        <div class="ms"><div class="ms-num b">0</div><div class="ms-label">On Customer</div></div>
+      </div>
+      <div class="calls-list"><p style='color:var(--text3);font-size:12px;font-family:DM Mono,monospace;'>No customer calls today</p></div>
+      <div class="risk-line">🚨 No customer calls today.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar" style="background:#0891b2">AM</div>
+        <div>
+          <div class="card-name">Arthy Mohanraj</div>
+          <div class="card-sub">0 calls today</div>
+        </div>
+        <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/24Jul2026/Arthy_24Jul2026.html">View Brief →</a>
+      </div>
+      <div class="mini-stats">
+        <div class="ms"><div class="ms-num">0</div><div class="ms-label">Total Open</div></div>
+        <div class="ms"><div class="ms-num r">0</div><div class="ms-label">On Us</div></div>
+        <div class="ms"><div class="ms-num b">0</div><div class="ms-label">On Customer</div></div>
+      </div>
+      <div class="calls-list"><p style='color:var(--text3);font-size:12px;font-family:DM Mono,monospace;'>No customer calls today</p></div>
+      <div class="risk-line">🚨 No customer calls today.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar" style="background:#dc2626">PS</div>
+        <div>
+          <div class="card-name">Pritish Samal</div>
+          <div class="card-sub">0 calls today</div>
+        </div>
+        <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/24Jul2026/Pritish_24Jul2026.html">View Brief →</a>
+      </div>
+      <div class="mini-stats">
+        <div class="ms"><div class="ms-num">0</div><div class="ms-label">Total Open</div></div>
+        <div class="ms"><div class="ms-num r">0</div><div class="ms-label">On Us</div></div>
+        <div class="ms"><div class="ms-num b">0</div><div class="ms-label">On Customer</div></div>
+      </div>
+      <div class="calls-list"><p style='color:var(--text3);font-size:12px;font-family:DM Mono,monospace;'>No customer calls today</p></div>
+      <div class="risk-line">🚨 Out of office today.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar" style="background:#0f766e">SK</div>
+        <div>
+          <div class="card-name">Sandeep Sai K</div>
+          <div class="card-sub">0 calls today</div>
+        </div>
+        <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/24Jul2026/Sandeep_24Jul2026.html">View Brief →</a>
+      </div>
+      <div class="mini-stats">
+        <div class="ms"><div class="ms-num">0</div><div class="ms-label">Total Open</div></div>
+        <div class="ms"><div class="ms-num r">0</div><div class="ms-label">On Us</div></div>
+        <div class="ms"><div class="ms-num b">0</div><div class="ms-label">On Customer</div></div>
+      </div>
+      <div class="calls-list"><p style='color:var(--text3);font-size:12px;font-family:DM Mono,monospace;'>No customer calls today</p></div>
+      <div class="risk-line">🚨 No customer calls today.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar" style="background:#7c3aed">NN</div>
+        <div>
+          <div class="card-name">Nixon Nicholas</div>
+          <div class="card-sub">0 calls today</div>
+        </div>
+        <a class="card-link" href="https://sam-isaac.github.io/tam-briefs/24Jul2026/Nixon_24Jul2026.html">View Brief →</a>
+      </div>
+      <div class="mini-stats">
+        <div class="ms"><div class="ms-num">0</div><div class="ms-label">Total Open</div></div>
+        <div class="ms"><div class="ms-num r">0</div><div class="ms-label">On Us</div></div>
+        <div class="ms"><div class="ms-num b">0</div><div class="ms-label">On Customer</div></div>
+      </div>
+      <div class="calls-list"><p style='color:var(--text3);font-size:12px;font-family:DM Mono,monospace;'>No customer calls today</p></div>
+      <div class="risk-line">🚨 No customer calls today.</div>
+    </div>
+</div>
+</body>
+</html>
