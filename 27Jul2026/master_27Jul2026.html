@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Overview — TAM Brief 27Jul2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;
+--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;
+--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--green:#16a34a;
+--orange:#d97706;--orange-bg:#fffbeb;--tag-bg:#e8e6e0;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;
+--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;
+--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;
+--blue-bg:#111827;--green:#4ade80;--orange:#fbbf24;--orange-bg:#1c1608;--tag-bg:#2a2926;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.team-stats{display:flex;gap:12px;padding:20px 32px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.tstat{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 18px;flex:1;min-width:90px;}
+.tsnum{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;line-height:1;margin-bottom:4px;}
+.tsnum.r{color:var(--red);} .tsnum.b{color:var(--blue);} .tsnum.o{color:var(--orange);}
+.tslabel{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;padding:24px 32px;}
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:18px;}
+.card-hdr{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;}
+.card-info{flex:1;}
+.tam-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;}
+.call-cnt{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;margin-top:2px;}
+.brief-link{font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;
+  padding:4px 10px;border:1px solid var(--blue-bg);border-radius:6px;white-space:nowrap;}
+.brief-link:hover{background:var(--blue-bg);}
+.mini-stats{display:flex;gap:8px;margin-bottom:12px;}
+.ms{flex:1;background:var(--bg2);border-radius:8px;padding:8px 10px;text-align:center;}
+.msn{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;line-height:1;}
+.msn.r{color:var(--red);} .msn.b{color:var(--blue);}
+.msl{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;margin-top:2px;}
+.calls{border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:10px;}
+.crow{display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:1px solid var(--border);font-size:12px;}
+.crow:last-child{border-bottom:none;}
+.ctime{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);white-space:nowrap;min-width:68px;}
+.cco{flex:1;color:var(--text2);}
+.cbadge{font-family:'DM Mono',monospace;font-size:10px;background:var(--red-bg);color:var(--red);
+  padding:1px 6px;border-radius:4px;white-space:nowrap;}
+.no-calls{font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;padding:10px 0;margin-bottom:10px;}
+.risk-line{font-size:11px;color:var(--text2);line-height:1.5;padding:8px 10px;
+  background:var(--red-bg);border-radius:6px;border-left:3px solid var(--red);}
+.risk-line.quiet{background:var(--bg2);border-left:3px solid var(--border);color:var(--text3);}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Testsigma · Team Overview</div>
+  <div class="title">TAM Team <span>/ Sunday, 27 Jul 2026</span></div>
+</div>
+<div class="team-stats">
+  <div class="tstat"><div class="tsnum">8</div><div class="tslabel">TAMs Total</div></div>
+  <div class="tstat"><div class="tsnum o">5</div><div class="tslabel">Active Today</div></div>
+  <div class="tstat"><div class="tsnum o">16</div><div class="tslabel">Total Calls</div></div>
+  <div class="tstat"><div class="tsnum">20</div><div class="tslabel">Open Cases</div></div>
+  <div class="tstat"><div class="tsnum r">20</div><div class="tslabel">On Us</div></div>
+  <div class="tstat"><div class="tsnum b">0</div><div class="tslabel">On Customer</div></div>
+  <div class="tstat"><div class="tsnum r">97d</div><div class="tslabel">Oldest Ticket</div></div>
+</div>
+<div class="grid">
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#6366f1">SI</div>
+    <div class="card-info">
+      <div class="tam-name">Sam Isaac</div>
+      <div class="call-cnt">0 calls today</div>
+    </div>
+    <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/27Jul2026/Sam_27Jul2026.html" target="_blank">Brief →</a>
+  </div>
+  <div class="mini-stats">
+    <div class="ms"><div class="msn">0</div><div class="msl">Total</div></div>
+    <div class="ms"><div class="msn r">0</div><div class="msl">On Us</div></div>
+    <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+  </div>
+  <div class="no-calls">No customer calls today</div>
+  <div class="risk-line quiet">⚡ No customer calls or open cases today.</div>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#0891b2">MK</div>
+    <div class="card-info">
+      <div class="tam-name">Mohan Kumar</div>
+      <div class="call-cnt">5 calls today</div>
+    </div>
+    <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/27Jul2026/Mohan_27Jul2026.html" target="_blank">Brief →</a>
+  </div>
+  <div class="mini-stats">
+    <div class="ms"><div class="msn">2</div><div class="msl">Total</div></div>
+    <div class="ms"><div class="msn r">2</div><div class="msl">On Us</div></div>
+    <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+  </div>
+  <div class="calls"><div class="crow"><span class="ctime">12:30 PM</span><span class="cco">Space42</span><span class="cbadge  r">1</span></div><div class="crow"><span class="ctime">2:30 PM</span><span class="cco">Carrier</span><span class="cbadge  r">1</span></div><div class="crow"><span class="ctime">3:30 PM</span><span class="cco">Ceipal</span></div><div class="crow"><span class="ctime">4:00 PM</span><span class="cco">Credility</span></div><div class="crow"><span class="ctime">5:30 PM</span><span class="cco">JobAndTalent / Axel Springer</span></div></div>
+  <div class="risk-line">⚡ 00062527 — P1 Space42 on-prem terminal redirect (Resolved, pending closure)</div>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#d97706">SS</div>
+    <div class="card-info">
+      <div class="tam-name">Shivani Sharma</div>
+      <div class="call-cnt">3 calls today</div>
+    </div>
+    <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/27Jul2026/Shivani_27Jul2026.html" target="_blank">Brief →</a>
+  </div>
+  <div class="mini-stats">
+    <div class="ms"><div class="msn">4</div><div class="msl">Total</div></div>
+    <div class="ms"><div class="msn r">4</div><div class="msl">On Us</div></div>
+    <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+  </div>
+  <div class="calls"><div class="crow"><span class="ctime">11:00 AM</span><span class="cco">Inspectivity</span></div><div class="crow"><span class="ctime">3:00 PM</span><span class="cco">Spacewell</span><span class="cbadge  r">4</span></div><div class="crow"><span class="ctime">3:30 PM</span><span class="cco">Ceipal</span></div></div>
+  <div class="risk-line">⚡ 00060329 — 76d Spacewell P2 auto-healing regression; all 4 cases tied to suppressed Jira</div>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#16a34a">OD</div>
+    <div class="card-info">
+      <div class="tam-name">Osten Diniz</div>
+      <div class="call-cnt">4 calls today</div>
+    </div>
+    <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/27Jul2026/Osten_27Jul2026.html" target="_blank">Brief →</a>
+  </div>
+  <div class="mini-stats">
+    <div class="ms"><div class="msn">4</div><div class="msl">Total</div></div>
+    <div class="ms"><div class="msn r">4</div><div class="msl">On Us</div></div>
+    <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+  </div>
+  <div class="calls"><div class="crow"><span class="ctime">3:00 PM</span><span class="cco">Rain Stellar</span></div><div class="crow"><span class="ctime">3:00 PM</span><span class="cco">Omnex Inc</span></div><div class="crow"><span class="ctime">3:00 PM</span><span class="cco">Spacewell (tentative)</span><span class="cbadge  r">4</span></div><div class="crow"><span class="ctime">3:00 PM</span><span class="cco">Rain Stella Technologies</span></div></div>
+  <div class="risk-line">⚡ 00060329 — 76d Spacewell P2 auto-healing regression (shared with Shivani)</div>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#7c3aed">AM</div>
+    <div class="card-info">
+      <div class="tam-name">Arthy Mohanraj</div>
+      <div class="call-cnt">0 calls today</div>
+    </div>
+    <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/27Jul2026/Arthy_27Jul2026.html" target="_blank">Brief →</a>
+  </div>
+  <div class="mini-stats">
+    <div class="ms"><div class="msn">0</div><div class="msl">Total</div></div>
+    <div class="ms"><div class="msn r">0</div><div class="msl">On Us</div></div>
+    <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+  </div>
+  <div class="no-calls">No customer calls today</div>
+  <div class="risk-line quiet">⚡ No customer calls or open cases today.</div>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#dc2626">PS</div>
+    <div class="card-info">
+      <div class="tam-name">Pritish Samal</div>
+      <div class="call-cnt">2 calls today</div>
+    </div>
+    <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/27Jul2026/Pritish_27Jul2026.html" target="_blank">Brief →</a>
+  </div>
+  <div class="mini-stats">
+    <div class="ms"><div class="msn">5</div><div class="msl">Total</div></div>
+    <div class="ms"><div class="msn r">5</div><div class="msl">On Us</div></div>
+    <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+  </div>
+  <div class="calls"><div class="crow"><span class="ctime">5:00 PM</span><span class="cco">NTT DATA</span><span class="cbadge  r">1</span></div><div class="crow"><span class="ctime">8:00 PM</span><span class="cco">GuidePoint Security</span><span class="cbadge  r">4</span></div></div>
+  <div class="risk-line">⚡ 00061941 — 33d GuidePoint P2 test generation errors; PRS-17898 in Park status</div>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#0284c7">SK</div>
+    <div class="card-info">
+      <div class="tam-name">Sandeep Sai K</div>
+      <div class="call-cnt">2 calls today</div>
+    </div>
+    <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/27Jul2026/Sandeep_27Jul2026.html" target="_blank">Brief →</a>
+  </div>
+  <div class="mini-stats">
+    <div class="ms"><div class="msn">9</div><div class="msl">Total</div></div>
+    <div class="ms"><div class="msn r">9</div><div class="msl">On Us</div></div>
+    <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+  </div>
+  <div class="calls"><div class="crow"><span class="ctime">12:00 PM</span><span class="cco">DHL</span><span class="cbadge  r">9</span></div><div class="crow"><span class="ctime">1:30 PM</span><span class="cco">DHL (Tenant 64597)</span><span class="cbadge  r">9</span></div></div>
+  <div class="risk-line">⚡ 00059511 — 97d DHL P2 incorrect result fetch; 9 open cases, cluster of P1/P2 agent issues</div>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#475569">NN</div>
+    <div class="card-info">
+      <div class="tam-name">Nixon Nicholas</div>
+      <div class="call-cnt">0 calls today</div>
+    </div>
+    <a class="brief-link" href="https://sam-isaac.github.io/tam-briefs/27Jul2026/Nixon_27Jul2026.html" target="_blank">Brief →</a>
+  </div>
+  <div class="mini-stats">
+    <div class="ms"><div class="msn">0</div><div class="msl">Total</div></div>
+    <div class="ms"><div class="msn r">0</div><div class="msl">On Us</div></div>
+    <div class="ms"><div class="msn b">0</div><div class="msl">On Cust</div></div>
+  </div>
+  <div class="no-calls">No customer calls today</div>
+  <div class="risk-line quiet">⚡ No customer calls or open cases today.</div>
+</div>
+</div>
+</body>
+</html>
