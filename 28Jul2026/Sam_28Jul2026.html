@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sam Isaac – TAM Brief · 28 Jul 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f9fa; --surface: #ffffff; --border: #e2e8f0; --text: #1a202c;
+  --muted: #64748b; --accent: #6366f1; --red-bg: #fff1f2; --red-border: #fecdd3;
+  --red-text: #be123c; --blue-bg: #eff6ff; --blue-border: #bfdbfe; --blue-text: #1d4ed8;
+  --tag-bg: #f1f5f9; --tag-text: #475569; --critical-bg: #fef3c7; --critical-border: #fde68a;
+}
+[data-theme="dark"] {
+  --bg: #0f172a; --surface: #1e293b; --border: #334155; --text: #f1f5f9;
+  --muted: #94a3b8; --accent: #818cf8; --red-bg: #1a0a0f; --red-border: #7f1d1d;
+  --red-text: #fca5a5; --blue-bg: #0c1a2e; --blue-border: #1e3a5f; --blue-text: #93c5fd;
+  --tag-bg: #1e293b; --tag-text: #94a3b8; --critical-bg: #1c1205; --critical-border: #78350f;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+.header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; }
+.header-left h1 { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--accent); }
+.header-left .sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.theme-btn { background: var(--tag-bg); border: 1px solid var(--border); color: var(--text); padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 13px; font-family: inherit; }
+.tabs { display: flex; gap: 8px; padding: 20px 32px 0; border-bottom: 1px solid var(--border); background: var(--surface); overflow-x: auto; }
+.tab { padding: 10px 20px; border-radius: 8px 8px 0 0; cursor: pointer; font-size: 14px; font-weight: 500; border: 1px solid transparent; border-bottom: none; white-space: nowrap; }
+.tab.active { background: var(--bg); border-color: var(--border); color: var(--accent); margin-bottom: -1px; }
+.tab:not(.active) { color: var(--muted); }
+.tab:not(.active):hover { background: var(--tag-bg); }
+.main { max-width: 960px; margin: 0 auto; padding: 32px; }
+.customer-panel { display: none; }
+.customer-panel.active { display: block; }
+.section { margin-bottom: 28px; }
+.section-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 12px; }
+.call-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; }
+.call-time { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--accent); font-weight: 500; white-space: nowrap; }
+.call-title { font-size: 14px; font-weight: 600; }
+.call-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.bucket { margin-bottom: 16px; }
+.bucket-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.bucket-label { font-size: 13px; font-weight: 600; }
+.bucket-count { font-family: 'DM Mono', monospace; font-size: 12px; background: var(--tag-bg); color: var(--tag-text); padding: 1px 8px; border-radius: 10px; }
+.case-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-bottom: 6px; display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: start; }
+.case-card.red { border-left: 3px solid #f43f5e; background: var(--red-bg); border-color: var(--red-border); }
+.case-card.blue { border-left: 3px solid #3b82f6; background: var(--blue-bg); border-color: var(--blue-border); }
+.case-card.critical { background: var(--critical-bg); border-color: var(--critical-border); }
+.case-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+.case-subject { font-size: 13px; font-weight: 500; line-height: 1.4; margin: 3px 0; }
+.case-contact { font-size: 12px; color: var(--muted); }
+.case-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; white-space: nowrap; }
+.tag { font-family: 'DM Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 4px; background: var(--tag-bg); color: var(--tag-text); }
+.tag.p1 { background: #fee2e2; color: #991b1b; }
+.tag.p2 { background: #fed7aa; color: #9a3412; }
+.tag.p3 { background: #fef9c3; color: #854d0e; }
+.tag.age-warn { background: #fef3c7; color: #78350f; }
+.tag.age-crit { background: #fee2e2; color: #991b1b; }
+.critical-badge { font-size: 10px; background: #f59e0b; color: #000; padding: 1px 7px; border-radius: 4px; font-weight: 700; }
+.action-list { display: flex; flex-direction: column; gap: 8px; }
+.action-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; display: flex; gap: 12px; align-items: flex-start; }
+.action-item.us { border-left: 3px solid #f43f5e; }
+.action-item.cust { border-left: 3px solid #3b82f6; }
+.action-owner { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; padding-top: 1px; }
+.action-item.us .action-owner { color: #e11d48; }
+.action-item.cust .action-owner { color: #2563eb; }
+.action-text { font-size: 13px; line-height: 1.5; }
+.gong-meta { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.empty-state { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; color: var(--muted); font-size: 13px; }
+.no-calls { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; text-align: center; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left">
+    <h1>Sam Isaac — TAM Brief</h1>
+    <div class="sub">28 Jul 2026 · Monday · Generated by automated briefing routine</div>
+  </div>
+  <button class="theme-btn" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark'">Toggle Theme</button>
+</div>
+<div class="tabs" id="tabs"></div>
+<div class="main" id="main"></div>
+
+<script>
+const CUSTOMERS_JSON_ARRAY = [
+  {
+    id: "dhl",
+    name: "DHL ITS",
+    call: { time: "12:00–12:30 PM IST", title: "BAU | DHL ITS <> Testsigma", type: "BAU Call" },
+    red_cases: [
+      { num: "00062720", pri: "P1", status: "Pending", age: "7d", contact: "Venu Gopal", subject: "00062715 – Auto update agent issue", critical: false },
+      { num: "00062950", pri: "P2", status: "Open", age: "1d", contact: "Madhu Kapli", subject: "Permanent Solution Required for Local Agent Startup Issue with Proxy Configuration", critical: false },
+      { num: "00062841", pri: "P2", status: "Waiting on L2", age: "5d", contact: "Subha B", subject: "#00062840 – Unable to start TS agent in VM", critical: false },
+      { num: "00062889", pri: "P3", status: "Waiting on L2", age: "4d", contact: "Lifen Chong (DHL-DSC)", subject: "Request to retain the Execution Results data – Ad-hoc listing missing", critical: false },
+      { num: "00062928", pri: "P3", status: "Open", age: "1d", contact: "Madhu Kapli (DHL-DSC)", subject: "Need some assistance on knowing the execution results validity", critical: false },
+      { num: "00062922", pri: "P3", status: "Open", age: "1d", contact: "Kavin Arul", subject: "Clarification Needed for Cross-Project Test Case Import", critical: false }
+    ],
+    blue_cases: [
+      { num: "00062875", pri: "P2", status: "Waiting for Customer", age: "4d", contact: "Lohith Kumar", subject: "Issue with terminal", critical: false }
+    ],
+    gong_date: "27 Jul 2026",
+    actions: [
+      { owner: "US", text: "Sandeep to document IE mode insights and investigate internally before next call" },
+      { owner: "US", text: "Tauseef to share tracert logs/network response with Lifen's network team" },
+      { owner: "CUSTOMER", text: "Lifen to add wait step after login click and re-run IE mode test plan" }
+    ],
+    jira: []
+  }
+];
+
+function ageClass(age) {
+  const d = parseInt(age);
+  if (d >= 30) return 'age-crit';
+  if (d >= 7) return 'age-warn';
+  return '';
+}
+
+function renderTabs() {
+  const tabs = document.getElementById('tabs');
+  CUSTOMERS_JSON_ARRAY.forEach((c, i) => {
+    const t = document.createElement('div');
+    t.className = 'tab' + (i === 0 ? ' active' : '');
+    t.textContent = c.name;
+    t.onclick = () => {
+      document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+      document.querySelectorAll('.customer-panel').forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      document.getElementById('panel-' + c.id).classList.add('active');
+    };
+    tabs.appendChild(t);
+  });
+}
+
+function renderCaseCard(cs, bucket) {
+  const ac = ageClass(cs.age);
+  return `<div class="case-card ${bucket}${cs.critical?' critical':''}">
+    <div>
+      <div class="case-num">${cs.num}</div>
+      <div class="case-subject">${cs.subject}${cs.critical?'&nbsp;<span class="critical-badge">CRITICAL</span>':''}</div>
+      <div class="case-contact">${cs.contact}</div>
+    </div>
+    <div class="case-meta">
+      <span class="tag ${cs.pri.toLowerCase()}">${cs.pri}</span>
+      <span class="tag">${cs.status}</span>
+      <span class="tag ${ac}">${cs.age}</span>
+    </div>
+  </div>`;
+}
+
+function renderPanel(c) {
+  let html = `<div class="customer-panel${CUSTOMERS_JSON_ARRAY.indexOf(c)===0?' active':''}" id="panel-${c.id}">`;
+
+  // Call
+  html += `<div class="section"><div class="section-title">Today's Call</div>`;
+  if (c.call) {
+    html += `<div class="call-card">
+      <div class="call-time">${c.call.time}</div>
+      <div><div class="call-title">${c.call.title}</div><div class="call-sub">${c.call.type}</div></div>
+    </div>`;
+  } else {
+    html += `<div class="no-calls">No customer calls scheduled today</div>`;
+  }
+  html += `</div>`;
+
+  // Cases
+  html += `<div class="section"><div class="section-title">Salesforce Cases</div>`;
+  const totalRed = c.red_cases.length, totalBlue = c.blue_cases.length;
+  if (totalRed + totalBlue === 0) {
+    html += `<div class="empty-state">No open Salesforce cases in the last 30 days</div>`;
+  } else {
+    if (totalRed > 0) {
+      html += `<div class="bucket"><div class="bucket-header"><span style="color:#e11d48">🔴</span><span class="bucket-label">Waiting on Us</span><span class="bucket-count">${totalRed}</span></div>`;
+      c.red_cases.forEach(cs => { html += renderCaseCard(cs, 'red'); });
+      html += `</div>`;
+    }
+    if (totalBlue > 0) {
+      html += `<div class="bucket"><div class="bucket-header"><span style="color:#2563eb">🔵</span><span class="bucket-label">Waiting on Customer</span><span class="bucket-count">${totalBlue}</span></div>`;
+      c.blue_cases.forEach(cs => { html += renderCaseCard(cs, 'blue'); });
+      html += `</div>`;
+    }
+  }
+  html += `</div>`;
+
+  // Gong
+  html += `<div class="section"><div class="section-title">Gong – Pending Action Items</div>`;
+  if (c.actions && c.actions.length > 0) {
+    html += `<div class="gong-meta">From most recent call · ${c.gong_date}</div><div class="action-list">`;
+    c.actions.forEach(a => {
+      const cls = a.owner === 'US' ? 'us' : 'cust';
+      html += `<div class="action-item ${cls}"><span class="action-owner">${a.owner}</span><span class="action-text">${a.text}</span></div>`;
+    });
+    html += `</div>`;
+  } else {
+    html += `<div class="empty-state">No pending action items found in last 60 days of Gong calls</div>`;
+  }
+  html += `</div>`;
+
+  // Jira
+  if (c.jira && c.jira.length > 0) {
+    html += `<div class="section"><div class="section-title">Linked Jira Tickets</div><div class="action-list">`;
+    c.jira.forEach(j => {
+      html += `<div class="action-item" style="border-left:3px solid #6366f1"><span class="action-owner" style="color:#6366f1">${j.key}</span><span class="action-text">${j.summary} <span class="tag">${j.status}</span></span></div>`;
+    });
+    html += `</div></div>`;
+  }
+
+  html += `</div>`;
+  return html;
+}
+
+renderTabs();
+const main = document.getElementById('main');
+CUSTOMERS_JSON_ARRAY.forEach(c => { main.innerHTML += renderPanel(c); });
+</script>
+</body>
+</html>
