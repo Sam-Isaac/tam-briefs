@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arthy Mohanraj – TAM Brief – 30 Jul 2026</title>
+<style>
+  :root { --accent:#1a73e8; --warn:#e8a317; --ok:#2e7d32; --bg:#f8f9fa; --card:#ffffff; --border:#e0e0e0; --text:#202124; --muted:#5f6368; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Segoe UI',Arial,sans-serif; background:var(--bg); color:var(--text); padding:24px; }
+  header { background:var(--accent); color:#fff; border-radius:10px; padding:20px 28px; margin-bottom:20px; }
+  header h1 { font-size:1.5rem; font-weight:700; }
+  header p { font-size:.85rem; opacity:.85; margin-top:4px; }
+  .notice { background:#fff3e0; border-left:4px solid var(--warn); border-radius:6px; padding:12px 16px; margin-bottom:20px; font-size:.85rem; color:#bf360c; }
+  .section { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:20px 24px; margin-bottom:18px; }
+  .section h2 { font-size:1rem; font-weight:700; color:var(--accent); border-bottom:2px solid var(--border); padding-bottom:8px; margin-bottom:14px; }
+  .call-card { border:1px solid var(--border); border-radius:6px; padding:14px 16px; margin-bottom:12px; background:#fafafa; }
+  .call-card h3 { font-size:.95rem; font-weight:700; color:var(--text); margin-bottom:6px; }
+  .call-card .meta { font-size:.8rem; color:var(--muted); margin-bottom:8px; }
+  .call-card ul { padding-left:18px; font-size:.85rem; }
+  .call-card ul li { margin-bottom:4px; }
+  .empty { color:var(--muted); font-style:italic; font-size:.88rem; }
+  table { width:100%; border-collapse:collapse; font-size:.83rem; }
+  th { background:#e8f0fe; color:var(--accent); text-align:left; padding:8px 10px; }
+  td { padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:12px; font-size:.75rem; font-weight:600; }
+  .badge-highest { background:#fce8e6; color:#c5221f; }
+  .badge-high { background:#fff0cc; color:#b06000; }
+  .badge-active { background:#e3f2fd; color:#1565c0; }
+  .badge-wait { background:#fff8e1; color:#e65100; }
+  .badge-staging { background:#e8f5e9; color:#2e7d32; }
+  .badge-pq { background:#f3e5f5; color:#6a1b9a; }
+  .badge-open { background:#e3f2fd; color:#0d47a1; }
+  .action-box { background:#e8f5e9; border-left:4px solid #4caf50; border-radius:6px; padding:12px 16px; margin-top:10px; font-size:.85rem; }
+  .action-box strong { color:#2e7d32; }
+  .highlight-box { background:#fff8e1; border-left:4px solid #ff9800; border-radius:6px; padding:10px 14px; margin-bottom:14px; font-size:.85rem; }
+  .tenant-badge { display:inline-block; background:#e8f0fe; color:#1565c0; padding:2px 8px; border-radius:12px; font-size:.75rem; font-weight:600; }
+  footer { text-align:center; font-size:.75rem; color:var(--muted); margin-top:20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Arthy Mohanraj — TAM Daily Brief</h1>
+  <p>Wednesday, 30 July 2026 &nbsp;|&nbsp; Auto-generated at 09:00 IST</p>
+</header>
+
+<div class="notice">
+  ⚠️ <strong>Salesforce Unavailable:</strong> The Testsigma-Salesforce connector requires OAuth re-authorization. Case bucket data is not included. Please re-authorize at claude.ai → Connectors → Testsigma-Salesforce.
+</div>
+
+<div class="section">
+  <h2>📅 Customer Calls Today</h2>
+  <div class="call-card">
+    <h3>DHL eCase &nbsp;<span class="tenant-badge">Tenant ID: 64597</span></h3>
+    <div class="meta">13:30 IST &nbsp;·&nbsp; Sandeep Sai K is organizer; Arthy also attending</div>
+    <ul>
+      <li>DHL production issue follow-up: test case failing on SSM cases page</li>
+      <li>Pending items from last call need to be resolved or escalated</li>
+    </ul>
+  </div>
+  <div class="call-card">
+    <h3>PTSG</h3>
+    <div class="meta">15:00 IST &nbsp;·&nbsp; No Tenant ID in calendar description</div>
+    <ul>
+      <li>Follow-up to Jul 23 visual testing walkthrough with Donovan</li>
+      <li>Planned agenda: Copilot features demo</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎙️ Recent Gong Call Highlights</h2>
+  <div class="call-card">
+    <h3>DHL eCase — Jul 27, 2026</h3>
+    <div class="meta">Call ID: 594483035004121858</div>
+    <ul>
+      <li>Test case failing on SSM cases page: record opening after filter not working</li>
+      <li>Root cause under investigation; Likita (DHL-side) involved in testing</li>
+      <li>Thu call with Likita proposed if issue is not resolved before then</li>
+    </ul>
+    <div class="action-box">
+      <strong>Action Items (Testsigma):</strong>
+      <ul>
+        <li>Sandeep to send MOM from Jul 27 call to DHL team</li>
+        <li>Jump on a call with Likita on Thursday if the issue remains unresolved</li>
+      </ul>
+      <strong>Action Items (Customer — DHL):</strong>
+      <ul>
+        <li>Create test user (Surya/Deepali) and share credentials with Testsigma</li>
+      </ul>
+    </div>
+  </div>
+  <div class="call-card">
+    <h3>PTSG — Jul 23, 2026</h3>
+    <div class="meta">Call ID: 9213233664922670792</div>
+    <ul>
+      <li>Visual testing walkthrough completed with Donovan</li>
+      <li>Donovan was engaged and will experiment with visual testing on his own steps</li>
+      <li>Next call planned to cover Copilot features</li>
+    </ul>
+    <div class="action-box">
+      <strong>Action Items (Testsigma — for today's 15:00 call):</strong>
+      <ul>
+        <li>Have Copilot demo ready for the PTSG call</li>
+      </ul>
+      <strong>Action Items (Customer — PTSG):</strong>
+      <ul>
+        <li>Donovan to enable visual testing on his test steps and experiment independently</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎫 Open Jira Tickets</h2>
+  <div style="font-weight:600;font-size:.85rem;color:var(--muted);margin-bottom:8px;">DHL eCase</div>
+  <table>
+    <thead>
+      <tr><th>Key</th><th>Summary</th><th>Status</th><th>Priority</th><th>Updated</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/CUS-13870">CUS-13870</a></td>
+        <td>Data Generator no longer supports custom date formats after UI change</td>
+        <td><span class="badge badge-wait">Waiting On Engineering</span></td>
+        <td><span class="badge badge-highest">Highest</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/TP-5511">TP-5511</a></td>
+        <td>Data Generator no longer supports custom date formats after UI change</td>
+        <td><span class="badge badge-staging">Verified on Staging</span></td>
+        <td><span class="badge badge-highest">Highest</span></td>
+        <td>2026-07-28</td>
+      </tr>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/CUS-12599">CUS-12599</a></td>
+        <td>[DHL] Enhancement to track error types in Test run</td>
+        <td><span class="badge badge-pq">Product Qualified</span></td>
+        <td><span class="badge badge-highest">Highest</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/CUS-14096">CUS-14096</a></td>
+        <td>General Query: Execution data retention</td>
+        <td><span class="badge badge-open">Open</span></td>
+        <td><span class="badge badge-high">High</span></td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="font-weight:600;font-size:.85rem;color:var(--muted);margin-top:14px;margin-bottom:8px;">PTSG</div>
+  <p class="empty">No open Jira tickets found for PTSG.</p>
+</div>
+
+<div class="section">
+  <h2>📦 Salesforce Case Status</h2>
+  <p class="empty">Salesforce data unavailable — see notice above.</p>
+</div>
+
+<footer>Generated automatically by the TAM Morning Brief routine · 30 Jul 2026</footer>
+</body>
+</html>

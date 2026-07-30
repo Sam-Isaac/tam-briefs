@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nixon Nicholas – TAM Brief – 30 Jul 2026</title>
+<style>
+  :root { --accent:#1a73e8; --warn:#e8a317; --ok:#2e7d32; --bg:#f8f9fa; --card:#ffffff; --border:#e0e0e0; --text:#202124; --muted:#5f6368; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Segoe UI',Arial,sans-serif; background:var(--bg); color:var(--text); padding:24px; }
+  header { background:var(--accent); color:#fff; border-radius:10px; padding:20px 28px; margin-bottom:20px; }
+  header h1 { font-size:1.5rem; font-weight:700; }
+  header p { font-size:.85rem; opacity:.85; margin-top:4px; }
+  .notice { background:#fff3e0; border-left:4px solid var(--warn); border-radius:6px; padding:12px 16px; margin-bottom:20px; font-size:.85rem; color:#bf360c; }
+  .section { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:20px 24px; margin-bottom:18px; }
+  .section h2 { font-size:1rem; font-weight:700; color:var(--accent); border-bottom:2px solid var(--border); padding-bottom:8px; margin-bottom:14px; }
+  .call-card { border:1px solid var(--border); border-radius:6px; padding:14px 16px; margin-bottom:12px; background:#fafafa; }
+  .call-card h3 { font-size:.95rem; font-weight:700; color:var(--text); margin-bottom:6px; }
+  .call-card .meta { font-size:.8rem; color:var(--muted); margin-bottom:8px; }
+  .call-card ul { padding-left:18px; font-size:.85rem; }
+  .call-card ul li { margin-bottom:4px; }
+  .empty { color:var(--muted); font-style:italic; font-size:.88rem; }
+  table { width:100%; border-collapse:collapse; font-size:.83rem; }
+  th { background:#e8f0fe; color:var(--accent); text-align:left; padding:8px 10px; }
+  td { padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:12px; font-size:.75rem; font-weight:600; }
+  .badge-highest { background:#fce8e6; color:#c5221f; }
+  .badge-high { background:#fff0cc; color:#b06000; }
+  .badge-medium { background:#e8f5e9; color:#2e7d32; }
+  .badge-blocked { background:#fce8e6; color:#c5221f; }
+  .badge-wait { background:#fff8e1; color:#e65100; }
+  .badge-staging { background:#e8f5e9; color:#2e7d32; }
+  .badge-open { background:#e3f2fd; color:#0d47a1; }
+  .action-box { background:#e8f5e9; border-left:4px solid #4caf50; border-radius:6px; padding:12px 16px; margin-top:10px; font-size:.85rem; }
+  .action-box strong { color:#2e7d32; }
+  .priority-action { background:#fce8e6; border-left:4px solid #f44336; border-radius:6px; padding:10px 14px; margin-bottom:14px; font-size:.85rem; }
+  footer { text-align:center; font-size:.75rem; color:var(--muted); margin-top:20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Nixon Nicholas — TAM Daily Brief</h1>
+  <p>Wednesday, 30 July 2026 &nbsp;·&nbsp; Auto-generated at 09:00 IST</p>
+</header>
+
+<div class="notice">
+  ⚠️ <strong>Salesforce Unavailable:</strong> The Testsigma-Salesforce connector requires OAuth re-authorization. Case bucket data is not included. Please re-authorize at claude.ai → Connectors → Testsigma-Salesforce.
+</div>
+
+<div class="priority-action">
+  🔴 <strong>Pre-Call Action — Nuvama:</strong> Testsigma team needs to install terminal on the Nuvama account to debug the auto-heal root cause (Gong Jul 28). Confirm status before the 15:00 IST call.
+</div>
+
+<div class="section">
+  <h2>📅 Customer Calls Today</h2>
+  <div class="call-card">
+    <h3>Nuvama Wealth Management</h3>
+    <div class="meta">15:00 IST &nbsp;·&nbsp; No Tenant ID in calendar description</div>
+    <ul>
+      <li>External attendees: mayuresh.udas@nuvama.com, sagar.joshi@nuvama.com</li>
+      <li>Active production issue: Copilot button not working, auto-heal triggering erroneously</li>
+      <li>Jira CUS-14125 filed Jul 29 — directly matches Gong call from Jul 28</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎙️ Recent Gong Call Highlights</h2>
+  <div class="call-card">
+    <h3>Nuvama Wealth — Jul 28, 2026</h3>
+    <div class="meta">Call ID: 8062526373300630835</div>
+    <ul>
+      <li>Copilot execution: login/signup button click failing</li>
+      <li>Auto-heal is triggering despite valid locators — incorrect healing behavior</li>
+      <li>Root cause not yet identified; requires terminal access on Nuvama account to investigate</li>
+    </ul>
+    <div class="action-box">
+      <strong>Action Items (Testsigma):</strong>
+      <ul>
+        <li>Install terminal on Nuvama account to debug auto-heal root cause</li>
+        <li>Update CUS-14125 with findings before or during today's call</li>
+      </ul>
+      <strong>Action Items (Customer — Nuvama):</strong>
+      <ul>
+        <li>Provide terminal access / coordinate with Testsigma on environment setup</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎫 Open Jira Tickets</h2>
+  <table>
+    <thead>
+      <tr><th>Key</th><th>Summary</th><th>Status</th><th>Priority</th><th>Updated</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/CUS-14125">CUS-14125</a></td>
+        <td>Auto-Healing Triggered Despite Valid Locators During Copilot Execution</td>
+        <td><span class="badge badge-wait">Waiting On Engineering</span></td>
+        <td><span class="badge badge-highest">Highest</span></td>
+        <td>2026-07-29</td>
+      </tr>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/TP-5827">TP-5827</a></td>
+        <td>Auto-Healing Triggered Despite Valid Locators During Copilot Execution</td>
+        <td><span class="badge badge-open">Open</span></td>
+        <td><span class="badge badge-medium">Medium</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/CUS-13994">CUS-13994</a></td>
+        <td>Gmail Attachment Retrieval Works in Cloud but Fails in Local and Copilot</td>
+        <td><span class="badge badge-blocked">BLOCKED</span></td>
+        <td><span class="badge badge-highest">Highest</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/TP-5726">TP-5726</a></td>
+        <td>Unable to Select required Dates in Date Generator Functions</td>
+        <td><span class="badge badge-staging">Verified on Staging</span></td>
+        <td><span class="badge badge-highest">Highest</span></td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>📦 Salesforce Case Status</h2>
+  <p class="empty">Salesforce data unavailable — see notice above.</p>
+</div>
+
+<footer>Generated automatically by the TAM Morning Brief routine · 30 Jul 2026</footer>
+</body>
+</html>

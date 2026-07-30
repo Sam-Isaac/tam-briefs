@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Osten Diniz – TAM Brief – 30 Jul 2026</title>
+<style>
+  :root { --accent:#1a73e8; --warn:#e8a317; --ok:#2e7d32; --bg:#f8f9fa; --card:#ffffff; --border:#e0e0e0; --text:#202124; --muted:#5f6368; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Segoe UI',Arial,sans-serif; background:var(--bg); color:var(--text); padding:24px; }
+  header { background:var(--accent); color:#fff; border-radius:10px; padding:20px 28px; margin-bottom:20px; }
+  header h1 { font-size:1.5rem; font-weight:700; }
+  header p { font-size:.85rem; opacity:.85; margin-top:4px; }
+  .notice { background:#fff3e0; border-left:4px solid var(--warn); border-radius:6px; padding:12px 16px; margin-bottom:20px; font-size:.85rem; color:#bf360c; }
+  .section { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:20px 24px; margin-bottom:18px; }
+  .section h2 { font-size:1rem; font-weight:700; color:var(--accent); border-bottom:2px solid var(--border); padding-bottom:8px; margin-bottom:14px; }
+  .call-card { border:1px solid var(--border); border-radius:6px; padding:14px 16px; margin-bottom:12px; background:#fafafa; }
+  .call-card h3 { font-size:.95rem; font-weight:700; color:var(--text); margin-bottom:6px; }
+  .call-card .meta { font-size:.8rem; color:var(--muted); margin-bottom:8px; }
+  .call-card ul { padding-left:18px; font-size:.85rem; }
+  .call-card ul li { margin-bottom:4px; }
+  .empty { color:var(--muted); font-style:italic; font-size:.88rem; }
+  table { width:100%; border-collapse:collapse; font-size:.83rem; }
+  th { background:#e8f0fe; color:var(--accent); text-align:left; padding:8px 10px; }
+  td { padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:12px; font-size:.75rem; font-weight:600; }
+  .badge-highest { background:#fce8e6; color:#c5221f; }
+  .badge-high { background:#fff0cc; color:#b06000; }
+  .badge-active { background:#e3f2fd; color:#1565c0; }
+  .badge-wait { background:#fff8e1; color:#e65100; }
+  .badge-staging { background:#e8f5e9; color:#2e7d32; }
+  .action-box { background:#e8f5e9; border-left:4px solid #4caf50; border-radius:6px; padding:12px 16px; margin-top:10px; font-size:.85rem; }
+  .action-box strong { color:#2e7d32; }
+  .highlight-box { background:#fff8e1; border-left:4px solid #ff9800; border-radius:6px; padding:10px 14px; margin-bottom:14px; font-size:.85rem; }
+  footer { text-align:center; font-size:.75rem; color:var(--muted); margin-top:20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Osten Diniz — TAM Daily Brief</h1>
+  <p>Wednesday, 30 July 2026 &nbsp;|&nbsp; Auto-generated at 09:00 IST</p>
+</header>
+
+<div class="notice">
+  ⚠️ <strong>Salesforce Unavailable:</strong> The Testsigma-Salesforce connector requires OAuth re-authorization. Case bucket data is not included. Please re-authorize at claude.ai → Connectors → Testsigma-Salesforce.
+</div>
+
+<div class="section">
+  <h2>📅 Customer Calls Today</h2>
+  <div class="call-card">
+    <h3>Omnex Inc</h3>
+    <div class="meta">15:00 IST &nbsp;·&nbsp; No Tenant ID in calendar description</div>
+    <ul>
+      <li>External attendees: kloganadin@omnex.com and others from Omnex</li>
+      <li>POC in progress — review dropdown fix status and discuss next steps</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎙️ Recent Gong Call Highlights</h2>
+  <div class="call-card">
+    <h3>Omnex Inc — Jul 13, 2026</h3>
+    <div class="meta">Call ID: 368411794309952737</div>
+    <ul>
+      <li>POC completion estimated at 50–60% at time of call</li>
+      <li>Custom dropdown element recording issue was the main blocker</li>
+      <li>Fix has been staged — today's call is an opportunity to confirm it works end-to-end</li>
+    </ul>
+    <div class="action-box">
+      <strong>Action Items (Testsigma — pending for today's call):</strong>
+      <ul>
+        <li>Confirm TP-5412 dropdown fix is working in Omnex's environment</li>
+        <li>Provide update on TP-5353 (recorder double-click page refresh)</li>
+      </ul>
+      <strong>Action Items (Customer — pending):</strong>
+      <ul>
+        <li>Share test results for fixed scenarios</li>
+        <li>Share faster environment access details to Testsigma team</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="highlight-box">
+  ⚡ <strong>Call Prep Note:</strong> Both TP-5412 and TP-5353 are "Verified on Staging." Confirm with Omnex today if staging changes have been deployed to their environment and if they've tested the fix.
+</div>
+
+<div class="section">
+  <h2>🎫 Open Jira Tickets</h2>
+  <table>
+    <thead>
+      <tr><th>Key</th><th>Summary</th><th>Status</th><th>Priority</th><th>Updated</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/CUS-13792">CUS-13792</a></td>
+        <td>Custom dropdown elements not capturable by Recorder</td>
+        <td><span class="badge badge-wait">Waiting On Engineering</span></td>
+        <td><span class="badge badge-highest">Highest</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/TP-5412">TP-5412</a></td>
+        <td>Custom dropdown elements not capturable by Recorder</td>
+        <td><span class="badge badge-staging">Verified on Staging</span></td>
+        <td><span class="badge badge-highest">Highest</span></td>
+        <td>2026-07-29</td>
+      </tr>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/TP-5353">TP-5353</a></td>
+        <td>Testsigma Recorder Causes Page Refresh on Double-Click</td>
+        <td><span class="badge badge-staging">Verified on Staging</span></td>
+        <td><span class="badge badge-highest">Highest</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/CUS-12762">CUS-12762</a></td>
+        <td>Omnex Systems</td>
+        <td><span class="badge badge-active">Active</span></td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>📦 Salesforce Case Status</h2>
+  <p class="empty">Salesforce data unavailable — see notice above.</p>
+</div>
+
+<footer>Generated automatically by the TAM Morning Brief routine · 30 Jul 2026</footer>
+</body>
+</html>

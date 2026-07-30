@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAM Team Master Brief – 30 Jul 2026</title>
+<style>
+  :root { --accent:#1a73e8; --warn:#e8a317; --bg:#f8f9fa; --card:#ffffff; --border:#e0e0e0; --text:#202124; --muted:#5f6368; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Segoe UI',Arial,sans-serif; background:var(--bg); color:var(--text); padding:24px; }
+  header { background:linear-gradient(135deg,#1a73e8,#0d47a1); color:#fff; border-radius:12px; padding:24px 32px; margin-bottom:20px; }
+  header h1 { font-size:1.7rem; font-weight:700; }
+  header p { font-size:.9rem; opacity:.85; margin-top:6px; }
+  .notice { background:#fff3e0; border-left:4px solid var(--warn); border-radius:6px; padding:12px 16px; margin-bottom:20px; font-size:.85rem; color:#bf360c; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:18px; margin-bottom:24px; }
+  .tam-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:18px 20px; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+  .tam-card h2 { font-size:1rem; font-weight:700; color:var(--accent); margin-bottom:4px; }
+  .tam-card .subtitle { font-size:.78rem; color:var(--muted); margin-bottom:12px; }
+  .tam-card .calls { font-size:.83rem; margin-bottom:10px; }
+  .tam-card .calls .label { font-weight:600; color:var(--text); }
+  .tam-card .calls ul { padding-left:16px; margin-top:4px; }
+  .tam-card .calls ul li { margin-bottom:3px; }
+  .tam-card .actions { font-size:.82rem; }
+  .tam-card .actions .label { font-weight:600; color:#2e7d32; }
+  .tam-card .actions ul { padding-left:16px; margin-top:4px; }
+  .tam-card .actions ul li { margin-bottom:3px; }
+  .tam-card .no-calls { font-size:.83rem; color:var(--muted); font-style:italic; }
+  .brief-link { display:inline-block; margin-top:12px; font-size:.8rem; color:var(--accent); text-decoration:none; border:1px solid var(--accent); border-radius:6px; padding:4px 10px; }
+  .brief-link:hover { background:#e8f0fe; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:12px; font-size:.72rem; font-weight:600; }
+  .badge-red { background:#fce8e6; color:#c5221f; }
+  .badge-orange { background:#fff3e0; color:#bf360c; }
+  .badge-green { background:#e8f5e9; color:#2e7d32; }
+  .stats-row { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:20px; }
+  .stat-box { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:12px 18px; flex:1; min-width:120px; text-align:center; }
+  .stat-box .num { font-size:1.8rem; font-weight:700; color:var(--accent); }
+  .stat-box .lbl { font-size:.75rem; color:var(--muted); margin-top:2px; }
+  .section { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:20px 24px; margin-bottom:18px; }
+  .section h2 { font-size:1rem; font-weight:700; color:var(--accent); border-bottom:2px solid var(--border); padding-bottom:8px; margin-bottom:14px; }
+  table { width:100%; border-collapse:collapse; font-size:.83rem; }
+  th { background:#e8f0fe; color:var(--accent); text-align:left; padding:8px 10px; }
+  td { padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  footer { text-align:center; font-size:.75rem; color:var(--muted); margin-top:20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>TAM Team Daily Brief</h1>
+  <p>Wednesday, 30 July 2026 &nbsp;·&nbsp; Auto-generated at 09:00 IST &nbsp;·&nbsp; 8 TAMs covered</p>
+</header>
+
+<div class="notice">
+  ⚠️ <strong>Salesforce Unavailable:</strong> The Testsigma-Salesforce connector requires OAuth re-authorization in an interactive session. Case bucket data (Open / Escalated / In-Progress counts) is absent from all briefs today. Re-authorize at claude.ai → Connectors → Testsigma-Salesforce to restore this data tomorrow.
+</div>
+
+<div class="stats-row">
+  <div class="stat-box"><div class="num">8</div><div class="lbl">TAMs Covered</div></div>
+  <div class="stat-box"><div class="num">7</div><div class="lbl">Customer Calls Today</div></div>
+  <div class="stat-box"><div class="num">6</div><div class="lbl">Gong Calls Referenced</div></div>
+  <div class="stat-box"><div class="num">14</div><div class="lbl">Open Jira Tickets</div></div>
+  <div class="stat-box"><div class="num" style="color:#c5221f">2</div><div class="lbl">Priority Actions</div></div>
+</div>
+
+<div class="grid">
+
+  <!-- Sam Isaac -->
+  <div class="tam-card">
+    <h2>Sam Isaac</h2>
+    <div class="subtitle">TAM Lead</div>
+    <div class="calls">
+      <span class="label">Calls today:</span>
+      <p class="no-calls">No customer calls today</p>
+    </div>
+    <div class="actions">
+      <span class="label">Actions:</span>
+      <ul><li>Re-authorize Salesforce connector (see notice above)</li></ul>
+    </div>
+    <a class="brief-link" href="Sam_30Jul2026.html">Full brief →</a>
+  </div>
+
+  <!-- Mohan Kumar N -->
+  <div class="tam-card">
+    <h2>Mohan Kumar N</h2>
+    <div class="subtitle">Space42 / Bayanat</div>
+    <div class="calls">
+      <span class="label">Calls today:</span>
+      <ul>
+        <li>Space42 &mdash; 12:30 IST (no Tenant ID)</li>
+      </ul>
+    </div>
+    <div class="actions">
+      <span class="label">Actions:</span>
+      <ul>
+        <li>Monitor Mark's data generator implementation; no blocking Testsigma action</li>
+        <li>CUS-3805 (Bayanat GIQ PJSC) &mdash; Active, check status</li>
+      </ul>
+    </div>
+    <a class="brief-link" href="Mohan_30Jul2026.html">Full brief →</a>
+  </div>
+
+  <!-- Shivani Sharma -->
+  <div class="tam-card">
+    <h2>Shivani Sharma</h2>
+    <div class="subtitle">Dokmee</div>
+    <div class="calls">
+      <span class="label">Calls today:</span>
+      <ul>
+        <li>Dokmee &mdash; 20:00 IST (nmouton@dokmee.com)</li>
+      </ul>
+    </div>
+    <div class="actions">
+      <span class="label">Actions:</span>
+      <ul>
+        <li>Schedule next Dokmee training session; consider API + Copilot session</li>
+        <li>CUS-13233 Onboarding completed &mdash; confirm next steps with customer</li>
+      </ul>
+    </div>
+    <a class="brief-link" href="Shivani_30Jul2026.html">Full brief →</a>
+  </div>
+
+  <!-- Osten Diniz -->
+  <div class="tam-card">
+    <h2>Osten Diniz</h2>
+    <div class="subtitle">Omnex Inc</div>
+    <div class="calls">
+      <span class="label">Calls today:</span>
+      <ul>
+        <li>Omnex Inc &mdash; 15:00 IST (kloganadin@omnex.com)</li>
+      </ul>
+    </div>
+    <div class="actions">
+      <span class="label">Actions:</span>
+      <ul>
+        <li>Confirm TP-5412 dropdown fix working in Omnex env on today's call</li>
+        <li>CUS-13792 still Waiting On Engineering &mdash; update customer on timeline</li>
+      </ul>
+    </div>
+    <a class="brief-link" href="Osten_30Jul2026.html">Full brief →</a>
+  </div>
+
+  <!-- Arthy Mohanraj -->
+  <div class="tam-card">
+    <h2>Arthy Mohanraj</h2>
+    <div class="subtitle">DHL eCase · PTSG</div>
+    <div class="calls">
+      <span class="label">Calls today:</span>
+      <ul>
+        <li>DHL eCase &mdash; 13:30 IST <span class="badge badge-red">Tenant: 64597</span></li>
+        <li>PTSG &mdash; 15:00 IST</li>
+      </ul>
+    </div>
+    <div class="actions">
+      <span class="label">Actions:</span>
+      <ul>
+        <li>DHL: Check if test user credentials received; verify SSM fix status</li>
+        <li>PTSG: Have Copilot demo ready for 15:00 call</li>
+      </ul>
+    </div>
+    <a class="brief-link" href="Arthy_30Jul2026.html">Full brief →</a>
+  </div>
+
+  <!-- Pritish Samal -->
+  <div class="tam-card">
+    <h2>Pritish Samal</h2>
+    <div class="subtitle">NTT Data · Guidepoint Security</div>
+    <div class="calls">
+      <span class="label">Calls today:</span>
+      <ul>
+        <li>NTT Data &mdash; 16:30 IST (training session)</li>
+        <li>Guidepoint Security &mdash; 20:00 IST</li>
+      </ul>
+    </div>
+    <div class="actions">
+      <span class="label">Actions:</span>
+      <ul>
+        <li>NTT: Coordinate with Sakshi to re-share session recordings &amp; schedule next session</li>
+        <li>Guidepoint: Review CUS-8234 (Active/Highest) before 20:00 call — no recent Gong context</li>
+        <li>CUS-14119 (Persona-Based Access) &mdash; YET TO PRIORITIZE, Highest; raise with PM</li>
+      </ul>
+    </div>
+    <a class="brief-link" href="Pritish_30Jul2026.html">Full brief →</a>
+  </div>
+
+  <!-- Sandeep Sai K -->
+  <div class="tam-card">
+    <h2>Sandeep Sai K</h2>
+    <div class="subtitle">DHL eCase · PTSG</div>
+    <div class="calls">
+      <span class="label">Calls today:</span>
+      <ul>
+        <li>DHL eCase &mdash; 13:30 IST <span class="badge badge-red">Tenant: 64597</span> (organizer)</li>
+        <li>PTSG &mdash; 15:00 IST</li>
+      </ul>
+    </div>
+    <div class="actions">
+      <span class="label" style="color:#c5221f;">⚠ Priority Actions:</span>
+      <ul>
+        <li><strong>Send MOM from Jul 27 DHL call before 13:30 today</strong></li>
+        <li>PTSG: Have Copilot demo ready for 15:00 call</li>
+        <li>DHL: Confirm if test user (Surya/Deepali) created &amp; credentials shared</li>
+      </ul>
+    </div>
+    <a class="brief-link" href="Sandeep_30Jul2026.html">Full brief →</a>
+  </div>
+
+  <!-- Nixon Nicholas -->
+  <div class="tam-card">
+    <h2>Nixon Nicholas</h2>
+    <div class="subtitle">Nuvama Wealth Management</div>
+    <div class="calls">
+      <span class="label">Calls today:</span>
+      <ul>
+        <li>Nuvama Wealth &mdash; 15:00 IST (mayuresh.udas@nuvama.com)</li>
+      </ul>
+    </div>
+    <div class="actions">
+      <span class="label" style="color:#c5221f;">⚠ Priority Actions:</span>
+      <ul>
+        <li><strong>Install terminal on Nuvama account to debug auto-heal root cause (pre-call)</strong></li>
+        <li>CUS-14125 (Auto-Heal / Copilot) &mdash; Waiting On Engineering, update customer today</li>
+        <li>CUS-13994 (Gmail attachment) &mdash; BLOCKED, check unblock path</li>
+      </ul>
+    </div>
+    <a class="brief-link" href="Nixon_30Jul2026.html">Full brief →</a>
+  </div>
+
+</div>
+
+<!-- Priority Action Summary -->
+<div class="section">
+  <h2>🚨 Team-Level Priority Actions for Today</h2>
+  <table>
+    <thead><tr><th>TAM</th><th>Action</th><th>Deadline</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Sandeep Sai K</strong></td>
+        <td>Send MOM from Jul 27 DHL eCase call to DHL team</td>
+        <td>Before 13:30 IST</td>
+      </tr>
+      <tr>
+        <td><strong>Nixon Nicholas</strong></td>
+        <td>Install terminal on Nuvama account for auto-heal debug</td>
+        <td>Before 15:00 IST</td>
+      </tr>
+      <tr>
+        <td><strong>Osten Diniz</strong></td>
+        <td>Confirm TP-5412 dropdown fix is working in Omnex environment</td>
+        <td>On 15:00 IST call</td>
+      </tr>
+      <tr>
+        <td><strong>Arthy / Sandeep</strong></td>
+        <td>Have Copilot demo ready for PTSG call</td>
+        <td>Before 15:00 IST</td>
+      </tr>
+      <tr>
+        <td><strong>Pritish Samal</strong></td>
+        <td>Review CUS-8234 (Guidepoint Security, Active/Highest) before 20:00 call</td>
+        <td>Before 20:00 IST</td>
+      </tr>
+      <tr>
+        <td><strong>All TAMs</strong></td>
+        <td>Re-authorize Salesforce connector for case data in tomorrow's brief</td>
+        <td>Today (async)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Watchlist tickets -->
+<div class="section">
+  <h2>🎫 Watchlist — High-Priority Open Tickets Across Accounts</h2>
+  <table>
+    <thead><tr><th>Key</th><th>Summary</th><th>Account</th><th>TAM</th><th>Status</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/CUS-14125">CUS-14125</a></td>
+        <td>Auto-Healing Triggered Despite Valid Locators During Copilot Execution</td>
+        <td>Nuvama</td>
+        <td>Nixon</td>
+        <td>Waiting On Engineering</td>
+        <td style="color:#c5221f;font-weight:600">Highest</td>
+      </tr>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/CUS-13994">CUS-13994</a></td>
+        <td>Gmail Attachment Retrieval Fails in Local and Copilot</td>
+        <td>Nuvama</td>
+        <td>Nixon</td>
+        <td>BLOCKED</td>
+        <td style="color:#c5221f;font-weight:600">Highest</td>
+      </tr>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/CUS-13870">CUS-13870</a></td>
+        <td>Data Generator no longer supports custom date formats after UI change</td>
+        <td>DHL eCase</td>
+        <td>Arthy / Sandeep</td>
+        <td>Waiting On Engineering</td>
+        <td style="color:#c5221f;font-weight:600">Highest</td>
+      </tr>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/CUS-13792">CUS-13792</a></td>
+        <td>Custom dropdown elements not capturable by Recorder</td>
+        <td>Omnex</td>
+        <td>Osten</td>
+        <td>Waiting On Engineering</td>
+        <td style="color:#c5221f;font-weight:600">Highest</td>
+      </tr>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/CUS-14119">CUS-14119</a></td>
+        <td>Persona-Based Access (Execute-Only) for End-Users</td>
+        <td>Guidepoint</td>
+        <td>Pritish</td>
+        <td>YET TO PRIORITIZE</td>
+        <td style="color:#c5221f;font-weight:600">Highest</td>
+      </tr>
+      <tr>
+        <td><a href="https://testsigma.atlassian.net/browse/CUS-12599">CUS-12599</a></td>
+        <td>[DHL] Enhancement to track error types in Test run</td>
+        <td>DHL eCase</td>
+        <td>Arthy / Sandeep</td>
+        <td>Product Qualified</td>
+        <td style="color:#c5221f;font-weight:600">Highest</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>Generated automatically by the TAM Morning Brief routine · 30 Jul 2026 · Data sources: Google Calendar · Gong · Atlassian Jira · Salesforce: UNAVAILABLE</footer>
+</body>
+</html>
