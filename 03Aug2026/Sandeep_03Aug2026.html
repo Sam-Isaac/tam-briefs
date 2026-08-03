@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAM Brief — Sandeep Sai K — 03 Aug 2026</title>
+<style>
+:root{--bg:#f8fafc;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--muted:#64748b;--accent:#4f46e5;--accent-lt:#eef2ff;--risk-bg:#fef2f2;--risk-bd:#fecaca;--risk-tx:#b91c1c;--open-bg:#f0fdf4;--open-bd:#bbf7d0;--open-tx:#166534;--warn-bg:#fffbeb;--warn-bd:#fbbf24;--warn-tx:#92400e;--tab-bg:#e2e8f0;--tab-tx:#475569;--ooo-bg:#fff7ed;--ooo-bd:#f97316;--ooo-tx:#9a3412}
+[data-theme=dark]{--bg:#0f172a;--surface:#1e293b;--border:#334155;--text:#f1f5f9;--muted:#94a3b8;--accent:#818cf8;--accent-lt:#1e1b4b;--risk-bg:#1c0a0a;--risk-bd:#7f1d1d;--risk-tx:#fca5a5;--open-bg:#052e16;--open-bd:#14532d;--open-tx:#86efac;--warn-bg:#1c1107;--warn-bd:#92400e;--warn-tx:#fcd34d;--tab-bg:#334155;--tab-tx:#94a3b8;--ooo-bg:#1c0d04;--ooo-bd:#c2410c;--ooo-tx:#fdba74}
+@media(prefers-color-scheme:dark){html:not([data-theme]){--bg:#0f172a;--surface:#1e293b;--border:#334155;--text:#f1f5f9;--muted:#94a3b8;--accent:#818cf8;--accent-lt:#1e1b4b;--risk-bg:#1c0a0a;--risk-bd:#7f1d1d;--risk-tx:#fca5a5;--open-bg:#052e16;--open-bd:#14532d;--open-tx:#86efac;--warn-bg:#1c1107;--warn-bd:#92400e;--warn-tx:#fcd34d;--tab-bg:#334155;--tab-tx:#94a3b8;--ooo-bg:#1c0d04;--ooo-bd:#c2410c;--ooo-tx:#fdba74}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;line-height:1.6}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px}
+header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
+h1{font-size:20px;font-weight:700}
+.hd-sub{color:var(--muted);font-size:13px;margin-top:2px}
+.btn-theme{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:5px 12px;cursor:pointer;color:var(--text);font-size:12px;font-family:inherit}
+.banner{border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:14px}
+.banner-warn{background:var(--warn-bg);border:1px solid var(--warn-bd);color:var(--warn-tx)}
+.banner-ooo{background:var(--ooo-bg);border:2px solid var(--ooo-bd);color:var(--ooo-tx);font-weight:700;font-size:14px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:16px}
+.tab{background:var(--tab-bg);border:none;border-radius:6px;padding:6px 16px;cursor:pointer;color:var(--tab-tx);font-size:13px;font-family:inherit;transition:all .15s}
+.tab.on{background:var(--accent);color:#fff}
+.panel{display:none}.panel.on{display:block}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px}
+.card-h{font-size:14px;font-weight:600;margin-bottom:12px}
+.call-time{display:inline-block;background:var(--accent-lt);color:var(--accent);border-radius:6px;padding:4px 12px;font-size:13px;font-weight:600;margin-bottom:12px}
+.opener{background:var(--open-bg);border:1px solid var(--open-bd);border-radius:8px;padding:14px;margin-bottom:14px}
+.opener-h{color:var(--open-tx);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.opener-q{font-style:italic;font-size:14px}
+.risk{background:var(--risk-bg);border:1px solid var(--risk-bd);border-radius:8px;padding:14px;margin-bottom:14px}
+.risk-h{color:var(--risk-tx);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:10px 0 5px}
+ul{list-style:none;padding:0}
+li{padding:3px 0 3px 14px;position:relative;font-size:13px}
+li::before{content:'•';position:absolute;left:0;color:var(--accent)}
+a.gong-link{color:var(--accent);font-size:12px;text-decoration:none;display:inline-block;margin-bottom:8px}
+a.gong-link:hover{text-decoration:underline}
+.divider{border:none;border-top:1px solid var(--border);margin:14px 0}
+.empty{color:var(--muted);font-size:13px;font-style:italic}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--bg);color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:6px 10px;text-align:left;border-bottom:1px solid var(--border)}
+td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+.jkey{color:var(--accent);font-weight:600;white-space:nowrap}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.p1{background:#fef2f2;color:#b91c1c}.p2{background:#fffbeb;color:#b45309}.p3{background:#f0fdf4;color:#15803d}
+[data-theme=dark] .p1{background:#1c0a0a;color:#fca5a5}[data-theme=dark] .p2{background:#1c1107;color:#fcd34d}[data-theme=dark] .p3{background:#052e16;color:#86efac}
+.dh{background:#fef2f2;color:#b91c1c}.dm{background:#fffbeb;color:#b45309}.dl{background:#f0fdf4;color:#15803d}
+[data-theme=dark] .dh{background:#1c0a0a;color:#fca5a5}[data-theme=dark] .dm{background:#1c1107;color:#fcd34d}[data-theme=dark] .dl{background:#052e16;color:#86efac}
+.stbadge{background:var(--tab-bg);color:var(--tab-tx);display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>TAM Brief — Sandeep Sai K</h1>
+      <div class="hd-sub">Monday, 03 August 2026 &middot; Testsigma Daily Brief</div>
+    </div>
+    <button class="btn-theme" onclick="toggleTheme()">&#9728;&#65039; / &#127769;</button>
+  </header>
+  <div class="banner banner-ooo">&#127968; OUT OF OFFICE &mdash; Sandeep is OOO today through Wednesday Aug 5. Returning Thursday Aug 6. Osten Diniz (and Austin) are covering DHL. DHL regression is running TODAY with an unresolved shadow root issue.</div>
+  <div class="banner banner-warn">&#9888;&#65039; Salesforce data unavailable &mdash; Testsigma-Salesforce connector requires re-authorization. Waiting-on-Us / Waiting-on-Customer data is not shown.</div>
+  <div id="app"></div>
+</div>
+<script>
+const CUSTOMERS_JSON_ARRAY = [{"name":"DHL","callTime":"13:30 IST","gongCalls":[{"id":"365888928285438598","title":"DHL Weekly Sync","date":"Jul 30, 2026","url":"https://app.gong.io/call?id=365888928285438598","actionItemsUs":["Fix shadow root failing test case — Surya's case","Review and fix ALL failing steps in tracker before Deepali's regression run — DUE TODAY / TOMORROW"],"actionItemsCustomer":["DHL team to add failing test case URLs to tracker with names","Deepali wants all completed cases in regression suite by today for Daniel's demo"]}],"jiraTickets":[{"key":"TP-5511","summary":"Data Generator — date format issue","status":"Verified on Staging","priority":"P1","assignee":"Jithish Sekar","daysOpen":24},{"key":"CUS-13870","summary":"Data Generator — Waiting On Engineering","status":"Waiting On Engineering","priority":"P1","assignee":"Kavya G","daysOpen":24},{"key":"CUS-12599","summary":"Error type tracking enhancement","status":"Product Qualified","priority":"P1","assignee":"Shubham Agrawal","daysOpen":88}],"salesforce":{"waitingOnUs":[],"waitingOnCustomer":[]},"biggestRisk":"You are OOO today (Jul 31–Aug 5, returning Aug 6). DHL regression is running TODAY with unresolved shadow root issue. Osten is covering — coordinate with them if needed before your return.","opener":"⚠️ You are OOO today — Osten is covering DHL. DHL regression is running today with the shadow root issue still unresolved. This is for your records on return."}];
+
+function e(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function dc(n){return n>=60?'dh':n>=30?'dm':'dl'}
+function pc(p){return p==='P1'?'p1':p==='P2'?'p2':'p3'}
+function renderCust(c){
+  let h='';
+  h+=`<div class="call-time">&#128197; Scheduled Call (Osten covering): ${e(c.callTime)}</div>`;
+  h+=`<div class="opener"><div class="opener-h">&#128172; Context Note</div><div class="opener-q">"${e(c.opener)}"</div></div>`;
+  h+=`<div class="risk"><div class="risk-h">&#9889; Biggest Risk Today</div><div>${e(c.biggestRisk)}</div></div>`;
+  h+=`<div class="card"><div class="card-h">&#128222; Gong &mdash; Last Call Before OOO</div>`;
+  if(!c.gongCalls||!c.gongCalls.length){h+=`<p class="empty">No Gong calls in the last 7 days.</p>`;}
+  else{c.gongCalls.forEach((g,gi)=>{
+    if(gi>0)h+=`<hr class="divider">`;
+    h+=`<div style="font-weight:600;margin-bottom:4px">${e(g.title)}</div>`;
+    h+=`<div style="color:var(--muted);font-size:12px;margin-bottom:4px">${e(g.date)}</div>`;
+    h+=`<a class="gong-link" href="${e(g.url)}" target="_blank" rel="noopener">Open in Gong &rarr;</a>`;
+    if(g.actionItemsUs&&g.actionItemsUs.length){h+=`<div class="lbl">Outstanding Action Items &mdash; Testsigma</div><ul>`;g.actionItemsUs.forEach(i=>{h+=`<li>${e(i)}</li>`;});h+=`</ul>`;}
+    if(g.actionItemsCustomer&&g.actionItemsCustomer.length){h+=`<div class="lbl">Outstanding Action Items &mdash; Customer</div><ul>`;g.actionItemsCustomer.forEach(i=>{h+=`<li>${e(i)}</li>`;});h+=`</ul>`;}
+  });}
+  h+=`</div>`;
+  h+=`<div class="card"><div class="card-h">&#127915; Open Jira Tickets</div>`;
+  if(!c.jiraTickets||!c.jiraTickets.length){h+=`<p class="empty">No open Jira tickets for this customer.</p>`;}
+  else{h+=`<div style="overflow-x:auto"><table><thead><tr><th>Key</th><th>Summary</th><th>Status</th><th>Priority</th><th>Assignee</th><th>Age</th></tr></thead><tbody>`;
+    c.jiraTickets.forEach(t=>{h+=`<tr><td><span class="jkey">${e(t.key)}</span></td><td>${e(t.summary)}</td><td><span class="stbadge">${e(t.status)}</span></td><td><span class="badge ${pc(t.priority)}">${e(t.priority)}</span></td><td>${e(t.assignee)}</td><td><span class="badge ${dc(t.daysOpen)}">${t.daysOpen}d</span></td></tr>`;});
+    h+=`</tbody></table></div>`;}
+  h+=`</div>`;
+  h+=`<div class="card"><div class="card-h">&#9729;&#65039; Salesforce Cases</div><p class="empty">&#9888;&#65039; Salesforce connector requires re-authorization &mdash; case data unavailable.</p></div>`;
+  return h;
+}
+function render(){
+  const app=document.getElementById('app');
+  if(!CUSTOMERS_JSON_ARRAY||!CUSTOMERS_JSON_ARRAY.length){
+    app.innerHTML=`<div style="text-align:center;padding:48px 24px;color:var(--muted)"><h2 style="margin-bottom:8px;color:var(--text)">No customer calls today</h2></div>`;
+    return;
+  }
+  if(CUSTOMERS_JSON_ARRAY.length===1){app.innerHTML=renderCust(CUSTOMERS_JSON_ARRAY[0]);return;}
+  let h=`<div class="tabs">`;
+  CUSTOMERS_JSON_ARRAY.forEach((c,i)=>{h+=`<button class="tab${i===0?' on':''}" onclick="st(${i})">${e(c.name)}</button>`;});
+  h+=`</div>`;
+  CUSTOMERS_JSON_ARRAY.forEach((c,i)=>{h+=`<div class="panel${i===0?' on':''}" id="p${i}">${renderCust(c)}</div>`;});
+  app.innerHTML=h;
+}
+window.st=function(i){
+  document.querySelectorAll('.tab').forEach((b,j)=>b.classList.toggle('on',j===i));
+  document.querySelectorAll('.panel').forEach((p,j)=>p.classList.toggle('on',j===i));
+};
+window.toggleTheme=function(){const h=document.documentElement;h.dataset.theme=h.dataset.theme==='dark'?'light':'dark';};
+(function(){if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.dataset.theme='dark';})();
+render();
+</script>
+</body>
+</html>

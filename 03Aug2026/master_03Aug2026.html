@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAM Master Brief — 03 Aug 2026</title>
+<style>
+:root{--bg:#f8fafc;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--muted:#64748b;--accent:#4f46e5;--accent-lt:#eef2ff;--risk-bg:#fef2f2;--risk-bd:#fecaca;--risk-tx:#b91c1c;--warn-bg:#fffbeb;--warn-bd:#fbbf24;--warn-tx:#92400e;--ooo-bg:#fff7ed;--ooo-bd:#f97316;--ooo-tx:#9a3412;--none-bg:#f8fafc;--none-bd:#cbd5e1;--none-tx:#475569}
+[data-theme=dark]{--bg:#0f172a;--surface:#1e293b;--border:#334155;--text:#f1f5f9;--muted:#94a3b8;--accent:#818cf8;--accent-lt:#1e1b4b;--risk-bg:#1c0a0a;--risk-bd:#7f1d1d;--risk-tx:#fca5a5;--warn-bg:#1c1107;--warn-bd:#92400e;--warn-tx:#fcd34d;--ooo-bg:#1c0d04;--ooo-bd:#c2410c;--ooo-tx:#fdba74;--none-bg:#0f172a;--none-bd:#334155;--none-tx:#94a3b8}
+@media(prefers-color-scheme:dark){html:not([data-theme]){--bg:#0f172a;--surface:#1e293b;--border:#334155;--text:#f1f5f9;--muted:#94a3b8;--accent:#818cf8;--accent-lt:#1e1b4b;--risk-bg:#1c0a0a;--risk-bd:#7f1d1d;--risk-tx:#fca5a5;--warn-bg:#1c1107;--warn-bd:#92400e;--warn-tx:#fcd34d;--ooo-bg:#1c0d04;--ooo-bd:#c2410c;--ooo-tx:#fdba74;--none-bg:#0f172a;--none-bd:#334155;--none-tx:#94a3b8}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;line-height:1.6}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 16px}
+header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+h1{font-size:22px;font-weight:700}
+.hd-sub{color:var(--muted);font-size:13px;margin-top:2px}
+.btn-theme{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:5px 12px;cursor:pointer;color:var(--text);font-size:12px;font-family:inherit}
+.banner{border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:16px}
+.banner-warn{background:var(--warn-bg);border:1px solid var(--warn-bd);color:var(--warn-tx)}
+.section-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:20px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.tam-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px;position:relative}
+.tam-card.has-risk{border-left:3px solid var(--risk-bd)}
+.tam-card.ooo{border-left:3px solid var(--ooo-bd)}
+.tam-card.no-calls{border-left:3px solid var(--none-bd)}
+.tam-name{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
+.ooo-pill{background:var(--ooo-bg);color:var(--ooo-tx);border:1px solid var(--ooo-bd);border-radius:20px;padding:1px 8px;font-size:11px;font-weight:700}
+.none-pill{background:var(--none-bg);color:var(--none-tx);border:1px solid var(--none-bd);border-radius:20px;padding:1px 8px;font-size:11px;font-weight:600}
+.call-list{display:flex;flex-direction:column;gap:4px}
+.call-item{display:flex;align-items:center;gap:6px;font-size:13px}
+.call-time-badge{background:var(--accent-lt);color:var(--accent);border-radius:4px;padding:1px 7px;font-size:11px;font-weight:600;white-space:nowrap}
+.call-name{color:var(--text)}
+.risk-box{background:var(--risk-bg);border:1px solid var(--risk-bd);border-radius:6px;padding:8px 10px}
+.risk-label{color:var(--risk-tx);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
+.risk-text{font-size:12px;color:var(--text);line-height:1.4}
+.jira-summary{font-size:12px;color:var(--muted)}
+.jira-chip{display:inline-block;background:var(--risk-bg);color:var(--risk-tx);border-radius:4px;padding:1px 7px;font-size:11px;font-weight:600;margin-right:4px;margin-bottom:2px}
+.jira-chip.p3{background:var(--none-bg);color:var(--none-tx)}
+.view-link{display:inline-block;margin-top:4px;color:var(--accent);font-size:12px;font-weight:600;text-decoration:none}
+.view-link:hover{text-decoration:underline}
+.no-calls-note{color:var(--none-tx);font-size:13px;font-style:italic}
+.stat-row{display:flex;gap:8px;flex-wrap:wrap}
+.stat{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:3px 10px;font-size:12px;color:var(--muted)}
+.stat span{color:var(--text);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>TAM Master Brief</h1>
+      <div class="hd-sub">Monday, 03 August 2026 &middot; Testsigma TAM Team &middot; 8 TAMs</div>
+    </div>
+    <button class="btn-theme" onclick="toggleTheme()">&#9728;&#65039; / &#127769;</button>
+  </header>
+  <p style="color:var(--muted);font-size:13px;margin-bottom:16px">All times in IST. Click "View Full Brief" to open an individual TAM's detailed brief.</p>
+  <div class="banner banner-warn">&#9888;&#65039; Salesforce data unavailable for all TAMs today &mdash; Testsigma-Salesforce connector requires re-authorization. Waiting-on-Us / Waiting-on-Customer data is not shown for any TAM. Please re-authorize via Claude connector settings.</div>
+
+  <div class="section-title">&#128680; Attention Required</div>
+  <div class="grid" id="attention-grid"></div>
+
+  <div class="section-title">&#128994; All TAMs &mdash; Today's Schedule</div>
+  <div class="grid" id="all-grid"></div>
+</div>
+<script>
+const BASE = 'https://sam-isaac.github.io/tam-briefs/03Aug2026/';
+
+const TAMS = [
+  {
+    name: 'Sam Isaac',
+    file: 'Sam_03Aug2026.html',
+    ooo: false,
+    calls: [
+      {time:'19:30',customer:'State Farm'}
+    ],
+    p1Tickets: ['TP-5271 — Copilot Extension (34d)'],
+    p3Tickets: ['IDE-1079 — Agentic Learning CRX (5d)'],
+    risk: 'Only 5/100 State Farm users active. Copilot extension blocker (TP-5271) in Ready To Test for 34 days. Training starts today.',
+    attention: true
+  },
+  {
+    name: 'Mohan Kumar N',
+    file: 'Mohan_03Aug2026.html',
+    ooo: false,
+    calls: [
+      {time:'12:30',customer:'Space42'},
+      {time:'13:30',customer:'Radboudumc (POC Kickoff)'},
+      {time:'14:30',customer:'Carrier'},
+      {time:'15:30',customer:'Ceipal'}
+    ],
+    p1Tickets: [],
+    p3Tickets: ['IDE-891 — Session creation messages (41d)'],
+    risk: 'Ceipal: 78 test cases failing at plan level but passing individually — regression confidence undermined.',
+    attention: true
+  },
+  {
+    name: 'Shivani Sharma',
+    file: 'Shivani_03Aug2026.html',
+    ooo: false,
+    calls: [
+      {time:'15:30',customer:'Ceipal'}
+    ],
+    p1Tickets: [],
+    p3Tickets: ['IDE-891 — Session creation messages (41d)'],
+    risk: 'Ceipal: 78 test cases failing at plan level but passing individually — regression confidence undermined. Root cause not confirmed.',
+    attention: true
+  },
+  {
+    name: 'Osten Diniz',
+    file: 'Osten_03Aug2026.html',
+    ooo: false,
+    calls: [
+      {time:'13:30',customer:'DHL (covering Sandeep OOO)'},
+      {time:'15:00',customer:'Omnex Inc'},
+      {time:'19:30',customer:'State Farm'}
+    ],
+    p1Tickets: ['TP-5511 — DHL Data Generator (24d)','CUS-13870 — DHL Data Gen Eng (24d)','CUS-12599 — DHL Error Tracking (88d)','TP-5271 — Copilot Extension (34d)'],
+    p3Tickets: ['IDE-1079 — Agentic Learning CRX (5d)'],
+    risk: 'DHL regression TODAY — shadow root issue unresolved, Sandeep OOO. CUS-12599 open 88 days. Covering DHL solo with Austin.',
+    attention: true
+  },
+  {
+    name: 'Arthy Mohanraj',
+    file: 'Arthy_03Aug2026.html',
+    ooo: false,
+    calls: [
+      {time:'13:30',customer:'DHL'}
+    ],
+    p1Tickets: ['TP-5511 — DHL Data Generator (24d)','CUS-13870 — DHL Data Gen Eng (24d)','CUS-12599 — DHL Error Tracking (88d)'],
+    p3Tickets: [],
+    risk: 'DHL regression TODAY — shadow root issue unresolved. Sandeep OOO (Osten covering). CUS-12599 open 88 days.',
+    attention: true
+  },
+  {
+    name: 'Pritish Samal',
+    file: 'Pritish_03Aug2026.html',
+    ooo: false,
+    calls: [
+      {time:'17:00',customer:'NTT DATA (Training Session 3)'},
+      {time:'19:30',customer:'State Farm'}
+    ],
+    p1Tickets: ['TP-5271 — Copilot Extension (34d)'],
+    p3Tickets: ['IDE-1079 — Agentic Learning CRX (5d)'],
+    risk: 'State Farm Copilot extension (TP-5271) blocked 34 days. Training week starts today.',
+    attention: true
+  },
+  {
+    name: 'Sandeep Sai K',
+    file: 'Sandeep_03Aug2026.html',
+    ooo: true,
+    calls: [],
+    p1Tickets: ['TP-5511 — DHL Data Generator (24d)','CUS-13870 — DHL Data Gen Eng (24d)','CUS-12599 — DHL Error Tracking (88d)'],
+    p3Tickets: [],
+    risk: 'OOO Jul 31–Aug 5, returning Aug 6. DHL regression running today with unresolved shadow root issue. Osten covering.',
+    attention: true
+  },
+  {
+    name: 'Nixon Nicholas',
+    file: 'Nixon_03Aug2026.html',
+    ooo: false,
+    calls: [],
+    p1Tickets: [],
+    p3Tickets: [],
+    risk: '',
+    attention: false
+  }
+];
+
+function e(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+function renderCard(t){
+  let h=`<div class="tam-card${t.ooo?' ooo':t.calls.length===0?' no-calls':t.attention?' has-risk':''}">`;
+  h+=`<div class="tam-name">${e(t.name)}`;
+  if(t.ooo)h+=` <span class="ooo-pill">OOO</span>`;
+  if(!t.ooo&&t.calls.length===0)h+=` <span class="none-pill">No Calls</span>`;
+  h+=`</div>`;
+
+  if(t.calls.length>0){
+    h+=`<div class="call-list">`;
+    t.calls.forEach(c=>{
+      h+=`<div class="call-item"><span class="call-time-badge">${e(c.time)}</span><span class="call-name">${e(c.customer)}</span></div>`;
+    });
+    h+=`</div>`;
+  }else if(t.ooo){
+    h+=`<div class="no-calls-note">&#127968; Out of office — returning Aug 6</div>`;
+  }else{
+    h+=`<div class="no-calls-note">No customer calls scheduled today</div>`;
+  }
+
+  if(t.p1Tickets&&t.p1Tickets.length){
+    h+=`<div>`;
+    t.p1Tickets.forEach(tk=>{h+=`<span class="jira-chip">P1 ${e(tk)}</span>`;});
+    if(t.p3Tickets&&t.p3Tickets.length)t.p3Tickets.forEach(tk=>{h+=`<span class="jira-chip p3">P3 ${e(tk)}</span>`;});
+    h+=`</div>`;
+  } else if(t.p3Tickets&&t.p3Tickets.length){
+    h+=`<div>`;
+    t.p3Tickets.forEach(tk=>{h+=`<span class="jira-chip p3">P3 ${e(tk)}</span>`;});
+    h+=`</div>`;
+  }
+
+  if(t.risk){
+    h+=`<div class="risk-box"><div class="risk-label">&#9889; Biggest Risk</div><div class="risk-text">${e(t.risk)}</div></div>`;
+  }
+
+  h+=`<a class="view-link" href="${BASE}${e(t.file)}" target="_blank">View Full Brief &rarr;</a>`;
+  h+=`</div>`;
+  return h;
+}
+
+function render(){
+  const attn=document.getElementById('attention-grid');
+  const all=document.getElementById('all-grid');
+  TAMS.forEach(t=>{
+    const card=renderCard(t);
+    if(t.attention)attn.innerHTML+=card;
+    all.innerHTML+=card;
+  });
+}
+
+window.toggleTheme=function(){const h=document.documentElement;h.dataset.theme=h.dataset.theme==='dark'?'light':'dark';};
+(function(){if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.dataset.theme='dark';})();
+render();
+</script>
+</body>
+</html>
