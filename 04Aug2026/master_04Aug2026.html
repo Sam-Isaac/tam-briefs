@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Overview — TAM Brief 04 Aug 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;
+--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;
+--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--green:#16a34a;
+--green-bg:#f0fdf4;--orange:#d97706;--orange-bg:#fffbeb;
+--jira:#0052cc;--tag-bg:#e8e6e0;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;
+--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;
+--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;
+--blue-bg:#111827;--green:#4ade80;--green-bg:#0f1f14;--orange:#fbbf24;
+--orange-bg:#1c1608;--jira:#4d9de0;--tag-bg:#2a2926;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);
+color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);
+letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;
+letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.totals{display:flex;gap:12px;padding:20px 32px;
+border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.tot{background:var(--bg3);border:1px solid var(--border);
+border-radius:10px;padding:14px 18px;flex:1;min-width:90px;}
+.tnum{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;
+line-height:1;margin-bottom:4px;}
+.tnum.r{color:var(--red);}.tnum.b{color:var(--blue);}.tnum.o{color:var(--orange);}
+.tlabel{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;
+text-transform:uppercase;letter-spacing:.06em;}
+.warn{background:var(--orange-bg);border-bottom:1px solid var(--border);
+padding:10px 32px;font-size:12px;font-family:'DM Mono',monospace;color:var(--orange);}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+gap:16px;padding:24px 32px;}
+.card{background:var(--bg3);border:1px solid var(--border);
+border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;}
+.card-hdr{display:flex;align-items:center;gap:12px;}
+.avatar{width:40px;height:40px;border-radius:50%;display:flex;
+align-items:center;justify-content:center;font-family:'Syne',sans-serif;
+font-size:14px;font-weight:700;color:#fff;flex-shrink:0;}
+.tam-info{flex:1;}
+.tam-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;}
+.tam-sub{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;}
+.card-stats{display:flex;gap:8px;}
+.cs{flex:1;background:var(--bg2);border-radius:8px;
+padding:8px 10px;text-align:center;}
+.cs-num{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;}
+.cs-num.r{color:var(--red);}.cs-num.b{color:var(--blue);}
+.cs-lbl{font-size:9px;color:var(--text3);font-family:'DM Mono',monospace;
+text-transform:uppercase;letter-spacing:.05em;}
+.calls-list{display:flex;flex-direction:column;gap:6px;}
+.call-item{display:flex;align-items:center;gap:8px;font-size:12px;
+background:var(--bg2);border-radius:6px;padding:6px 10px;}
+.call-time{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);
+white-space:nowrap;}
+.call-company{font-weight:500;flex:1;}
+.call-badge{font-family:'DM Mono',monospace;font-size:10px;padding:1px 6px;
+border-radius:99px;background:var(--red-bg);color:var(--red);}
+.no-calls{font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;
+font-style:italic;padding:4px 0;}
+.risk-line{font-size:11px;color:var(--text2);padding:4px 8px;
+background:var(--red-bg);border-radius:6px;line-height:1.4;}
+.risk-label{font-family:'DM Mono',monospace;font-size:9px;color:var(--red);
+text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:2px;}
+.no-data{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;
+font-style:italic;padding:8px;background:var(--bg2);border-radius:6px;
+text-align:center;}
+.pb{font-size:10px;font-family:'DM Mono',monospace;padding:2px 6px;
+border-radius:3px;white-space:nowrap;}
+.p1{background:#fde8e8;color:#b91c1c;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Testsigma · TAM Team Overview</div>
+  <div class="title">Team Overview <span>/ Tuesday, 4 Aug 2026</span></div>
+</div>
+<div class="warn">⚠️ SALESFORCE UNAVAILABLE — Connector requires re-authentication. Case bucket data unavailable. Jira data only. Calendar access was limited to Sam Isaac in this session — 7 TAMs show no calendar data.</div>
+<div class="totals">
+  <div class="tot"><div class="tnum o">1</div><div class="tlabel">TAMs Active</div></div>
+  <div class="tot"><div class="tnum o">2</div><div class="tlabel">Calls Today</div></div>
+  <div class="tot"><div class="tnum">5</div><div class="tlabel">Total Open</div></div>
+  <div class="tot"><div class="tnum r">5</div><div class="tlabel">On Us (Jira)</div></div>
+  <div class="tot"><div class="tnum b">0</div><div class="tlabel">On Customer</div></div>
+  <div class="tot"><div class="tnum r">42d</div><div class="tlabel">Oldest Ticket</div></div>
+</div>
+<div class="grid">
+
+  <!-- Sam Isaac -->
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#e97c3a">SI</div>
+      <div class="tam-info">
+        <div class="tam-name">Sam Isaac</div>
+        <div class="tam-sub">2 customer calls · 5 open tickets</div>
+      </div>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="cs-num">5</div><div class="cs-lbl">Total</div></div>
+      <div class="cs"><div class="cs-num r">5</div><div class="cs-lbl">On Us</div></div>
+      <div class="cs"><div class="cs-num b">0</div><div class="cs-lbl">On Cust</div></div>
+    </div>
+    <div class="calls-list">
+      <div class="call-item">
+        <span class="call-time">6:00 PM</span>
+        <span class="call-company">Ceipal</span>
+        <span class="call-badge">1 ticket</span>
+      </div>
+      <div class="call-item">
+        <span class="call-time">7:30 PM</span>
+        <span class="call-company">State Farm</span>
+        <span class="call-badge">4 tickets</span>
+      </div>
+    </div>
+    <div class="risk-line">
+      <span class="risk-label">🚨 Biggest Risk</span>
+      TP-5271 (35d, P1) — Copilot extension blocked by State Farm enterprise Group Policy; Capgemini training must close by August end.
+    </div>
+  </div>
+
+  <!-- Mohan Kumar N -->
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#2563eb">MK</div>
+      <div class="tam-info">
+        <div class="tam-name">Mohan Kumar N</div>
+        <div class="tam-sub">Calendar access unavailable</div>
+      </div>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="cs-num">—</div><div class="cs-lbl">Total</div></div>
+      <div class="cs"><div class="cs-num r">—</div><div class="cs-lbl">On Us</div></div>
+      <div class="cs"><div class="cs-num b">—</div><div class="cs-lbl">On Cust</div></div>
+    </div>
+    <div class="no-data">📅 No calendar data available for this session</div>
+  </div>
+
+  <!-- Shivani Sharma -->
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#7c3aed">SS</div>
+      <div class="tam-info">
+        <div class="tam-name">Shivani Sharma</div>
+        <div class="tam-sub">Calendar access unavailable · Note: Ceipal handover</div>
+      </div>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="cs-num">—</div><div class="cs-lbl">Total</div></div>
+      <div class="cs"><div class="cs-num r">—</div><div class="cs-lbl">On Us</div></div>
+      <div class="cs"><div class="cs-num b">—</div><div class="cs-lbl">On Cust</div></div>
+    </div>
+    <div class="risk-line">
+      <span class="risk-label">ℹ️ Note</span>
+      Shivani is taking over Ceipal account from Shabrish (leaving this week). Pending: test plan failure details from Sreeram.
+    </div>
+    <div class="no-data">📅 No calendar data available for this session</div>
+  </div>
+
+  <!-- Osten Diniz -->
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#059669">OD</div>
+      <div class="tam-info">
+        <div class="tam-name">Osten Diniz</div>
+        <div class="tam-sub">Calendar access unavailable</div>
+      </div>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="cs-num">—</div><div class="cs-lbl">Total</div></div>
+      <div class="cs"><div class="cs-num r">—</div><div class="cs-lbl">On Us</div></div>
+      <div class="cs"><div class="cs-num b">—</div><div class="cs-lbl">On Cust</div></div>
+    </div>
+    <div class="no-data">📅 No calendar data available for this session</div>
+  </div>
+
+  <!-- Arthy Mohanraj -->
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#dc2626">AM</div>
+      <div class="tam-info">
+        <div class="tam-name">Arthy Mohanraj</div>
+        <div class="tam-sub">Calendar access unavailable</div>
+      </div>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="cs-num">—</div><div class="cs-lbl">Total</div></div>
+      <div class="cs"><div class="cs-num r">—</div><div class="cs-lbl">On Us</div></div>
+      <div class="cs"><div class="cs-num b">—</div><div class="cs-lbl">On Cust</div></div>
+    </div>
+    <div class="no-data">📅 No calendar data available for this session</div>
+  </div>
+
+  <!-- Pritish Samal -->
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#0891b2">PS</div>
+      <div class="tam-info">
+        <div class="tam-name">Pritish Samal</div>
+        <div class="tam-sub">Calendar access unavailable · Note: State Farm onboarding</div>
+      </div>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="cs-num">—</div><div class="cs-lbl">Total</div></div>
+      <div class="cs"><div class="cs-num r">—</div><div class="cs-lbl">On Us</div></div>
+      <div class="cs"><div class="cs-num b">—</div><div class="cs-lbl">On Cust</div></div>
+    </div>
+    <div class="risk-line">
+      <span class="risk-label">ℹ️ Note</span>
+      CUS-13734 (32d, P1, In Progress) — Assigned to Pritish for State Farm onboarding session. No comments yet.
+    </div>
+    <div class="no-data">📅 No calendar data available for this session</div>
+  </div>
+
+  <!-- Sandeep Sai K -->
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#9333ea">SK</div>
+      <div class="tam-info">
+        <div class="tam-name">Sandeep Sai K</div>
+        <div class="tam-sub">Calendar access unavailable</div>
+      </div>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="cs-num">—</div><div class="cs-lbl">Total</div></div>
+      <div class="cs"><div class="cs-num r">—</div><div class="cs-lbl">On Us</div></div>
+      <div class="cs"><div class="cs-num b">—</div><div class="cs-lbl">On Cust</div></div>
+    </div>
+    <div class="no-data">📅 No calendar data available for this session</div>
+  </div>
+
+  <!-- Nixon Nicholas -->
+  <div class="card">
+    <div class="card-hdr">
+      <div class="avatar" style="background:#ca8a04">NN</div>
+      <div class="tam-info">
+        <div class="tam-name">Nixon Nicholas</div>
+        <div class="tam-sub">Calendar access unavailable</div>
+      </div>
+    </div>
+    <div class="card-stats">
+      <div class="cs"><div class="cs-num">—</div><div class="cs-lbl">Total</div></div>
+      <div class="cs"><div class="cs-num r">—</div><div class="cs-lbl">On Us</div></div>
+      <div class="cs"><div class="cs-num b">—</div><div class="cs-lbl">On Cust</div></div>
+    </div>
+    <div class="no-data">📅 No calendar data available for this session</div>
+  </div>
+
+</div>
+<div style="padding:0 32px 24px;font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">
+  📌 Calendar access available for Sam Isaac only. To include all TAMs, each TAM's calendar must be shared with sam.isaac@testsigma.com.<br>
+  ⚠️ Salesforce connector requires re-authentication — connect via claude.ai connector settings.
+</div>
+</body>
+</html>
