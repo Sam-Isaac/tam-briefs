@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAM Team Brief — 10 Aug 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--green:#16a34a;--green-bg:#f0fdf4;--orange:#d97706;--orange-bg:#fffbeb;--tag-bg:#e8e6e0;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;--blue-bg:#111827;--green:#4ade80;--green-bg:#0f1f14;--orange:#fbbf24;--orange-bg:#1c1608;--tag-bg:#2a2926;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.subtitle{font-size:13px;color:var(--text2);margin-top:6px;}
+.team-stats{display:flex;gap:12px;padding:20px 32px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.tstat{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 20px;flex:1;min-width:110px;}
+.tsnum{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;line-height:1;margin-bottom:4px;}
+.tsnum.r{color:var(--red);}.tsnum.b{color:var(--blue);}.tsnum.o{color:var(--orange);}.tsnum.g{color:var(--green);}
+.tslabel{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;}
+.alerts{padding:16px 32px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:10px;}
+.alert{display:flex;align-items:center;gap:8px;background:var(--red-bg);border:1px solid var(--border);border-left:3px solid var(--red);border-radius:8px;padding:8px 14px;font-size:12px;}
+.alert-label{font-family:'DM Mono',monospace;font-size:10px;color:var(--red);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;padding:24px 32px;}
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;display:block;transition:box-shadow .15s,border-color .15s;}
+.card:hover{border-color:var(--text3);box-shadow:0 4px 16px rgba(0,0,0,.08);}
+.card.has-risk{border-left:3px solid var(--red);}
+.card.all-clear{border-left:3px solid var(--green);}
+.card-header{padding:16px 18px 12px;border-bottom:1px solid var(--border);}
+.card-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;margin-bottom:4px;}
+.card-calls{font-size:12px;color:var(--text2);font-family:'DM Mono',monospace;}
+.card-body{padding:14px 18px;}
+.card-stats{display:flex;gap:16px;margin-bottom:12px;}
+.cs{text-align:center;}
+.csn{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;line-height:1;}
+.csn.r{color:var(--red);}.csn.b{color:var(--blue);}.csn.o{color:var(--orange);}.csn.g{color:var(--green);}
+.csl{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.05em;margin-top:2px;}
+.customers{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+.ctag{font-size:11px;font-family:'DM Mono',monospace;background:var(--tag-bg);color:var(--text2);padding:2px 8px;border-radius:4px;}
+.card-risk{font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:10px;}
+.card-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--blue);font-family:'DM Mono',monospace;text-decoration:none;}
+.card-link:hover{text-decoration:underline;}
+.p1-badge{display:inline-flex;align-items:center;gap:4px;background:#fde8e8;color:#b91c1c;font-size:10px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:3px;white-space:nowrap;margin-left:6px;}
+.age-badge{display:inline-flex;align-items:center;gap:4px;background:var(--red-bg);color:var(--red);font-size:10px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:3px;white-space:nowrap;margin-left:6px;}
+.divider{width:1px;background:var(--border);margin:0 2px;}
+.note{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;padding:16px 32px;border-top:1px solid var(--border);margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Testsigma · TAM Operations</div>
+  <div class="title">Team Overview <span>/ Monday, 10 Aug 2026</span></div>
+  <div class="subtitle">8 TAMs · 5 with customer calls · 27 total open cases</div>
+</div>
+<div class="team-stats">
+  <div class="tstat"><div class="tsnum o">12</div><div class="tslabel">Total Calls Today</div></div>
+  <div class="tstat"><div class="tsnum">27</div><div class="tslabel">Total Open Cases</div></div>
+  <div class="tstat"><div class="tsnum r">26</div><div class="tslabel">On Us</div></div>
+  <div class="tstat"><div class="tsnum b">1</div><div class="tslabel">On Customer</div></div>
+  <div class="tstat"><div class="tsnum r">32</div><div class="tslabel">Oldest Ticket (d)</div></div>
+</div>
+<div class="alerts">
+  <div class="alert"><span class="alert-label">🚨 P1</span><span>NTT DATA (Pritish) — P1 escalation case 00063428 open 2d</span></div>
+  <div class="alert"><span class="alert-label">🚨 P1</span><span>Space42 (Mohan) — 2 P1 cases open, escalation on critical automation</span></div>
+  <div class="alert"><span class="alert-label">⏰ 32d</span><span>GuidePoint (Pritish) — 2 cases at 32 days, no resolution yet</span></div>
+</div>
+<div class="grid" id="grid"></div>
+<div class="note">📌 Click any TAM card to open their full brief. Links open in a new tab.</div>
+<script>
+const BASE = 'https://sam-isaac.github.io/tam-briefs/10Aug2026';
+const tams = [
+  {name:'Mohan',file:'Mohan_10Aug2026.html',calls:4,onUs:4,onCustomer:0,oldest:6,hasP1:true,customers:['Ceipal','Carrier','Space42','Credility'],risk:'Space42 has 2 P1 escalations; Gong follow-ups pending for Ceipal & Carrier'},
+  {name:'Shivani',file:'Shivani_10Aug2026.html',calls:1,onUs:1,onCustomer:0,oldest:6,hasP1:false,customers:['Ceipal'],risk:'CSM handover (Shabrish leaving); case 00063220 needs engineering investigation'},
+  {name:'Osten',file:'Osten_10Aug2026.html',calls:2,onUs:1,onCustomer:0,oldest:5,hasP1:false,customers:['Solaire Resort','Omnex Inc'],risk:'Foldable device support unavailable; Omnex POC scoping call — success criteria need definition'},
+  {name:'Pritish',file:'Pritish_10Aug2026.html',calls:3,onUs:11,onCustomer:0,oldest:32,hasP1:true,customers:['Wolken','NTT DATA','GuidePoint Security'],risk:'NTT DATA P1 escalation + GuidePoint 32d aging cases; 11 total open'},
+  {name:'Sandeep',file:'Sandeep_10Aug2026.html',calls:2,onUs:9,onCustomer:1,oldest:12,hasP1:false,customers:['DHL'],risk:'10 open cases for DHL; qTest propagation inconsistency + import failures are highest impact'},
+  {name:'Sam',file:'Sam_10Aug2026.html',calls:0,onUs:0,onCustomer:0,oldest:null,hasP1:false,customers:[],risk:null},
+  {name:'Arthy',file:'Arthy_10Aug2026.html',calls:0,onUs:0,onCustomer:0,oldest:null,hasP1:false,customers:[],risk:null},
+  {name:'Nixon',file:'Nixon_10Aug2026.html',calls:0,onUs:0,onCustomer:0,oldest:null,hasP1:false,customers:[],risk:null}
+];
+function render(){
+  const grid=document.getElementById('grid');
+  tams.forEach(t=>{
+    const total=t.onUs+t.onCustomer;
+    const hasRisk=t.onUs>0||t.hasP1||t.oldest>20;
+    const allClear=total===0;
+    const a=document.createElement('a');
+    a.href=`${BASE}/${t.file}`;
+    a.target='_blank';
+    a.className='card'+(hasRisk&&!allClear?' has-risk':allClear?' all-clear':'');
+    a.innerHTML=`
+      <div class="card-header">
+        <div class="card-name">${t.name}${t.hasP1?'<span class="p1-badge">P1</span>':''}${t.oldest&&t.oldest>20?`<span class="age-badge">${t.oldest}d</span>`:''}</div>
+        <div class="card-calls">${t.calls>0?`${t.calls} call${t.calls>1?'s':''} today`:'No calls today'}</div>
+      </div>
+      <div class="card-body">
+        <div class="card-stats">
+          <div class="cs"><div class="csn${total>0?' r':' g'}">${total||'—'}</div><div class="csl">Total</div></div>
+          <div class="divider"></div>
+          <div class="cs"><div class="csn${t.onUs>0?' r':' g'}">${t.onUs||'0'}</div><div class="csl">On Us</div></div>
+          <div class="divider"></div>
+          <div class="cs"><div class="csn${t.onCustomer>0?' b':' g'}">${t.onCustomer||'0'}</div><div class="csl">On Cust</div></div>
+          <div class="divider"></div>
+          <div class="cs"><div class="csn${t.oldest&&t.oldest>10?' o':' g'}">${t.oldest||'—'}</div><div class="csl">Oldest d</div></div>
+        </div>
+        ${t.customers.length?`<div class="customers">${t.customers.map(c=>`<span class="ctag">${c}</span>`).join('')}</div>`:''}
+        ${t.risk?`<div class="card-risk">${t.risk}</div>`:'<div class="card-risk" style="color:var(--text3);">No open cases or active risks today.</div>'}
+        <div class="card-link">View full brief →</div>
+      </div>`;
+    grid.appendChild(a);
+  });
+}
+render();
+</script>
+</body>
+</html>
