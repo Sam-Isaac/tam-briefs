@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Overview — TAM Brief 12 Aug 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--bg:#f5f4f0;--bg2:#eceae4;--bg3:#ffffff;--border:#ddd9d0;
+--text:#1a1916;--text2:#6b6860;--text3:#9b9890;--red:#c94040;
+--red-bg:#fdf0f0;--blue:#2563eb;--blue-bg:#eff4ff;--orange:#d97706;
+--orange-bg:#fffbeb;--green:#16a34a;--tag-bg:#e8e6e0;}
+@media(prefers-color-scheme:dark){:root{--bg:#111110;--bg2:#1a1917;
+--bg3:#222220;--border:#2e2d2a;--text:#f0ede8;--text2:#8a8880;
+--text3:#5a5855;--red:#ef5555;--red-bg:#1f1212;--blue:#60a5fa;
+--blue-bg:#111827;--orange:#fbbf24;--orange-bg:#1c1608;--green:#4ade80;--tag-bg:#2a2926;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);
+min-height:100vh;font-size:14px;line-height:1.5;}
+.header{padding:28px 32px 20px;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);
+letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.02em;}
+.title span{color:var(--text2);font-weight:400;}
+.totals{display:flex;gap:12px;padding:20px 32px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.stat{background:var(--bg3);border:1px solid var(--border);border-radius:10px;
+padding:14px 18px;flex:1;min-width:100px;}
+.snum{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;line-height:1;margin-bottom:4px;}
+.snum.r{color:var(--red);}.snum.b{color:var(--blue);}.snum.o{color:var(--orange);}
+.slabel{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;
+text-transform:uppercase;letter-spacing:.06em;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+gap:16px;padding:24px 32px;}
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;
+overflow:hidden;display:flex;flex-direction:column;}
+.card-hdr{padding:16px 20px 12px;display:flex;align-items:center;gap:14px;
+border-bottom:1px solid var(--border);}
+.avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;
+justify-content:center;font-family:'Syne',sans-serif;font-size:15px;font-weight:800;
+color:#fff;flex-shrink:0;}
+.card-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;}
+.card-calls{font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;margin-top:2px;}
+.mini-stats{display:flex;gap:8px;padding:12px 20px;border-bottom:1px solid var(--border);}
+.ms{flex:1;text-align:center;padding:8px 4px;border-radius:8px;}
+.ms.t{background:var(--bg2);}
+.ms.r{background:var(--red-bg);}
+.ms.b{background:var(--blue-bg);}
+.ms-num{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;line-height:1;}
+.ms-num.r{color:var(--red);}.ms-num.b{color:var(--blue);}
+.ms-lbl{font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;
+letter-spacing:.05em;color:var(--text3);margin-top:2px;}
+.calls-list{padding:12px 20px;flex:1;}
+.call-row{display:flex;align-items:center;gap:10px;padding:5px 0;
+border-bottom:1px solid var(--border);font-size:13px;}
+.call-row:last-child{border-bottom:none;}
+.call-time{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);
+white-space:nowrap;min-width:90px;}
+.call-co{color:var(--text);font-weight:500;}
+.call-cnt{font-family:'DM Mono',monospace;font-size:11px;padding:1px 6px;border-radius:10px;}
+.call-cnt.r{background:var(--red-bg);color:var(--red);}
+.call-cnt.b{background:var(--blue-bg);color:var(--blue);}
+.call-cnt.g{background:#e6f9f0;color:var(--green);}
+.no-calls{padding:16px 20px;text-align:center;color:var(--text3);
+font-family:'DM Mono',monospace;font-size:12px;font-style:italic;}
+.risk-bar{padding:10px 20px;background:var(--red-bg);
+border-top:1px solid var(--border);font-size:12px;
+display:flex;gap:8px;align-items:flex-start;}
+.risk-lbl{font-family:'DM Mono',monospace;font-size:10px;color:var(--red);
+text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;margin-top:1px;}
+.risk-txt{color:var(--text);line-height:1.4;}
+.link-btn{display:block;text-align:center;padding:10px;
+background:var(--bg2);color:var(--blue);font-family:'DM Mono',monospace;
+font-size:11px;text-decoration:none;border-top:1px solid var(--border);}
+.link-btn:hover{background:var(--border);}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Testsigma · TAM Daily Brief</div>
+  <div class="title">Team Overview <span>/ Wednesday, 12 Aug 2026</span></div>
+</div>
+<div class="totals">
+  <div class="stat"><div class="snum o">5</div><div class="slabel">TAMs Active</div></div>
+  <div class="stat"><div class="snum o">8</div><div class="slabel">Calls Today</div></div>
+  <div class="stat"><div class="snum">20</div><div class="slabel">Total Open</div></div>
+  <div class="stat"><div class="snum r">11</div><div class="slabel">On Us</div></div>
+  <div class="stat"><div class="snum b">9</div><div class="slabel">On Customer</div></div>
+  <div class="stat"><div class="snum r">135d</div><div class="slabel">Oldest Ticket</div></div>
+</div>
+<div class="grid">
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#6366f1">SI</div>
+    <div>
+      <div class="card-name">Sam Isaac</div>
+      <div class="card-calls">2 calls today</div>
+    </div>
+  </div>
+  <div class="mini-stats">
+    <div class="ms t"><div class="ms-num">20</div><div class="ms-lbl">Total</div></div>
+    <div class="ms r"><div class="ms-num r">11</div><div class="ms-lbl">On Us</div></div>
+    <div class="ms b"><div class="ms-num b">9</div><div class="ms-lbl">On Cust</div></div>
+  </div>
+  <div class="calls-list"><div class="call-row"><span class="call-time">1:30 PM IST</span><span class="call-co">AIA</span><span class="call-cnt r">5🔴 5🔵</span></div><div class="call-row"><span class="call-time">3:00 PM IST</span><span class="call-co">DHL Chennai</span><span class="call-cnt r">6🔴 4🔵</span></div></div>
+  <div class="risk-bar"><span class="risk-lbl">🚨 Risk</span><span class="risk-txt">DHL — IE mode bug fix due Aug 14, blocking regression runs</span></div>
+  <a class="link-btn" href="https://sam-isaac.github.io/tam-briefs/12Aug2026/Sam_12Aug2026.html">View full brief →</a>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#0ea5e9">MK</div>
+    <div>
+      <div class="card-name">Mohan Kumar N</div>
+      <div class="card-calls">1 call today</div>
+    </div>
+  </div>
+  <div class="mini-stats">
+    <div class="ms t"><div class="ms-num">0</div><div class="ms-lbl">Total</div></div>
+    <div class="ms r"><div class="ms-num r">0</div><div class="ms-lbl">On Us</div></div>
+    <div class="ms b"><div class="ms-num b">0</div><div class="ms-lbl">On Cust</div></div>
+  </div>
+  <div class="calls-list"><div class="call-row"><span class="call-time">4:30 PM IST</span><span class="call-co">Credility</span><span class="call-cnt g">0 cases</span></div></div>
+  <div class="risk-bar"><span class="risk-lbl">🚨 Risk</span><span class="risk-txt">Credility — POC in progress; OK-click fix pending validation</span></div>
+  <a class="link-btn" href="https://sam-isaac.github.io/tam-briefs/12Aug2026/Mohan_12Aug2026.html">View full brief →</a>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#ec4899">SS</div>
+    <div>
+      <div class="card-name">Shivani Sharma</div>
+      <div class="card-calls">0 calls today</div>
+    </div>
+  </div>
+  <div class="mini-stats">
+    <div class="ms t"><div class="ms-num">0</div><div class="ms-lbl">Total</div></div>
+    <div class="ms r"><div class="ms-num r">0</div><div class="ms-lbl">On Us</div></div>
+    <div class="ms b"><div class="ms-num b">0</div><div class="ms-lbl">On Cust</div></div>
+  </div>
+  <div class="no-calls">No customer calls today</div>
+  
+  <a class="link-btn" href="https://sam-isaac.github.io/tam-briefs/12Aug2026/Shivani_12Aug2026.html">View full brief →</a>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#f59e0b">OD</div>
+    <div>
+      <div class="card-name">Osten Diniz</div>
+      <div class="card-calls">2 calls today</div>
+    </div>
+  </div>
+  <div class="mini-stats">
+    <div class="ms t"><div class="ms-num">0</div><div class="ms-lbl">Total</div></div>
+    <div class="ms r"><div class="ms-num r">0</div><div class="ms-lbl">On Us</div></div>
+    <div class="ms b"><div class="ms-num b">0</div><div class="ms-lbl">On Cust</div></div>
+  </div>
+  <div class="calls-list"><div class="call-row"><span class="call-time">3:00 PM IST</span><span class="call-co">Omnex Inc</span><span class="call-cnt g">0 cases</span></div><div class="call-row"><span class="call-time">8:30 PM IST</span><span class="call-co">Pairpeo</span><span class="call-cnt g">0 cases</span></div></div>
+  <div class="risk-bar"><span class="risk-lbl">🚨 Risk</span><span class="risk-txt">Omnex — POC blocked on drag-and-drop NLP; Pairpeo — MFA video pending</span></div>
+  <a class="link-btn" href="https://sam-isaac.github.io/tam-briefs/12Aug2026/Osten_12Aug2026.html">View full brief →</a>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#10b981">AM</div>
+    <div>
+      <div class="card-name">Arthy Mohanraj</div>
+      <div class="card-calls">0 calls today</div>
+    </div>
+  </div>
+  <div class="mini-stats">
+    <div class="ms t"><div class="ms-num">0</div><div class="ms-lbl">Total</div></div>
+    <div class="ms r"><div class="ms-num r">0</div><div class="ms-lbl">On Us</div></div>
+    <div class="ms b"><div class="ms-num b">0</div><div class="ms-lbl">On Cust</div></div>
+  </div>
+  <div class="no-calls">No customer calls today</div>
+  
+  <a class="link-btn" href="https://sam-isaac.github.io/tam-briefs/12Aug2026/Arthy_12Aug2026.html">View full brief →</a>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#8b5cf6">PS</div>
+    <div>
+      <div class="card-name">Pritish Samal</div>
+      <div class="card-calls">1 call today</div>
+    </div>
+  </div>
+  <div class="mini-stats">
+    <div class="ms t"><div class="ms-num">0</div><div class="ms-lbl">Total</div></div>
+    <div class="ms r"><div class="ms-num r">0</div><div class="ms-lbl">On Us</div></div>
+    <div class="ms b"><div class="ms-num b">0</div><div class="ms-lbl">On Cust</div></div>
+  </div>
+  <div class="calls-list"><div class="call-row"><span class="call-time">9:30 PM IST</span><span class="call-co">Collective Health</span><span class="call-cnt g">0 cases</span></div></div>
+  <div class="risk-bar"><span class="risk-lbl">🚨 Risk</span><span class="risk-txt">Collective Health — first call today; no SF history on record</span></div>
+  <a class="link-btn" href="https://sam-isaac.github.io/tam-briefs/12Aug2026/Pritish_12Aug2026.html">View full brief →</a>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#ef4444">SK</div>
+    <div>
+      <div class="card-name">Sandeep Sai K</div>
+      <div class="card-calls">2 calls today</div>
+    </div>
+  </div>
+  <div class="mini-stats">
+    <div class="ms t"><div class="ms-num">10</div><div class="ms-lbl">Total</div></div>
+    <div class="ms r"><div class="ms-num r">6</div><div class="ms-lbl">On Us</div></div>
+    <div class="ms b"><div class="ms-num b">4</div><div class="ms-lbl">On Cust</div></div>
+  </div>
+  <div class="calls-list"><div class="call-row"><span class="call-time">2:00 PM IST</span><span class="call-co">DHL</span><span class="call-cnt r">6🔴 4🔵</span></div><div class="call-row"><span class="call-time">3:00 PM IST</span><span class="call-co">DHL Chennai</span><span class="call-cnt r">6🔴 4🔵</span></div></div>
+  <div class="risk-bar"><span class="risk-lbl">🚨 Risk</span><span class="risk-txt">DHL — IE mode bug fix due Aug 14 (2 days), blocking regression runs</span></div>
+  <a class="link-btn" href="https://sam-isaac.github.io/tam-briefs/12Aug2026/Sandeep_12Aug2026.html">View full brief →</a>
+</div>
+<div class="card">
+  <div class="card-hdr">
+    <div class="avatar" style="background:#64748b">NN</div>
+    <div>
+      <div class="card-name">Nixon Nicholas</div>
+      <div class="card-calls">0 calls today</div>
+    </div>
+  </div>
+  <div class="mini-stats">
+    <div class="ms t"><div class="ms-num">0</div><div class="ms-lbl">Total</div></div>
+    <div class="ms r"><div class="ms-num r">0</div><div class="ms-lbl">On Us</div></div>
+    <div class="ms b"><div class="ms-num b">0</div><div class="ms-lbl">On Cust</div></div>
+  </div>
+  <div class="no-calls">No customer calls today</div>
+  
+  <a class="link-btn" href="https://sam-isaac.github.io/tam-briefs/12Aug2026/Nixon_12Aug2026.html">View full brief →</a>
+</div>
+</div>
+</body>
+</html>
