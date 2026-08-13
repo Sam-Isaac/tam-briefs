@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandeep Sai K — TAM Brief — Thursday, 13 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+:root {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #22263a;
+  --border: #2e3250; --text: #e2e8f0; --muted: #8892aa;
+  --red: #ef4444; --blue: #3b82f6; --orange: #f97316;
+  --green: #22c55e; --yellow: #eab308; --purple: #a855f7;
+  --red-dim: rgba(239,68,68,0.12); --blue-dim: rgba(59,130,246,0.12);
+  --orange-dim: rgba(249,115,22,0.12); --green-dim: rgba(34,197,94,0.12);
+  --accent: #6366f1;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.6; min-height: 100vh; }
+.header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.header-left h1 { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--text); }
+.header-left p { color: var(--muted); font-size: 12px; margin-top: 2px; }
+.badge { background: var(--accent); color: #fff; font-family: 'DM Mono', monospace; font-size: 11px; padding: 3px 10px; border-radius: 20px; }
+.stats-bar { background: var(--surface2); border-bottom: 1px solid var(--border); padding: 14px 32px; display: flex; gap: 32px; flex-wrap: wrap; }
+.stat { display: flex; flex-direction: column; }
+.stat-val { font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 800; }
+.stat-lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.red { color: var(--red); } .blue { color: var(--blue); } .orange { color: var(--orange); } .green { color: var(--green); }
+.tabs-nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 32px; display: flex; gap: 0; overflow-x: auto; }
+.tab-btn { padding: 14px 20px; font-size: 13px; font-weight: 500; color: var(--muted); cursor: pointer; border: none; background: none; border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.15s; }
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--text); border-bottom-color: var(--accent); }
+.tab-content { display: none; padding: 28px 32px; max-width: 1100px; margin: 0 auto; }
+.tab-content.active { display: block; }
+.section { margin-bottom: 28px; }
+.section-title { font-family: 'DM Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 12px; }
+.gong-block { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--orange); border-radius: 8px; padding: 16px; }
+.gong-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.gong-title { font-weight: 600; font-size: 14px; }
+.gong-link { font-size: 12px; color: var(--blue); text-decoration: none; }
+.gong-link:hover { text-decoration: underline; }
+.gong-items { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.gong-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; }
+.gong-owner { font-family: 'DM Mono', monospace; font-size: 10px; padding: 2px 6px; border-radius: 4px; white-space: nowrap; margin-top: 2px; flex-shrink: 0; }
+.owner-us { background: var(--red-dim); color: var(--red); }
+.owner-cust { background: var(--blue-dim); color: var(--blue); }
+table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; font-size: 13px; }
+thead { background: var(--surface2); }
+th { padding: 10px 14px; text-align: left; font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); border-bottom: 1px solid var(--border); }
+td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,0.02); }
+.on-us-table { border-left: 3px solid var(--red); border-radius: 0 8px 8px 0; }
+.on-cust-table { border-left: 3px solid var(--blue); border-radius: 0 8px 8px 0; }
+.jira-table { border-left: 3px solid var(--blue); border-radius: 0 8px 8px 0; }
+.case-id { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--blue); text-decoration: none; }
+.case-id:hover { text-decoration: underline; }
+.days-badge { font-family: 'DM Mono', monospace; font-size: 11px; padding: 2px 7px; border-radius: 4px; display: inline-block; }
+.days-red { background: var(--red-dim); color: var(--red); }
+.days-ok { background: rgba(255,255,255,0.06); color: var(--muted); }
+.priority { font-family: 'DM Mono', monospace; font-size: 11px; padding: 1px 6px; border-radius: 4px; }
+.p1 { background: rgba(239,68,68,0.18); color: var(--red); }
+.p2 { background: rgba(249,115,22,0.18); color: var(--orange); }
+.p3 { background: rgba(99,102,241,0.18); color: #818cf8; }
+.risk-box { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--red); border-radius: 8px; padding: 14px 18px; }
+.opener-box { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--green); border-radius: 8px; padding: 14px 18px; font-style: italic; color: var(--muted); }
+.empty-state { color: var(--muted); font-style: italic; padding: 12px 0; }
+.no-calls { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 32px; text-align: center; color: var(--muted); }
+.no-calls h2 { font-family: 'Syne', sans-serif; font-size: 20px; color: var(--text); margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left">
+    <h1>TAM Brief — Sandeep Sai K</h1>
+    <p>Thursday, 13 August 2026</p>
+  </div>
+  <span class="badge">Testsigma TAM</span>
+</div>
+<div class="stats-bar">
+  <div class="stat"><span class="stat-val">1</span><span class="stat-lbl">Calls Today</span></div>
+  <div class="stat"><span class="stat-val red">6</span><span class="stat-lbl">On Us</span></div>
+  <div class="stat"><span class="stat-val blue">0</span><span class="stat-lbl">On Customer</span></div>
+  <div class="stat"><span class="stat-val orange">15d</span><span class="stat-lbl">Oldest Open</span></div>
+</div>
+<div id="app"></div>
+<script>
+const CUSTOMERS = [{"name": "DHL", "callTime": "BAU call on 12 Aug — next call TBC", "tenantId": null, "onUs": 6, "onCustomer": 0, "oldest": 15, "gong": {"date": "12 Aug 2026", "link": "https://app.gong.io/call?id=2359466201537282411", "items": [{"text": "Share IE mode RCA technical write-up and PDF to Lifen", "owner": "US"}, {"text": "Follow up with Srinivas: verify qTest result propagation fix is consistent (case 00063407)", "owner": "US"}, {"text": "Raise internal CR ticket for qTest naming convention duplicate-append issue (case 00063405)", "owner": "US"}, {"text": "Update Testsigma agent to v9.2.6 and test IE mode sequential execution", "owner": "CUSTOMER"}, {"text": "Share selenium grid version and parallel IE mode architecture (Subha B to provide)", "owner": "CUSTOMER"}]}, "waitingOnUs": [{"id": "00063407", "subject": "qTest test execution result not propagated consistently", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX00001334GAYAY/view", "lastResponse": "qTest result propagation inconsistency — discussed on call; customer testing workaround independently", "reporter": "Lifen Chong It", "jira": null, "days": 6, "priority": "P2"}, {"id": "00063405", "subject": "Test result propagated to qTest (naming convention)", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX00001335FRYAY/view", "lastResponse": "qTest folder naming convention appends Q prefix causing reporting confusion — internal CR needed", "reporter": "Lifen Chong It", "jira": null, "days": 6, "priority": "P3"}, {"id": "00063305", "subject": "gRPC UNAVAILABLE: Network closed for unknown reason", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX000012zR3ZYAU/view", "lastResponse": "gRPC UNAVAILABLE error during DHL IS Asia-Pacific execution — investigating", "reporter": "Qa It", "jira": null, "days": 7, "priority": "P3"}, {"id": "00063069", "subject": "Unable to execute command prompt", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX000012h85bYAA/view", "lastResponse": "Command prompt execution failure during desktop testing — investigation in progress", "reporter": "Clearance Testing", "jira": null, "days": 13, "priority": "P3"}, {"id": "00062998", "subject": "No session data available for first run", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX000012aHcLYAU/view", "lastResponse": "No session data on first run — intermittent issue under investigation", "reporter": "Lifen Chong It", "jira": null, "days": 15, "priority": "P3"}, {"id": "00063545", "subject": "Test cases failed to save through Atto", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX000013GyRNYA0/view", "lastResponse": "Test cases not saving via Atto integration — under internal review", "reporter": "Jerry Siow", "jira": null, "days": 1, "priority": "P3"}], "waitingOnCustomer": [], "jiraTickets": [], "biggestRisk": "00063407 — qTest result propagation P2: DHL is migrating from IBM RFT in August; any reliability gap could jeopardize the full migration", "opener": "We deployed the IE mode serialization fix in v9.2.6 — please update the agent and run your IE test suite to verify. Also need Subha's selenium version to close out the parallel execution RCA."}];
+const app = document.getElementById('app');
+if (!CUSTOMERS || CUSTOMERS.length === 0) {
+  app.innerHTML = `<div class="no-calls"><h2>No Customer Calls Today</h2><p>No confirmed calls scheduled for Thursday, 13 August 2026.</p></div>`;
+} else {
+  const nav = document.createElement('div');
+  nav.className = 'tabs-nav';
+  CUSTOMERS.forEach((c, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = c.name + (c.callTime ? '  ·  ' + c.callTime : '');
+    btn.onclick = () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + i).classList.add('active');
+    };
+    nav.appendChild(btn);
+  });
+  app.appendChild(nav);
+  CUSTOMERS.forEach((c, i) => {
+    const div = document.createElement('div');
+    div.className = 'tab-content' + (i === 0 ? ' active' : '');
+    div.id = 'tab-' + i;
+    div.innerHTML = buildTab(c);
+    app.appendChild(div);
+  });
+}
+function prio(p) { return `<span class="priority ${p.toLowerCase()}">${p}</span>`; }
+function days(d) { return `<span class="days-badge ${d > 30 ? 'days-red' : 'days-ok'}">${d}d</span>`; }
+function buildTab(c) {
+  let html = '';
+  // Gong
+  if (c.gong) {
+    html += `<div class="section"><div class="section-title">Last Gong Call — ${c.gong.date}</div>
+    <div class="gong-block"><div class="gong-header"><span class="gong-title">📞 Call Recording</span>
+    <a class="gong-link" href="${c.gong.link}" target="_blank">Open in Gong ↗</a></div>
+    <ul class="gong-items">`;
+    c.gong.items.forEach(item => {
+      html += `<li class="gong-item"><span class="gong-owner ${item.owner === 'US' ? 'owner-us' : 'owner-cust'}">${item.owner === 'US' ? 'US' : 'CUST'}</span><span>${item.text}</span></li>`;
+    });
+    html += `</ul></div></div>`;
+  }
+  // On Us
+  html += `<div class="section"><div class="section-title">🔴 Waiting On Us (${c.waitingOnUs.length})</div>`;
+  if (c.waitingOnUs.length === 0) {
+    html += `<p class="empty-state">No open cases waiting on us.</p>`;
+  } else {
+    html += `<table class="on-us-table"><thead><tr><th>Case</th><th>Subject</th><th>Priority</th><th>Days</th><th>Reporter</th><th>Last Update</th></tr></thead><tbody>`;
+    c.waitingOnUs.forEach(r => {
+      html += `<tr><td><a class="case-id" href="${r.sfLink}" target="_blank">${r.id}</a></td><td>${r.subject || '—'}</td><td>${prio(r.priority)}</td><td>${days(r.days)}</td><td>${r.reporter}</td><td>${r.lastResponse}</td></tr>`;
+    });
+    html += `</tbody></table>`;
+  }
+  html += `</div>`;
+  // On Customer
+  html += `<div class="section"><div class="section-title">🔵 Waiting On Customer (${c.waitingOnCustomer.length})</div>`;
+  if (c.waitingOnCustomer.length === 0) {
+    html += `<p class="empty-state">No open cases waiting on customer.</p>`;
+  } else {
+    html += `<table class="on-cust-table"><thead><tr><th>Case</th><th>Subject</th><th>Priority</th><th>Days</th><th>Reporter</th><th>Last Update</th></tr></thead><tbody>`;
+    c.waitingOnCustomer.forEach(r => {
+      html += `<tr><td><a class="case-id" href="${r.sfLink}" target="_blank">${r.id}</a></td><td>${r.subject || '—'}</td><td>${prio(r.priority)}</td><td>${days(r.days)}</td><td>${r.reporter}</td><td>${r.lastResponse}</td></tr>`;
+    });
+    html += `</tbody></table>`;
+  }
+  html += `</div>`;
+  // Jira
+  if (c.jiraTickets && c.jiraTickets.length > 0) {
+    html += `<div class="section"><div class="section-title">Jira Tickets (${c.jiraTickets.length})</div>
+    <table class="jira-table"><thead><tr><th>Key</th><th>Summary</th><th>Status</th><th>Assignee</th><th>Days</th></tr></thead><tbody>`;
+    c.jiraTickets.forEach(j => {
+      html += `<tr><td><a class="case-id" href="https://testsigma.atlassian.net/browse/${j.id}" target="_blank">${j.id}</a></td><td>${j.summary}</td><td>${j.status}</td><td>${j.assignee}</td><td>${days(j.days)}</td></tr>`;
+    });
+    html += `</tbody></table></div>`;
+  }
+  // Risk
+  if (c.biggestRisk) {
+    html += `<div class="section"><div class="section-title">Biggest Risk</div><div class="risk-box">${c.biggestRisk}</div></div>`;
+  }
+  // Opener
+  if (c.opener) {
+    html += `<div class="section"><div class="section-title">Call Opener</div><div class="opener-box">"${c.opener}"</div></div>`;
+  }
+  return html;
+}
+</script>
+</body>
+</html>
