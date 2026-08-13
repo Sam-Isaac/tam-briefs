@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master TAM Brief — Thursday, 13 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+:root {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #22263a;
+  --border: #2e3250; --text: #e2e8f0; --muted: #8892aa;
+  --red: #ef4444; --blue: #3b82f6; --accent: #6366f1;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.6; min-height: 100vh; }
+.header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.header h1 { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; }
+.header p { color: var(--muted); font-size: 12px; margin-top: 2px; }
+.badge { background: var(--accent); color: #fff; font-family: 'DM Mono', monospace; font-size: 11px; padding: 3px 10px; border-radius: 20px; }
+.stats-bar { background: var(--surface2); border-bottom: 1px solid var(--border); padding: 14px 32px; display: flex; gap: 32px; flex-wrap: wrap; }
+.stat { display: flex; flex-direction: column; }
+.stat-val { font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 800; }
+.stat-lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.red { color: var(--red); } .blue { color: var(--blue); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; padding: 28px 32px; max-width: 1200px; margin: 0 auto; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+.card-header { display: flex; align-items: center; gap: 12px; }
+.avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 800; color: #fff; flex-shrink: 0; }
+.card-name { font-weight: 600; font-size: 15px; }
+.card-calls { font-size: 12px; color: var(--muted); }
+.card-stats { display: flex; gap: 14px; }
+.cs { display: flex; flex-direction: column; }
+.cs-val { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800; }
+.cs-lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; }
+.card-link { display: block; text-align: center; padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; color: var(--blue); text-decoration: none; margin-top: auto; }
+.card-link:hover { background: rgba(59,130,246,0.08); }
+.no-calls-badge { background: rgba(255,255,255,0.05); color: var(--muted); font-size: 11px; padding: 2px 8px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div><h1>Master TAM Brief</h1><p>Thursday, 13 August 2026</p></div>
+  <span class="badge">Testsigma TAM Team</span>
+</div>
+<div class="stats-bar">
+  <div class="stat"><span class="stat-val">8</span><span class="stat-lbl">TAMs</span></div>
+  <div class="stat"><span class="stat-val">2</span><span class="stat-lbl">Calls Today</span></div>
+  <div class="stat"><span class="stat-val red">12</span><span class="stat-lbl">Total On Us</span></div>
+  <div class="stat"><span class="stat-val blue">4</span><span class="stat-lbl">Total On Customer</span></div>
+  <div class="stat"><span class="stat-val red">136d</span><span class="stat-lbl">Oldest Open</span></div>
+</div>
+<div class="grid" id="grid"></div>
+<script>
+const TEAM = [{"name": "Sam Isaac", "initials": "SI", "color": "#3B82F6", "calls": 2, "total": 10, "onUs": 6, "onCustomer": 4, "oldest": 136, "file": "Sam_13Aug2026.html"}, {"name": "Mohan Kumar N", "initials": "MK", "color": "#8B5CF6", "calls": 0, "total": 0, "onUs": 0, "onCustomer": 0, "oldest": 0, "file": "Mohan_13Aug2026.html"}, {"name": "Shivani Sharma", "initials": "SS", "color": "#EC4899", "calls": 0, "total": 0, "onUs": 0, "onCustomer": 0, "oldest": 0, "file": "Shivani_13Aug2026.html"}, {"name": "Osten Diniz", "initials": "OD", "color": "#14B8A6", "calls": 0, "total": 0, "onUs": 0, "onCustomer": 0, "oldest": 0, "file": "Osten_13Aug2026.html"}, {"name": "Arthy Mohanraj", "initials": "AM", "color": "#F97316", "calls": 0, "total": 0, "onUs": 0, "onCustomer": 0, "oldest": 0, "file": "Arthy_13Aug2026.html"}, {"name": "Pritish Samal", "initials": "PS", "color": "#6366F1", "calls": 0, "total": 0, "onUs": 0, "onCustomer": 0, "oldest": 0, "file": "Pritish_13Aug2026.html"}, {"name": "Sandeep Sai K", "initials": "SK", "color": "#EF4444", "calls": 0, "total": 6, "onUs": 6, "onCustomer": 0, "oldest": 15, "file": "Sandeep_13Aug2026.html"}, {"name": "Nixon Nicholas", "initials": "NN", "color": "#22C55E", "calls": 0, "total": 0, "onUs": 0, "onCustomer": 0, "oldest": 0, "file": "Nixon_13Aug2026.html"}];
+const BASE_URL = "https://sam-isaac.github.io/tam-briefs/13Aug2026";
+const grid = document.getElementById('grid');
+TEAM.forEach(t => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-header">
+      <div class="avatar" style="background:${t.color}">${t.initials}</div>
+      <div><div class="card-name">${t.name}</div>
+      <div class="card-calls">${t.calls > 0 ? t.calls + ' call' + (t.calls > 1 ? 's' : '') + ' today' : '<span class=\"no-calls-badge\">No calls today</span>'}</div></div>
+    </div>
+    ${t.total > 0 ? `<div class="card-stats">
+      <div class="cs"><span class="cs-val">${t.total}</span><span class="cs-lbl">Total</span></div>
+      <div class="cs"><span class="cs-val red">${t.onUs}</span><span class="cs-lbl">On Us</span></div>
+      <div class="cs"><span class="cs-val blue">${t.onCustomer}</span><span class="cs-lbl">On Cust</span></div>
+    </div>` : '<p style="color:var(--muted);font-size:12px;font-style:italic;">No open cases</p>'}
+    <a class="card-link" href="${BASE_URL}/${t.file}" target="_blank">Open Brief →</a>
+  `;
+  grid.appendChild(card);
+});
+</script>
+</body>
+</html>
