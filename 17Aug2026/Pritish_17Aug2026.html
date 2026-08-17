@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pritish Samal – TAM Brief Monday, August 17</title>
+<style>
+  :root{--bg:#0f1117;--surface:#1a1d27;--card:#22263a;--border:#2e3350;--accent:#6c63ff;--accent2:#00d4aa;--warn:#ff6b6b;--muted:#8892b0;--text:#e2e8f0;--tag-us:#ff6b6b22;--tag-cu:#00d4aa22;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;min-height:100vh;}
+  .header{background:linear-gradient(135deg,#1a1d27 0%,#22263a 100%);border-bottom:1px solid var(--border);padding:24px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .header-left h1{font-size:1.5rem;font-weight:700;color:#fff;}
+  .header-left p{color:var(--muted);font-size:.9rem;margin-top:4px;}
+  .stats-bar{display:flex;gap:24px;padding:20px 32px;background:var(--surface);border-bottom:1px solid var(--border);flex-wrap:wrap;}
+  .stat{display:flex;flex-direction:column;gap:4px;}
+  .stat-value{font-size:1.6rem;font-weight:700;color:#fff;}
+  .stat-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;}
+  .stat-value.calls{color:var(--accent);}
+  .stat-value.onus{color:var(--warn);}
+  .stat-value.oncust{color:var(--accent2);}
+  .main{padding:24px 32px;max-width:1400px;margin:0 auto;}
+  .no-calls{text-align:center;padding:60px 20px;color:var(--muted);}
+  .no-calls h2{font-size:1.3rem;margin-bottom:8px;color:var(--text);}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+  .tab{padding:8px 18px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:.85rem;transition:all .2s;}
+  .tab:hover{border-color:var(--accent);color:var(--accent);}
+  .tab.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;}
+  .tab .badge{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.2);border-radius:10px;padding:1px 7px;font-size:.75rem;margin-left:6px;}
+  .panel{display:none;animation:fadeIn .2s ease;}
+  .panel.active{display:block;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+  .customer-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;}
+  .customer-header h2{font-size:1.25rem;font-weight:700;}
+  .call-badge{display:inline-flex;align-items:center;gap:6px;background:var(--accent)22;border:1px solid var(--accent)55;border-radius:20px;padding:6px 14px;font-size:.85rem;color:var(--accent);}
+  .section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;}
+  .section-title{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+  .section-title::after{content:'';flex:1;height:1px;background:var(--border);}
+  .gong-meta{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
+  .gong-date{font-size:.85rem;color:var(--muted);}
+  .gong-link{font-size:.85rem;color:var(--accent);text-decoration:none;}
+  .gong-link:hover{text-decoration:underline;}
+  .action-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);}
+  .action-item:last-child{border-bottom:none;padding-bottom:0;}
+  .tag{font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:4px;white-space:nowrap;flex-shrink:0;margin-top:1px;}
+  .tag.us{background:var(--tag-us);color:var(--warn);border:1px solid var(--warn)33;}
+  .tag.cu{background:var(--tag-cu);color:var(--accent2);border:1px solid var(--accent2)33;}
+  .action-text{font-size:.9rem;color:var(--text);line-height:1.5;}
+  .no-gong{color:var(--muted);font-size:.9rem;font-style:italic;}
+  .case-grid{display:grid;gap:10px;}
+  .case-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;display:grid;grid-template-columns:auto 1fr auto;gap:8px 14px;align-items:start;}
+  .case-id{font-size:.8rem;color:var(--muted);font-family:monospace;}
+  .case-desc{font-size:.88rem;color:var(--text);line-height:1.4;}
+  .case-reporter{font-size:.78rem;color:var(--muted);margin-top:3px;}
+  .case-meta{display:flex;flex-direction:column;align-items:flex-end;gap:4px;white-space:nowrap;}
+  .priority{font-size:.75rem;font-weight:700;padding:2px 7px;border-radius:4px;}
+  .p1{background:#ff6b6b22;color:#ff6b6b;border:1px solid #ff6b6b44;}
+  .p2{background:#ffa50022;color:#ffa500;border:1px solid #ffa50044;}
+  .p3{background:#6c63ff22;color:#a89fff;border:1px solid #6c63ff44;}
+  .p4{background:#8892b022;color:#8892b0;border:1px solid #8892b044;}
+  .days{font-size:.78rem;color:var(--muted);}
+  .case-link{font-size:.78rem;color:var(--accent);text-decoration:none;}
+  .case-link:hover{text-decoration:underline;}
+  .jira-link{font-size:.78rem;color:#00d4aa;text-decoration:none;}
+  .empty-state{color:var(--muted);font-size:.88rem;font-style:italic;padding:8px 0;}
+  .bucket-label{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;margin-bottom:10px;}
+  .divider{height:1px;background:var(--border);margin:16px 0;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left">
+    <h1>Pritish Samal's TAM Brief</h1>
+    <p>Monday, August 17 &nbsp;·&nbsp; Testsigma Customer Success</p>
+  </div>
+</div>
+<div class="stats-bar">
+  <div class="stat"><span class="stat-value calls">2</span><span class="stat-label">Calls Today</span></div>
+  <div class="stat"><span class="stat-value onus">4</span><span class="stat-label">🔴 Waiting on Us</span></div>
+  <div class="stat"><span class="stat-value oncust">0</span><span class="stat-label">🔵 Waiting on Customer</span></div>
+  <div class="stat"><span class="stat-value">39d</span><span class="stat-label">Oldest Open Ticket</span></div>
+</div>
+<div class="main" id="main"></div>
+<script>
+const CUSTOMERS = [{"name": "GuidePoint Security", "callTime": "8:00 PM", "gong": {"date": "Aug 7, 2026", "link": "https://app.gong.io/call?id=7232504692876421283", "items": [{"text": "ES team to send resource names and contacts to Kearsten for environment access setup", "owner": "US"}, {"text": "Set up daily standups and weekly status cadence", "owner": "US"}, {"text": "Pull Snowflake weekly test case metrics and share every Friday", "owner": "US"}, {"text": "Confirm environment access approach (shared vs individual Salesforce/Netsuite)", "owner": "CUSTOMER"}]}, "waitingOnUs": [{"id": "00062388", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX000011chdxYAA/view", "lastResponse": "Customer cannot clone closed test runs — must recreate regression suites from scratch each cycle.", "reporter": "Kearsten Smith", "jira": "", "days": 39, "priority": "P2"}, {"id": "00062387", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX000011ch9KYAQ/view", "lastResponse": "All test runs linked to a Jira ticket show on that ticket — customer wants filtered view per run.", "reporter": "Kearsten Smith", "jira": "", "days": 39, "priority": "P2"}], "waitingOnCustomer": []}, {"name": "NTT DATA", "callTime": "5:00 PM", "gong": null, "waitingOnUs": [{"id": "00063389", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX0000130ZWoYAM/view", "lastResponse": "NLP enhancement — null data should not proceed to step 9.1; earlier modification treated null as empty field.", "reporter": "nttdata", "jira": "", "days": 11, "priority": "P3"}, {"id": "00063312", "sfLink": "https://testsigma.lightning.force.com/lightning/r/Case/500OX000012ztpFYAQ/view", "lastResponse": "Contains comparison NLP failing despite two variables having identical data.", "reporter": "nttdata", "jira": "", "days": 11, "priority": "P3"}], "waitingOnCustomer": []}];
+const main = document.getElementById('main');
+if (!CUSTOMERS || CUSTOMERS.length === 0) {
+  main.innerHTML = '<div class="no-calls"><h2>No customer calls today</h2><p>Enjoy the breathing room — check your queue and prep for tomorrow.</p></div>';
+} else {
+  const tabs = document.createElement('div'); tabs.className = 'tabs';
+  CUSTOMERS.forEach((c, i) => {
+    const t = document.createElement('button'); t.className = 'tab' + (i===0?' active':'');
+    const issues = (c.waitingOnUs||[]).length + (c.waitingOnCustomer||[]).length;
+    t.innerHTML = c.name + (issues ? '<span class="badge">'+issues+'</span>' : '');
+    t.onclick = () => { document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active')); t.classList.add('active'); document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active')); document.getElementById('panel-'+i).classList.add('active'); };
+    tabs.appendChild(t);
+  });
+  main.appendChild(tabs);
+  CUSTOMERS.forEach((c, i) => {
+    const panel = document.createElement('div'); panel.className = 'panel'+(i===0?' active':''); panel.id='panel-'+i;
+    let html = '<div class="customer-header"><h2>'+c.name+'</h2><div class="call-badge">📞 Call at '+c.callTime+'</div></div>';
+    // Gong section
+    html += '<div class="section"><div class="section-title">🎙 Last Gong Call — Action Items</div>';
+    if (c.gong && c.gong.items && c.gong.items.length > 0) {
+      html += '<div class="gong-meta"><span class="gong-date">'+c.gong.date+'</span><a class="gong-link" href="'+c.gong.link+'" target="_blank">Open in Gong ↗</a></div>';
+      html += c.gong.items.map(item => '<div class="action-item"><span class="tag '+(item.owner==="US"?"us":"cu")+'">'+(item.owner==="US"?"🔴 US":"🔵 CUST")+'</span><span class="action-text">'+item.text+'</span></div>').join('');
+    } else if (c.gong && c.gong.link) {
+      html += '<div class="gong-meta"><span class="gong-date">'+c.gong.date+'</span><a class="gong-link" href="'+c.gong.link+'" target="_blank">Open in Gong ↗</a></div><p class="no-gong">Transcript too large to parse — open in Gong to review action items.</p>';
+    } else { html += '<p class="no-gong">No recent Gong call found.</p>'; }
+    html += '</div>';
+    // SF cases
+    const onUs = c.waitingOnUs || []; const onCust = c.waitingOnCustomer || [];
+    html += '<div class="section"><div class="section-title">📋 Salesforce Open Cases</div>';
+    if (onUs.length === 0 && onCust.length === 0) { html += '<p class="empty-state">No open cases updated in the last 30 days.</p>'; }
+    if (onUs.length > 0) {
+      html += '<div class="bucket-label">🔴 Waiting on Us ('+onUs.length+')</div><div class="case-grid">';
+      html += onUs.map(cs => '<div class="case-card"><div><div class="case-id">#'+cs.id+'</div></div><div><div class="case-desc">'+cs.lastResponse+'</div><div class="case-reporter">'+cs.reporter+'</div>'+(cs.jira?'<a class="jira-link" href="https://testsigma.atlassian.net/browse/'+cs.jira+'" target="_blank">'+cs.jira+' ↗</a>':'')+'</div><div class="case-meta"><span class="priority '+cs.priority.toLowerCase()+'">'+cs.priority+'</span><span class="days">'+cs.days+'d ago</span><a class="case-link" href="'+cs.sfLink+'" target="_blank">SF ↗</a></div></div>').join('');
+      html += '</div>';
+    }
+    if (onUs.length > 0 && onCust.length > 0) html += '<div class="divider"></div>';
+    if (onCust.length > 0) {
+      html += '<div class="bucket-label">🔵 Waiting on Customer ('+onCust.length+')</div><div class="case-grid">';
+      html += onCust.map(cs => '<div class="case-card"><div><div class="case-id">#'+cs.id+'</div></div><div><div class="case-desc">'+cs.lastResponse+'</div><div class="case-reporter">'+cs.reporter+'</div>'+(cs.jira?'<a class="jira-link" href="https://testsigma.atlassian.net/browse/'+cs.jira+'" target="_blank">'+cs.jira+' ↗</a>':'')+'</div><div class="case-meta"><span class="priority '+cs.priority.toLowerCase()+'">'+cs.priority+'</span><span class="days">'+cs.days+'d ago</span><a class="case-link" href="'+cs.sfLink+'" target="_blank">SF ↗</a></div></div>').join('');
+      html += '</div>';
+    }
+    html += '</div>';
+    panel.innerHTML = html;
+    main.appendChild(panel);
+  });
+}
+</script>
+</body>
+</html>
